@@ -166,7 +166,7 @@
 	  										<input type="password" placeholder="Password" id="pass" name="password" maxlength="25" class="input-xlarge" onClick="clearElement('pass')" style="color:black">	       
 	  										<div>
 	  											<div class="btn btn-default btn-file">
-	  												<label for="file">Browse Photo</label>
+	  												<span>Browse Photo</span>
 	  												<input type="file" name="image" >
 	  											</div >
 	  											<input type="submit" class="btn btn-primary" name="submitFormDonor" value="Sign Up" onClick="return submitSignUpForDonor()">
@@ -200,15 +200,24 @@
 	  												<input type="password"  id="pwd" name="pwd" maxlength="25" class="input-xlarge" placeholder="Password" onClick="clearElement('pwd')" style="color:black">
 	  												<label>Description</label>
 	  												<textarea rows="5" id="dc" name="dc" class="input-xlarge" onClick="clearElement('dc')" style="color:black"></textarea>
-	  												<label>Vision</label>
+	  												<label>Address</label>
+	  												<textarea rows="5" id="add" name="add" class="input-xlarge" onClick="addf()" style="color:grey"></textarea>
+													<label>Vision</label>
 	  												<textarea  rows="3" id="vi" name="vi" value="vision" class="input-xlarge" onClick="clearElement('vi')" style="color:black"></textarea>
 	  												<label>Website</label>
 	  												<input type="text"  id="web" name="web" class="input-xlarge" placeholder="Website" onClick="clearElement('web')" style="color:black">
-	  												<div>
-	  													<div class="btn btn-default btn-file">
-	  														<label for="file">Upload Logo</label>
-	  														<input type="file" name="regNgoLogo" >
-	  													</div >
+	  												
+													<label name ="category"> Category </label>
+														<input type="checkbox" id = "Health" name="box[]" value="Health"> Health<br>
+														<input type="checkbox" id = "Food"  name="box[]" value="Food"> Food <br>
+														<input type="checkbox" id = "Education"  name="box[]" value=" Education"> Education<br>
+														<input type="checkbox" id = "Old"  name="box[]" value="Old"> Oldage<br>
+														<input type="checkbox" id = "Child"  name="box[]" value=" Child"> Child<br>
+													<div>
+	  													<div>
+														<span>Upload Logo</span>
+														<input name="regNgoLogo" type="file" />
+													</div>
 	  													<input type="submit" class="btn btn-primary" name="submitFormRegNgo" value="Sign Up" onClick="return submit3()">
 	  												</div>
 	  											</form>
@@ -228,12 +237,22 @@
 	  												<input type="password"  id="upwd" name="upwd" maxlength="25" class="input-xlarge" value="Password" onClick="clearElement('upwd')" style="color:black">
 	  												<label>Description</label>
 	  												<textarea rows="5" id="udc" name="udc" class="input-xlarge" onClick="clearElement('udc')" style="color:black"></textarea>
-	  												<label>Vision</label>
+	  												<label>Address</label>
+	  												<textarea rows="5" id="uadd" name="uadd" class="input-xlarge" onClick="uaddf()" style="color:grey"></textarea>
+													
+													<label>Vision</label>
 	  												<textarea  rows="3" id="uvi" name="uvi" value="vision" class="input-xlarge" onClick="clearElement('uvi')" style="color:black"></textarea>
-	  												<div>
-	  													<div class="btn btn-default btn-file">
-	  														<label for="file">Upload Logo</label>
-	  														<input type="file" name="unregNgoLogo" >
+														<label> Category </label>
+														<input type="checkbox" id ="uHealth" name="box[]" value="Health"> Health<br>
+														<input type="checkbox" id ="uFood" name="box[]" value="Food"> Food <br>
+														<input type="checkbox" id ="uEducation" name="box[]" value=" Education"> Education<br>
+														<input type="checkbox" id ="uOld" name="box[]" value="Old"> Oldage<br>
+														<input type="checkbox" id ="uChild" name="box[]" value="Child"> Child<br>
+													
+													<div>
+	  													<div>
+	  														<span>Upload Logo</span>
+														<input name="regNgoLogo" type="file" />
 	  													</div >
 	  													<input type="submit" class="btn btn-primary" name="submitFormUnRegNgo" value="Sign Up" onClick="return submit4()">
 	  												</div>

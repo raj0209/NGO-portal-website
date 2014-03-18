@@ -9,6 +9,7 @@ $email = $_POST['eml'];
 $cno = $_POST['cont'];
 $password = sha1($_POST['pwd']);
 $des = $_POST['dc'];
+$add = $_POST['add'];
 $vis = $_POST['vi'];
 $web = $_POST['web'];
 
@@ -31,9 +32,28 @@ else
 
 	move_uploaded_file($_FILES["regNgoLogo"]["tmp_name"],$filePath);
 
-	$insertQuery = "insert into Ngo(name,logo,description,vision,contact_person,email,contact,rate,rstatus,rnumber,website,password) 
-values('$name','$filePath','$des','$vis','$cpn','$email','$cno',1,1,'$regno','$web','$password')";
+	$insertQuery = "insert into Ngo(name,logo,address,description,vision,contact_person,email,contact,rate,rstatus,rnumber,website,password) 
+values('$name','$filePath','$add','$des','$vis','$cpn','$email','$cno',1,1,'$regno','$web','$password')";
 
+	$checkbox1 = $_POST['box'];
+	if($_POST["submitFormRegNgo"]=="Sign Up")
+	{
+		if(isset($_POST['box']))
+		{
+            $t1=implode(',', $_POST['box']);
+            $s = "insert into catNgo(ngo_pid , category) values(1 , '$t1')"; 
+                $res=mysql_query($s);
+                if($res)
+				{
+                    echo "inserted";
+                }
+				else
+				{
+                    echo "";
+                }
+		}		
+	}
+	
 	$result = mysql_query($insertQuery);
 	
 	if (!$result)

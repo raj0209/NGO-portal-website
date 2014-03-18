@@ -396,7 +396,13 @@ function submit3()
 		document.getElementById("dc").focus();
 		return false;
 	}
-
+	
+	if(document.getElementById("add").value=="" || document.getElementById        ("add").value=="Address")
+	{
+		alert("Please enter the Address");
+		document.getElementById("add").focus();
+		return false;
+	}
 	if(document.getElementById("vi").value=="" || document.getElementById        ("vi").value=="Vision")
 	{
 		alert("Please enter the vision");
@@ -410,6 +416,18 @@ function submit3()
 		document.getElementById("web").focus();
 		return false;
 	}
+		if(!document.getElementById("Health").checked && !document.getElementById("Food").checked && !document.getElementById("Education").checked && !document.getElementById("Old").checked && !document.getElementById("Child").checked )
+	{
+	
+		alert("Please select category");
+		document.getElementById("Health").focus();
+		document.getElementById("Food").focus();
+		document.getElementById("Education").focus();
+		document.getElementById("Old").focus();
+		document.getElementById("Child").focus();
+		return false;
+	}
+
 }
 
 function submit4()
@@ -501,11 +519,28 @@ function submit4()
 		document.getElementById("udc").focus();
 		return false;
 	}
+	if(document.getElementById("uadd").value=="" || document.getElementById        ("uadd").value=="Address")
+	{
+		alert("Please enter the address");
+		document.getElementById("uadd").focus();
+		return false;
+	}
 
 	if(document.getElementById("uvi").value=="" || document.getElementById        ("uvi").value=="Vision")
 	{
 		alert("Please enter the vision");
 		document.getElementById("uvi").focus();
+		return false;
+	}
+	if(!document.getElementById("uHealth").checked && !document.getElementById("uFood").checked && !document.getElementById("uEducation").checked && !document.getElementById("uOld").checked && !document.getElementById("uChild").checked )
+	{
+	
+		alert("Please select category");
+		document.getElementById("uHealth").focus();
+		document.getElementById("uFood").focus();
+		document.getElementById("uEducation").focus();
+		document.getElementById("uOld").focus();
+		document.getElementById("uChild").focus();
 		return false;
 	}
 
@@ -638,3 +673,10 @@ function DisplayNgo(){
 	
 
 };
+
+
+
+
+
+
+
