@@ -2,12 +2,10 @@
 
 include 'connect.php';
 
-session_start(); 
-
 $f = $_POST['name'];
 $e = $_POST['email'];
 $m = $_POST['mobile'];
-$p = md5($_POST['password']);
+$p = encryptIt($_POST['password']);
 
 
 if ($_FILES["image"]["error"] > 0)
@@ -31,6 +29,14 @@ else
 	}
 	echo "<font size = '5'><font color=\"#0CF44A\">SAVED TO DATABASE";
 
+}
+
+function encryptIt( $q ) {
+	echo "entered".$q;
+    $cryptKey  = 'qJB0rGtIn5UB1xG03efyCp';
+    //$qEncoded  = base64_encode( mcrypt_encrypt( MCRYPT_RIJNDAEL_256, md5( $cryptKey ), $q, MCRYPT_MODE_CBC, md5( md5( $cryptKey ) ) ) );
+    echo "leaving".$qEncoded;
+    return( $q );
 }
 
 ?>

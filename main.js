@@ -1,52 +1,53 @@
 
-function emailf()
+function email(email)
 {
-	document.getElementById("email").value="";
-	document.getElementById("email").style.color="black";
+	document.getElementById(email).value="";
+	document.getElementById(email).style.color="black";
 }
 
-function passwordf()
+function password(password)
 {
-	document.getElementById("password").value="";
-	document.getElementById("password").style.color="black";
+	document.getElementById(password).value="";
+	document.getElementById(password).style.color="black";
 }
-function submit1()
+
+function submitSignin(email,password)
 {
-	if(document.getElementById("email").value==""|| document.getElementById        ("email").value=="Email")
+	alert("password works");
+	if(document.getElementById(email).value==""|| document.getElementById        (email).value=="Email")
 	{
 		alert("Please enter your email address");
-		document.getElementById("email").focus();
+		document.getElementById(email).focus();
 		return false;
 	}
 
-	var x=document.getElementById("email").value;
+	var x=document.getElementById(email).value;
 	var a=x.indexOf("@");
 	var d=x.lastIndexOf(".");
 	if(a<1 || d<a+2 || d+2>=x.length)
 	{
 		
 		alert("Invalid Email");
-		document.getElementById("email").focus();
+		document.getElementById(email).focus();
 		return false;
 	}
-	if(document.getElementById("password").value=="" || document.getElementById        ("password").value=="Password")
+	if(document.getElementById(password).value=="" || document.getElementById        (password).value=="Password")
 	{
 		alert("Please enter your password");
-		document.getElementById("password").focus();
+		document.getElementById(password).focus();
 		return false;
 	}
 
-	var p=document.getElementById("password").value;
+	var p=document.getElementById(password).value;
 	if(p.length<6)
 	{
 		alert("Password should have minimum 6 characters");
-		document.getElementById("password").focus();
+		document.getElementById(password).focus();
 		return false;
 	}
-	
-	
-
 }
+
+
 function fnf()
 {
 	document.getElementById("fn").value="";

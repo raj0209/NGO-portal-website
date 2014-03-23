@@ -2,13 +2,11 @@
 
 include 'connect.php';
 
-session_start(); 
-
 $name=$_POST['unn'];
 $cpn=$_POST['ucn'];
 $email=$_POST['ueml'];
 $cno=$_POST['ucont'];
-$password=md5($_POST['upwd']);
+$password=encryptIt($_POST['upwd']);
 $des=$_POST['udc'];
 $vis=$_POST['uvi'];
 
@@ -37,6 +35,12 @@ values('$name','$filePath','$des','$vis','$cpn','$email','$cno',1,0,'$web','$pas
 	}
 	echo "<font size = '5'><font color=\"#0CF44A\">SAVED TO DATABASE";
 
+}
+
+function encryptIt( $q ) {
+    $cryptKey  = 'manmeramanena';
+    //$qEncoded      = base64_encode( mcrypt_encrypt( MCRYPT_RIJNDAEL_256, md5( $cryptKey ), $q, MCRYPT_MODE_CBC, md5( md5( $cryptKey ) ) ) );
+    return( $q );
 }
 
 ?>
