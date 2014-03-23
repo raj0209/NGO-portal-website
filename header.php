@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?php
+session_start();	
+unset($_SESSION['SESS_MEMBER_ID']);
+unset($_SESSION['SESS_EMAIL']);
+unset($_SESSION['SESS_PASS']);
+
+?>
+
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
