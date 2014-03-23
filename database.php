@@ -29,7 +29,7 @@ contact_person VARCHAR ( 50 ) NOT NULL ,
 email VARCHAR( 40 ) NOT NULL ,
 contact VARCHAR( 20 ) ,
 rate DOUBLE NOT NULL ,
-website VARCHAR(100) UNIQUE ,
+website VARCHAR(100) ,
 rstatus TINYINT ,
 rnumber VARCHAR( 20 ) ,
 password VARCHAR( 20 ) NOT NULL)";
