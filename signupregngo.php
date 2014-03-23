@@ -20,13 +20,30 @@ $logoNgo = $_FILES['regNgoLogo']['name'];
 
 //	echo  $name." ".$regno." ".$cpn." ".$email." ".$cno." ".$password." ".$des." ".$vis." ".$web." ".$logoNgo;
 
-$ins = "insert into Ngo(name,logo,description,vision,contact_person,email,contact,rate,rstatus,rnumber,website,password) values('$name','$logoNgo','$des','$vis','$cpn','$email','$cno',1,1,'$regno','$web','$password')";
 
-$ans = mysql_query($ins);
-
-if($ans)
-	echo "Registered Successfully";
+if ($_FILES["regNgoLogo"]["error"] > 0)
+{
+	echo "<font size = '5'><font color=\"#e31919\">Error: NO CHOSEN FILE <br />";
+	echo"<p><font size = '5'><font color=\"#e31919\">INSERT TO DATABASE FAILED";
+}
 else
-	echo "Try again";
+{
+	$randomName = substr(sha1(rand()), 0, 10);
+	$filePath = "img/logos/_".$randomName."_".$_FILES["regNgoLogo"]["name"];
+
+	move_uploaded_file($_FILES["regNgoLogo"]["tmp_name"],$filePath);
+
+	$insertQuery = "insert into Ngo(name,logo,description,vision,contact_person,email,contact,rate,rstatus,rnumber,website,password) 
+values('$name','$filePath','$des','$vis','$cpn','$email','$cno',1,1,'$regno','$web','$password')";
+
+	$result = mysql_query($insertQuery);
+	
+	if (!$result)
+	{
+		die('Error: ' . mysql_error());
+	}
+	echo "<font size = '5'><font color=\"#0CF44A\">SAVED TO DATABASE";
+
+}
 
 ?>

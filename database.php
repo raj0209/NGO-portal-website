@@ -10,7 +10,7 @@ $sqlQueryDonor = "CREATE TABLE IF NOT EXISTS Donor(
 pid INT NOT NULL AUTO_INCREMENT ,
 PRIMARY KEY ( pid ) ,
 name VARCHAR( 30 ) NOT NULL ,
-photo blob ,
+photo VARCHAR( 100 ) ,
 email VARCHAR( 40 ) NOT NULL ,
 contact VARCHAR( 20 ) ,
 password VARCHAR( 20 ) NOT NULL)"; 
@@ -22,7 +22,7 @@ $sqlQueryNgor = "CREATE TABLE IF NOT EXISTS Ngo(
 pid INT NOT NULL AUTO_INCREMENT ,
 PRIMARY KEY ( pid ) ,
 name VARCHAR( 30 ) NOT NULL ,
-logo blob ,
+logo VARCHAR( 100 ) ,
 description VARCHAR ( 200 ) ,
 vision VARCHAR ( 200 ) ,
 contact_person VARCHAR ( 50 ) NOT NULL ,
