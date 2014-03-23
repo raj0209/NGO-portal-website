@@ -1,4 +1,13 @@
 	<!DOCTYPE html>
+
+	<?php
+	session_start();	
+	unset($_SESSION['SESS_MEMBER_ID']);
+	unset($_SESSION['SESS_EMAIL']);
+	unset($_SESSION['SESS_PASS']);
+
+	?>
+	
 	<html lang="en">
 	  <head>
 	    <meta charset="utf-8">
@@ -119,12 +128,12 @@
 									</ul>
 									<div id="myTabContent" class="tab-content">
 										<div class="tab-pane active in" id="signinDonor">									
-											<form action="signup.php" method="post" id="tab">
+											<form action="login_donor.php" method="post" id="tab">
 								
 												<label>Email</label>
-												<input type="text" value="Email" id="email" class="input-xlarge" onClick="emailf()" style="color:grey">
+												<input type="text" name="email" value="Email" id="email" class="input-xlarge" onClick="emailf()" style="color:grey">
 												<label>Password</label>
-												<input type="password"  id="password" maxlength="25" class="input-xlarge" value="Password" onClick="passwordf()" style="color:grey">
+												<input type="password" name="password" id="password" maxlength="25" class="input-xlarge" value="Password" onClick="passwordf()" style="color:grey">
 												<form class "well form-inline">
 													<div>
 														<input type="submit" class="btn btn-primary" name="dlogin" value="Login" onClick="return submit1()"></button>

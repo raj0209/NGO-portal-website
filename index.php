@@ -5,5 +5,5 @@ include 'database.php';
 
 include 'header.php';
 
-session_start();
+	
 ?>
