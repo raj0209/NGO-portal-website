@@ -1,0 +1,155 @@
+<html>
+ <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="admin" >
+    
+
+    <title>(//THE PAGE NAME//)</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template 
+    <link href="css/jumbotron.css" rel="stylesheet">
+    <link href="sticky-footer.css" rel="stylesheet">-->
+
+	<script type="text/javascript">
+
+function fnf()
+{
+	document.getElementById("fn").value="";
+	document.getElementById("fn").style.color="black";
+}
+
+function lnf()
+{
+	document.getElementById("ln").value="";
+	document.getElementById("ln").style.color="black";
+}
+
+
+function mobf()
+{
+	document.getElementById("mob").value="";
+	document.getElementById("mob").style.color="black";
+}
+
+function emf()
+{
+	document.getElementById("em").value="";
+	document.getElementById("em").style.color="black";
+}
+
+function submit2()
+{
+	if(document.getElementById("fn").value=="" || document.getElementById        ("fn").value=="First Name")
+	{
+		alert("Please enter your first name");
+		document.getElementById("fn").focus();
+		return false;
+	}
+
+	if(document.getElementById("ln").value=="" || document.getElementById        ("ln").value=="Last Name")
+	{
+		alert("Please enter your last name");
+		document.getElementById("ln").focus();
+		return false;
+	}
+	
+	
+	if(document.getElementById("em").value==""|| document.getElementById        ("em").value=="Email")
+	{
+		alert("Please enter your email address");
+		document.getElementById("em").focus();
+		return false;
+	}
+
+	var x=document.getElementById("em").value;
+	var a=x.indexOf("@");
+	var d=x.lastIndexOf(".");
+	if(a<1 || d<a+2 || d+2>=x.length)
+	{
+		
+		alert("Invalid Email");
+		document.getElementById("em").focus();
+		return false;
+	}
+	
+	if(document.getElementById("mob").value=="" || document.getElementById        ("mob").value=="Mobile Number")
+	{
+		alert("Please enter your mobile number");
+		document.getElementById("mob").focus();
+		return false;
+	}
+
+	var n="0123456789";
+	var num,dig;
+	
+	num=document.getElementById("mob").value;
+	if(num.length==10)
+	{
+	for(i=0;i<num.length;i++)
+	{
+		dig=num.charAt(i);
+		if(n.indexOf(dig)==-1)
+		{
+			alert("Enter digits only");
+			document.getElementById("mob").focus();
+			return false;
+		}
+	}
+	}
+	else
+	{
+		alert("Enter 10 digit mobile number");
+		document.getElementById("mob").focus();
+		return false;
+	}
+	
+
+	
+}
+</script>
+
+	
+  </head>
+   <body>
+  <div class="well">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#home" data-toggle="tab">Sign Up as Donor</a></li>
+      <!--<li><a href="#profile" data-toggle="tab">Password</a></li>-->
+    </ul>
+    <div id="myTabContent" class="tab-content">
+      <div class="tab-pane active in" id="home">
+        <form action="signup.php" method="post" id="tab">
+            
+            <label>First Name</label>
+            <input type="text" value="First Name" id="fn" class="input-xlarge" onClick="fnf()" style="color:grey">
+            <label>Last Name</label>
+            <input type="text" value="Last Name" id="ln" class="input-xlarge" onClick="lnf()" style="color:grey">
+            <label>Email</label>
+            <input type="text" value="Email" id="em" class="input-xlarge" onClick="emf()" style="color:grey">
+            <label>Contact Number</label>
+            <input type="text" value="Mobile Number" id="mob" maxlength="10" class="input-xlarge" onClick="mobf()" style="color:grey">
+          	<div>
+        	    <input type="submit" class="btn btn-primary" name="sub" value="Sign Up" onClick="return submit2()"></button>
+        	</div>
+        </form>
+      </div>
+      <!--<div class="tab-pane fade" id="profile">
+    	<form id="tab2">
+        	<label>New Password</label>
+        	<input type="password" class="input-xlarge">
+        	<div>
+        	    <button class="btn btn-primary">Update</button>
+        	</div>
+    	</form>
+      </div>-->
+  </div>
+  <script src="jquery.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  </body>
+</html>
