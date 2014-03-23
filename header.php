@@ -142,7 +142,7 @@ unset($_SESSION['SESS_PASS']);
 	  								</div>
 	  								<div class="tab-pane fade" id="signinNgo">
 	  									<form id="tab2">
-	  										<form action="signin.php" method="post" id="tabNgo" enctype="multipart/form-data">
+	  										<form action="login_donor.php" method="post" id="tabNgo" enctype="multipart/form-data">
 	  											<input type="hidden" name="ngo" value="ngo">				
 	  											<label>Email</label>
 	  											<input type="text" value="Email" id="emailNgo" name="emailNgo" class="input-xlarge" onClick="email('emailNgo')" style="color:grey">
