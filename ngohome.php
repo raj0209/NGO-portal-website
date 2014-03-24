@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php
+	require_once('auth.php');
+	include 'header.php';
+	include 'connect.php';
+?>
 
 <html lang="en">
     <head>
@@ -37,7 +42,31 @@
 
     <?php
         include 'header.php';
-    ?>
+		$type=$_SESSION['SESS_TYPE'];
+		$email=$_SESSION['SESS_EMAIL'];
+		$pid=$_SESSION['SESS_MEMBER_ID'];
+
+		if($type=="NGO")
+		{
+		$qry="SELECT * FROM Ngo WHERE email='$email' AND pid=$pid";
+		$result=mysql_query($qry);
+		if($result) {
+			if(mysql_num_rows($result) > 0) {
+			$member = mysql_fetch_assoc($result);
+			$ngoname = $member['name'];
+			$des = $member['description'];
+			$vision = $member['vision'];
+			$logo = $member['logo'];
+			$web = $member['website'];	
+			}
+		}	
+		else
+		  echo $pid;
+		}
+		else
+			header("location: donorhome.php");
+
+	?>
     <body>
         <div class="container">
             <div class="row" style="margin-top: -75px;">
@@ -45,18 +74,19 @@
                     <div class="well well-sm" style="height: 210px;"> 
                         <div class="media">
                             <a class="thumbnail pull-left" href="#">
-                                <img style="height: 200px;" class="media-object" src="img/logos/ngo.jpg">
+                                <img style="height: 200px;" class="media-object" src="<?php echo $logo?>">
                             </a>
                             <div class="media-body" style="margin-left: 225px;">
-                                <h1 class="media-heading" id="nameOfNgo" name="nameOfNgo">CONGO</h1>
+                                <h1 class="media-heading" id="nameOfNgo" name="nameOfNgo"><?php echo $ngoname ?></h1>
                                 <div >
                                     <br>
-                                    <h5>Vision:</h5>
-                                    <p id="vision" name="vision"> CONGO’s vision is to be the primary support and platform for a civil society represented by a global community of informed, empowered and committed NGOs that fully participate with the UN in decision-making and programs leading to a better world, a world of economic and social justice.</p>
-                                    <h5>Discription:</h5>
-                                    <p id="discription" name="discription">We believe in a societal mission where citizens come together to ensure that India’s unprivileged have a better future</p>
-                                    <h5>Address:</h5>
-                                    <p id="address" name="address">1/7226, Mohar Singh Lane, Shivaji Park, Shahdara, Delhi-110032, India.</p>
+                                    <h4>Vision:</h4>
+                                    <p id="vision" name="vision"> <?php echo $vision ?></p>
+                                    <h4>Discription:</h4>
+                                    <p id="discription" name="discription"><?php echo $des ?></p>
+                                    <h4>Website:</h4>
+                                    <p id="address" name="address"><a href="http://<?php echo $web ?>" target="_blank"><?php echo $web ?></p>
+									<p align="left"><a href="logout.php">logout</a></p>
                                 </div>
                             </div>
                         </div>
