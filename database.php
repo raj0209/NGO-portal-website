@@ -9,11 +9,11 @@
 $sqlQueryDonor = "CREATE TABLE IF NOT EXISTS Donor(
 pid INT NOT NULL AUTO_INCREMENT ,
 PRIMARY KEY ( pid ) ,
-name VARCHAR( 30 ) NOT NULL ,
-photo VARCHAR( 100 ) ,
-email VARCHAR( 40 ) NOT NULL Unique,
+name VARCHAR( 100 ) NOT NULL ,
+photo VARCHAR( 300 ) ,
+email VARCHAR( 100 ) NOT NULL Unique,
 contact VARCHAR( 20 ) ,
-password VARCHAR( 20 ) NOT NULL)"; 
+password VARCHAR( 300 ) NOT NULL)"; 
 
 $resultDonor = mysql_query($sqlQueryDonor);
 
@@ -21,18 +21,18 @@ $resultDonor = mysql_query($sqlQueryDonor);
 $sqlQueryNgor = "CREATE TABLE IF NOT EXISTS Ngo(
 pid INT NOT NULL AUTO_INCREMENT ,
 PRIMARY KEY ( pid ) ,
-name VARCHAR( 30 ) NOT NULL ,
-logo VARCHAR( 100 ) ,
-description VARCHAR ( 200 ) ,
-vision VARCHAR ( 200 ) ,
-contact_person VARCHAR ( 50 ) NOT NULL ,
-email VARCHAR( 40 ) NOT NULL Unique,
+name VARCHAR( 100 ) NOT NULL ,
+logo VARCHAR( 300 ) ,
+description VARCHAR ( 2000 ) ,
+vision VARCHAR ( 2000 ) ,
+contact_person VARCHAR ( 100 ) NOT NULL ,
+email VARCHAR( 100 ) NOT NULL Unique,
 contact VARCHAR( 20 ) ,
 rate DOUBLE NOT NULL ,
 website VARCHAR(100) ,
 rstatus TINYINT ,
-rnumber VARCHAR( 20 ) ,
-password VARCHAR( 20 ) NOT NULL)";
+rnumber VARCHAR( 30 ) ,
+password VARCHAR( 300 ) NOT NULL)";
 
 $resultNgor = mysql_query($sqlQueryNgor);
 
@@ -41,9 +41,9 @@ $resultNgor = mysql_query($sqlQueryNgor);
 $sqlQueryEvent = "CREATE TABLE IF NOT EXISTS Event(
 donor_pid INT,
 ngo_pid INT,
-dstatus VARCHAR( 100 ),
+dstatus VARCHAR( 300 ),
 commdate DATE ,
-message VARCHAR( 200 ),
+message VARCHAR( 2000 ),
 dateofevent DATE,
 rategiven INT,
 estatus TINYINT,
@@ -65,8 +65,8 @@ $resultFav = mysql_query($sqlQueryFav);
 $sqlQueryContNgo = "CREATE TABLE IF NOT EXISTS ContNgo(
 ngo_pid INT NOT NULL,
 pname VARCHAR( 100 ) NOT NULL,
-pnumb VARCHAR( 10 ) NOT NULL,
-pemail VARCHAR( 20 ) NOT NULL,
+pnumb VARCHAR( 20 ) NOT NULL,
+pemail VARCHAR( 100 ) NOT NULL,
 FOREIGN KEY (ngo_pid) REFERENCES Ngo(pid))";
 
 $resultContNgo = mysql_query($sqlQueryContNgo);

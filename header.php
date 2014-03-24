@@ -1,11 +1,4 @@
 <!DOCTYPE html>
-<?php
-session_start();	
-unset($_SESSION['SESS_MEMBER_ID']);
-unset($_SESSION['SESS_EMAIL']);
-unset($_SESSION['SESS_PASS']);
-
-?>
 
 <html lang="en">
 	<head>
@@ -122,7 +115,7 @@ unset($_SESSION['SESS_PASS']);
 	  								</ul>
 	  								<div id="myTabContent" class="tab-content">
 	  									<div class="tab-pane active in" id="signinDonor">									
-	  										<form action="signin.php" method="post" id="tabDonor" enctype="multipart/form-data">
+	  										<form action="login_donor.php" method="post" id="tabDonor" enctype="multipart/form-data">
 	  											<input type="hidden" name="donor" value="donor">
 	  											<label>Email</label>
 	  											<input type="text" value="Email" id="emailDonor" name="emailDonor" class="input-xlarge" onClick="email('emailDonor')" style="color:grey">
@@ -141,8 +134,7 @@ unset($_SESSION['SESS_PASS']);
 	  									</div>
 	  								</div>
 	  								<div class="tab-pane fade" id="signinNgo">
-	  									<form id="tab2">
-	  										<form action="login_donor.php" method="post" id="tabNgo" enctype="multipart/form-data">
+	  										<form action="login_ngo.php" method="post" id="tabNgo" enctype="multipart/form-data">
 	  											<input type="hidden" name="ngo" value="ngo">				
 	  											<label>Email</label>
 	  											<input type="text" value="Email" id="emailNgo" name="emailNgo" class="input-xlarge" onClick="email('emailNgo')" style="color:grey">
@@ -159,7 +151,6 @@ unset($_SESSION['SESS_PASS']);
 	  												<input type="submit" class="btn btn-success" name="signup_ngo_reg" value="Sign Up as NGO" id="signupNgo"></button>
 	  											</div><br/>
 	  										</form>
-	  									</form>
 	  								</div>
 	  							</div>
 	  							<div id="signupModalContent">

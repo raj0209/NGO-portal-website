@@ -1,0 +1,11 @@
+TODO:Sampark
+
+1) Remove unwanted files from git
+
+2) Catagory and search button in header not working
+
+3) NGO Sign in not being catch
+
+4) encrypt-decrypt not working
+
+5) redirect from login not working

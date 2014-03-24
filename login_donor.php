@@ -26,9 +26,10 @@
 	}
  
 	//Sanitize the POST values
-	$email = clean($_POST['email']);
-	$password = clean($_POST['password']);
- 
+	$email = clean($_POST['emailDonor']);
+	$password = clean($_POST['passwordDonor']);
+ 	$password = sha1($password);
+
 	//Input Validations
 	if($email == '') {
 		$errmsg_arr[] = 'Email missing';
@@ -46,11 +47,11 @@
 		header("location: index.php");
 		exit();
 	}*/
- 
+
 	//Create query
-	$qry="SELECT * FROM donor WHERE email='$email' AND password='$password'";
+	$qry="SELECT * FROM Donor WHERE email='$email' AND password='$password'";
 	$result=mysql_query($qry);
- 
+ 	//echo "string ".$qry;
  
 	//Check whether the query was successful or not
 	if($result) {
@@ -60,14 +61,14 @@
 			$member = mysql_fetch_assoc($result);
 			$_SESSION['SESS_MEMBER_ID'] = $member['pid'];
 			$_SESSION['SESS_EMAIL'] = $member['email'];
-			$_SESSION['SESS_PASS'] = $member['password'];
+			$_SESSION['SESS_TYPE'] = "DONOR";
 			session_write_close();
 			header("location: donorhome.php");
 			exit();
 		}
 		else {
 			//Login failed
-			$errmsg_arr[] = 'email and password not found';
+			$errmsg_arr[] = 'email or password not found';
 			$errflag = true;
 			if($errflag) {
 				$_SESSION['ERRMSG_ARR'] = $errmsg_arr;

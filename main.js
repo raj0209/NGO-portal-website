@@ -13,8 +13,7 @@ function password(password)
 
 function submitSignin(email,password)
 {
-	alert("password works");
-	if(document.getElementById(email).value==""|| document.getElementById        (email).value=="Email")
+	if(document.getElementById(email).value==""|| document.getElementById(email).value=="Email")
 	{
 		alert("Please enter your email address");
 		document.getElementById(email).focus();
@@ -31,7 +30,7 @@ function submitSignin(email,password)
 		document.getElementById(email).focus();
 		return false;
 	}
-	if(document.getElementById(password).value=="" || document.getElementById        (password).value=="Password")
+	if(document.getElementById(password).value=="" || document.getElementById(password).value=="Password")
 	{
 		alert("Please enter your password");
 		document.getElementById(password).focus();

@@ -7,7 +7,7 @@ $regno = $_POST['regno'];
 $cpn = $_POST['cn'];
 $email = $_POST['eml'];
 $cno = $_POST['cont'];
-$password = encryptIt($_POST['pwd']);
+$password = sha1($_POST['pwd']);
 $des = $_POST['dc'];
 $vis = $_POST['vi'];
 $web = $_POST['web'];
@@ -42,12 +42,6 @@ values('$name','$filePath','$des','$vis','$cpn','$email','$cno',1,1,'$regno','$w
 	}
 	echo "<font size = '5'><font color=\"#0CF44A\">SAVED TO DATABASE";
 
-}
-
-function encryptIt( $q ) {
-    $cryptKey  = 'manmeramanena';
-    //$qEncoded      = base64_encode( mcrypt_encrypt( MCRYPT_RIJNDAEL_256, md5( $cryptKey ), $q, MCRYPT_MODE_CBC, md5( md5( $cryptKey ) ) ) );
-    return( $q );
 }
 
 ?>
