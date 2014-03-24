@@ -68,15 +68,12 @@
 	  					</ul>
 	  					<div align="center" class="nav-collapse collapse" style="margin:10px">
 	  						<ul class="nav">
-	  							<form class "form-search">
-	  								<input type "text" class "span6 search-query" style="margin:10px" placeholder="Search for NGO"/>
-
+	  							<form class="form-search">
+	  								<input type="text" class="span6 search-query" style="margin:10px" placeholder="Search for NGO"/>
 	  								<div class="dropdown">
 	  									<a id="dLabel" role="button" class="btn btn-primary" data-toggle="dropdown" data-target="#">
 	  										Category <span class="caret"></span>								
 	  									</a>
-
-
 	  									<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
 	  										<li><a tabindex="-1" href="#">Health</a></li>
 	  										<li><a tabindex="-1" href="#">Education</a></li>
