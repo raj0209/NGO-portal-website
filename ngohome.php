@@ -88,7 +88,6 @@
                                     <p id="address" name="address"><a href="http://<?php echo $web ?>" target="_blank"><?php echo $web ?></p>
 									<p align="left"><a href="logout.php">logout</a></p>
                                 </div>
-
                                 <p>
                                     <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#postEventModal" id="postEventButton">Post Event</button>
 									<button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#" id="donorButton">Donors</button>
