@@ -23,6 +23,7 @@ pid INT NOT NULL AUTO_INCREMENT ,
 PRIMARY KEY ( pid ) ,
 name VARCHAR( 100 ) NOT NULL ,
 logo VARCHAR( 300 ) ,
+address VARCHAR( 500 ),
 description VARCHAR ( 2000 ) ,
 vision VARCHAR ( 2000 ) ,
 contact_person VARCHAR ( 100 ) NOT NULL ,
@@ -52,6 +53,12 @@ FOREIGN KEY (ngo_pid) REFERENCES Ngo(pid))";
 
 $resultEvent = mysql_query($sqlQueryEvent);
 
+// Ngo catagories
+$sqlQueryCat = "CREATE TABLE IF NOT EXISTS catNgo(
+ngo_pid INT NOT NULL,
+category VARCHAR( 50 ),
+FOREIGN KEY (donor_pid) REFERENCES Donor(pid))";
+
 // Who is whose favorite
 $sqlQueryFav = "CREATE TABLE IF NOT EXISTS Fav(
 donor_pid INT NOT NULL,
@@ -71,9 +78,22 @@ FOREIGN KEY (ngo_pid) REFERENCES Ngo(pid))";
 
 $resultContNgo = mysql_query($sqlQueryContNgo);
 
+// Details of posts of NGO
+$sqlQueryPostNgo = "CREATE TABLE IF NOT EXISTS ngoPost(
+ngo_pid INT NOT NULL,
+name VARCHAR( 100 ) NOT NULL,
+detail VARCHAR( 100 ) ,
+postTime DATETIME UNIQUE,
+fromDate VARCHAR( 20 ) ,
+toDate VARCHAR( 20 ) ,
+location VARCHAR( 100 ) ,
+FOREIGN KEY (ngo_pid) REFERENCES Ngo(pid))";
+
+$resultPostNgo = mysql_query($sqlQueryPostNgo);
 
 
-if (!$resultDonor || !$resultNgor || !$resultEvent || !$resultFav || !$resultContNgo) {
+
+if (!$resultDonor || !$resultNgor || !$resultEvent || !$resultFav || !$resultContNgo || !$resultPostNgo) {
     echo "<script type='text/javascript'>alert('failed!')</script>";
 }
 ?>

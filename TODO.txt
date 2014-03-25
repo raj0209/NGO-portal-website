@@ -14,4 +14,8 @@ TODO:Sampark
 
 7) Modal size and add back button
 
-8) Add logout functionality 
+8) Add logout functionality
+
+9) Table for posted event (pid, nameofEvent, postDate, fromDate, toDate, location);
+
+
