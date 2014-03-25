@@ -108,22 +108,33 @@
                                     //$forTime = "fortime";
                                     //$datetime = strtotime($forTime->createdate);
                                     //$mysqldate = date("m/d/y g:i A", $datetime);
-                                    
-                                    $query = "SELECT * FROM ngoPost WHERE ngo_pid = $pid"
+                                    $query = "SELECT * FROM ngoPost WHERE ngo_pid = '$pid'";
+                                    $result = mysql_query($query);
+
+                                    if($result) {
+                                        if(mysql_num_rows($result) > 0) {
+                                            while ($row = mysql_fetch_assoc($result)) {
+                                               $postName = $row['name'];
+                                               $postTime = $row['postTime'];
+                                               $postDetail = $row['detail'];
+                                               $postFromDate = $row['fromDate'];
+                                               $postToDate = $row['toDate'];
+                                               $postLocation = $row['location']; ?>
+                                                    <div class="well well-sm">
+                                                        <h3 class="media-heading" id="postName" name="postName"><?php echo $postName ?><small><?php echo " ".substr($postTime,0,10) ?></small></h3>
+                                                        <div class="media">
+                                                            <p><b>From:</b> <?php echo $postFromDate ?> <b>To:</b> <?php echo $postToDate ?> </p>
+                                                            <p id="postDetail" name="postDetail"> <?php echo $postDetail ?></p>
+                                                            <p id="postLocation" name="postLocation"><?php echo $postLocation ?></p>
+                                                        </div>
+                                                    </div>
+                                               <?php
+                                           }  
+                                        }
+                                    }else {
+                                        die("Query failed");
+                                    }
                                 ?>
-                                <div>
-                                    <h1 class="media-heading" id="nameOfNgo" name="nameOfNgo"><?php echo $ngoname ?></h1>
-                                    <div >
-                                        <br>
-                                        <h4>Vision:</h4>
-                                        <p id="vision" name="vision"> <?php echo $vision ?></p>
-                                        <h4>Discription:</h4>
-                                        <p id="discription" name="discription"><?php echo $des ?></p>
-                                        <h4>Website:</h4>
-                                        <p id="address" name="address"><a href="http://<?php echo $web ?>" target="_blank"><?php echo $web ?></p>
-                                        <p align="left"><a href="logout.php">logout</a></p>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
