@@ -1,11 +1,17 @@
 TODO:Sampark
 
-1) Remove unwanted files from git
+1) Remove unwanted files from git - DONE
 
-2) Catagory and search button in header not working
+2) Catagory and search button in header not working - DONE
 
-3) NGO Sign in not being catch
+3) NGO Sign in not being catch - DONE
 
-4) encrypt-decrypt not working
+4) encrypt-decrypt not working - DONE
 
-5) redirect from login not working
+5) redirect from login not working - DONE
+
+6) Add catagory and address fields for both type of NGO in header as well as database
+
+7) Modal size and add back button
+
+8) Add logout functionality 

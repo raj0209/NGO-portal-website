@@ -71,7 +71,7 @@
         <div class="container">
             <div class="row" style="margin-top: -75px;">
                 <div class="col-md-4" >
-                    <div class="well well-sm" style="height: 210px;"> 
+                    <div class="well well-sm" style="height: 225px;"> 
                         <div class="media">
                             <a class="thumbnail pull-left" href="#">
                                 <img style="height: 200px;" class="media-object" src="<?php echo $logo?>">
@@ -88,6 +88,11 @@
                                     <p id="address" name="address"><a href="http://<?php echo $web ?>" target="_blank"><?php echo $web ?></p>
 									<p align="left"><a href="logout.php">logout</a></p>
                                 </div>
+                                <p>
+                                    <a style="margin-right: 15px;" href="#" class="btn btn-lg btn-primary btn-block"><span class="glyphicon glyphicon-comment"></span> Post Event</a>
+                                    <a style="margin-right: 15px;" href="#" class="btn btn-lg btn-primary btn-block"><span class="glyphicon glyphicon-heart"></span> Donors</a>
+                                    <a style="margin-right: 15px;" href="#" class="btn btn-lg btn-primary btn-block"><span class="glyphicon glyphicon-ban-circle"></span> Edit Profile</a>
+                                </p>
                             </div>
                         </div>
                     </div>
