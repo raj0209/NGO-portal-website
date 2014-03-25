@@ -460,6 +460,12 @@ function eventNamef()
 	document.getElementById("eventName").style.color="black";
 }
 
+function eventDetailsf()
+{
+	document.getElementById("eventDetails").value="";
+	document.getElementById("eventDetails").style.color="black";
+}
+
 function eventLocationf()
 {
 	document.getElementById("eventLocation").value="";
@@ -472,6 +478,13 @@ function eventPostf()
 	{
 		alert("Please enter the name of event");
 		document.getElementById("eventName").focus();
+		return false;
+	}
+	
+	if(document.getElementById("eventDetails").value=="" || document.getElementById        ("eventDetails").value=="Details of Event")
+	{
+		alert("Please enter the details of event");
+		document.getElementById("eventDetails").focus();
 		return false;
 	}
 	
