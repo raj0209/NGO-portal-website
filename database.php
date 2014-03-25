@@ -83,7 +83,7 @@ $sqlQueryPostNgo = "CREATE TABLE IF NOT EXISTS ngoPost(
 ngo_pid INT NOT NULL,
 name VARCHAR( 100 ) NOT NULL,
 detail VARCHAR( 100 ) ,
-postDate VARCHAR( 20 ) ,
+postTime DATETIME UNIQUE,
 fromDate VARCHAR( 20 ) ,
 toDate VARCHAR( 20 ) ,
 location VARCHAR( 100 ) ,
