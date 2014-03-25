@@ -51,7 +51,8 @@
 			$des = $member['description'];
 			$vision = $member['vision'];
 			$logo = $member['logo'];
-			$web = $member['website'];	
+			$web = $member['website'];
+            $address = $member['address'];
 			}
 		}	
 		else
@@ -72,19 +73,22 @@
                             </a>
                             <div class="media-body" style="margin-left: 225px;">
                                 <h1 class="media-heading" id="nameOfNgo" name="nameOfNgo"><?php echo $ngoname ?></h1>
-                                <div >
+                                <div style="margin-top: -15px;">
                                     <br>
                                     <h4>Vision:</h4>
                                     <p id="vision" name="vision"> <?php echo $vision ?></p>
                                     <h4>Discription:</h4>
                                     <p id="discription" name="discription"><?php echo $des ?></p>
                                     <h4>Website:</h4>
-                                    <p id="address" name="address"><a href="http://<?php echo $web ?>" target="_blank"><?php echo $web ?></p>
-									<p align="left"><a href="logout.php">logout</a></p>
+                                    <p id="website" name="website"><a href="http://<?php echo $web ?>" target="_blank"><?php echo $web ?></a></p>
+                                    <h4>Address:</h4>
+                                    <p id="address" name="address"><?php echo $address ?></p>
+									
                                 </div>
                                 <p>
                                     <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#postEventModal" id="postEventButton">Post Event</button>
 									<button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#" id="donorButton">Donors</button>
+                                    <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#" id="contactButton">Contact</button>
 									<button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#" id="editProfileButton">Edit Profile</button>
                                 </p>
                             </div>
@@ -98,6 +102,7 @@
                     <div class="well well-sm" style="height: auto;"> 
                         <div class="media">
                             <div class="media-body">
+<!--<<<<<<< HEAD
                                 <div>
                                     <h1 class="media-heading" id="nameOfNgo" name="nameOfNgo"><?php echo $ngoname ?></h1>
                                     <div >
@@ -110,6 +115,39 @@
                                         <p id="address" name="address"><a href="http://<?php echo $web ?>" target="_blank"><?php echo $web ?></p>
                                     </div>
                                 </div>
+=======-->
+                                <?php
+                                    //$forTime = "fortime";
+                                    //$datetime = strtotime($forTime->createdate);
+                                    //$mysqldate = date("m/d/y g:i A", $datetime);
+                                    $query = "SELECT * FROM ngoPost WHERE ngo_pid = '$pid'";
+                                    $result = mysql_query($query);
+
+                                    if($result) {
+                                        if(mysql_num_rows($result) > 0) {
+                                            while ($row = mysql_fetch_assoc($result)) {
+                                               $postName = $row['name'];
+                                               $postTime = $row['postTime'];
+                                               $postDetail = $row['detail'];
+                                               $postFromDate = $row['fromDate'];
+                                               $postToDate = $row['toDate'];
+                                               $postLocation = $row['location']; ?>
+                                                    <div class="well well-sm">
+                                                        <h3 class="media-heading" id="postName" name="postName"><?php echo $postName ?><small><?php echo " ".substr($postTime,0,10) ?></small></h3>
+                                                        <div class="media">
+                                                            <p><b>From:</b> <?php echo $postFromDate ?>  &nbsp; &nbsp;<b>To:</b> <?php echo $postToDate ?> </p>
+                                                            <p ><b>Detail:</b><?php echo $postDetail ?></p>
+                                                            <p ><b>Location:</b><?php echo $postLocation ?></p>
+                                                        </div>
+                                                    </div>
+                                               <?php
+                                           }  
+                                        }
+                                    }else {
+                                        die("No event posted so far");
+                                    }
+                                ?>
+
                             </div>
                         </div>
                     </div>

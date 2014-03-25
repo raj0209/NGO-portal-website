@@ -11,15 +11,9 @@ $ed = $_POST['eventDetails'];
 $el = $_POST['eventLocation'];
 $sdate = $_POST['startDate'];
 $edate = $_POST['endDate'];
-
-$mysqldate = time();
-//echo $mysqldate;
-echo date("Y-m-d H:i:s",time());
-$mili=round(microtime(true) * 1000000);
-echo str_append(date("Y-m-d H:i:s",time()),$mili);
-                                    
-              /*
-$insertQuery = "insert into ngoPost(ngo_pid,name,detail,postTime,fromDate,toDate,location) values('$pid','$en','$ed','$mysqldate','$sdate','$edate','$el')";
+          
+              
+$insertQuery = "insert into ngoPost(ngo_pid,name,detail,fromDate,toDate,location) values('$pid','$en','$ed','$sdate','$edate','$el')";
 $result = mysql_query($insertQuery);
 	
 	if (!$result)
@@ -32,5 +26,4 @@ $result = mysql_query($insertQuery);
 		header("location: ngohome.php");
 		exit();
 	}
-	*/
 ?>

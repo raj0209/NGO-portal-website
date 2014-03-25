@@ -14,8 +14,16 @@ TODO:Sampark
 
 7) Modal size and add back button
 
-8) Add logout functionality
+8) Add logout functionality - DONE
 
-9) Table for posted event (pid, nameofEvent, postDate, fromDate, toDate, location);
+9) Table for posted event - DONE
 
+10) Sort post in NGO home
 
+11) Add option to delete post
+
+12) Forms for contact
+
+13) Donor buttons implementation
+
+14) Donar page
