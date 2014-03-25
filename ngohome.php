@@ -89,9 +89,9 @@
 									<p align="left"><a href="logout.php">logout</a></p>
                                 </div>
                                 <p>
-                                    <a style="margin-right: 15px;" href="#" class="btn btn-lg btn-primary btn-block"><span class="glyphicon glyphicon-comment"></span> Post Event</a>
-                                    <a style="margin-right: 15px;" href="#" class="btn btn-lg btn-primary btn-block"><span class="glyphicon glyphicon-heart"></span> Donors</a>
-                                    <a style="margin-right: 15px;" href="#" class="btn btn-lg btn-primary btn-block"><span class="glyphicon glyphicon-ban-circle"></span> Edit Profile</a>
+                                    <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#postEventModal" id="postEventButton">Post Event</button>
+									<button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#" id="donorButton">Donors</button>
+									<button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#" id="editProfileButton">Edit Profile</button>
                                 </p>
                             </div>
                         </div>
@@ -99,5 +99,34 @@
                 </div>
             </div>
         </div>
+		<div class="modal fade" id="postEventModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="myModalLabel">Post Event</h4>
+					</div>
+					<div class="modal-body">
+						<div class="well">
+							<form action="eventPosted.php" method="post">
+								<label>Name of Event</label>
+								<input type="text" value="Name of Event" id="eventName" name="eventName" class="input-xlarge" onClick="eventNamef()" style="color:grey">
+								<label>Start Date </label>
+								<input type="date" name="startDate" id="startDate" class="input-xlarge" style="color:grey">
+								<label>End Date </label>
+								<input type="date" name="endDate" id="endDate" class="input-xlarge" style="color:grey">
+								<label>Location</label>
+								<input type="text" value="Location of Event" id="eventLocation" name="eventLocation" class="input-xlarge" onClick="eventLocationf()" style="color:grey">
+								<div>
+									<input type="submit" class="btn btn-primary" name="postEvent" value="Post Event" onClick="return eventPostf()"></button>
+								</div>
+							</form>	
+						</div>		
+					</div>
+				</div>
+			</div>
+		</div>
      </body>
 </html>
+
+

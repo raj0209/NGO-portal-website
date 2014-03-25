@@ -454,6 +454,50 @@ function submit4()
 
 }
 
+function eventNamef()
+{
+	document.getElementById("eventName").value="";
+	document.getElementById("eventName").style.color="black";
+}
+
+function eventLocationf()
+{
+	document.getElementById("eventLocation").value="";
+	document.getElementById("eventLocation").style.color="black";
+}
+
+function eventPostf()
+{
+	if(document.getElementById("eventName").value=="" || document.getElementById        ("eventName").value=="Name of Event")
+	{
+		alert("Please enter the name of event");
+		document.getElementById("eventName").focus();
+		return false;
+	}
+	
+	if(document.getElementById("startDate").value=="" || document.getElementById        ("startDate").value=="dd-mm-yyyy")
+	{
+		alert("Please enter the start date of event");
+		document.getElementById("startDate").focus();
+		return false;
+	}
+	
+	if(document.getElementById("endDate").value=="" || document.getElementById        ("endDate").value=="dd-mm-yyyy")
+	{
+		alert("Please enter the end date of event");
+		document.getElementById("endDate").focus();
+		return false;
+	}
+	
+	if(document.getElementById("eventLocation").value=="" || document.getElementById        ("eventLocation").value=="Location of Event")
+	{
+		alert("Please enter the location of event");
+		document.getElementById("eventLocation").focus();
+		return false;
+	}
+	
+	
+}
 function hideAll()
 {
 document.getElementById('signinModalContent').style.display = 'none';
