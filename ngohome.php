@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 	require_once('auth.php');
-	include 'header.php';
+	//include 'header.php';
 	include 'connect.php';
 ?>
 
@@ -26,12 +26,6 @@
         <link href="css/bootstrap-responsive.css" rel="stylesheet">
         <script src="jquery.js"></script>
 
-        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-            <!--[if lt IE 9]>
-              <script src="js/html5shiv.js"></script>
-              <![endif]-->
-
-              <!-- Fav and touch icons -->
               <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
               <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
               <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
@@ -45,7 +39,7 @@
 		$type=$_SESSION['SESS_TYPE'];
 		$email=$_SESSION['SESS_EMAIL'];
 		$pid=$_SESSION['SESS_MEMBER_ID'];
-
+		
 		if($type=="NGO")
 		{
 		$qry="SELECT * FROM Ngo WHERE email='$email' AND pid=$pid";
@@ -104,13 +98,6 @@
                     <div class="well well-sm" style="height: auto;"> 
                         <div class="media">
                             <div class="media-body">
-                                <?php
-                                    //$forTime = "fortime";
-                                    //$datetime = strtotime($forTime->createdate);
-                                    //$mysqldate = date("m/d/y g:i A", $datetime);
-                                    
-                                    $query = "SELECT * FROM ngoPost WHERE ngo_pid = $pid"
-                                ?>
                                 <div>
                                     <h1 class="media-heading" id="nameOfNgo" name="nameOfNgo"><?php echo $ngoname ?></h1>
                                     <div >
@@ -143,6 +130,8 @@
 							<form action="eventPosted.php" method="post">
 								<label>Name of Event</label>
 								<input type="text" value="Name of Event" id="eventName" name="eventName" class="input-xlarge" onClick="eventNamef()" style="color:grey">
+								<label>Details of Event</label>
+	  							<textarea rows="3" id="eventDetails" name="eventDetails" class="input-xlarge" onClick="eventDetailsf()" style="color:grey"></textarea>
 								<label>Start Date </label>
 								<input type="date" name="startDate" id="startDate" class="input-xlarge" style="color:grey">
 								<label>End Date </label>
