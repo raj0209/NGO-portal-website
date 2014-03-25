@@ -108,7 +108,6 @@
                                         <p id="discription" name="discription"><?php echo $des ?></p>
                                         <h4>Website:</h4>
                                         <p id="address" name="address"><a href="http://<?php echo $web ?>" target="_blank"><?php echo $web ?></p>
-                                        <p align="left"><a href="logout.php">logout</a></p>
                                     </div>
                                 </div>
                             </div>

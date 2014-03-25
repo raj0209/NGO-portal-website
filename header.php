@@ -86,7 +86,7 @@
 	  					</div>
 
 	  					<ul class="nav pull-right">
-	  						<button class="btn btn-lg btn-primary btn-block" type="submit"style="margin:10px" data-toggle="modal" data-target="#signinModal" id="signinHomeButton">Sign in</button>
+	  						<?php if(isset($_SESSION['SESS_MEMBER_ID'])) echo "<a style=\"color:white;text-decoration:none\" href=\"logout.php\"><button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\"style=\"margin:10px\" data-toggle=\"modal\">Log out</button></a>"; else echo "<button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\"style=\"margin:10px\" data-toggle=\"modal\" data-target=\"#signinModal\" id=\"signinHomeButton\">Sign In</button>" ?>
 	  					</ul>
 	  				</div><!--/.nav-collapse -->
 	  			</div>
@@ -104,7 +104,7 @@
 	  					<div class="modal-body">
 	  						<div class="well">
 	  							<div id="signinModalContent">
-	  								<h4 class="modal-title" id="myModalLabel">Sign in</h4>		
+	  								<h4 class="modal-title" id="myModalLabel">Sign In </h4>		
 	  								<br>
 	  								<ul class="nav nav-tabs">
 	  									<li class="active" id="donorTab" ><a href="#signinDonor" data-toggle="tab">Donor</a></li>
