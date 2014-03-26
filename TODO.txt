@@ -18,7 +18,7 @@ TODO:Sampark
 
 9) Table for posted event - DONE
 
-10) Sort post in NGO home
+10) Sort post in NGO home 
 
 11) Add option to delete post
 
@@ -26,4 +26,12 @@ TODO:Sampark
 
 13) Donor buttons implementation
 
-14) Donar page
+14) Edit Profile - DONE but problem in logo edit
+
+15) Homepage, About, Contact, Footer
+
+16) Location (if wanted we can do)
+
+17) Rating Functionlity - Most popular NGO, Rate an NGO, Enable Rating, Rating Algo
+
+18) Implement Search
