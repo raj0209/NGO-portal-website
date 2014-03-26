@@ -57,12 +57,12 @@
         <link href="css/bootstrap-responsive.css" rel="stylesheet">
         <script src="jquery.js"></script>
 
-              <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
-              <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
-              <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
-              <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
-              <link rel="shortcut icon" href="ico/favicon.png">
-              <script type="text/javascript" src="main.js"></script>
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+        <link rel="shortcut icon" href="ico/favicon.png">
+        <script type="text/javascript" src="main.js"></script>
     </head>
     <body>
         <div class="container">
@@ -150,7 +150,7 @@
                 </div>
             </div>
 
-            <div class="row" id="allDonorContainer">
+            <div class="row" id="allDonorContainer" style="display: none;">
                 <div class="col-md-4" >
                     <div class="well well-sm" style="height: auto;">
                         <h1>Donors<h1>
@@ -221,15 +221,15 @@
 						<div class="well">
 							<form action="eventPosted.php" method="post">
 								<label>Name of Event</label>
-								<input type="text" value="Name of Event" id="eventName" name="eventName" class="input-xlarge" onClick="eventNamef()" style="color:grey">
+								<input type="text" value="Name of Event" id="eventName" name="eventName" class="input-xlarge" onClick="eventNamef()" style="color:black">
 								<label>Details of Event</label>
-	  							<textarea rows="3" id="eventDetails" name="eventDetails" class="input-xlarge" onClick="eventDetailsf()" style="color:grey"></textarea>
+	  							<textarea rows="3" id="eventDetails" name="eventDetails" class="input-xlarge" onClick="eventDetailsf()" style="color:black"></textarea>
 								<label>Start Date </label>
-								<input type="date" name="startDate" id="startDate" class="input-xlarge" style="color:grey">
+								<input type="date" name="startDate" id="startDate" class="input-xlarge" style="color:black">
 								<label>End Date </label>
-								<input type="date" name="endDate" id="endDate" class="input-xlarge" style="color:grey">
+								<input type="date" name="endDate" id="endDate" class="input-xlarge" style="color:black">
 								<label>Location</label>
-								<input type="text" value="Location of Event" id="eventLocation" name="eventLocation" class="input-xlarge" onClick="eventLocationf()" style="color:grey">
+								<input type="text" value="Location of Event" id="eventLocation" name="eventLocation" class="input-xlarge" onClick="eventLocationf()" style="color:black">
 								<div>
 									<input type="submit" class="btn btn-primary" name="postEvent" value="Post Event" onClick="return eventPostf()"></button>
 								</div>

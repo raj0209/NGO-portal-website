@@ -16,7 +16,7 @@ $result = mysql_query($query);
 if($result){
 	header("location: ngohome.php");
 }else{
-	echo "Could not delete post";
+	echo "Could not delete post posted on ".$timeStamp;
 }
 
 ?>
