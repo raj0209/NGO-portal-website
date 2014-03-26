@@ -12,18 +12,18 @@ TODO:Sampark
 
 6) Add catagory and address fields for both type of NGO in header as well as database
 
-7) Modal size and add back button
+7) Modal size and add back button - DONE
 
 8) Add logout functionality - DONE
 
 9) Table for posted event - DONE
 
-10) Sort post in NGO home
+10) Sort post in NGO home - DONE
 
 11) Add option to delete post
 
 12) Forms for contact
 
-13) Donor buttons implementation
+13) Donor buttons implementation - DONE
 
 14) Donar page

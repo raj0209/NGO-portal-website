@@ -558,4 +558,25 @@ $('#tabUnRegNGO').click(function(){ hideAll(); $('#signupModalContent').show(); 
 });
 
 
+// Functions for NGOHOME page
+function changeName(){
+
+	var $type = 'none';
+	if($("#donorButton").text() == "Donors"){
+		$type = 'donors';
+	}else{
+		$type = 'event';
+	};
+
+	if ($type == 'donors') {
+		$("#donorButton").text("Events");
+		$("#allPostContainer").hide();
+		$("#allDonorContainer").show();
+	}else{
+		$("#donorButton").text("Donors");
+		$("#allPostContainer").show();
+		$("#allDonorContainer").hide();
+	};
+
+};
 
