@@ -48,11 +48,16 @@
 			if(mysql_num_rows($result) > 0) {
 			$member = mysql_fetch_assoc($result);
 			$ngoname = $member['name'];
+			$regno = $member['rnumber'];
+			$cpn = $member['contact_person'];
+			$email = $member['email'];
+			$cno = $member['contact'];
 			$des = $member['description'];
 			$vision = $member['vision'];
 			$logo = $member['logo'];
 			$web = $member['website'];
             $address = $member['address'];
+			$password = $member['password'];
 			}
 		}	
 		else
@@ -89,7 +94,7 @@
                                     <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#postEventModal" id="postEventButton">Post Event</button>
 									<button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#" id="donorButton">Donors</button>
                                     <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#" id="contactButton">Contact</button>
-									<button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#" id="editProfileButton">Edit Profile</button>
+									<button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#editProfileModal" id="editProfileButton">Edit Profile</button>
                                 </p>
                             </div>
                         </div>
@@ -102,24 +107,7 @@
                     <div class="well well-sm" style="height: auto;"> 
                         <div class="media">
                             <div class="media-body">
-<!--<<<<<<< HEAD
-                                <div>
-                                    <h1 class="media-heading" id="nameOfNgo" name="nameOfNgo"><?php echo $ngoname ?></h1>
-                                    <div >
-                                        <br>
-                                        <h4>Vision:</h4>
-                                        <p id="vision" name="vision"> <?php echo $vision ?></p>
-                                        <h4>Discription:</h4>
-                                        <p id="discription" name="discription"><?php echo $des ?></p>
-                                        <h4>Website:</h4>
-                                        <p id="address" name="address"><a href="http://<?php echo $web ?>" target="_blank"><?php echo $web ?></p>
-                                    </div>
-                                </div>
-=======-->
                                 <?php
-                                    //$forTime = "fortime";
-                                    //$datetime = strtotime($forTime->createdate);
-                                    //$mysqldate = date("m/d/y g:i A", $datetime);
                                     $query = "SELECT * FROM ngoPost WHERE ngo_pid = '$pid'";
                                     $result = mysql_query($query);
 
@@ -178,6 +166,47 @@
 								<div>
 									<input type="submit" class="btn btn-primary" name="postEvent" value="Post Event" onClick="return eventPostf()"></button>
 								</div>
+							</form>	
+						</div>		
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="editProfileModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="myModalLabel">Edit Profile</h4>
+					</div>
+					<div class="modal-body">
+						<div class="well">
+							<form action="editedProfile.php" method="post">
+								<label>NGO Name</label>
+								<input type="text"  id="enn" name="enn" class="input-xlarge" value="<?php echo $ngoname?>" onClick="nnf()" >
+								<label>Registration Number</label>
+	  							<input type="text" id="eregno" name="eregno" class="input-xlarge" value="<?php echo $regno?>" onClick="regnof()" style="color:grey">
+	  							<label>Name of Contact Person</label>
+	  							<input type="text"  id="ecn" name="ecn" class="input-xlarge" value="<?php echo $cpn?>" onClick="cnf()" style="color:grey">
+	  							<label>Email</label>
+								<input type="text" value="<?php echo $email?>" id="eeml" name="eeml" class="input-xlarge" onClick="emf()" style="color:grey">
+	  							<label>Contact Number</label>
+	  							<input type="text"  id="econt" name="econt"  maxlength="10" class="input-xlarge" value="<?php echo $cno?>" onClick="contf()" style="color:grey">
+	  							<label>Password</label>
+	  							<input type="password"  id="epwd" name="epwd" maxlength="25" class="input-xlarge" value="<?php echo $password?>" onClick="passf()" style="color:grey">
+								<label>Description</label>
+	  							<textarea rows="5" id="edc" name="edc" class="input-xlarge" onClick="dcf()" style="color:grey"><?php echo $des?></textarea>
+	  							<label>Vision</label>
+	  							<textarea  rows="3" id="evi" name="evi" class="input-xlarge" onClick="vif()" style="color:grey"><?php echo $vision?></textarea>
+	  							<label>Website</label>
+	  							<input type="text"  id="eweb" name="eweb" class="input-xlarge" value="<?php echo $web?>" onClick="webf()" style="color:grey">
+	  							<div>
+	  								<div class="btn btn-default btn-file">
+	  									<label for="file">Upload Logo</label>
+	  									<input type="file" name="regNgoLogo" >
+	  								</div >
+									<input type="submit" class="btn btn-primary" name="saveChangesRegNgo" value="Save Changes" onClick="return esubmit3()"></button>
+	  							</div>							
 							</form>	
 						</div>		
 					</div>
