@@ -57,7 +57,9 @@ $resultEvent = mysql_query($sqlQueryEvent);
 $sqlQueryCat = "CREATE TABLE IF NOT EXISTS catNgo(
 ngo_pid INT NOT NULL,
 category VARCHAR( 50 ),
-FOREIGN KEY (donor_pid) REFERENCES Donor(pid))";
+FOREIGN KEY (ngo_pid) REFERENCES Ngo(pid))";
+
+$resultCatNgo = mysql_query($sqlQueryCat);
 
 // Who is whose favorite
 $sqlQueryFav = "CREATE TABLE IF NOT EXISTS Fav(

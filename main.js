@@ -243,12 +243,122 @@ function uvif()
 	document.getElementById("uvi").style.color="black";
 }
 
+function esubmit3()
+{
+	if(document.getElementById("enn").value=="" || document.getElementById        ("enn").value=="Name of NGO")
+	{
+		alert("Please enter name of NGO");
+		document.getElementById("enn").focus();
+		return false;
+	}
+	if(document.getElementById("eregno").value=="" || document.getElementById        ("eregno").value=="Registration Number")
+	{
+		alert("Please enter the registration number");
+		document.getElementById("eregno").focus();
+		return false;
+	}
+	
+	if(document.getElementById("ecn").value=="" || document.getElementById        ("ecn").value=="Name of Contact Person")
+	{
+		alert("Please enter name of contact person");
+		document.getElementById("ecn").focus();
+		return false;
+	}
+	
+	if(document.getElementById("eeml").value==""|| document.getElementById        ("eeml").value=="Email")
+	{
+		alert("Please enter your email address");
+		document.getElementById("eeml").focus();
+		return false;
+	}
+
+	var x=document.getElementById("eeml").value;
+	var a=x.indexOf("@");
+	var d=x.lastIndexOf(".");
+	if(a<1 || d<a+2 || d+2>=x.length)
+	{
+		
+		alert("Invalid Email");
+		document.getElementById("eeml").focus();
+		return false;
+	}
+	
+	if(document.getElementById("econt").value=="" || document.getElementById        ("econt").value=="Contact Number")
+	{
+		alert("Please enter your contact number");
+		document.getElementById("econt").focus();
+		return false;
+	}
+
+	var n="0123456789";
+	var num,dig;
+	
+	num=document.getElementById("econt").value;
+	if(num.length==10)
+	{
+	for(i=0;i<num.length;i++)
+	{
+		dig=num.charAt(i);
+		if(n.indexOf(dig)==-1)
+		{
+			alert("Enter digits only");
+			document.getElementById("econt").focus();
+			return false;
+		}
+	}
+	}
+	else
+	{
+		alert("Enter 10 digit contact number");
+		document.getElementById("econt").focus();
+		return false;
+	}
+	
+	if(document.getElementById("epwd").value=="" || document.getElementById        ("epwd").value=="Password")
+	{
+		alert("Please enter your password");
+		document.getElementById("epwd").focus();
+		return false;
+	}
+
+	var p=document.getElementById("epwd").value;
+	if(p.length<6)
+	{
+		alert("Password should have minimum 6 characters");
+		document.getElementById("epwd").focus();
+		return false;
+	}
+	
+	
+
+	if(document.getElementById("edc").value=="" || document.getElementById        ("edc").value=="Description")
+	{
+		alert("Please enter the description");
+		document.getElementById("edc").focus();
+		return false;
+	}
+
+	if(document.getElementById("evi").value=="" || document.getElementById        ("evi").value=="Vision")
+	{
+		alert("Please enter the vision");
+		document.getElementById("evi").focus();
+		return false;
+	}
+
+	if(document.getElementById("eweb").value=="" || document.getElementById        ("eweb").value=="Website")
+	{
+		alert("Please enter the website");
+		document.getElementById("eweb").focus();
+		return false;
+	}
+
+}
 
 function submit3()
 {
 	if(document.getElementById("nn").value=="" || document.getElementById        ("nn").value=="Name of NGO")
 	{
-		alert("Please enter the name of NGO");
+		alert("Please enter name of NGO");
 		document.getElementById("nn").focus();
 		return false;
 	}
