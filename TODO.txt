@@ -20,13 +20,13 @@ TODO:Sampark
 
 10) Sort post in NGO home - DONE
 
-11) Add option to delete post
+11) Add option to delete post - DONE
 
 12) Forms for contact
 
 13) Donor buttons implementation - DONE
 
-14) Edit Profile - DONE but problem in logo edit
+14) Edit Profile - DONE
 
 15) Homepage, About, Contact, Footer
 
