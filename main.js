@@ -78,11 +78,85 @@ function pwdf()
 	document.getElementById("pass").style.color="black";
 }
 
+function editProfielForDonor()
+{
+if(document.getElementById("efn").value=="" || document.getElementById        ("efn").value=="First Name")
+	{
+		alert("Please enter your name");
+		document.getElementById("efn").focus();
+		return false;
+	}
+	
+	if(document.getElementById("eem").value==""|| document.getElementById        ("eem").value=="Email")
+	{
+		alert("Please enter your email address");
+		document.getElementById("eem").focus();
+		return false;
+	}
+
+	var x=document.getElementById("eem").value;
+	var a=x.indexOf("@");
+	var d=x.lastIndexOf(".");
+	if(a<1 || d<a+2 || d+2>=x.length)
+	{
+		
+		alert("Invalid Email");
+		document.getElementById("eem").focus();
+		return false;
+	}
+	
+	if(document.getElementById("emob").value=="" || document.getElementById        ("emob").value=="Mobile Number")
+	{
+		alert("Please enter your mobile number");
+		document.getElementById("emob").focus();
+		return false;
+	}
+
+	var n="0123456789";
+	var num,dig;
+	
+	num=document.getElementById("emob").value;
+	if(num.length==10)
+	{
+	for(i=0;i<num.length;i++)
+	{
+		dig=num.charAt(i);
+		if(n.indexOf(dig)==-1)
+		{
+			alert("Enter digits only");
+			document.getElementById("emob").focus();
+			return false;
+		}
+	}
+	}
+	else
+	{
+		alert("Enter 10 digit mobile number");
+		document.getElementById("emob").focus();
+		return false;
+	}
+	
+	if(document.getElementById("epass").value=="" || document.getElementById        ("epass").value=="Password")
+	{
+		alert("Please enter your password");
+		document.getElementById("epass").focus();
+		return false;
+	}
+
+	var p=document.getElementById("epass").value;
+	if(p.length<6)
+	{
+		alert("Password should have minimum 6 characters");
+			document.getElementById("epass").focus();
+		return false;
+	}
+}
+
 function submitSignUpForDonor()
 {
 	if(document.getElementById("fn").value=="" || document.getElementById        ("fn").value=="First Name")
 	{
-		alert("Please enter your first name");
+		alert("Please enter your name");
 		document.getElementById("fn").focus();
 		return false;
 	}

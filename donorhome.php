@@ -47,7 +47,7 @@
 
 		if($type=="DONOR")
 		{
-		$qry="SELECT * FROM Donor WHERE email='$email' AND pid=$pid";
+		$qry="SELECT * FROM Donor WHERE pid=$pid";
 		$result=mysql_query($qry);
 		if($result) {
 			if(mysql_num_rows($result) > 0) {
@@ -55,6 +55,8 @@
 			$name = $member['name'];
 			$email = $member['email'];
 			$photo = $member['photo'];
+			$cont = $member['contact'];
+			$pass = $member['password'];
 				
 			}
 		}	
@@ -77,16 +79,16 @@
                                 <img style="height: 200px;" class="media-object" src="<?php echo $photo?>">
                             </a>
                             <div class="media-body" style="margin-left: 225px;">
-								<h1 class="media-heading" id="nameOfNgo" name="nameOfDonor"><?php echo $name ?></h1>
+								<h1 class="media-heading"><?php echo $name ?></h1>
                                 <div >
                                     <br>
                                     <h4>Email:</h4>
                                     <p id="vision" name="email"><h8> <?php echo $email ?></h8></p>
-                                    <!--h5>Discription:</h5>
-                                    <p id="discription" name="discription">We believe in a societal mission where citizens come together to ensure that India’s unprivileged have a better future</p>
-                                    <h5>Address:</h5>
-                                    <p id="address" name="address">1/7226, Mohar Singh Lane, Shivaji Park, Shahdara, Delhi-110032, India.</p>-->
-									<p align="left"><a href="logout.php">logout</a></p>
+                                    <p>
+                                    <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#" id="EventButton">Events</button>
+									<button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#" id="ngoFavButton">Favourite NGOs</button> 
+									<button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#editProModal" id="editProButton">Edit Profile</button>
+                                    </p>
 								</div>
                             </div>
                         </div>
@@ -94,6 +96,37 @@
                 </div>
             </div>
         </div>
+		<div class="modal fade" id="editProModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="myModalLabel">Edit Profile</h4>
+					</div>
+					<div class="modal-body">
+						<div class="well">
+							<form action="editedDonorProfile.php" method="post" enctype="multipart/form-data">
+								<label>Name</label>
+	  							<input type="text" value="<?php echo $name?>" id="efn" name="ename" class="input-xlarge" onClick="fnf()" style="color:black">
+	  							<label>Email</label>
+	  							<input type="text" value="<?php echo $email?>" id="eem" name="eemail" class="input-xlarge" onClick="emlf()" style="color:black">
+	  							<label>Contact Number</label>
+	  							<input type="text" value="<?php echo $cont?>" id="emob" name="emobile" maxlength="10" class="input-xlarge" onClick="mobf()" style="color:black">
+	  							<label>Password</label>
+	  							<input type="password" value="<?php echo $pass?>" id="epass" name="epassword" maxlength="25" class="input-xlarge" onClick="pwdf()" style="color:black">	   
+	  							<div>
+	  								<div class="btn btn-default btn-file" style="margin-right: 60px;">
+	  									<label for="file">Browse Photo</label>
+	  									<input type="file" name="image" >
+	  								</div >
+									<input type="submit" class="btn btn-primary" name="saveChangesDonor" value="Save Changes" onClick="return editProfielForDonor()"></button>
+	  							</div>							
+							</form>	
+						</div>		
+					</div>
+				</div>
+			</div>
+		</div>
      </body>
 </html>
 

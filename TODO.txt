@@ -26,7 +26,7 @@ TODO:Sampark
 
 13) Donor buttons implementation - DONE
 
-14) Edit Profile - DONE
+14) Edit Profile - password  & logo problem + hide fields for unreg ngo 
 
 15) Homepage, About, Contact, Footer
 
