@@ -105,7 +105,7 @@
             <div class="row" id="allPostContainer">
                 <div class="col-md-4" >
                     <div class="well well-sm" style="height: auto;">
-                        <h1>Events<h1>
+                        <h1>Events</h1>
                         <div class="media">
                             <div class="media-body">
                                 <?php
@@ -153,7 +153,7 @@
             <div class="row" id="allDonorContainer" style="display: none;">
                 <div class="col-md-4" >
                     <div class="well well-sm" style="height: auto;">
-                        <h1>Donors<h1>
+                        <h1>Donors</h1>
                         <div class="media">
                             <div class="media-body">
                                 <?php
@@ -197,7 +197,7 @@
                                                 }
                                             }
                                         }else {
-                                            die("No Donor so far");
+                                            echo "No Donor so far";
                                         }
                                     }
                                 ?>

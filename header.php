@@ -86,7 +86,7 @@
 	  					</div>
 
 	  					<ul class="nav pull-right">
-	  						<?php if(isset($_SESSION['SESS_MEMBER_ID'])) echo "<a style=\"color:white;text-decoration:none\" href=\"logout.php\"><button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\"style=\"margin:10px\" data-toggle=\"modal\">Log out</button></a>"; else echo "<button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\"style=\"margin:10px\" data-toggle=\"modal\" data-target=\"#signinModal\" id=\"signinHomeButton\">Sign In</button>" ?>
+	  						<?php if(isset($_SESSION['SESS_MEMBER_ID'])) echo "<a style=\"color:white;text-decoration:none\" href=\"logout.php\"><button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" style=\"margin:10px\" data-toggle=\"modal\">Log out</button></a>"; else echo "<button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" style=\"margin:10px\" data-toggle=\"modal\" data-target=\"#signinModal\" id=\"signinHomeButton\">Sign In</button>" ?>
 	  					</ul>
 	  				</div><!--/.nav-collapse -->
 	  			</div>
@@ -118,14 +118,14 @@
 	  											<input type="text" value="Email" id="emailDonor" name="emailDonor" class="input-xlarge" onClick="clearElement('emailDonor')" style="color:black">
 	  											<label>Password</label>
 	  											<input type="password"  id="passwordDonor" name="passwordDonor" maxlength="25" class="input-xlarge" value="Password" onClick="clearElement('passwordDonor')" style="color:black">
-	  											<form class "well form-inline">
+	  											<div class="well form-inline">
 	  												<div>
-	  													<input type="submit" class="btn btn-primary" name="dlogin" value="Login" onClick="return submitSignin('emailDonor','passwordDonor')"></button>
-	  													<input type="submit" class="btn btn-default" name="dforgot" value="Forgot Password" onClick="#"></button>
+	  													<input type="submit" class="btn btn-primary" name="dlogin" value="Login" onClick="return submitSignin('emailDonor','passwordDonor')">
+	  													<input type="submit" class="btn btn-default" name="dforgot" value="Forgot Password" onClick="#">
 	  												</div>
-	  											</form>
+	  											</div>
 	  											<div>
-	  												<input type="submit" class="btn btn-success" name="dsub" value="Sign Up" id="signupDonorButton" ></button>
+	  												<input type="submit" class="btn btn-success" name="dsub" value="Sign Up" id="signupDonorButton" >
 	  											</div>
 	  										</form>
 	  									</div>
@@ -137,16 +137,16 @@
 	  											<input type="text" value="Email" id="emailNgo" name="emailNgo" class="input-xlarge" onClick="clearElement('emailNgo')" style="color:black">
 	  											<label>Password</label>
 	  											<input type="password"  id="passwordNgo" name="passwordNgo" maxlength="25" class="input-xlarge" value="Password" onClick="clearElement('passwordNgo')" style="color:black">
-	  											<form class "well form-inline">
+	  											<div class="well form-inline">
 	  												<div>
-	  													<input type="submit" class="btn btn-primary" name="nlogin" value="Login" onClick="return submitSignin('emailNgo','passwordNgo')"></button>
+	  													<input type="submit" class="btn btn-primary" name="nlogin" value="Login" onClick="return submitSignin('emailNgo','passwordNgo')">
 
-	  													<input type="submit" class="btn btn-default" name="nforgot" value="Forgot Password" onClick="#"></button>
+	  													<input type="submit" class="btn btn-default" name="nforgot" value="Forgot Password" onClick="#">
 	  												</div>
-	  											</form>
+	  											</div>
 	  											<div>
-	  												<input type="submit" class="btn btn-success" name="signup_ngo_reg" value="Sign Up as NGO" id="signupNgo"></button>
-	  											</div><br/>
+	  												<input type="submit" class="btn btn-success" name="signup_ngo_reg" value="Sign Up as NGO" id="signupNgo">
+	  											</div>
 	  										</form>
 	  								</div>
 	  							</div>
@@ -169,7 +169,7 @@
 	  												<label for="file">Browse Photo</label>
 	  												<input type="file" name="image" >
 	  											</div >
-	  											<input type="submit" class="btn btn-primary" name="submitFormDonor" value="Sign Up" onClick="return submitSignUpForDonor()"></button>
+	  											<input type="submit" class="btn btn-primary" name="submitFormDonor" value="Sign Up" onClick="return submitSignUpForDonor()">
 	  										</div>
 	  									</form>
 	  								</div>
@@ -209,7 +209,7 @@
 	  														<label for="file">Upload Logo</label>
 	  														<input type="file" name="regNgoLogo" >
 	  													</div >
-	  													<input type="submit" class="btn btn-primary" name="submitFormRegNgo" value="Sign Up" onClick="return submit3()"></button>
+	  													<input type="submit" class="btn btn-primary" name="submitFormRegNgo" value="Sign Up" onClick="return submit3()">
 	  												</div>
 	  											</form>
 	  										</div>
@@ -235,7 +235,7 @@
 	  														<label for="file">Upload Logo</label>
 	  														<input type="file" name="unregNgoLogo" >
 	  													</div >
-	  													<input type="submit" class="btn btn-primary" name="submitFormUnRegNgo" value="Sign Up" onClick="return submit4()"></button>
+	  													<input type="submit" class="btn btn-primary" name="submitFormUnRegNgo" value="Sign Up" onClick="return submit4()">
 	  												</div>
 	  											</form>
 	  										</div>
