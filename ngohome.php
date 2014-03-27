@@ -71,7 +71,7 @@
                     <div class="well well-sm" style="height: auto;"> 
                         <div class="media">
                             <a class="thumbnail pull-left" href="#">
-                                <img style="height: 200px;" class="media-object" src="<?php echo $logo?>">
+                                <img style="height: 200px;" class="media-object" src="<?php echo $logo ?>">
                             </a>
                             <div class="media-body" style="margin-left: 225px;">
                                 <h1 class="media-heading" id="nameOfNgo" name="nameOfNgo"><?php echo $ngoname ?></h1>

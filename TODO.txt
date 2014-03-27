@@ -35,3 +35,11 @@ TODO:Sampark
 17) Rating Functionlity - Most popular NGO, Rate an NGO, Enable Rating, Rating Algo
 
 18) Implement Search
+
+19) Add load more post button in NGOHOME
+
+20) Are you sure in delete post 
+
+21) Check inputs i.e. not containing '
+
+22) After going to index from back button, log out should be displayed

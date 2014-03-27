@@ -1,16 +1,4 @@
 
-function email(email)
-{
-	document.getElementById(email).value="";
-	document.getElementById(email).style.color="black";
-}
-
-function password(password)
-{
-	document.getElementById(password).value="";
-	document.getElementById(password).style.color="black";
-}
-
 function submitSignin(email,password)
 {
 	if(document.getElementById(email).value==""|| document.getElementById(email).value=="Email")
@@ -47,35 +35,10 @@ function submitSignin(email,password)
 }
 
 
-function fnf()
+function clearElement(element)
 {
-	document.getElementById("fn").value="";
-	document.getElementById("fn").style.color="black";
-}
-
-function lnf()
-{
-	document.getElementById("ln").value="";
-	document.getElementById("ln").style.color="black";
-}
-
-
-function mobf()
-{
-	document.getElementById("mob").value="";
-	document.getElementById("mob").style.color="black";
-}
-
-function emlf()
-{
-	document.getElementById("em").value="";
-	document.getElementById("em").style.color="black";
-}
-
-function pwdf()
-{
-	document.getElementById("pass").value="";
-	document.getElementById("pass").style.color="black";
+	document.getElementById(element).value="";
+	document.getElementById(element).style.color="black";
 }
 
 function editProfielForDonor()
@@ -226,96 +189,6 @@ function submitSignUpForDonor()
 	}
 }
 
-function nnf()
-{
-	document.getElementById("nn").value="";
-	document.getElementById("nn").style.color="black";
-}
-
-function cnf()
-{
-	document.getElementById("cn").value="";
-	document.getElementById("cn").style.color="black";
-}
-
-function regnof()
-{
-	document.getElementById("regno").value="";
-	document.getElementById("regno").style.color="black";
-}
-function emf()
-{
-	document.getElementById("eml").value="";
-	document.getElementById("eml").style.color="black";
-}
-
-function contf()
-{
-	document.getElementById("cont").value="";
-	document.getElementById("cont").style.color="black";
-}
-
-function passf()
-{
-	document.getElementById("pwd").value="";
-	document.getElementById("pwd").style.color="black";
-}
-function dcf()
-{
-	document.getElementById("dc").value="";
-	document.getElementById("dc").style.color="black";
-}
-function vif()
-{
-	document.getElementById("vi").value="";
-	document.getElementById("vi").style.color="black";
-}
-function webf()
-{
-	document.getElementById("web").value="";
-	document.getElementById("web").style.color="black";
-}
-
-function unnf()
-{
-	document.getElementById("unn").value="";
-	document.getElementById("unn").style.color="black";
-}
-
-function ucnf()
-{
-	document.getElementById("ucn").value="";
-	document.getElementById("ucn").style.color="black";
-}
-
-function uemf()
-{
-	document.getElementById("ueml").value="";
-	document.getElementById("ueml").style.color="black";
-}
-
-function ucontf()
-{
-	document.getElementById("ucont").value="";
-	document.getElementById("ucont").style.color="black";
-}
-
-function upassf()
-{
-	document.getElementById("upwd").value="";
-	document.getElementById("upwd").style.color="black";
-}
-
-function udcf()
-{
-	document.getElementById("udc").value="";
-	document.getElementById("udc").style.color="black";
-}
-function uvif()
-{
-	document.getElementById("uvi").value="";
-	document.getElementById("uvi").style.color="black";
-}
 
 function esubmit3()
 {
@@ -638,23 +511,6 @@ function submit4()
 
 }
 
-function eventNamef()
-{
-	document.getElementById("eventName").value="";
-	document.getElementById("eventName").style.color="black";
-}
-
-function eventDetailsf()
-{
-	document.getElementById("eventDetails").value="";
-	document.getElementById("eventDetails").style.color="black";
-}
-
-function eventLocationf()
-{
-	document.getElementById("eventLocation").value="";
-	document.getElementById("eventLocation").style.color="black";
-}
 
 function eventPostf()
 {

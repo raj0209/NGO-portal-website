@@ -115,9 +115,9 @@
 	  										<form action="login_donor.php" method="post" id="tabDonor" enctype="multipart/form-data">
 	  											<input type="hidden" name="donor" value="donor">
 	  											<label>Email</label>
-	  											<input type="text" value="Email" id="emailDonor" name="emailDonor" class="input-xlarge" onClick="email('emailDonor')" style="color:black">
+	  											<input type="text" value="Email" id="emailDonor" name="emailDonor" class="input-xlarge" onClick="clearElement('emailDonor')" style="color:black">
 	  											<label>Password</label>
-	  											<input type="password"  id="passwordDonor" name="passwordDonor" maxlength="25" class="input-xlarge" value="Password" onClick="password('passwordDonor')" style="color:black">
+	  											<input type="password"  id="passwordDonor" name="passwordDonor" maxlength="25" class="input-xlarge" value="Password" onClick="clearElement('passwordDonor')" style="color:black">
 	  											<form class "well form-inline">
 	  												<div>
 	  													<input type="submit" class="btn btn-primary" name="dlogin" value="Login" onClick="return submitSignin('emailDonor','passwordDonor')"></button>
@@ -134,9 +134,9 @@
 	  										<form action="login_ngo.php" method="post" id="tabNgo" enctype="multipart/form-data">
 	  											<input type="hidden" name="ngo" value="ngo">				
 	  											<label>Email</label>
-	  											<input type="text" value="Email" id="emailNgo" name="emailNgo" class="input-xlarge" onClick="email('emailNgo')" style="color:black">
+	  											<input type="text" value="Email" id="emailNgo" name="emailNgo" class="input-xlarge" onClick="clearElement('emailNgo')" style="color:black">
 	  											<label>Password</label>
-	  											<input type="password"  id="passwordNgo" name="passwordNgo" maxlength="25" class="input-xlarge" value="Password" onClick="password('passwordNgo')" style="color:black">
+	  											<input type="password"  id="passwordNgo" name="passwordNgo" maxlength="25" class="input-xlarge" value="Password" onClick="clearElement('passwordNgo')" style="color:black">
 	  											<form class "well form-inline">
 	  												<div>
 	  													<input type="submit" class="btn btn-primary" name="nlogin" value="Login" onClick="return submitSignin('emailNgo','passwordNgo')"></button>
@@ -157,13 +157,13 @@
 	  									<form action="signupdonor.php" method="post" id="tab" enctype="multipart/form-data" >
 
 	  										<label>Name</label>
-	  										<input type="text" value="First Name" id="fn" name="name" class="input-xlarge" onClick="fnf()" style="color:black">
+	  										<input type="text" value="First Name" id="fn" name="name" class="input-xlarge" onClick="clearElement('fn')" style="color:black">
 	  										<label>Email</label>
-	  										<input type="text" value="Email" id="em" name="email" class="input-xlarge" onClick="emlf()" style="color:black">
+	  										<input type="text" value="Email" id="em" name="email" class="input-xlarge" onClick="clearElement('em')" style="color:black">
 	  										<label>Contact Number</label>
-	  										<input type="text" value="Mobile Number" id="mob" name="mobile" maxlength="10" class="input-xlarge" onClick="mobf()" style="color:black">
+	  										<input type="text" value="Mobile Number" id="mob" name="mobile" maxlength="10" class="input-xlarge" onClick="clearElement('mob')" style="color:black">
 	  										<label>Password</label>
-	  										<input type="password" value="Password" id="pass" name="password" maxlength="25" class="input-xlarge" onClick="pwdf()" style="color:black">	       
+	  										<input type="password" value="Password" id="pass" name="password" maxlength="25" class="input-xlarge" onClick="clearElement('pass')" style="color:black">	       
 	  										<div>
 	  											<div class="btn btn-default btn-file">
 	  												<label for="file">Browse Photo</label>
@@ -187,23 +187,23 @@
 	  											<form action="signupregngo.php" method="post" id="tab" enctype="multipart/form-data">
 
 	  												<label>NGO Name</label>
-	  												<input type="text"  id="nn" name="nn" class="input-xlarge" value="Name of NGO" onClick="nnf()" style="color:black">
+	  												<input type="text"  id="nn" name="nn" class="input-xlarge" value="Name of NGO" onClick="clearElement('nn')" style="color:black">
 	  												<label>Registration Number</label>
-	  												<input type="text" id="regno" name="regno" class="input-xlarge" value="Registration Number" onClick="regnof()" style="color:black">
+	  												<input type="text" id="regno" name="regno" class="input-xlarge" value="Registration Number" onClick="clearElement('regno')" style="color:black">
 	  												<label>Name of Contact Person</label>
-	  												<input type="text"  id="cn" name="cn" class="input-xlarge" value="Name of Contact Person" onClick="cnf()" style="color:black">
+	  												<input type="text"  id="cn" name="cn" class="input-xlarge" value="Name of Contact Person" onClick="clearElement('cn')" style="color:black">
 	  												<label>Email</label>
-	  												<input type="text" value="Email" id="eml" name="eml" class="input-xlarge" onClick="emf()" style="color:black">
+	  												<input type="text" value="Email" id="eml" name="eml" class="input-xlarge" onClick="clearElement('eml')" style="color:black">
 	  												<label>Contact Number</label>
-	  												<input type="text"  id="cont" name="cont"  maxlength="10" class="input-xlarge" value="Contact Number" onClick="contf()" style="color:black">
+	  												<input type="text"  id="cont" name="cont"  maxlength="10" class="input-xlarge" value="Contact Number" onClick="clearElement('cont')" style="color:black">
 	  												<label>Password</label>
-	  												<input type="password"  id="pwd" name="pwd" maxlength="25" class="input-xlarge" value="Password" onClick="passf()" style="color:black">
+	  												<input type="password"  id="pwd" name="pwd" maxlength="25" class="input-xlarge" value="Password" onClick="clearElement('pwd')" style="color:black">
 	  												<label>Description</label>
-	  												<textarea rows="5" id="dc" name="dc" class="input-xlarge" onClick="dcf()" style="color:black"></textarea>
+	  												<textarea rows="5" id="dc" name="dc" class="input-xlarge" onClick="clearElement('dc')" style="color:black"></textarea>
 	  												<label>Vision</label>
-	  												<textarea  rows="3" id="vi" name="vi" value="vision" class="input-xlarge" onClick="vif()" style="color:black"></textarea>
+	  												<textarea  rows="3" id="vi" name="vi" value="vision" class="input-xlarge" onClick="clearElement('vi')" style="color:black"></textarea>
 	  												<label>Website</label>
-	  												<input type="text"  id="web" name="web" class="input-xlarge" value="Website" onClick="webf()" style="color:black">
+	  												<input type="text"  id="web" name="web" class="input-xlarge" value="Website" onClick="clearElement('web')" style="color:black">
 	  												<div>
 	  													<div class="btn btn-default btn-file">
 	  														<label for="file">Upload Logo</label>
@@ -217,19 +217,19 @@
 	  											<form action="signupunregngo.php" method="post" id="tab" enctype="multipart/form-data">
 
 	  												<label>NGO Name</label>
-	  												<input type="text"  id="unn" name="unn" class="input-xlarge" value="Name of NGO" onClick="unnf()" style="color:black">
+	  												<input type="text"  id="unn" name="unn" class="input-xlarge" value="Name of NGO" onClick="clearElement('unn')" style="color:black">
 	  												<label>Name of Contact Person</label>
-	  												<input type="text"  id="ucn" name="ucn" class="input-xlarge" value="Name of Contact Person" onClick="ucnf()" style="color:black">
+	  												<input type="text"  id="ucn" name="ucn" class="input-xlarge" value="Name of Contact Person" onClick="clearElement('ucn')" style="color:black">
 	  												<label>Email</label>
-	  												<input type="text" value="Email" id="ueml" name="ueml" class="input-xlarge" onClick="uemf()" style="color:black">
+	  												<input type="text" value="Email" id="ueml" name="ueml" class="input-xlarge" onClick="clearElement('ueml')" style="color:black">
 	  												<label>Contact Number</label>
-	  												<input type="text"  id="ucont" name="ucont" maxlength="10" class="input-xlarge" value="Contact Number" onClick="ucontf()" style="color:black">
+	  												<input type="text"  id="ucont" name="ucont" maxlength="10" class="input-xlarge" value="Contact Number" onClick="clearElement('ucont')" style="color:black">
 	  												<label>Password</label>
-	  												<input type="password"  id="upwd" name="upwd" maxlength="25" class="input-xlarge" value="Password" onClick="upassf()" style="color:black">
+	  												<input type="password"  id="upwd" name="upwd" maxlength="25" class="input-xlarge" value="Password" onClick="clearElement('upwd')" style="color:black">
 	  												<label>Description</label>
-	  												<textarea rows="5" id="udc" name="udc" class="input-xlarge" onClick="udcf()" style="color:black"></textarea>
+	  												<textarea rows="5" id="udc" name="udc" class="input-xlarge" onClick="clearElement('udc')" style="color:black"></textarea>
 	  												<label>Vision</label>
-	  												<textarea  rows="3" id="uvi" name="uvi" value="vision" class="input-xlarge" onClick="uvif()" style="color:black"></textarea>
+	  												<textarea  rows="3" id="uvi" name="uvi" value="vision" class="input-xlarge" onClick="clearElement('uvi')" style="color:black"></textarea>
 	  												<div>
 	  													<div class="btn btn-default btn-file">
 	  														<label for="file">Upload Logo</label>
