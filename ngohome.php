@@ -71,7 +71,7 @@
                     <div class="well well-sm" style="height: auto;"> 
                         <div class="media">
                             <a class="thumbnail pull-left" href="#">
-                                <img style="height: 200px;" class="media-object" src="<?php echo $logo?>">
+                                <img style="height: 200px;" class="media-object" src="<?php echo $logo ?>">
                             </a>
                             <div class="media-body" style="margin-left: 225px;">
                                 <h1 class="media-heading" id="nameOfNgo" name="nameOfNgo"><?php echo $ngoname ?></h1>
@@ -105,7 +105,7 @@
             <div class="row" id="allPostContainer">
                 <div class="col-md-4" >
                     <div class="well well-sm" style="height: auto;">
-                        <h1>Events<h1>
+                        <h1>Events</h1>
                         <div class="media">
                             <div class="media-body">
                                 <?php
@@ -127,10 +127,10 @@
                                                         <input type="hidden" name="ngoPid" value=" <?php echo $pid ?>">
                                                         <h3 class="media-heading"><?php echo $postName ?><small><?php echo " ".substr($postTime,0,10) ?></small></h3>
                                                         <div class="media">
-                                                            <p><b>From:</b> <?php echo $postFromDate ?>  &nbsp; &nbsp;<b>To:</b> <?php echo $postToDate ?> </p>
-                                                            <p ><b>Detail:</b><?php echo $postDetail ?></p>
+                                                            <p><b>From: </b> <?php echo $postFromDate ?>  &nbsp; &nbsp;<b>To:</b> <?php echo $postToDate ?> </p>
+                                                            <p ><b>Detail: </b><?php echo $postDetail ?></p>
                                                             <div>
-                                                                <p style="float:left;"><b>Location:</b><?php echo $postLocation ?></p>
+                                                                <p style="float:left;"><b>Location: </b><?php echo $postLocation ?></p>
                                                                 <input style="float:right;" type="submit" class="btn btn-primary" name="deletePost" value="Delete" ></button>
                                                             </div>
                                                         </div>
@@ -140,7 +140,7 @@
                                            }  
                                         }
                                     }else {
-                                        die("No event posted so far");
+                                        echo "No event posted so far";
                                     }
                                 ?>
 
@@ -153,7 +153,7 @@
             <div class="row" id="allDonorContainer" style="display: none;">
                 <div class="col-md-4" >
                     <div class="well well-sm" style="height: auto;">
-                        <h1>Donors<h1>
+                        <h1>Donors</h1>
                         <div class="media">
                             <div class="media-body">
                                 <?php
@@ -197,7 +197,7 @@
                                                 }
                                             }
                                         }else {
-                                            die("No Donor so far");
+                                            echo "No Donor so far";
                                         }
                                     }
                                 ?>
@@ -221,15 +221,15 @@
 						<div class="well">
 							<form action="eventPosted.php" method="post">
 								<label>Name of Event</label>
-								<input type="text" value="Name of Event" id="eventName" name="eventName" class="input-xlarge" onClick="eventNamef()" style="color:black">
+								<input type="text" value="Name of Event" id="eventName" name="eventName" class="input-xlarge" onClick="clearElement('eventName')" style="color:black">
 								<label>Details of Event</label>
-	  							<textarea rows="3" id="eventDetails" name="eventDetails" class="input-xlarge" onClick="eventDetailsf()" style="color:black"></textarea>
+	  							<textarea rows="3" id="eventDetails" name="eventDetails" class="input-xlarge" onClick="clearElement('eventDetails')" style="color:black"></textarea>
 								<label>Start Date </label>
 								<input type="date" name="startDate" id="startDate" class="input-xlarge" style="color:black">
 								<label>End Date </label>
 								<input type="date" name="endDate" id="endDate" class="input-xlarge" style="color:black">
 								<label>Location</label>
-								<input type="text" value="Location of Event" id="eventLocation" name="eventLocation" class="input-xlarge" onClick="eventLocationf()" style="color:black">
+								<input type="text" value="Location of Event" id="eventLocation" name="eventLocation" class="input-xlarge" onClick="clearElement('eventLocation')" style="color:black">
 								<div>
 									<input type="submit" class="btn btn-primary" name="postEvent" value="Post Event" onClick="return eventPostf()"></button>
 								</div>
@@ -251,23 +251,23 @@
 						<div class="well">
 							<form action="editedProfile.php" method="post" enctype="multipart/form-data">
 								<label>NGO Name</label>
-								<input type="text"  id="enn" name="enn" class="input-xlarge" value="<?php echo $ngoname?>" onClick="nnf()" style="color:black">
+								<input type="text"  id="enn" name="enn" class="input-xlarge" value="<?php echo $ngoname?>" onClick="clearElement('enn')" style="color:black">
 								<label>Registration Number</label>
-	  							<input type="text" id="eregno" name="eregno" class="input-xlarge" value="<?php echo $regno?>" onClick="regnof()" style="color:black">
+	  							<input type="text" id="eregno" name="eregno" class="input-xlarge" value="<?php echo $regno?>" onClick="clearElement('eregno')" style="color:black">
 	  							<label>Name of Contact Person</label>
-	  							<input type="text"  id="ecn" name="ecn" class="input-xlarge" value="<?php echo $cpn?>" onClick="cnf()" style="color:black">
+	  							<input type="text"  id="ecn" name="ecn" class="input-xlarge" value="<?php echo $cpn?>" onClick="clearElement('ecn')" style="color:black">
 	  							<label>Email</label>
-								<input type="text" value="<?php echo $email?>" id="eeml" name="eeml" class="input-xlarge" onClick="emf()" style="color:black">
+								<input type="text" value="<?php echo $email?>" id="eeml" name="eeml" class="input-xlarge" onClick="clearElement('eeml')" style="color:black">
 	  							<label>Contact Number</label>
-	  							<input type="text"  id="econt" name="econt"  maxlength="10" class="input-xlarge" value="<?php echo $cno?>" onClick="contf()" style="color:black">
+	  							<input type="text"  id="econt" name="econt"  maxlength="10" class="input-xlarge" value="<?php echo $cno?>" onClick="clearElement('econt')" style="color:black">
 	  							<label>Password</label>
-	  							<input type="password"  id="epwd" name="epwd" maxlength="25" class="input-xlarge" onClick="passf()" style="color:black">
+	  							<input type="password"  id="epwd" name="epwd" maxlength="25" class="input-xlarge" onClick="clearElement('epwd')" style="color:black">
 								<label>Description</label>
-	  							<textarea rows="5" id="edc" name="edc" class="input-xlarge" onClick="dcf()" style="color:black"><?php echo $des?></textarea>
+	  							<textarea rows="5" id="edc" name="edc" class="input-xlarge" onClick="clearElement('edc')" style="color:black"><?php echo $des?></textarea>
 	  							<label>Vision</label>
-	  							<textarea  rows="3" id="evi" name="evi" class="input-xlarge" onClick="vif()" style="color:black"><?php echo $vision?></textarea>
+	  							<textarea  rows="3" id="evi" name="evi" class="input-xlarge" onClick="clearElement('evi')" style="color:black"><?php echo $vision?></textarea>
 	  							<label>Website</label>
-	  							<input type="text"  id="eweb" name="eweb" class="input-xlarge" value="<?php echo $web?>" onClick="webf()" style="color:black">
+	  							<input type="text"  id="eweb" name="eweb" class="input-xlarge" value="<?php echo $web?>" onClick="clearElement('eweb')" style="color:black">
 	  							<div>
 	  								<div class="btn btn-default btn-file" style="margin-right: 60px;">
 	  									<label for="file">Upload Logo</label>
