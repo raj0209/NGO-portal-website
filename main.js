@@ -1,4 +1,11 @@
 
+function clearElement(element)
+{
+	document.getElementById(element).value="";
+	document.getElementById(element).style.color="black";
+}
+
+
 function submitSignin(email,password)
 {
 	if(document.getElementById(email).value==""|| document.getElementById(email).value=="Email")
@@ -32,13 +39,6 @@ function submitSignin(email,password)
 		document.getElementById(password).focus();
 		return false;
 	}
-}
-
-
-function clearElement(element)
-{
-	document.getElementById(element).value="";
-	document.getElementById(element).style.color="black";
 }
 
 function editProfielForDonor()

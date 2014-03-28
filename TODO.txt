@@ -43,3 +43,5 @@ TODO:Sampark
 21) Check inputs i.e. not containing '
 
 22) After going to index from back button, log out should be displayed
+
+23) Change value to placeholder into type="text" type inputs
