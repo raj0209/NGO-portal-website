@@ -25,8 +25,8 @@ else
 
 	move_uploaded_file($_FILES["unregNgoLogo"]["tmp_name"],$filePath);
 
-	$insertQuery = "insert into Ngo(name,logo,description,vision,contact_person,email,contact,rate,rstatus,website,password) 
-values('$name','$filePath','$des','$vis','$cpn','$email','$cno',1,0,'$web','$password')";
+	$insertQuery = "insert into Ngo(name,logo,description,vision,contact_person,email,contact,rate,rstatus,password) 
+values('$name','$filePath','$des','$vis','$cpn','$email','$cno',1,0,'$password')";
 	$result = mysql_query($insertQuery);
 	
 	if (!$result)

@@ -22,6 +22,7 @@
         $cno = $member['contact'];
         $des = $member['description'];
         $vision = $member['vision'];
+		$rstatus = $member['rstatus'];
         $logo = $member['logo'];
         $web = $member['website'];
         $address = $member['address'];
@@ -121,7 +122,7 @@
                                                $postFromDate = $row['fromDate'];
                                                $postToDate = $row['toDate'];
                                                $postLocation = $row['location']; ?>
-                                                <form action="deletePost.php" method="post" enctype="multipart/form-data">
+                                                <form action="deletePost.php"  method="post" enctype="multipart/form-data">
                                                     <div class="well well-sm">
                                                         <input type="hidden" name="postTime" value=" <?php echo $postTime ?>">
                                                         <input type="hidden" name="ngoPid" value=" <?php echo $pid ?>">
@@ -131,7 +132,7 @@
                                                             <p ><b>Detail: </b><?php echo $postDetail ?></p>
                                                             <div>
                                                                 <p style="float:left;"><b>Location: </b><?php echo $postLocation ?></p>
-                                                                <input style="float:right;" type="submit" class="btn btn-primary" name="deletePost" value="Delete" ></button>
+                                                                <input style="float:right;" type="submit" class="btn btn-primary" name="deletePost" value="Delete" onClick="return confirm('Are you sure you wish to Delete this Event?')" ></button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -252,9 +253,16 @@
 							<form action="editedProfile.php" method="post" enctype="multipart/form-data">
 								<label>NGO Name</label>
 								<input type="text"  id="enn" name="enn" class="input-xlarge" value="<?php echo $ngoname?>" onClick="clearElement('enn')" style="color:black">
+								<?php
+								if($rstatus)
+								{
+								?>
 								<label>Registration Number</label>
 	  							<input type="text" id="eregno" name="eregno" class="input-xlarge" value="<?php echo $regno?>" onClick="clearElement('eregno')" style="color:black">
-	  							<label>Name of Contact Person</label>
+	  							<?php
+								}
+								?>								
+								<label>Name of Contact Person</label>
 	  							<input type="text"  id="ecn" name="ecn" class="input-xlarge" value="<?php echo $cpn?>" onClick="clearElement('ecn')" style="color:black">
 	  							<label>Email</label>
 								<input type="text" value="<?php echo $email?>" id="eeml" name="eeml" class="input-xlarge" onClick="clearElement('eeml')" style="color:black">
@@ -266,9 +274,16 @@
 	  							<textarea rows="5" id="edc" name="edc" class="input-xlarge" onClick="clearElement('edc')" style="color:black"><?php echo $des?></textarea>
 	  							<label>Vision</label>
 	  							<textarea  rows="3" id="evi" name="evi" class="input-xlarge" onClick="clearElement('evi')" style="color:black"><?php echo $vision?></textarea>
-	  							<label>Website</label>
+	  							<?php
+								if($rstatus)
+								{
+								?>
+								<label>Website</label>
 	  							<input type="text"  id="eweb" name="eweb" class="input-xlarge" value="<?php echo $web?>" onClick="clearElement('eweb')" style="color:black">
-	  							<div>
+	  							<?php
+								}
+								?>
+								<div>
 	  								<div class="btn btn-default btn-file" style="margin-right: 60px;">
 	  									<label for="file">Upload Logo</label>
 	  									<input type="file" name="regNgoLogo" >

@@ -24,9 +24,9 @@ TODO:Sampark
 
 12) Forms for contact
 
-13) Donor buttons implementation - DONE
+13) Donor buttons implementated but not working, same old problem
 
-14) Edit Profile - password  & logo problem + hide fields for unreg ngo 
+14) Edit Profile - password  & logo problem 
 
 15) Homepage, About, Contact, Footer
 
@@ -38,7 +38,7 @@ TODO:Sampark
 
 19) Add load more post button in NGOHOME
 
-20) Are you sure in delete post 
+20) Are you sure in delete post - DONE 
 
 21) Check inputs i.e. not containing '
 

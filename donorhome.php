@@ -144,7 +144,7 @@
                                                 }
                                             }
                                         }else {
-                                            //die("No Event to be displayed");
+                                            echo "No Event to be displayed";//die("No Event to be displayed");
                                         }
                                     }
                                 ?>
@@ -202,7 +202,7 @@
                                                 }
                                             }
                                         }else {
-                                            //die("No Favourite NGO so far");
+                                            echo "No Favourite NGO so far";//die("No Favourite NGO so far");
                                         }
                                     }
                                 ?>
