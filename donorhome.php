@@ -96,6 +96,122 @@
                 </div>
             </div>
         </div>
+		<div class="row" id="allFavNgoContainer" style="display: none;">
+                <div class="col-md-4" >
+                    <div class="well well-sm" style="height: auto;">
+                        <h1>Favourite NGOs<h1>
+                        <div class="media">
+                            <div class="media-body">
+                                <?php
+                                    $query = "SELECT * FROM Fav WHERE donor_pid = '$pid'";
+                                    $result = mysql_query($query);
+
+                                    if($result) {
+                                        if(mysql_num_rows($result) > 0) {
+                                            while ($row = mysql_fetch_assoc($result)) {
+                                                $ngoPid = $row['ngo_pid'];
+
+                                                // now find and add favorite donors into well
+                                                $queryNgo = "SELECT * FROM ngoPost WHERE pid = '$ngoPid'";
+                                                $resultNgo = mysql_query($queryNgo);
+
+                                                if($resultNgo) {
+                                                    if(mysql_num_rows($resultNgo) > 0) {
+                                                        while ($rowNgo= mysql_fetch_assoc($resultNgo)) {
+                                                            $nameEvent = $rowNgo['name'];
+                                                            $detailEvent = $rowNgo['detail'];
+                                                            $fdEvent = $rowNgo['fromDate'];
+                                                            $tdEvent = $rowNgo['toDate']; 
+															$locationEvent = $rowNgo['location'];?>
+                                                                <div class="well well-sm">
+                                                                    <div class="media">
+                                                                            <a class="thumbnail pull-left" href="#">
+                                                                                <img style="height: 100px;" class="media-object" src="<?php echo $photoDonor ?>">
+                                                                            </a>
+                                                                            <div class="media-body" style="margin-left: 120px;">
+                                                                                <h3 class="media-heading" ><?php echo $nameEvent ?></h3>
+                                                                                <div class="media">
+                                                                                    <p ><b>Details: </b><?php echo $detailEvent ?></p>
+                                                                                    <p ><b>From: </b><?php echo $fdEvent ?></p>&nbsp; &nbsp; <p ><b>From: </b><?php echo $fdEvent ?></p>
+                                                                                    <p ><b>Location: </b><?php echo $locationEvent ?></p>
+                                                                                </div>
+                                                                            </div>
+                                                                    </div>
+                                                                </div>
+                                                            <?php
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }else {
+                                            //die("No Event to be displayed");
+                                        }
+                                    }
+                                ?>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		<div class="row" id="allEventsDonorContainer" style="display: none;">
+                <div class="col-md-4" >
+                    <div class="well well-sm" style="height: auto;">
+                        <h1>Events<h1>
+                        <div class="media">
+                            <div class="media-body">
+                                <?php
+                                    $query = "SELECT * FROM Fav WHERE donor_pid = '$pid'";
+                                    $result = mysql_query($query);
+
+                                    if($result) {
+                                        if(mysql_num_rows($result) > 0) {
+                                            while ($row = mysql_fetch_assoc($result)) {
+                                                $ngoPid = $row['ngo_pid'];
+
+                                                // now find and add favorite donors into well
+                                                $queryNgo = "SELECT * FROM Ngo WHERE pid = '$ngoPid'";
+                                                $resultNgo = mysql_query($queryNgo);
+
+                                                if($resultNgo) {
+                                                    if(mysql_num_rows($resultNgo) > 0) {
+                                                        while ($rowNgo= mysql_fetch_assoc($resultNgo)) {
+                                                            $nameNgo = $rowNgo['name'];
+                                                            $emailNgo = $rowNgo['email'];
+                                                            $cpnNgo = $rowNgo['contact_person'];
+                                                            $contactNgo = $rowNgo['contact']; 
+															?>
+                                                                <div class="well well-sm">
+                                                                    <div class="media">
+                                                                            <a class="thumbnail pull-left" href="#">
+                                                                                <img style="height: 100px;" class="media-object" src="<?php echo $photoDonor ?>">
+                                                                            </a>
+                                                                            <div class="media-body" style="margin-left: 120px;">
+                                                                                <h3 class="media-heading" ><?php echo $nameNgo ?></h3>
+                                                                                <div class="media">
+                                                                                    <p ><b>Email: </b><?php echo $emailNgo ?></p>
+                                                                                    <p ><b>Contact Person: </b><?php echo $cpnNgo ?></p>
+                                                                                    <p ><b>Contact: </b><?php echo $contactNgo ?></p>
+                                                                                </div>
+                                                                            </div>
+                                                                    </div>
+                                                                </div>
+                                                            <?php
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }else {
+                                            //die("No Favourite NGO so far");
+                                        }
+                                    }
+                                ?>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 		<div class="modal fade" id="editProModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
