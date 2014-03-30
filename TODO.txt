@@ -62,3 +62,7 @@ TODO:Sampark
 30) user preference for number of ngos to be displayed on ranking table- Tushar, Shubham
 
 31) notification for uploaded photos- DONE
+
+32) database update - 
+
+33) duplicte entries check

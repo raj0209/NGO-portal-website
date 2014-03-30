@@ -13,12 +13,13 @@ name VARCHAR( 100 ) NOT NULL ,
 photo VARCHAR( 300 ) ,
 email VARCHAR( 100 ) NOT NULL Unique,
 contact VARCHAR( 20 ) ,
+verified_Donor TINYINT ,
 password VARCHAR( 300 ) NOT NULL)"; 
 
 $resultDonor = mysql_query($sqlQueryDonor);
 
 // ngo's detail table
-$sqlQueryNgor = "CREATE TABLE IF NOT EXISTS Ngo(
+$sqlQueryNgo = "CREATE TABLE IF NOT EXISTS Ngo(
 pid INT NOT NULL AUTO_INCREMENT ,
 PRIMARY KEY ( pid ) ,
 name VARCHAR( 100 ) NOT NULL ,
@@ -33,9 +34,11 @@ rate DOUBLE NOT NULL ,
 website VARCHAR(100) ,
 rstatus TINYINT ,
 rnumber VARCHAR( 30 ) ,
+verified_Ngo TINYINT,
+weighted_rate DOUBLE,
 password VARCHAR( 300 ) NOT NULL)";
 
-$resultNgor = mysql_query($sqlQueryNgor);
+$resultNgo = mysql_query($sqlQueryNgo);
 
 // Event table, dstatus is donation status, estatus is email status sent/notsent,
 // commdate is communication date 
@@ -54,7 +57,7 @@ FOREIGN KEY (ngo_pid) REFERENCES Ngo(pid))";
 $resultEvent = mysql_query($sqlQueryEvent);
 
 // Ngo catagories
-$sqlQueryCat = "CREATE TABLE IF NOT EXISTS catNgo(
+$sqlQueryCat = "CREATE TABLE IF NOT EXISTS CatNgo(
 ngo_pid INT NOT NULL,
 category VARCHAR( 50 ),
 FOREIGN KEY (ngo_pid) REFERENCES Ngo(pid))";
@@ -70,18 +73,9 @@ FOREIGN KEY (ngo_pid) REFERENCES Ngo(pid))";
 
 $resultFav = mysql_query($sqlQueryFav);
 
-// Details of contact person of NGO
-$sqlQueryContNgo = "CREATE TABLE IF NOT EXISTS ContNgo(
-ngo_pid INT NOT NULL,
-pname VARCHAR( 100 ) NOT NULL,
-pnumb VARCHAR( 20 ) NOT NULL,
-pemail VARCHAR( 100 ) NOT NULL,
-FOREIGN KEY (ngo_pid) REFERENCES Ngo(pid))";
-
-$resultContNgo = mysql_query($sqlQueryContNgo);
 
 // Details of posts of NGO
-$sqlQueryPostNgo = "CREATE TABLE IF NOT EXISTS ngoPost(
+$sqlQueryPostNgo = "CREATE TABLE IF NOT EXISTS NgoPost(
 ngo_pid INT NOT NULL,
 name VARCHAR( 100 ) NOT NULL,
 detail VARCHAR( 1000 ) ,
@@ -93,9 +87,17 @@ FOREIGN KEY (ngo_pid) REFERENCES Ngo(pid))";
 
 $resultPostNgo = mysql_query($sqlQueryPostNgo);
 
+//rating table
+$sqlQueryRate = "CREATE TABLE IF NOT EXISTS Rates(
+donor_pid INT NOT NULL,
+ngo_pid INT NOT NULL,
+rating TINYINT NOT NULL,
+FOREIGN KEY (ngo_pid) REFERENCES Ngo(pid),
+FOREIGN KEY (donor_pid) REFERENCES Donor(pid))";
 
+$resultRate = mysql_query($sqlQueryRate);
 
-if (!$resultDonor || !$resultNgor || !$resultEvent || !$resultFav || !$resultContNgo || !$resultPostNgo) {
+if (!$resultDonor || !$resultNgo || !$resultEvent || !$resultFav || !$resultRate || !$resultPostNgo || !$resultCatNgo ) {
     echo "<script type='text/javascript'>alert('failed!')</script>";
 }
 ?>
