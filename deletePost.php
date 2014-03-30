@@ -9,7 +9,7 @@ $pid=$_SESSION['SESS_MEMBER_ID'];
 
 $timeStamp = $_POST['postTime'];
 $pid = $_POST['ngoPid'];
-
+ 
 $query = "DELETE FROM ngoPost WHERE ngo_pid = '$pid' AND postTime = '$timeStamp'";
 $result = mysql_query($query);
 

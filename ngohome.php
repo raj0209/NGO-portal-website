@@ -10,34 +10,42 @@
     
     if($type=="NGO")
     {
-    $qry="SELECT * FROM Ngo WHERE email='$email' AND pid=$pid";
-    $result=mysql_query($qry);
-    if($result) {
-        if(mysql_num_rows($result) > 0) {
-        $member = mysql_fetch_assoc($result);
-        $ngoname = $member['name'];
-        $regno = $member['rnumber'];
-        $cpn = $member['contact_person'];
-        $email = $member['email'];
-        $cno = $member['contact'];
-        $des = $member['description'];
-        $vision = $member['vision'];
-		$rstatus = $member['rstatus'];
-        $logo = $member['logo'];
-        $web = $member['website'];
-        $address = $member['address'];
-        $password = $member['password'];
-        }
-    }   
-    else
-      echo $pid;
+		$qry="SELECT * FROM Ngo WHERE pid=$pid";
+		$result=mysql_query($qry);
+		if($result) {
+			if(mysql_num_rows($result) > 0) {
+			$member = mysql_fetch_assoc($result);
+			$ngoname = $member['name'];
+			$regno = $member['rnumber'];
+			$cpn = $member['contact_person'];
+			$email = $member['email'];
+			$cno = $member['contact'];
+			$des = $member['description'];
+			$vision = $member['vision'];
+			$rstatus = $member['rstatus'];
+			$logo = $member['logo'];
+			$web = $member['website'];
+			$address = $member['address'];
+			$password = $member['password'];
+			}
+		}   
+		else
+		  echo $pid;
     }
-    else
-        header("location: donorhome.php");
-
+	else{
+		$query = "SELECT * FROM Donor WHERE pid=$pid";
+		$result=mysql_query($query);
+		if($result) {
+			if(mysql_num_rows($result) > 0) {
+			$donorname= $member['name'];
+			$donormob = $member['contact'];
+		}
+	}
+	}
+    
 ?>
 
-<html lang="en">
+<html>
     <head>
         <meta charset="utf-8">
         <title><?php echo $ngoname ?></title>
@@ -140,9 +148,13 @@
                                                <?php
                                            }  
                                         }
-                                    }else {
+                                    }
+									else {
                                         echo "No event posted so far";
                                     }
+									
+								
+									
                                 ?>
 
                             </div>
@@ -197,7 +209,8 @@
                                                     }
                                                 }
                                             }
-                                        }else {
+                                        }
+										else {
                                             echo "No Donor so far";
                                         }
                                     }
@@ -296,7 +309,34 @@
 				</div>
 			</div>
 		</div>
-     </body>
+		<div class="modal fade" id="contactNgoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="myModalLabel2">Contact NGO</h4>
+					</div>
+					<div class="modal-body">
+						<div class="well">
+							<form action="contactNgo.php" method="post">
+								<label>Your Name</label>
+								<input type="text"  id="dn" name="dn" class="input-xlarge" value="<?php echo $donorname?>" onClick="clearElement('dn')" style="color:black">								
+								<label>NGO Name</label>
+								<input type="text"  id="cnn" name="cnn" class="input-xlarge" value="<?php echo $ngoname?>" onClick="clearElement('cnn')" style="color:black">
+								<label>Your Mobile Number</label>
+	  							<input type="text"  id="dm" name="dm"  maxlength="10" class="input-xlarge" value="<?php echo $donormob?>" onClick="clearElement('dm')" style="color:black">
+	  							<label>Date of Event/Donation</label>
+								<input type="date" name="DonationDate" id="DonationDate" class="input-xlarge" style="color:black">
+								<label>Description</label>
+	  							<textarea rows="5" id="dd" name="dd" class="input-xlarge" onClick="clearElement('dd')" style="color:black"></textarea>
+	  							<div>
+	  								<input type="submit" class="btn btn-primary" name="contactNgo" value="Contact" onClick="#"></button>
+	  							</div>							
+							</form>	
+						</div>		
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
-
-

@@ -619,3 +619,22 @@ function changeName(){
 	};
 
 };
+
+// Functions for DONOR page
+function DisplayEvents(){
+
+	
+	$("#allFavNgoContainer").hide();
+	$("#allEventsContainer").show();
+	
+
+};
+
+function DisplayNgo(){
+
+	
+	$("#allFavNgoContainer").show();
+	$("#allEventsContainer").hide();
+	
+
+};

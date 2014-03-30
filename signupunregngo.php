@@ -33,8 +33,8 @@ values('$name','$filePath','$des','$vis','$cpn','$email','$cno',1,0,'$password')
 	{
 		die('Error: ' . mysql_error());
 	}
-	echo "<font size = '5'><font color=\"#0CF44A\">SAVED TO DATABASE";
-
+	echo "<font size = '5'><font color=\"#0CF44A\">ACCOUNT CREATED...SIGN IN USING THE ACTIVATION LINK SENT TO YOUR EMAIL ID";
+	header("refresh:3;url=http://localhost/sampark/NGO-portal-website/index.php");
 }
 
 ?>

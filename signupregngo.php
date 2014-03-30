@@ -40,7 +40,29 @@ values('$name','$filePath','$des','$vis','$cpn','$email','$cno',1,1,'$regno','$w
 	{
 		die('Error: ' . mysql_error());
 	}
-	echo "<font size = '5'><font color=\"#0CF44A\">SAVED TO DATABASE";
+	echo "<font size = '5'><font color=\"#0CF44A\">ACCOUNT CREATED...SIGN IN USING THE ACTIVATION LINK SENT TO YOUR EMAIL ID";
+	/*
+	$to      = $email; // Send email to our user
+	$subject = 'Signup | Verification'; // Give the email a subject 
+	$message = '
+	 
+	Thanks for signing up!
+	Your account has been created, you can login with the following credentials after you have activated your account by pressing the url below.
+	 
+	------------------------
+	Username: '.$name.'
+	Password: '.$password.'
+	------------------------
+	 
+	Please click this link to activate your account:
+	http://www.yourwebsite.com/verify.php?email='.$email.'
+	 
+	'; // Our message above including the link
+						 
+	$headers = 'From:buddhdev.raj34@gmail.com' . "\r\n"; // Set from headers
+	mail($to, $subject, $message, $headers); // Send our email
+	*/
+	header("refresh:3;url=http://localhost/sampark/NGO-portal-website/index.php");
 
 }
 

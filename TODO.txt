@@ -10,7 +10,7 @@ TODO:Sampark
 
 5) redirect from login not working - DONE
 
-6) Add catagory and address fields for both type of NGO in header as well as database
+6) Add catagory and address fields for both type of NGO in header as well as database - ronak 
 
 7) Modal size and add back button - DONE
 
@@ -22,26 +22,43 @@ TODO:Sampark
 
 11) Add option to delete post - DONE
 
-12) Forms for contact
+12) Forms for contact - raj
 
-13) Donor buttons implementated but not working, same old problem
+13) Donor homepage - DONE
 
 14) Edit Profile - password  & logo problem 
 
-15) Homepage, About, Contact, Footer
+15) Homepage, About, Contact, Footer - ronak
 
 16) Location (if wanted we can do)
 
-17) Rating Functionlity - Most popular NGO, Rate an NGO, Enable Rating, Rating Algo
+17) Rating Functionlity - Most popular NGO, Rate an NGO, Enable Rating, Rating Algo - shubham
 
-18) Implement Search
+18) Implement Search - vijay
 
-19) Add load more post button in NGOHOME
+19) Add load more post button in NGOHOME/ranking page - shubham
 
 20) Are you sure in delete post - DONE 
 
 21) Check inputs i.e. not containing '
 
-22) After going to index from back button, log out should be displayed
+22) After going to index from back button, log out should be displayed - raj
 
-23) Change value to placeholder into type="text" type inputs
+23) Change value to placeholder into type="text" type inputs - DONE
+
+24) clear fields in all forms
+
+25) gmail verification - ronak
+
+26) maintain session
+
+27) add rating tab in navbar - DONE
+
+28) forgot password - raj
+
+29) Add durrent-tab functionality to rankingpage, about page and contact-page and Sampark page- 2 pages done!
+	The remaining two shall be done after about page and contact page are written- Shubham
+
+30) user preference for number of ngos to be displayed on ranking table- Tushar, Shubham
+
+31) notification for uploaded photos- DONE
