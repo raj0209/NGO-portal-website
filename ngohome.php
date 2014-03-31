@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <?php
+    include 'header.php';
+
 	require_once('auth.php');
 	include 'connect.php';
-    include 'header.php';
 
     $type=$_SESSION['SESS_TYPE'];
     $email=$_SESSION['SESS_EMAIL'];

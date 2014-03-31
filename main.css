@@ -1,6 +1,13 @@
 body {
     padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+    background: url(http://subtlepatterns.com/patterns/scribble_light.png) ;
 }
+
+input {
+    min-height: 30px;
+	max-height: 30px;
+}
+
 .btn-file {
     margin-right: 100px;
     position: relative;
@@ -22,11 +29,6 @@ body {
     background: white;
     cursor: inherit;
     display: block;
-}
-
-
-body {
-    background: url(http://subtlepatterns.com/patterns/scribble_light.png) ;
 }
 
 .wrapper {
@@ -224,7 +226,7 @@ body {
     position: relative;
 	margin-left:1px;
 	margin-right:1px;
-	
+
 }
 
 * {
@@ -244,6 +246,6 @@ html, body {
     margin: 0;
     background-color: #8E9393;
     height: 60px;/* or however high you would like */
-	
+
     bottom:0;
 }

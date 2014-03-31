@@ -1,11 +1,3 @@
-
-function clearElement(element)
-{
-	document.getElementById(element).value="";
-	document.getElementById(element).style.color="black";
-}
-
-
 function submitSignin(email,password)
 {
 	if(document.getElementById(email).value==""|| document.getElementById(email).value=="Email")
@@ -20,7 +12,7 @@ function submitSignin(email,password)
 	var d=x.lastIndexOf(".");
 	if(a<1 || d<a+2 || d+2>=x.length)
 	{
-		
+
 		alert("Invalid Email");
 		document.getElementById(email).focus();
 		return false;
@@ -49,7 +41,7 @@ if(document.getElementById("efn").value=="" || document.getElementById        ("
 		document.getElementById("efn").focus();
 		return false;
 	}
-	
+
 	if(document.getElementById("eem").value==""|| document.getElementById        ("eem").value=="Email")
 	{
 		alert("Please enter your email address");
@@ -62,12 +54,12 @@ if(document.getElementById("efn").value=="" || document.getElementById        ("
 	var d=x.lastIndexOf(".");
 	if(a<1 || d<a+2 || d+2>=x.length)
 	{
-		
+
 		alert("Invalid Email");
 		document.getElementById("eem").focus();
 		return false;
 	}
-	
+
 	if(document.getElementById("emob").value=="" || document.getElementById        ("emob").value=="Mobile Number")
 	{
 		alert("Please enter your mobile number");
@@ -77,7 +69,7 @@ if(document.getElementById("efn").value=="" || document.getElementById        ("
 
 	var n="0123456789";
 	var num,dig;
-	
+
 	num=document.getElementById("emob").value;
 	if(num.length==10)
 	{
@@ -98,7 +90,7 @@ if(document.getElementById("efn").value=="" || document.getElementById        ("
 		document.getElementById("emob").focus();
 		return false;
 	}
-	
+
 	if(document.getElementById("epass").value=="" || document.getElementById        ("epass").value=="Password")
 	{
 		alert("Please enter your password");
@@ -123,7 +115,7 @@ function submitSignUpForDonor()
 		document.getElementById("fn").focus();
 		return false;
 	}
-	
+
 	if(document.getElementById("em").value==""|| document.getElementById        ("em").value=="Email")
 	{
 		alert("Please enter your email address");
@@ -136,12 +128,12 @@ function submitSignUpForDonor()
 	var d=x.lastIndexOf(".");
 	if(a<1 || d<a+2 || d+2>=x.length)
 	{
-		
+
 		alert("Invalid Email");
 		document.getElementById("em").focus();
 		return false;
 	}
-	
+
 	if(document.getElementById("mob").value=="" || document.getElementById        ("mob").value=="Mobile Number")
 	{
 		alert("Please enter your mobile number");
@@ -151,7 +143,7 @@ function submitSignUpForDonor()
 
 	var n="0123456789";
 	var num,dig;
-	
+
 	num=document.getElementById("mob").value;
 	if(num.length==10)
 	{
@@ -172,7 +164,7 @@ function submitSignUpForDonor()
 		document.getElementById("mob").focus();
 		return false;
 	}
-	
+
 	if(document.getElementById("pass").value=="" || document.getElementById        ("pass").value=="Password")
 	{
 		alert("Please enter your password");
@@ -204,14 +196,14 @@ function esubmit3()
 		document.getElementById("eregno").focus();
 		return false;
 	}
-	
+
 	if(document.getElementById("ecn").value=="" || document.getElementById        ("ecn").value=="Name of Contact Person")
 	{
 		alert("Please enter name of contact person");
 		document.getElementById("ecn").focus();
 		return false;
 	}
-	
+
 	if(document.getElementById("eeml").value==""|| document.getElementById        ("eeml").value=="Email")
 	{
 		alert("Please enter your email address");
@@ -224,12 +216,12 @@ function esubmit3()
 	var d=x.lastIndexOf(".");
 	if(a<1 || d<a+2 || d+2>=x.length)
 	{
-		
+
 		alert("Invalid Email");
 		document.getElementById("eeml").focus();
 		return false;
 	}
-	
+
 	if(document.getElementById("econt").value=="" || document.getElementById        ("econt").value=="Contact Number")
 	{
 		alert("Please enter your contact number");
@@ -239,7 +231,7 @@ function esubmit3()
 
 	var n="0123456789";
 	var num,dig;
-	
+
 	num=document.getElementById("econt").value;
 	if(num.length==10)
 	{
@@ -260,7 +252,7 @@ function esubmit3()
 		document.getElementById("econt").focus();
 		return false;
 	}
-	
+
 	if(document.getElementById("epwd").value=="" || document.getElementById        ("epwd").value=="Password")
 	{
 		alert("Please enter your password");
@@ -275,8 +267,8 @@ function esubmit3()
 		document.getElementById("epwd").focus();
 		return false;
 	}
-	
-	
+
+
 
 	if(document.getElementById("edc").value=="" || document.getElementById        ("edc").value=="Description")
 	{
@@ -316,14 +308,14 @@ function submit3()
 		document.getElementById("regno").focus();
 		return false;
 	}
-	
+
 	if(document.getElementById("cn").value=="" || document.getElementById        ("cn").value=="Name of Contact Person")
 	{
 		alert("Please enter name of contact person");
 		document.getElementById("cn").focus();
 		return false;
 	}
-	
+
 	if(document.getElementById("eml").value==""|| document.getElementById        ("eml").value=="Email")
 	{
 		alert("Please enter your email address");
@@ -336,12 +328,12 @@ function submit3()
 	var d=x.lastIndexOf(".");
 	if(a<1 || d<a+2 || d+2>=x.length)
 	{
-		
+
 		alert("Invalid Email");
 		document.getElementById("eml").focus();
 		return false;
 	}
-	
+
 	if(document.getElementById("cont").value=="" || document.getElementById        ("cont").value=="Contact Number")
 	{
 		alert("Please enter your contact number");
@@ -351,7 +343,7 @@ function submit3()
 
 	var n="0123456789";
 	var num,dig;
-	
+
 	num=document.getElementById("cont").value;
 	if(num.length==10)
 	{
@@ -372,7 +364,7 @@ function submit3()
 		document.getElementById("cont").focus();
 		return false;
 	}
-	
+
 	if(document.getElementById("pwd").value=="" || document.getElementById        ("pwd").value=="Password")
 	{
 		alert("Please enter your password");
@@ -387,8 +379,8 @@ function submit3()
 		document.getElementById("pwd").focus();
 		return false;
 	}
-	
-	
+
+
 
 	if(document.getElementById("dc").value=="" || document.getElementById        ("dc").value=="Description")
 	{
@@ -396,7 +388,7 @@ function submit3()
 		document.getElementById("dc").focus();
 		return false;
 	}
-	
+
 	if(document.getElementById("add").value=="" || document.getElementById        ("add").value=="Address")
 	{
 		alert("Please enter the Address");
@@ -418,7 +410,7 @@ function submit3()
 	}
 		if(!document.getElementById("Health").checked && !document.getElementById("Food").checked && !document.getElementById("Education").checked && !document.getElementById("Old").checked && !document.getElementById("Child").checked )
 	{
-	
+
 		alert("Please select category");
 		document.getElementById("Health").focus();
 		document.getElementById("Food").focus();
@@ -439,14 +431,14 @@ function submit4()
 		return false;
 	}
 
-	
+
 	if(document.getElementById("ucn").value=="" || document.getElementById        ("ucn").value=="Name of Contact Person")
 	{
 		alert("Please enter name of contact person");
 		document.getElementById("ucn").focus();
 		return false;
 	}
-	
+
 	if(document.getElementById("ueml").value==""|| document.getElementById        ("ueml").value=="Email")
 	{
 		alert("Please enter your email address");
@@ -459,12 +451,12 @@ function submit4()
 	var d=x.lastIndexOf(".");
 	if(a<1 || d<a+2 || d+2>=x.length)
 	{
-		
+
 		alert("Invalid Email");
 		document.getElementById("ueml").focus();
 		return false;
 	}
-	
+
 	if(document.getElementById("ucont").value=="" || document.getElementById        ("ucont").value=="Contact Number")
 	{
 		alert("Please enter your contact number");
@@ -474,7 +466,7 @@ function submit4()
 
 	var n="0123456789";
 	var num,dig;
-	
+
 	num=document.getElementById("ucont").value;
 	if(num.length==10)
 	{
@@ -495,7 +487,7 @@ function submit4()
 		document.getElementById("ucont").focus();
 		return false;
 	}
-	
+
 	if(document.getElementById("upwd").value=="" || document.getElementById        ("upwd").value=="Password")
 	{
 		alert("Please enter your password");
@@ -510,8 +502,8 @@ function submit4()
 		document.getElementById("upwd").focus();
 		return false;
 	}
-	
-	
+
+
 
 	if(document.getElementById("udc").value=="" || document.getElementById        ("udc").value=="Description")
 	{
@@ -534,7 +526,7 @@ function submit4()
 	}
 	if(!document.getElementById("uHealth").checked && !document.getElementById("uFood").checked && !document.getElementById("uEducation").checked && !document.getElementById("uOld").checked && !document.getElementById("uChild").checked )
 	{
-	
+
 		alert("Please select category");
 		document.getElementById("uHealth").focus();
 		document.getElementById("uFood").focus();
@@ -555,36 +547,36 @@ function eventPostf()
 		document.getElementById("eventName").focus();
 		return false;
 	}
-	
+
 	if(document.getElementById("eventDetails").value=="" || document.getElementById        ("eventDetails").value=="Details of Event")
 	{
 		alert("Please enter the details of event");
 		document.getElementById("eventDetails").focus();
 		return false;
 	}
-	
+
 	if(document.getElementById("startDate").value=="" || document.getElementById        ("startDate").value=="dd-mm-yyyy")
 	{
 		alert("Please enter the start date of event");
 		document.getElementById("startDate").focus();
 		return false;
 	}
-	
+
 	if(document.getElementById("endDate").value=="" || document.getElementById        ("endDate").value=="dd-mm-yyyy")
 	{
 		alert("Please enter the end date of event");
 		document.getElementById("endDate").focus();
 		return false;
 	}
-	
+
 	if(document.getElementById("eventLocation").value=="" || document.getElementById        ("eventLocation").value=="Location of Event")
 	{
 		alert("Please enter the location of event");
 		document.getElementById("eventLocation").focus();
 		return false;
 	}
-	
-	
+
+
 }
 function hideAll()
 {
@@ -657,26 +649,25 @@ function changeName(){
 
 // Functions for DONOR page
 function DisplayEvents(){
-
-	
 	$("#allFavNgoContainer").hide();
 	$("#allEventsContainer").show();
-	
-
 };
 
 function DisplayNgo(){
-
-	
 	$("#allFavNgoContainer").show();
 	$("#allEventsContainer").hide();
-	
-
 };
 
+function ClearAll() {
 
+    var objInput = document.getElementsByTagName("input");
 
+    for (var iCount = 0; iCount < objInput.length; i++) {
 
+        if (objInput[iCount].type == "text")
 
+            objInput[iCount].value = "";
+        alert('clearing');
+    }
 
-
+}

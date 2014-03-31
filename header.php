@@ -59,17 +59,16 @@
 	  				</button>
 	  				<!--<img class="img-responsive" src="icons/NGO_icon.png">-->
 
-	  				<div class="nav-collapse collapse">
+	  				<div class="nav-collapse collapse" style="margin-top:9px">
 	  					<ul class="nav nav-tabs">
 	  						<li  class= "active" ><a class="brand" href="#">Sampark</a></li>
-	  						<!--<li class="active"><a href="#">Home</a></li>-->
-	  						<li><a href="#about">About</a></li>
-	  						<li><a href="#contact">Contact</a></li>
+	  						<li><a href="rankingpage.php">Top Organizations</a></li>
+	  						<li><a href="contact.php">Contact</a></li>	
 	  					</ul>
 	  					<div align="center" class="nav-collapse collapse" style="margin:10px">
 	  						<ul class="nav">
 	  							<form style="z-index: -1;" action="search.php" method="post" enctype="multipart/form-data" >
-	  								<input type="text" name="searchQuery" class="span6 search-query" style="margin:10px" placeholder="Search for NGO"/>
+	  								<input type="text" name="searchQuery" class="span4 search-query" style="margin:10px" placeholder="Search for NGO"/>
 	  								<div class="dropdown">
 	  									<a id="dLabel" role="button" class="btn btn-primary" data-toggle="dropdown" data-target="#">
 	  										Category <span class="caret"></span>								
@@ -85,9 +84,12 @@
 	  						</ul>
 	  					</div>
 
-	  					<ul class="nav pull-right">
+	  					<ul class="nav pull-right" style="margin-top:9px">
+							<input type="button" class="btn btn-success" name="signup" value="Create Account" id="signup" style="margin:10px" data-toggle="modal" data-target="#signupModal">
+							<!--<button class="btn btn-lg btn-primary btn-block" type="submit" style="margin:10px" data-toggle="modal" data-target="#signupModal\" id="signinHomeButton">Create Account</button>-->
 	  						<?php if(isset($_SESSION['SESS_MEMBER_ID'])) echo "<a style=\"color:white;text-decoration:none\" href=\"logout.php\"><button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" style=\"margin:10px\" data-toggle=\"modal\">Log out</button></a>"; else echo "<button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" style=\"margin:10px\" data-toggle=\"modal\" data-target=\"#signinModal\" id=\"signinHomeButton\">Sign In</button>" ?>
-	  					</ul>
+							
+						</ul>
 	  				</div><!--/.nav-collapse -->
 	  			</div>
 	  		</div>
@@ -115,18 +117,18 @@
 	  										<form action="login_donor.php" method="post" id="tabDonor" enctype="multipart/form-data">
 	  											<input type="hidden" name="donor" value="donor">
 	  											<label>Email</label>
-	  											<input type="text" placeholder="Email" id="emailDonor" name="emailDonor" class="input-xlarge" onClick="clearElement('emailDonor')" style="color:black">
+	  											<input type="text" placeholder="Email" id="emailDonor" name="emailDonor" class="input-xlarge" style="color:black">
 	  											<label>Password</label>
-	  											<input type="password"  id="passwordDonor" name="passwordDonor" maxlength="25" class="input-xlarge" placeholder="Password" onClick="clearElement('passwordDonor')" style="color:black">
+	  											<input type="password"  id="passwordDonor" name="passwordDonor" maxlength="25" class="input-xlarge" placeholder="Password" style="color:black">
 	  											<div class="well form-inline">
 	  												<div>
-	  													<input type="submit" class="btn btn-primary" name="dlogin" placeholder="Login" onClick="return submitSignin('emailDonor','passwordDonor')">
-	  													<input type="submit" class="btn btn-default" name="dforgot" placeholder="Forgot Password" onClick="#">
+	  													<input type="submit" class="btn btn-primary" name="dlogin" value="Login" onClick="return submitSignin('emailDonor','passwordDonor')">
+	  													<input type="button" class="btn btn-default" name="dforgot" value="Forgot Password" onClick="#">
 	  												</div>
 	  											</div>
-	  											<div>
-	  												<input type="submit" class="btn btn-success" name="dsub" value="Sign Up" id="signupDonorButton" >
-	  											</div>
+	  											<!--<div>
+	  												<input type="button" class="btn btn-success" name="dsub" value="Sign Up" id="signupDonorButton" >
+	  											</div>-->
 	  										</form>
 	  									</div>
 	  								</div>
@@ -134,36 +136,53 @@
 	  										<form action="login_ngo.php" method="post" id="tabNgo" enctype="multipart/form-data">
 	  											<input type="hidden" name="ngo" value="ngo">				
 	  											<label>Email</label>
-	  											<input type="text" placeholder="Email" id="emailNgo" name="emailNgo" class="input-xlarge" onClick="clearElement('emailNgo')" style="color:black">
+	  											<input type="text" placeholder="Email" id="emailNgo" name="emailNgo" class="input-xlarge" style="color:black">
 	  											<label>Password</label>
-	  											<input type="password"  id="passwordNgo" name="passwordNgo" maxlength="25" class="input-xlarge" placeholder="Password" onClick="clearElement('passwordNgo')" style="color:black">
+	  											<input type="password"  id="passwordNgo" name="passwordNgo" maxlength="25" class="input-xlarge" placeholder="Password" style="color:black">
 	  											<div class="well form-inline">
 	  												<div>
 	  													<input type="submit" class="btn btn-primary" name="nlogin" value="Login" onClick="return submitSignin('emailNgo','passwordNgo')">
-
-	  													<input type="submit" class="btn btn-default" name="nforgot" value="Forgot Password" onClick="#">
+	  													<input type="button" class="btn btn-default" name="nforgot" value="Forgot Password" onClick="#">
 	  												</div>
 	  											</div>
 	  										</form>
-  											<div>
-  												<input type="submit" class="btn btn-success" name="signup_ngo_reg" value="Sign Up as NGO" id="signupNgo">
-  											</div>
+  											<!--<div>
+  												<input type="button" class="btn btn-success" name="signup_ngo_reg" value="Sign Up as NGO" id="signupNgo">
+  											</div>-->
 	  								</div>
 	  							</div>
-	  							<div id="signupModalContent">
-	  								<div id="signupDonor">
+	  							
+	  					</div>
+
+	  				</div> 
+	  				<script src="bootstrap.min.js"></script>
+	  			</div>
+
+	  		</div>
+	  	</div><!-- /container -->
+		<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  			<div class="modal-dialog">
+	  				<div class="modal-header">
+	  					<button type="button" id="close" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	  				</div>
+	  				<br>
+	  				<div class="modal-content">
+	  					<div class="modal-body">
+	  						<div class="well">
+								<div id="signupModalContent">
+									<!--<div id="signupDonor">
 	  									<h4 >Sign up for Donors</h4>
 	  									<br>
 	  									<form action="signupdonor.php" method="post" id="tab" enctype="multipart/form-data" >
 
 	  										<label>Name</label>
-	  										<input type="text" placeholder="First Name" id="fn" name="name" class="input-xlarge" onClick="clearElement('fn')" style="color:black">
+	  										<input type="text" placeholder="First Name" id="fn" name="name" class="input-xlarge" style="color:black">
 	  										<label>Email</label>
-	  										<input type="text" placeholder="Email" id="em" name="email" class="input-xlarge" onClick="clearElement('em')" style="color:black">
+	  										<input type="text" placeholder="Email" id="em" name="email" class="input-xlarge" style="color:black">
 	  										<label>Contact Number</label>
-	  										<input type="text" placeholder="Mobile Number" id="mob" name="mobile" maxlength="10" class="input-xlarge" onClick="clearElement('mob')" style="color:black">
+	  										<input type="text" placeholder="Mobile Number" id="mob" name="mobile" maxlength="10" class="input-xlarge" style="color:black">
 	  										<label>Password</label>
-	  										<input type="password" placeholder="Password" id="pass" name="password" maxlength="25" class="input-xlarge" onClick="clearElement('pass')" style="color:black">	       
+	  										<input type="password" placeholder="Password" id="pass" name="password" maxlength="25" class="input-xlarge" style="color:black">	       
 	  										<div>
 	  											<div class="btn btn-default btn-file">
 	  												<span>Browse Photo</span>
@@ -172,40 +191,62 @@
 	  											<input type="submit" class="btn btn-primary" name="submitFormDonor" value="Sign Up" onClick="return submitSignUpForDonor()">
 	  										</div>
 	  									</form>
-	  								</div>
+	  								</div>-->
 
-	  								<div id="signupNgoModal">
-	  									<h4 >Sign up for NGOs</h4>
-	  									<br>
+										
+											<h4 >Sign up</h4>
+											<br>
 
-	  									<ul class="nav nav-tabs">
-	  										<li class="active"><a href="#regSignupNgo" data-toggle="tab" id="tabRegNGO" >For Registered NGO</a></li>
-	  										<li><a href="#unregSignupNgo" data-toggle="tab" id="tabUnRegNGO">For Unregistered NGO</a></li>
-	  									</ul>
-	  									<div id="myTabContent" class="tab-content">
+											<ul class="nav nav-tabs">
+											<li class="active"><a href="#SignupDonor" data-toggle="tab" id="tabRegNGO" >For Donor</a></li>
+											<li><a href="#regSignupNgo" data-toggle="tab" id="tabRegNGO" >For Registered NGO</a></li>
+											<li><a href="#unregSignupNgo" data-toggle="tab" id="tabUnRegNGO">For Unregistered NGO</a></li>
+											</ul>
+											<div id="myTabContent" class="tab-content">
+	  										<div class="tab-pane active in" id="SignupDonor">
+												<form action="signupdonor.php" method="post" id="tab" enctype="multipart/form-data" >
+
+												<label>Name</label>
+												<input type="text" placeholder="First Name" id="fn" name="name" class="input-xlarge" style="color:black">
+												<label>Email</label>
+												<input type="text" placeholder="Email" id="em" name="email" class="input-xlarge" style="color:black">
+												<label>Contact Number</label>
+												<input type="text" placeholder="Mobile Number" id="mob" name="mobile" maxlength="10" class="input-xlarge" style="color:black">
+												<label>Password</label>
+												<input type="password" placeholder="Password" id="pass" name="password" maxlength="25" class="input-xlarge" style="color:black">	       
+												<div>
+	  													<div>
+														<span>Upload Photo</span>
+														<input name="image" type="file" />
+													</div> 												
+													<input type="submit" class="btn btn-primary" name="submitFormDonor" value="Sign Up" onClick="return submitSignUpForDonor()">
+												</div>
+												</form>
+											</div>
+											
 	  										<div class="tab-pane active in" id="regSignupNgo">
 	  											<form action="signupregngo.php" method="post" id="tab" enctype="multipart/form-data">
 
 	  												<label>NGO Name</label>
-	  												<input type="text"  id="nn" name="nn" class="input-xlarge" placeholder="Name of NGO" onClick="clearElement('nn')" style="color:black">
+	  												<input type="text"  id="nn" name="nn" class="input-xlarge" placeholder="Name of NGO" style="color:black">
 	  												<label>Registration Number</label>
-	  												<input type="text" id="regno" name="regno" class="input-xlarge" placeholder="Registration Number" onClick="clearElement('regno')" style="color:black">
+	  												<input type="text" id="regno" name="regno" class="input-xlarge" placeholder="Registration Number" style="color:black">
 	  												<label>Name of Contact Person</label>
-	  												<input type="text"  id="cn" name="cn" class="input-xlarge" placeholder="Name of Contact Person" onClick="clearElement('cn')" style="color:black">
+	  												<input type="text"  id="cn" name="cn" class="input-xlarge" placeholder="Name of Contact Person" style="color:black">
 	  												<label>Email</label>
-	  												<input type="text" value="Email" id="eml" name="eml" class="input-xlarge" onClick="clearElement('eml')" style="color:black">
+	  												<input type="text" placeholder="Email" id="eml" name="eml" class="input-xlarge" style="color:black">
 	  												<label>Contact Number</label>
-	  												<input type="text"  id="cont" name="cont"  maxlength="10" class="input-xlarge" placeholder="Contact Number" onClick="clearElement('cont')" style="color:black">
+	  												<input type="text"  id="cont" name="cont"  maxlength="10" class="input-xlarge" placeholder="Contact Number" style="color:black">
 	  												<label>Password</label>
-	  												<input type="password"  id="pwd" name="pwd" maxlength="25" class="input-xlarge" placeholder="Password" onClick="clearElement('pwd')" style="color:black">
+	  												<input type="password"  id="pwd" name="pwd" maxlength="25" class="input-xlarge" placeholder="Password" style="color:black">
 	  												<label>Description</label>
-	  												<textarea rows="5" id="dc" name="dc" class="input-xlarge" onClick="clearElement('dc')" style="color:black"></textarea>
+	  												<textarea rows="5" id="dc" name="dc" class="input-xlarge" placeholder="Description" style="color:black"></textarea>
 	  												<label>Address</label>
-	  												<textarea rows="5" id="add" name="add" class="input-xlarge" onClick="addf()" style="color:grey"></textarea>
+	  												<textarea rows="5" id="add" name="add" class="input-xlarge" placeholder="Address" style="color:black"></textarea>
 													<label>Vision</label>
-	  												<textarea  rows="3" id="vi" name="vi" value="vision" class="input-xlarge" onClick="clearElement('vi')" style="color:black"></textarea>
+	  												<textarea  rows="3" id="vi" name="vi" class="input-xlarge" placeholder="Vision" style="color:black"></textarea>
 	  												<label>Website</label>
-	  												<input type="text"  id="web" name="web" class="input-xlarge" placeholder="Website" onClick="clearElement('web')" style="color:black">
+	  												<input type="text"  id="web" name="web" class="input-xlarge" placeholder="Website" style="color:black">
 	  												
 													<label name ="category"> Category </label>
 														<input type="checkbox" id = "Health" name="box[]" value="Health"> Health<br>
@@ -226,22 +267,22 @@
 	  											<form action="signupunregngo.php" method="post" id="tab" enctype="multipart/form-data">
 
 	  												<label>NGO Name</label>
-	  												<input type="text"  id="unn" name="unn" class="input-xlarge" value="Name of NGO" onClick="clearElement('unn')" style="color:black">
+	  												<input type="text"  id="unn" name="unn" class="input-xlarge" placeholder="Name of NGO" style="color:black">
 	  												<label>Name of Contact Person</label>
-	  												<input type="text"  id="ucn" name="ucn" class="input-xlarge" value="Name of Contact Person" onClick="clearElement('ucn')" style="color:black">
+	  												<input type="text"  id="ucn" name="ucn" class="input-xlarge" placeholder="Name of Contact Person" style="color:black">
 	  												<label>Email</label>
-	  												<input type="text" value="Email" id="ueml" name="ueml" class="input-xlarge" onClick="clearElement('ueml')" style="color:black">
+	  												<input type="text" placeholder="Email" id="ueml" name="ueml" class="input-xlarge" style="color:black">
 	  												<label>Contact Number</label>
-	  												<input type="text"  id="ucont" name="ucont" maxlength="10" class="input-xlarge" value="Contact Number" onClick="clearElement('ucont')" style="color:black">
+	  												<input type="text"  id="ucont" name="ucont" maxlength="10" class="input-xlarge" placeholder="Contact Number" style="color:black">
 	  												<label>Password</label>
-	  												<input type="password"  id="upwd" name="upwd" maxlength="25" class="input-xlarge" value="Password" onClick="clearElement('upwd')" style="color:black">
+	  												<input type="password"  id="upwd" name="upwd" maxlength="25" class="input-xlarge" placeholder="Password" style="color:black">
 	  												<label>Description</label>
-	  												<textarea rows="5" id="udc" name="udc" class="input-xlarge" onClick="clearElement('udc')" style="color:black"></textarea>
+	  												<textarea rows="5" id="udc" name="udc" class="input-xlarge" placeholder="Description" style="color:black"></textarea>
 	  												<label>Address</label>
-	  												<textarea rows="5" id="uadd" name="uadd" class="input-xlarge" onClick="uaddf()" style="color:grey"></textarea>
+	  												<textarea rows="5" id="uadd" name="uadd" class="input-xlarge" placeholder="Address" style="color:black"></textarea>
 													
 													<label>Vision</label>
-	  												<textarea  rows="3" id="uvi" name="uvi" value="vision" class="input-xlarge" onClick="clearElement('uvi')" style="color:black"></textarea>
+	  												<textarea  rows="3" id="uvi" name="uvi" placeholder="vision" class="input-xlarge" style="color:black"></textarea>
 														<label> Category </label>
 														<input type="checkbox" id ="uHealth" name="box[]" value="Health"> Health<br>
 														<input type="checkbox" id ="uFood" name="box[]" value="Food"> Food <br>
@@ -259,19 +300,13 @@
 	  											</form>
 	  										</div>
 	  									</div>
-	  								</div>
-	  							</div>
-
-
-	  						</div>
-	  					</div>
-
-	  				</div> 
-	  				<script src="bootstrap.min.js"></script>
-	  			</div>
-
-	  		</div>
-	  	</div><!-- /container -->
-
-	 </body>
+										
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>	  						
+	</div>
+	</body>
 </html>
