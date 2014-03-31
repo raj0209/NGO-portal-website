@@ -649,26 +649,25 @@ function changeName(){
 
 // Functions for DONOR page
 function DisplayEvents(){
-
-	
 	$("#allFavNgoContainer").hide();
 	$("#allEventsContainer").show();
-	
-
 };
 
 function DisplayNgo(){
-
-	
 	$("#allFavNgoContainer").show();
 	$("#allEventsContainer").hide();
-	
-
 };
 
+function ClearAll() {
 
+    var objInput = document.getElementsByTagName("input");
 
+    for (var iCount = 0; iCount < objInput.length; i++) {
 
+        if (objInput[iCount].type == "text")
 
+            objInput[iCount].value = "";
+        alert('clearing');
+    }
 
-
+}

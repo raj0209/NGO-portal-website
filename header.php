@@ -120,12 +120,12 @@
 	  											<input type="password"  id="passwordDonor" name="passwordDonor" maxlength="25" class="input-xlarge" placeholder="Password" style="color:black">
 	  											<div class="well form-inline">
 	  												<div>
-	  													<input type="submit" class="btn btn-primary" name="dlogin" placeholder="Login" onClick="return submitSignin('emailDonor','passwordDonor')">
-	  													<input class="btn btn-default" name="dforgot" placeholder="Forgot Password" onClick="#">
+	  													<input type="submit" class="btn btn-primary" name="dlogin" value="Login" onClick="return submitSignin('emailDonor','passwordDonor')">
+	  													<input type="button" class="btn btn-default" name="dforgot" value="Forgot Password" onClick="#">
 	  												</div>
 	  											</div>
 	  											<div>
-	  												<input class="btn btn-success" name="dsub" placeholder="Sign Up" id="signupDonorButton" >
+	  												<input type="button" class="btn btn-success" name="dsub" value="Sign Up" id="signupDonorButton" >
 	  											</div>
 	  										</form>
 	  									</div>
@@ -140,13 +140,12 @@
 	  											<div class="well form-inline">
 	  												<div>
 	  													<input type="submit" class="btn btn-primary" name="nlogin" value="Login" onClick="return submitSignin('emailNgo','passwordNgo')">
-
-	  													<input class="btn btn-default" name="nforgot" value="Forgot Password" onClick="#">
+	  													<input type="button" class="btn btn-default" name="nforgot" value="Forgot Password" onClick="#">
 	  												</div>
 	  											</div>
 	  										</form>
   											<div>
-  												<input class="btn btn-success" name="signup_ngo_reg" value="Sign Up as NGO" id="signupNgo">
+  												<input type="button" class="btn btn-success" name="signup_ngo_reg" value="Sign Up as NGO" id="signupNgo">
   											</div>
 	  								</div>
 	  							</div>
@@ -169,7 +168,7 @@
 	  												<span>Browse Photo</span>
 	  												<input type="file" name="image" >
 	  											</div >
-	  											<input type="submit" class="btn btn-primary" name="submitFormDonor" placeholder="Sign Up" onClick="return submitSignUpForDonor()">
+	  											<input type="submit" class="btn btn-primary" name="submitFormDonor" value="Sign Up" onClick="return submitSignUpForDonor()">
 	  										</div>
 	  									</form>
 	  								</div>
@@ -201,9 +200,9 @@
 	  												<label>Description</label>
 	  												<textarea rows="5" id="dc" name="dc" class="input-xlarge" placeholder="Description" style="color:black"></textarea>
 	  												<label>Address</label>
-	  												<textarea rows="5" id="add" name="add" class="input-xlarge" placeholder="Vision" style="color:grey"></textarea>
+	  												<textarea rows="5" id="add" name="add" class="input-xlarge" placeholder="Address" style="color:grey"></textarea>
 													<label>Vision</label>
-	  												<textarea  rows="3" id="vi" name="vi" value="vision" class="input-xlarge" placeholder="Vision" style="color:black"></textarea>
+	  												<textarea  rows="3" id="vi" name="vi" class="input-xlarge" placeholder="Vision" style="color:black"></textarea>
 	  												<label>Website</label>
 	  												<input type="text"  id="web" name="web" class="input-xlarge" placeholder="Website" style="color:black">
 	  												
@@ -218,7 +217,7 @@
 														<span>Upload Logo</span>
 														<input name="regNgoLogo" type="file" />
 													</div>
-	  													<input type="submit" class="btn btn-primary" name="submitFormRegNgo" placeholder="Sign Up" onClick="return submit3()">
+	  													<input type="submit" class="btn btn-primary" name="submitFormRegNgo" value="Sign Up" onClick="return submit3()">
 	  												</div>
 	  											</form>
 	  										</div>
