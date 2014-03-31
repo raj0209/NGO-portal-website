@@ -121,11 +121,11 @@
 	  											<div class="well form-inline">
 	  												<div>
 	  													<input type="submit" class="btn btn-primary" name="dlogin" placeholder="Login" onClick="return submitSignin('emailDonor','passwordDonor')">
-	  													<input type="submit" class="btn btn-default" name="dforgot" placeholder="Forgot Password" onClick="#">
+	  													<input class="btn btn-default" name="dforgot" placeholder="Forgot Password" onClick="#">
 	  												</div>
 	  											</div>
 	  											<div>
-	  												<input type="submit" class="btn btn-success" name="dsub" value="Sign Up" id="signupDonorButton" >
+	  												<input class="btn btn-success" name="dsub" value="Sign Up" id="signupDonorButton" >
 	  											</div>
 	  										</form>
 	  									</div>
@@ -141,12 +141,12 @@
 	  												<div>
 	  													<input type="submit" class="btn btn-primary" name="nlogin" value="Login" onClick="return submitSignin('emailNgo','passwordNgo')">
 
-	  													<input type="submit" class="btn btn-default" name="nforgot" value="Forgot Password" onClick="#">
+	  													<input class="btn btn-default" name="nforgot" value="Forgot Password" onClick="#">
 	  												</div>
 	  											</div>
 	  										</form>
   											<div>
-  												<input type="submit" class="btn btn-success" name="signup_ngo_reg" value="Sign Up as NGO" id="signupNgo">
+  												<input class="btn btn-success" name="signup_ngo_reg" value="Sign Up as NGO" id="signupNgo">
   											</div>
 	  								</div>
 	  							</div>
