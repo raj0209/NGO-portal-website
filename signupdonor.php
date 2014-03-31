@@ -28,8 +28,9 @@ $result = mysql_query($insertQuery);
 if (!$result)
 {
 	echo "Error: ".mysql_error();
-}
-
+}else
+{
 echo "<font size = '5'><font color=\"#0CF44A\">SAVED TO DATABASE";
+}
 
 ?>
