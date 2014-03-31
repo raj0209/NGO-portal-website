@@ -1,11 +1,3 @@
-
-function clearElement(element)
-{
-	document.getElementById(element).value="";
-	document.getElementById(element).style.color="black";
-}
-
-
 function submitSignin(email,password)
 {
 	if(document.getElementById(email).value==""|| document.getElementById(email).value=="Email")
