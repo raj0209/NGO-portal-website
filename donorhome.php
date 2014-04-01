@@ -1,9 +1,13 @@
 <?php
+	
 	require_once('auth.php');
 	include 'header.php';
 	include 'connect.php';
+
 ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -40,7 +44,7 @@
     </head>
 
     <?php
-        include 'header.php';
+      	
 		$type=$_SESSION['SESS_TYPE'];
 		$email=$_SESSION['SESS_EMAIL'];
 		$pid=$_SESSION['SESS_MEMBER_ID'];

@@ -149,9 +149,6 @@ else{
                         else {
                             echo "No event posted so far";
                         }
-
-
-
                         ?>
 
                     </div>

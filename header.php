@@ -59,17 +59,16 @@
 	  				</button>
 	  				<!--<img class="img-responsive" src="icons/NGO_icon.png">-->
 
-	  				<div class="nav-collapse collapse">
+	  				<div class="nav-collapse collapse" style="margin-top:9px">
 	  					<ul class="nav nav-tabs">
 	  						<li  class= "active" ><a class="brand" href="#">Sampark</a></li>
-	  						<!--<li class="active"><a href="#">Home</a></li>-->
-	  						<li><a href="#about">About</a></li>
-	  						<li><a href="#contact">Contact</a></li>
+	  						<li><a href="rankingpage.php">Top Organizations</a></li>
+	  						<li><a href="contact.php">Contact</a></li>	
 	  					</ul>
 	  					<div align="center" class="nav-collapse collapse" style="margin:10px">
 	  						<ul class="nav">
 	  							<form style="z-index: -1;" action="search.php" method="post" enctype="multipart/form-data" >
-	  								<input type="text" name="searchQuery" class="span6 search-query" style="margin:10px" placeholder="Search for NGO"/>
+	  								<input type="text" name="searchQuery" class="span4 search-query" style="margin:10px" placeholder="Search for NGO"/>
 	  								<div class="dropdown">
 	  									<a id="dLabel" role="button" class="btn btn-primary" data-toggle="dropdown" data-target="#">
 	  										Category <span class="caret"></span>								
@@ -85,9 +84,12 @@
 	  						</ul>
 	  					</div>
 
-	  					<ul class="nav pull-right">
+	  					<ul class="nav pull-right" style="margin-top:9px">
+							<input type="button" class="btn btn-success" name="signup" value="Create Account" id="signup" style="margin:10px" data-toggle="modal" data-target="#signupModal">
+							<!--<button class="btn btn-lg btn-primary btn-block" type="submit" style="margin:10px" data-toggle="modal" data-target="#signupModal\" id="signinHomeButton">Create Account</button>-->
 	  						<?php if(isset($_SESSION['SESS_MEMBER_ID'])) echo "<a style=\"color:white;text-decoration:none\" href=\"logout.php\"><button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" style=\"margin:10px\" data-toggle=\"modal\">Log out</button></a>"; else echo "<button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" style=\"margin:10px\" data-toggle=\"modal\" data-target=\"#signinModal\" id=\"signinHomeButton\">Sign In</button>" ?>
-	  					</ul>
+							
+						</ul>
 	  				</div><!--/.nav-collapse -->
 	  			</div>
 	  		</div>
@@ -124,9 +126,9 @@
 	  													<input type="button" class="btn btn-default" name="dforgot" value="Forgot Password" onClick="#">
 	  												</div>
 	  											</div>
-	  											<div>
+	  											<!--<div>
 	  												<input type="button" class="btn btn-success" name="dsub" value="Sign Up" id="signupDonorButton" >
-	  											</div>
+	  											</div>-->
 	  										</form>
 	  									</div>
 	  								</div>
@@ -144,13 +146,32 @@
 	  												</div>
 	  											</div>
 	  										</form>
-  											<div>
+
+  											<!--<div>
   												<input type="button" class="btn btn-success" name="signup_ngo_reg" value="Sign Up as NGO" id="signupNgo">
-  											</div>
+  											</div>-->
 	  								</div>
 	  							</div>
-	  							<div id="signupModalContent">
-	  								<div id="signupDonor">
+	  							
+	  					</div>
+
+	  				</div> 
+	  				<script src="bootstrap.min.js"></script>
+	  			</div>
+
+	  		</div>
+	  	</div><!-- /container -->
+		<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  			<div class="modal-dialog">
+	  				<div class="modal-header">
+	  					<button type="button" id="close" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	  				</div>
+	  				<br>
+	  				<div class="modal-content">
+	  					<div class="modal-body">
+	  						<div class="well">
+								<div id="signupModalContent">
+									<!--<div id="signupDonor">
 	  									<h4 >Sign up for Donors</h4>
 	  									<br>
 	  									<form action="signupdonor.php" method="post" id="tab" enctype="multipart/form-data" >
@@ -171,17 +192,39 @@
 	  											<input type="submit" class="btn btn-primary" name="submitFormDonor" value="Sign Up" onClick="return submitSignUpForDonor()">
 	  										</div>
 	  									</form>
-	  								</div>
+	  								</div>-->
 
-	  								<div id="signupNgoModal">
-	  									<h4 >Sign up for NGOs</h4>
-	  									<br>
+										
+											<h4 >Sign up</h4>
+											<br>
 
-	  									<ul class="nav nav-tabs">
-	  										<li class="active"><a href="#regSignupNgo" data-toggle="tab" id="tabRegNGO" >For Registered NGO</a></li>
-	  										<li><a href="#unregSignupNgo" data-toggle="tab" id="tabUnRegNGO">For Unregistered NGO</a></li>
-	  									</ul>
-	  									<div id="myTabContent" class="tab-content">
+											<ul class="nav nav-tabs">
+											<li class="active"><a href="#SignupDonor" data-toggle="tab" id="tabRegNGO" >For Donor</a></li>
+											<li><a href="#regSignupNgo" data-toggle="tab" id="tabRegNGO" >For Registered NGO</a></li>
+											<li><a href="#unregSignupNgo" data-toggle="tab" id="tabUnRegNGO">For Unregistered NGO</a></li>
+											</ul>
+											<div id="myTabContent" class="tab-content">
+	  										<div class="tab-pane active in" id="SignupDonor">
+												<form action="signupdonor.php" method="post" id="tab" enctype="multipart/form-data" >
+
+												<label>Name</label>
+												<input type="text" placeholder="First Name" id="fn" name="name" class="input-xlarge" style="color:black">
+												<label>Email</label>
+												<input type="text" placeholder="Email" id="em" name="email" class="input-xlarge" style="color:black">
+												<label>Contact Number</label>
+												<input type="text" placeholder="Mobile Number" id="mob" name="mobile" maxlength="10" class="input-xlarge" style="color:black">
+												<label>Password</label>
+												<input type="password" placeholder="Password" id="pass" name="password" maxlength="25" class="input-xlarge" style="color:black">	       
+												<div>
+	  													<div>
+														<span>Upload Photo</span>
+														<input name="image" type="file" />
+													</div> 												
+													<input type="submit" class="btn btn-primary" name="submitFormDonor" value="Sign Up" onClick="return submitSignUpForDonor()">
+												</div>
+												</form>
+											</div>
+											
 	  										<div class="tab-pane active in" id="regSignupNgo">
 	  											<form action="signupregngo.php" method="post" id="tab" enctype="multipart/form-data">
 
@@ -200,7 +243,7 @@
 	  												<label>Description</label>
 	  												<textarea rows="5" id="dc" name="dc" class="input-xlarge" placeholder="Description" style="color:black"></textarea>
 	  												<label>Address</label>
-	  												<textarea rows="5" id="add" name="add" class="input-xlarge" placeholder="Address" style="color:grey"></textarea>
+	  												<textarea rows="5" id="add" name="add" class="input-xlarge" placeholder="Address" style="color:black"></textarea>
 													<label>Vision</label>
 	  												<textarea  rows="3" id="vi" name="vi" class="input-xlarge" placeholder="Vision" style="color:black"></textarea>
 	  												<label>Website</label>
@@ -237,8 +280,7 @@
 	  												<label>Description</label>
 	  												<textarea rows="5" id="udc" name="udc" class="input-xlarge" placeholder="Description" style="color:black"></textarea>
 	  												<label>Address</label>
-	  												<textarea rows="5" id="uadd" name="uadd" class="input-xlarge" placeholder="Address" style="color:grey"></textarea>
-													
+	  												<textarea rows="5" id="uadd" name="uadd" class="input-xlarge" placeholder="Address" style="color:black"></textarea>
 													<label>Vision</label>
 	  												<textarea  rows="3" id="uvi" name="uvi" placeholder="vision" class="input-xlarge" style="color:black"></textarea>
 														<label> Category </label>
@@ -258,19 +300,13 @@
 	  											</form>
 	  										</div>
 	  									</div>
-	  								</div>
-	  							</div>
-
-
-	  						</div>
-	  					</div>
-
-	  				</div> 
-	  				<script src="bootstrap.min.js"></script>
-	  			</div>
-
-	  		</div>
-	  	</div><!-- /container -->
-
-	 </body>
+										
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>	  						
+	</div>
+	</body>
 </html>

@@ -3,6 +3,7 @@
 include 'connect.php';
 include 'database.php';
 ?>
+<!DOCTYPE HTML>
 
 <html lang="en">
 	<head>
@@ -17,7 +18,8 @@ include 'database.php';
 		<script type="text/javascript" src="engine1/jquery.js"></script>	
 	</head>
 	<body>
-		<div class="backimage" style="margin-left:20px; margin-top:35px; margin-left:20px;">
+
+		<div class="backimage" style="margin-left:20px; margin-top:60px; margin-right:20px;">
 			
 				<div id="wowslider-container1" style="margin-left:15px; margin-top:20px;">
 				
@@ -37,7 +39,7 @@ include 'database.php';
 					</div>
 				</div>
 				<span class="wsl"><a href="#"></a></span>
-				<div class="ws_shadow"></div>
+				<div class=""></div>
 				</div>
 				<script type="text/javascript" src="engine1/wowslider.js"></script>
 				<script type="text/javascript" src="engine1/script.js"></script>
