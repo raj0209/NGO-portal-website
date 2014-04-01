@@ -617,65 +617,17 @@ $('#signupButton').click(function(){ hideAll(); $('#signupModalContent').show();
 });
 
 $(function(){
-$('#tabDonor').click(function(){  hideAll(); $('#signupModalContent').show();  $('#SignupDonor').show(); });
+$('#tabDonorSignUp').click(function(){  hideAll(); $('#signupModalContent').show();  $('#SignupDonor').show(); });
 });
 
 $(function(){
-$('#tabRegNGO').click(function(){ hideAll(); $('#signupModalContent').show();  $('#regSignupNgo').show(); });
+$('#tabRegNGOSignUp').click(function(){ hideAll(); $('#signupModalContent').show();  $('#regSignupNgo').show(); });
 });
 
 $(function(){
-$('#tabUnRegNGO').click(function(){ hideAll(); $('#signupModalContent').show(); $('#unregSignupNgo').show(); });
+$('#tabUnRegNGOSignUp').click(function(){ hideAll(); $('#signupModalContent').show(); $('#unregSignupNgo').show(); });
 });
 
-/*
-function hideAll()
-{
-document.getElementById('signinModalContent').style.display = 'none';
-document.getElementById('signinDonor').style.display = 'none';
-document.getElementById('signinNgo').style.display = 'none';
-document.getElementById('signupDonor').style.display = 'none';
-document.getElementById('signupNgoModal').style.display = 'none';
-document.getElementById('regSignupNgo').style.display = 'none';
-document.getElementById('unregSignupNgo').style.display = 'none';
-$('#signupModalContent').hide();
-}
-
-
-$(function(){
-$('#signinHomeButton').click(function(){ hideAll(); $('#signinModalContent').show(); $('#signinDonor').show(); });
-});
-
-
-$(function(){
-$('#closes').click(function(){  $('#signinModalContent').show('fast',function(){ $('#signupDonor').hide(); window.location.reload(); }); });
-});
-
-$(function(){
-$('#donorTab').click(function(){ hideAll(); $('#signinModalContent').show(); $('#signinDonor').show(); });
-});
-
-$(function(){
-$('#ngoTab').click(function(){  hideAll(); $('#signinModalContent').show(); $('#signinNgo').show(); });
-});
-
-$(function(){
-$('#signupDonorButton').click(function(){  hideAll(); $('#signupModalContent').show(); $('#signupDonor').show(); });
-});
-
-$(function(){
-$('#signupNgo').click(function(){ hideAll(); $('#signupModalContent').show(); $('#signupNgoModal').show(); $('#regSignupNgo').show();});
-});
-
-$(function(){
-$('#tabRegNGO').click(function(){ hideAll(); $('#signupModalContent').show(); $('#signupNgoModal').show();  $('#regSignupNgo').show(); });
-});
-
-$(function(){
-$('#tabUnRegNGO').click(function(){ hideAll(); $('#signupModalContent').show(); $('#signupNgoModal').show();  $('#unregSignupNgo').show(); });
-});
-
-*/
 // Functions for NGOHOME page
 function changeName(){
 

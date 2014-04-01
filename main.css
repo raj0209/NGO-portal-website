@@ -8,6 +8,14 @@ input {
     max-height: 30px;
 }
 
+#signupDonor{
+    display:none;
+}
+
+#signupNgoModal{
+    display:none;
+}
+              
 .btn-file {
     margin-right: 100px;
     position: relative;

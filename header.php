@@ -20,31 +20,13 @@
 		</style>
 		<link href="css/bootstrap-responsive.css" rel="stylesheet">
 		<script src="jquery.js"></script>
-
-		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-		    <!--[if lt IE 9]>
-		      <script src="js/html5shiv.js"></script>
-		      <![endif]-->
-
-		      <!-- Fav and touch icons -->
-		      <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
-		      <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
-		      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
-		      <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
-		      <link rel="shortcut icon" href="ico/favicon.png">
-		      <script type="text/javascript" src="main.js"></script>
-
-
-		      <style>
-		      #signupDonor{
-		      	display:none;
-		      }
-
-		      #signupNgoModal{
-		      	display:none;
-		      }
-		      </style>
-
+		<!-- Fav and touch icons -->
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+		<link rel="shortcut icon" href="ico/favicon.png">
+		<script type="text/javascript" src="main.js"></script>
 	</head>
 
 	<body>
@@ -174,9 +156,9 @@
 											<br>
 
 											<ul class="nav nav-tabs">
-											<li class="active" id="tabDonor"><a href="#SignupDonor" data-toggle="tab">For Donor</a></li>
-											<li id="tabRegNGO"><a href="#regSignupNgo" data-toggle="tab" >For Registered NGO</a></li>
-											<li id="tabUnRegNGO"><a href="#unregSignupNgo" data-toggle="tab">For Unregistered NGO</a></li>
+												<li class="active" id="tabDonorSignUp"><a href="#SignupDonor" data-toggle="tab">For Donor</a></li>
+												<li id="tabRegNGOSignUp"><a href="#regSignupNgo" data-toggle="tab" >For Registered NGO</a></li>
+												<li id="tabUnRegNGOSignUp"><a href="#unregSignupNgo" data-toggle="tab">For Unregistered NGO</a></li>
 											</ul>
 											<div id="myTabContent" class="tab-content">
 	  										<div class="tab-pane active in" id="SignupDonor">
@@ -239,6 +221,7 @@
 	  												</div>
 	  											</form>
 	  										</div>
+
 	  										<div class="tab-pane fade" id="unregSignupNgo">
 	  											<form action="signupunregngo.php" method="post" id="tab" enctype="multipart/form-data">
 
