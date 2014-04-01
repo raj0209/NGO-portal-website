@@ -1,11 +1,16 @@
 body {
     padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
     background: url(http://subtlepatterns.com/patterns/scribble_light.png) ;
+    margin:0;
 }
 
 input {
     min-height: 30px;
     max-height: 30px;
+}
+
+.dropdown{
+    display:inline-block;
 }
 
 #signupDonor{
@@ -15,7 +20,7 @@ input {
 #signupNgoModal{
     display:none;
 }
-              
+
 .btn-file {
     margin-right: 100px;
     position: relative;
@@ -37,13 +42,6 @@ input {
     background: white;
     cursor: inherit;
     display: block;
-}
-
-.wrapper {
-    width: 90%;
-    /*max-width: 1100px;
-    min-width: 800px;*/
-    margin: 50px auto;
 }
 
 /*#columns {
@@ -118,105 +116,24 @@ input {
 .columns:hover .pin:not(:hover) {
     opacity: 0.4;
 }
-.span6 {
-    width: 460px;
+
+.DetailBoxes {
+    width: auto;
+    display: block;
+    min-width: 250px;
+    text-align: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
-.subtle-container {
-    -moz-border-bottom-colors: none;
-    -moz-border-left-colors: none;
-    -moz-border-right-colors: none;
-    -moz-border-top-colors: none;
-    background-attachment: scroll;
-    background-clip: border-box;
-    background-color: rgba(0, 0, 0, 0);
-    background-image: url("./black1.png");
-    background-origin: padding-box;
-    background-position: 0 0;
-    background-repeat: repeat;
-    background-size: auto auto;
-    border-bottom-color: #2E2E2E;
-    border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px;
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    border-image-outset: 0 0 0 0;
-    border-image-repeat: stretch stretch;
-    border-image-slice: 100% 100% 100% 100%;
-    border-image-source: none;
-    border-image-width: 1 1 1 1;
-    border-left-color-ltr-source: physical;
-    border-left-color-rtl-source: physical;
-    border-left-color-value: #2E2E2E;
-    border-left-style-ltr-source: physical;
-    border-left-style-rtl-source: physical;
-    border-left-style-value: solid;
-    border-left-width-ltr-source: physical;
-    border-left-width-rtl-source: physical;
-    border-left-width-value: 1px;
-    border-right-color-ltr-source: physical;
-    border-right-color-rtl-source: physical;
-    border-right-color-value: #2E2E2E;
-    border-right-style-ltr-source: physical;
-    border-right-style-rtl-source: physical;
-    border-right-style-value: solid;
-    border-right-width-ltr-source: physical;
-    border-right-width-rtl-source: physical;
-    border-right-width-value: 1px;
-    border-top-color: #2E2E2E;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-    border-top-style: solid;
-    border-top-width: 1px;
-    box-shadow: 0 1px 2px rgba(255, 255, 255, 0.1) inset;
-    margin-bottom: 12px;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    padding-bottom: 12px;
-    padding-left: 12px;
-    padding-right: 12px;
-    padding-top: 12px;
-}
-.subtle-container .header {
-    background-attachment: scroll;
-    background-clip: border-box;
-    background-color: #303030;
-    background-image: url("./black.png");
-    background-origin: padding-box;
-    background-position: 0 0;
-    background-repeat: repeat;
-    background-size: auto auto;
-    border-bottom-color: #404040;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    border-bottom-style: none;
-    border-bottom-width: medium;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-    margin-bottom: 12px;
-    margin-left: -12px;
-    margin-right: -12px;
-    margin-top: -12px;
-    padding-bottom: 8px;
-    padding-left: 12px;
-    padding-right: 12px;
-    padding-top: 8px;
-}
-.subtle-container .header h4 {
-    display: inline;
-    margin-bottom: 0;
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-}
-.subtle-container .header h4 i {
-    margin-right: 8px;
-}
+
 .backimage {
 	height :425px;
 	background-attachment: scroll;
     background-clip: border-box;
     background-color: #333333;
-    background-image: url("./black4.png");
+    background-image: url("./img/gray.png");
     background-origin: padding-box;
     background-position: 0 0;
     background-repeat: repeat;
@@ -237,10 +154,6 @@ input {
 
 }
 
-* {
-    margin: 0;
-}
-
 html, body {
     height: 100%;
 }
@@ -251,11 +164,11 @@ html, body {
     height: 100%;
     margin: 0 auto -102px; /* the bottom margin is the negative value of the footer's height */
 }
+
 .footer {
     width: 100%;
     margin: 0;
     background-color: #8E9393;
-    height: 60px;/* or however high you would like */
-
+    height: 30px;
     bottom:0;
 }

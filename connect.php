@@ -3,7 +3,7 @@
 //connection detail
 $server = 'localhost';
 $user = 'root';
-$pass = '';
+$pass = 'root';
 
 // Create connection
 $con = mysql_connect($server, $user, $pass) or die("Can't connect from connect.php");
