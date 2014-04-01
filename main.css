@@ -5,6 +5,7 @@ body {
 
 input {
     min-height: 30px;
+    max-height: 30px;
 }
 
 .btn-file {
@@ -231,9 +232,11 @@ input {
 * {
     margin: 0;
 }
+
 html, body {
     height: 100%;
 }
+
 .wrapper {
     min-height: 100%;
     height: auto !important;

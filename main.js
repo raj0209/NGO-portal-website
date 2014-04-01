@@ -667,7 +667,7 @@ function ClearAll() {
         if (objInput[iCount].type == "text")
 
             objInput[iCount].value = "";
-        alert('clearing');
+        //alert('clearing');
     }
 
 }
