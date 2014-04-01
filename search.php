@@ -3,6 +3,7 @@
 	session_start();
 
 	include 'connect.php';
+	include 'head.php';
     include 'header.php';
 
     $searchQuery = $_POST['searchQuery'];

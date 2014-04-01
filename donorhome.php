@@ -1,6 +1,7 @@
 <?php
 	
 	require_once('auth.php');
+    include 'head.php';
 	include 'header.php';
 	include 'connect.php';
 

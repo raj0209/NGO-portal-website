@@ -3,6 +3,7 @@
 <?php
 require_once('auth.php');
 include 'connect.php';
+include 'head.php';
 include 'header.php';
 
 $type=$_SESSION['SESS_TYPE'];

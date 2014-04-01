@@ -592,6 +592,10 @@ document.getElementById('unregSignupNgo').style.display = 'none';
 
 
 $(function(){
+$('#signup').click(function(){ hideAll(); $('#signupModalContent').show();  $('#SignupDonor').show(); });
+});
+
+$(function(){
 $('#signinHomeButton').click(function(){ hideAll(); $('#signinModalContent').show(); $('#signinDonor').show(); });
 });
 
