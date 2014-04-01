@@ -1,10 +1,8 @@
-<?php 
+<?php
 	//Start session
 	session_start();
 
 	include 'connect.php';
-	include 'head.php';
-    include 'header.php';
 
     $searchQuery = $_POST['searchQuery'];
 
@@ -13,20 +11,27 @@
 
 ?>
 
-<div  class="wrapper">
-	<div  class="columns">
+<!DOCTYPE html>
+<html>
+	<?php	include 'head.php'; ?>		
+	
+	<body>
+		<?php	include 'header.php'; ?>
 
-		<?php 
-			if($result) {
+		<div  class="wrapperForSearch">
+			<div  class="columns">
+
+				<?php 
+				if($result) {
 				// setting this variable to pass check in authontication in auth.php and ngohome.php
-				$_SESSION['search'] = "true";
-				
-				if(mysql_num_rows($result) > 0) {
-					while ($row = mysql_fetch_assoc($result)) {
-						$pid = $row['pid'];
-						$nameNgo = $row['name'];
-						$logoUrl = $row['logo'];
-						$descNgo = substr($row['description'],0,150)."...";
+					$_SESSION['search'] = "true";
+					
+					if(mysql_num_rows($result) > 0) {
+						while ($row = mysql_fetch_assoc($result)) {
+							$pid = $row['pid'];
+							$nameNgo = $row['name'];
+							$logoUrl = $row['logo'];
+							$descNgo = substr($row['description'],0,150)."...";
 						//echo " ".$nameNgo.$logoUrl.$descNgo;
 
 							?>
@@ -38,13 +43,18 @@
 									<p><?php echo $descNgo ?></p>
 								</div>
 							</form>
-						<?php
-					}  
+							<?php
+						}  
+					}
+				}else {
+					echo "No event posted so far";
 				}
-			}else {
-				echo "No event posted so far";
-			}
-		?>
+				?>
+				
+			</div>
+		</div>
 		
-	</div>
-</div>
+	</body>
+
+
+</html>

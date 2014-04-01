@@ -2,30 +2,30 @@
 	<div class="navbar-inner">
 		<div class="container">
 
-			<div class="nav-collapse collapse" >
+			<div class="nav-collapse collapse" style="margin:10px">
 				<ul class="nav nav-tabs">
 					<li  class= "active" ><a class="brand" href="#">Sampark</a></li>
 					<li><a href="rankingpage.php">Top Organizations</a></li>
 					<li><a href="contact.php">Contact</a></li>	
 				</ul>
 
-				<div align="center" class="nav-collapse collapse" style="margin:10px">
-					<ul class="nav">
+				<div align="center" class="nav-collapse collapse">
+					<div class="nav">
 						<form style="z-index: -1;" action="search.php" method="post" enctype="multipart/form-data" >
-							<input type="text" name="searchQuery" class="span4 search-query" style="margin:10px" placeholder="Search for NGO"/>
-							<div class="dropdown">
-								<a id="dLabel" role="button" class="btn btn-primary" data-toggle="dropdown" data-target="#">
-									Category <span class="caret"></span>								
-								</a>
-								<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-									<li><a tabindex="-1" href="#" >Health</a></li>
-									<li><a tabindex="-1" href="#">Education</a></li>
-									<li><a tabindex="-1" href="#">Food</a></li>
-								</ul>
-							</div>
-							<button type="submit" class="btn btn-success">Search</button>	
-						</form>
-					</ul>
+              <input type="text" name="searchQuery" class="span4 search-query" style="margin:10px; height: 30px" placeholder="Search for NGO"/>
+              <div class="dropdown">
+                <a id="dLabel" role="button" class="btn btn-primary" data-toggle="dropdown" data-target="#">
+                  Category <span class="caret"></span>                
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                  <li><a tabindex="-1" href="#" >Health</a></li>
+                  <li><a tabindex="-1" href="#">Education</a></li>
+                  <li><a tabindex="-1" href="#">Food</a></li>
+                </ul>
+              </div>
+              <button type="submit" class="btn btn-success">Search</button> 
+            </form>
+					</div>
 				</div>
 
 				<ul class="nav pull-right" style="margin-top:9px">
