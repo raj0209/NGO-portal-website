@@ -2,13 +2,21 @@
 
 <?php
 require_once('auth.php');
+//session_start();
 include 'connect.php';
 include 'head.php';
 include 'header.php';
 
+if(isset($_SESSION['SESS_TYPE'])){
 $type=$_SESSION['SESS_TYPE'];
 $email=$_SESSION['SESS_EMAIL'];
 $pid=$_SESSION['SESS_MEMBER_ID'];
+}
+else
+{
+$type="GUEST";
+}
+
 
 if(!isset($_SESSION['SESS_MEMBER_ID']) || (trim($_SESSION['SESS_MEMBER_ID']) == '' )){
     $loggedIn = false;
@@ -94,14 +102,14 @@ else{
 
                             </div>
                             <p>
-                                <?php if($loggedIn && $_SESSION['SESS_TYPE'] == 'NGO') { ?>
+                                <?php if($loggedIn && $type == 'NGO') { ?>
                                 <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#postEventModal" id="postEventButton">Post Event</button>
                                 <?php } ?>
                                 <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#" id="donorButton" onclick="changeName();">Donors</button>
-                                <?php if($type == "NGO") {?>
+                                <?php if($type == "NGO" && $pid==$$_SESSION['SESS_MEMBER_ID']) {?>
                                 <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#editProfileModal" id="editProfileButton">Edit Profile</button>
 								<button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#changePassModal" id="changePasswordButton">Change Password</button>
-                                <?php }elseif($loggedIn) { ?>
+                                <?php }elseif($loggedIn && $type == "DONOR") { ?>
                                 <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#" id="contactButton">Contact</button>
                                 <?php }?> 
                             </p>
