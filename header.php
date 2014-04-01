@@ -146,6 +146,7 @@
 	  												</div>
 	  											</div>
 	  										</form>
+
   											<!--<div>
   												<input type="button" class="btn btn-success" name="signup_ngo_reg" value="Sign Up as NGO" id="signupNgo">
   											</div>-->
@@ -280,7 +281,6 @@
 	  												<textarea rows="5" id="udc" name="udc" class="input-xlarge" placeholder="Description" style="color:black"></textarea>
 	  												<label>Address</label>
 	  												<textarea rows="5" id="uadd" name="uadd" class="input-xlarge" placeholder="Address" style="color:black"></textarea>
-													
 													<label>Vision</label>
 	  												<textarea  rows="3" id="uvi" name="uvi" placeholder="vision" class="input-xlarge" style="color:black"></textarea>
 														<label> Category </label>

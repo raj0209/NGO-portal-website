@@ -26,6 +26,7 @@ else
 	
     </script>
 
+<<<<<<< HEAD
 <?php
 	header("refresh:0.1;url=http://localhost/sampark/NGO-portal-website/index.php");
 	//$('#signupModalContent').modal("show");
@@ -53,12 +54,5 @@ else
 	}
 	
 }
-/*if (!$result)
-{
-	echo "Error: ".mysql_error();
-}else
-{
-echo "<font size = '5'><font color=\"#0CF44A\">SAVED TO DATABASE";
-}
-*/
+
 ?>
