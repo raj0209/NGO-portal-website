@@ -583,6 +583,57 @@ function hideAll()
 document.getElementById('signinModalContent').style.display = 'none';
 document.getElementById('signinDonor').style.display = 'none';
 document.getElementById('signinNgo').style.display = 'none';
+document.getElementById('SignupDonor').style.display = 'none';
+document.getElementById('signupModalContent').style.display = 'none'; 
+document.getElementById('regSignupNgo').style.display = 'none';  
+document.getElementById('unregSignupNgo').style.display = 'none'; 
+//$('#signupModalContent').hide();
+}
+
+
+$(function(){
+$('#signinHomeButton').click(function(){ hideAll(); $('#signinModalContent').show(); $('#signinDonor').show(); });
+});
+
+
+$(function(){
+$('#closes').click(function(){  $('#signinModalContent').show('fast',function(){ window.location.reload(); }); });
+});
+
+$(function(){
+$('#close').click(function(){  $('#signupModalContent').show('fast',function(){ window.location.reload(); }); });
+});
+
+$(function(){
+$('#donorTab').click(function(){ hideAll(); $('#signinModalContent').show(); $('#signinDonor').show(); });
+});
+
+$(function(){
+$('#ngoTab').click(function(){  hideAll(); $('#signinModalContent').show(); $('#signinNgo').show(); });
+});
+
+$(function(){
+$('#signupButton').click(function(){ hideAll(); $('#signupModalContent').show(); $('#SignupDonor').show();});
+});
+
+$(function(){
+$('#tabDonor').click(function(){  hideAll(); $('#signupModalContent').show();  $('#SignupDonor').show(); });
+});
+
+$(function(){
+$('#tabRegNGO').click(function(){ hideAll(); $('#signupModalContent').show();  $('#regSignupNgo').show(); });
+});
+
+$(function(){
+$('#tabUnRegNGO').click(function(){ hideAll(); $('#signupModalContent').show(); $('#unregSignupNgo').show(); });
+});
+
+/*
+function hideAll()
+{
+document.getElementById('signinModalContent').style.display = 'none';
+document.getElementById('signinDonor').style.display = 'none';
+document.getElementById('signinNgo').style.display = 'none';
 document.getElementById('signupDonor').style.display = 'none';
 document.getElementById('signupNgoModal').style.display = 'none';
 document.getElementById('regSignupNgo').style.display = 'none';
@@ -624,7 +675,7 @@ $(function(){
 $('#tabUnRegNGO').click(function(){ hideAll(); $('#signupModalContent').show(); $('#signupNgoModal').show();  $('#unregSignupNgo').show(); });
 });
 
-
+*/
 // Functions for NGOHOME page
 function changeName(){
 

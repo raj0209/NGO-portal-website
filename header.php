@@ -170,38 +170,14 @@
 	  				<div class="modal-content">
 	  					<div class="modal-body">
 	  						<div class="well">
-								<div id="signupModalContent">
-									<!--<div id="signupDonor">
-	  									<h4 >Sign up for Donors</h4>
-	  									<br>
-	  									<form action="signupdonor.php" method="post" id="tab" enctype="multipart/form-data" >
-
-	  										<label>Name</label>
-	  										<input type="text" placeholder="First Name" id="fn" name="name" class="input-xlarge" style="color:black">
-	  										<label>Email</label>
-	  										<input type="text" placeholder="Email" id="em" name="email" class="input-xlarge" style="color:black">
-	  										<label>Contact Number</label>
-	  										<input type="text" placeholder="Mobile Number" id="mob" name="mobile" maxlength="10" class="input-xlarge" style="color:black">
-	  										<label>Password</label>
-	  										<input type="password" placeholder="Password" id="pass" name="password" maxlength="25" class="input-xlarge" style="color:black">	       
-	  										<div>
-	  											<div class="btn btn-default btn-file">
-	  												<span>Browse Photo</span>
-	  												<input type="file" name="image" >
-	  											</div >
-	  											<input type="submit" class="btn btn-primary" name="submitFormDonor" value="Sign Up" onClick="return submitSignUpForDonor()">
-	  										</div>
-	  									</form>
-	  								</div>-->
-
-										
-											<h4 >Sign up</h4>
+								<div id="signupModalContent">	
+											<h4 >Sign Up</h4>
 											<br>
 
 											<ul class="nav nav-tabs">
-											<li class="active"><a href="#SignupDonor" data-toggle="tab" id="tabRegNGO" >For Donor</a></li>
-											<li><a href="#regSignupNgo" data-toggle="tab" id="tabRegNGO" >For Registered NGO</a></li>
-											<li><a href="#unregSignupNgo" data-toggle="tab" id="tabUnRegNGO">For Unregistered NGO</a></li>
+											<li class="active" id="tabDonor"><a href="#SignupDonor" data-toggle="tab">For Donor</a></li>
+											<li id="tabRegNGO"><a href="#regSignupNgo" data-toggle="tab" >For Registered NGO</a></li>
+											<li id="tabUnRegNGO"><a href="#unregSignupNgo" data-toggle="tab">For Unregistered NGO</a></li>
 											</ul>
 											<div id="myTabContent" class="tab-content">
 	  										<div class="tab-pane active in" id="SignupDonor">
@@ -225,7 +201,7 @@
 												</form>
 											</div>
 											
-	  										<div class="tab-pane active in" id="regSignupNgo">
+	  										<div class="tab-pane fade" id="regSignupNgo">
 	  											<form action="signupregngo.php" method="post" id="tab" enctype="multipart/form-data">
 
 	  												<label>NGO Name</label>
@@ -264,7 +240,7 @@
 	  												</div>
 	  											</form>
 	  										</div>
-	  										<div class="tab-pane active in" id="unregSignupNgo">
+	  										<div class="tab-pane fade" id="unregSignupNgo">
 	  											<form action="signupunregngo.php" method="post" id="tab" enctype="multipart/form-data">
 
 	  												<label>NGO Name</label>
