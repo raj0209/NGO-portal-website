@@ -85,9 +85,8 @@
 	  					</div>
 
 	  					<ul class="nav pull-right" style="margin-top:9px">
-							<input type="button" class="btn btn-success" name="signup" value="Create Account" id="signup" style="margin:10px" data-toggle="modal" data-target="#signupModal">
-							<!--<button class="btn btn-lg btn-primary btn-block" type="submit" style="margin:10px" data-toggle="modal" data-target="#signupModal\" id="signinHomeButton">Create Account</button>-->
-	  						<?php if(isset($_SESSION['SESS_MEMBER_ID'])) echo "<a style=\"color:white;text-decoration:none\" href=\"logout.php\"><button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" style=\"margin:10px\" data-toggle=\"modal\">Log out</button></a>"; else echo "<button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" style=\"margin:10px\" data-toggle=\"modal\" data-target=\"#signinModal\" id=\"signinHomeButton\">Sign In</button>" ?>
+							<?php if(isset($_SESSION['SESS_MEMBER_ID'])){ if($_SESSION['SESS_MEMBER_ID']=="NGO"){echo "<a style=\"color:white;text-decoration:none\" href=\"ngohome.php\"><input type=\"button\" class=\"btn btn-success\" name=\"myhome\" value=\"My Home\" id=\"signup\" style=\"margin:10px\" data-toggle=\"modal\"></a>";} else { echo "<a style=\"color:white;text-decoration:none\" href=\"ngohome.php\"><input type=\"button\" class=\"btn btn-success\" name=\"myhome\" value=\"My Home\" id=\"signup\" style=\"margin:10px\" data-toggle=\"modal\"></a>"; }} else echo "<input type=\"button\" class=\"btn btn-success\" name=\"signup\" value=\"Create Account\" id=\"signup\" style=\"margin:10px\" data-toggle=\"modal\" data-target=\"#signupModal\">"?>
+							<?php if(isset($_SESSION['SESS_MEMBER_ID'])) echo "<a style=\"color:white;text-decoration:none\" href=\"logout.php\"><button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" style=\"margin:10px\" data-toggle=\"modal\">Log out</button></a>"; else echo "<button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" style=\"margin:10px\" data-toggle=\"modal\" data-target=\"#signinModal\" id=\"signinHomeButton\">Sign In</button>" ?>
 							
 						</ul>
 	  				</div><!--/.nav-collapse -->
@@ -192,11 +191,11 @@
 												<label>Password</label>
 												<input type="password" placeholder="Password" id="pass" name="password" maxlength="25" class="input-xlarge" style="color:black">	       
 												<div>
+														<span>Profile Picture</span>
 	  													<div>
-														<span>Upload Photo</span>
-														<input name="image" type="file" />
-													</div> 												
-													<input type="submit" class="btn btn-primary" name="submitFormDonor" value="Sign Up" onClick="return submitSignUpForDonor()">
+															<input name="image" type="file" />
+														</div> 												
+														<input type="submit" class="btn btn-primary" name="submitFormDonor" value="Sign Up" onClick="return submitSignUpForDonor()">
 												</div>
 												</form>
 											</div>
@@ -232,10 +231,10 @@
 														<input type="checkbox" id = "Old"  name="box[]" value="Old"> Oldage<br>
 														<input type="checkbox" id = "Child"  name="box[]" value=" Child"> Child<br>
 													<div>
-	  													<div>
-														<span>Upload Logo</span>
+	  													<span>Upload Logo</span>
+														<div>										
 														<input name="regNgoLogo" type="file" />
-													</div>
+														</div>
 	  													<input type="submit" class="btn btn-primary" name="submitFormRegNgo" value="Sign Up" onClick="return submit3()">
 	  												</div>
 	  											</form>
@@ -267,10 +266,10 @@
 														<input type="checkbox" id ="uChild" name="box[]" value="Child"> Child<br>
 													
 													<div>
-	  													<div>
-	  														<span>Upload Logo</span>
+														<span>Upload Logo</span>
+	  													<div>	  														
 														<input name="regNgoLogo" type="file" />
-	  													</div >
+	  													</div>
 	  													<input type="submit" class="btn btn-primary" name="submitFormUnRegNgo" value="Sign Up" onClick="return submit4()">
 	  												</div>
 	  											</form>

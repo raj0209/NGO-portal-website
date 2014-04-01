@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <?php
 require_once('auth.php');
 include 'connect.php';
@@ -98,6 +99,7 @@ else{
                                 <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#" id="donorButton" onclick="changeName();">Donors</button>
                                 <?php if($type == "NGO") {?>
                                 <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#editProfileModal" id="editProfileButton">Edit Profile</button>
+								<button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#changePassModal" id="changePasswordButton">Change Password</button>
                                 <?php }elseif($loggedIn) { ?>
                                 <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#" id="contactButton">Contact</button>
                                 <?php }?> 
@@ -303,6 +305,35 @@ else{
         </div>
     </div>
 </div>
+<div class="modal fade" id="changePassModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Change Password</h4>
+            </div>
+            <div class="modal-body">
+                    <div class="well">
+                           <form action="" name="frmChange" method="post" enctype="multipart/form-data">
+								
+                                <label>Current Password</label>
+                                <input type="password"  id="currentPassword" name="currentPassword" maxlength="25" class="input-xlarge" onClick="clearElement('currentPassword')" style="color:black">
+                                <label>New Password</label>
+                                <input type="password"  id="newPassword" name="newPassword" maxlength="25" class="input-xlarge" onClick="clearElement('newPassword')" style="color:black">
+                                <label>Confirm Password</label>
+                                <input type="password"  id="confirmPassword" name="confirmPassword" maxlength="25" class="input-xlarge" onClick="clearElement('confirmPassword')" style="color:black">
+								<div>
+								<input type="submit" class="btn btn-primary" name="SavePassword" value="Save Password" onClick="return validatePassword()"></button>
+								</div>
+													
+                        </form>	
+                    </div>
+						
+            </div>
+        </div>
+    </div>
+</div>
+	  
 <div class="modal fade" id="contactNgoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
