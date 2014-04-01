@@ -1,21 +1,14 @@
-
-
 <div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container">
-			<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<!--<img class="img-responsive" src="icons/NGO_icon.png">-->
 
-			<div class="nav-collapse collapse" style="margin-top:9px">
+			<div class="nav-collapse collapse" >
 				<ul class="nav nav-tabs">
 					<li  class= "active" ><a class="brand" href="#">Sampark</a></li>
 					<li><a href="rankingpage.php">Top Organizations</a></li>
 					<li><a href="contact.php">Contact</a></li>	
 				</ul>
+
 				<div align="center" class="nav-collapse collapse" style="margin:10px">
 					<ul class="nav">
 						<form style="z-index: -1;" action="search.php" method="post" enctype="multipart/form-data" >
@@ -36,9 +29,9 @@
 				</div>
 
 				<ul class="nav pull-right" style="margin-top:9px">
-					<?php if(isset($_SESSION['SESS_MEMBER_ID'])){ if($_SESSION['SESS_MEMBER_ID']=="NGO"){echo "<a style=\"color:white;text-decoration:none\" href=\"ngohome.php\"><input type=\"button\" class=\"btn btn-success\" name=\"myhome\" value=\"My Home\" id=\"signup\" style=\"margin:10px\" data-toggle=\"modal\"></a>";} else { echo "<a style=\"color:white;text-decoration:none\" href=\"ngohome.php\"><input type=\"button\" class=\"btn btn-success\" name=\"myhome\" value=\"My Home\" id=\"signup\" style=\"margin:10px\" data-toggle=\"modal\"></a>"; }} else echo "<input type=\"button\" class=\"btn btn-success\" name=\"signup\" value=\"Create Account\" id=\"signup\" style=\"margin:10px\" data-toggle=\"modal\" data-target=\"#signupModal\">"?>
+					<?php if(isset($_SESSION['SESS_MEMBER_ID'])){ if($_SESSION['SESS_TYPE']=="NGO"){echo "<a style=\"color:white;text-decoration:none\" href=\"ngohome.php\"><input type=\"button\" class=\"btn btn-success\" name=\"myhome\" value=\"My Home\" id=\"signup\" style=\"margin:10px\" data-toggle=\"modal\"></a>";} else { echo "<a style=\"color:white;text-decoration:none\" href=\"donorhome.php\"><input type=\"button\" class=\"btn btn-success\" name=\"myhome\" value=\"My Home\" id=\"signup\" style=\"margin:10px\" data-toggle=\"modal\"></a>"; }} else echo "<input type=\"button\" class=\"btn btn-success\" name=\"signup\" value=\"Create Account\" id=\"signup\" style=\"margin:10px\" data-toggle=\"modal\" data-target=\"#signupModal\">"?>
 					<?php if(isset($_SESSION['SESS_MEMBER_ID'])) echo "<a style=\"color:white;text-decoration:none\" href=\"logout.php\"><button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" style=\"margin:10px\" data-toggle=\"modal\">Log out</button></a>"; else echo "<button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" style=\"margin:10px\" data-toggle=\"modal\" data-target=\"#signinModal\" id=\"signinHomeButton\">Sign In</button>" ?>
-					
+
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>
@@ -102,7 +95,7 @@
   											</div>-->
   										</div>
   									</div>
-  									
+
   								</div>
 
   							</div> 
@@ -150,7 +143,7 @@
   													</div>
   												</form>
   											</div>
-  											
+
   											<div class="tab-pane fade" id="regSignupNgo">
   												<form action="signupregngo.php" method="post" id="tab" enctype="multipart/form-data">
 
@@ -174,7 +167,7 @@
   													<textarea  rows="3" id="vi" name="vi" class="input-xlarge" placeholder="Vision" style="color:black"></textarea>
   													<label>Website</label>
   													<input type="text"  id="web" name="web" class="input-xlarge" placeholder="Website" style="color:black">
-  													
+
   													<label name ="category"> Category </label>
   													<input type="checkbox" id = "Health" name="box[]" value="Health"> Health<br>
   													<input type="checkbox" id = "Food"  name="box[]" value="Food"> Food <br>
@@ -216,7 +209,7 @@
   													<input type="checkbox" id ="uEducation" name="box[]" value=" Education"> Education<br>
   													<input type="checkbox" id ="uOld" name="box[]" value="Old"> Oldage<br>
   													<input type="checkbox" id ="uChild" name="box[]" value="Child"> Child<br>
-  													
+
   													<div>
   														<span>Upload Logo</span>
   														<div>	  														
@@ -227,7 +220,7 @@
   												</form>
   											</div>
   										</div>
-  										
+
   									</div>
   								</div>
   							</div>
