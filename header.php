@@ -16,20 +16,38 @@
               <input type="hidden" id="selectedCatagory" name="selectedCatagory" value="All" >
               
               <div class="dropdown">
-                <a style="height: 20px; width:100px" id="dLabel" role="button" class="btn btn-primary" data-toggle="dropdown" data-target="#">
+                <a style="height: 20px; width:100px" id="dLabel" role="button" class="btn btn-success" data-toggle="dropdown" data-target="#">
                   Category <span class="caret" style="float: right"></span>                
                 </a>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                  <li><a tabindex="-1" href="#" onClick="itemSelected('Health')" >Health</a></li>
-                  <li><a tabindex="-1" href="#" onClick="itemSelected('Education')" >Education</a></li>
-                  <li><a tabindex="-1" href="#" onClick="itemSelected('Food')" >Food</a></li>
-                  <li><a tabindex="-1" href="#" onClick="itemSelected('Oldage')" >Oldage</a></li>
-                  <li><a tabindex="-1" href="#" onClick="itemSelected('Children')" >Children</a></li>
-                  <li><a tabindex="-1" href="#" onClick="itemSelected('All')" >All</a></li>
+
+                  <?php
+                  // this fetches catagories present in database and adds to list
+                  $queryCats = "SELECT DISTINCT category FROM CatNgo";
+                  $resultCats = mysql_query($queryCats);
+
+                  if($resultCats) {
+                    if(mysql_num_rows($resultCats) > 0) {
+                      while ($row = mysql_fetch_assoc($resultCats)) {
+                         $nameCat = $row['category'];
+                         ?>
+                            <li><a tabindex="-1" href="#" onClick="itemSelected('<?php echo $nameCat; ?>')" ><?php echo $nameCat; ?></a></li>
+                         <?php 
+                      }
+                    }else{ ?>
+                      <li><a tabindex="-1" href="#" onClick="itemSelected('All')" >All</a></li>
+                      <?php
+                    }
+                  }else{?>
+                      <li><a tabindex="-1" href="#" onClick="itemSelected('All')" >All</a></li>
+                      <?php
+                  }
+                  ?>
+
                 </ul>
               </div>
               
-              <button type="submit" class="btn btn-success">Search</button> 
+              <button type="submit" class="btn btn-primary">Search</button> 
             </form>
 					</div>
 				</div>

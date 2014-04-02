@@ -16,7 +16,6 @@
     	INNER JOIN ( SELECT * FROM CatNgo WHERE  category LIKE('%$searchCatagory%') ) AS cat ON ngo.pid=cat.ngo_pid";
     	$result = mysql_query($sqlQuery);
     }
-
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +42,7 @@
 						//echo " ".$nameNgo.$logoUrl.$descNgo;
 
 							?>
-							<form action="ngohome.php" method="post" enctype="multipart/form-data">
+							<form action="ngohome.php?id=<?php echo $pid ?>" method="post" enctype="multipart/form-data">
 								<div class="pin">
 									<input type="hidden" name="ngoPid" value=" <?php echo $pid ?>">
 									<img src="<?php echo $logoUrl ?>" />

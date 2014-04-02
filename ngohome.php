@@ -15,7 +15,6 @@ else
     $type="GUEST";
 }
 
-
 if(!isset($_SESSION['SESS_MEMBER_ID']) || (trim($_SESSION['SESS_MEMBER_ID']) == '' )){
     $loggedIn = false;
     $pid = $_POST['ngoPid'];
@@ -27,6 +26,22 @@ if(!isset($_SESSION['SESS_MEMBER_ID']) || (trim($_SESSION['SESS_MEMBER_ID']) == 
 // if ngoPid is set that means person is coming here from search page and SESS_MEMBER_ID can be different from the id of ngo that user want to see
 if( isset($_POST['ngoPid'])){
     $pid = $_POST['ngoPid'];
+}
+
+if(isset($_GET["id"]))
+{
+    $idFromLink = htmlspecialchars($_GET["id"]);
+
+    if(intval($idFromLink)){
+        // id is integer
+        $pid = $idFromLink;
+    }else{
+        Header("Location: error.php");
+    }
+}
+
+if(!isset($pid)){
+    Header("Location: error.php");
 }
 
 $qry="SELECT * FROM Ngo WHERE pid=$pid";
@@ -49,7 +64,7 @@ if($result) {
  }
 } 
 else{
-    echo "Ngo not found";
+    Header("Location: error.php");
 }
 
 ?>
