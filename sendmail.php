@@ -39,7 +39,7 @@
         $mail->SmtpClose();
         echo $error;
 		echo "<script>alert('activate your account and Login again')</script>";
-		header("refresh:0.001;url=http://localhost/sampark/NGO-portal-website/index.php");
+        Header("Location: index.php");
 		return true;
 		}
 

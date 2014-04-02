@@ -61,6 +61,9 @@ if($result) {
      $web = $member['website'];
      $address = $member['address'];
      $password = $member['password'];
+ }else{
+    // NGO id is not present
+    Header("Location: error.php");
  }
 } 
 else{

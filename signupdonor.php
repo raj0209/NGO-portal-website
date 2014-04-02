@@ -35,7 +35,7 @@ $p = sha1($_POST['password']);
 		</script>
 
 	<?php
-		header("refresh:0.1;url=http://localhost/sampark/NGO-portal-website/index.php");
+		Header("Location: index.php");
 	}
 		
 		//$('#signupModalContent').modal("show");
