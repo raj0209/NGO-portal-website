@@ -13,15 +13,19 @@
 					<div class="nav">
 						<form style="z-index: -1;" action="search.php" method="post" enctype="multipart/form-data" >
               <input type="text" name="searchQuery" class="span4 search-query" style="margin:10px; height: 30px" placeholder="Search for NGO"/>
+              <input type="hidden" id="selectedCatagory" name="selectedCatagory" value="All" >
               
               <div class="dropdown">
-                <a id="dLabel" role="button" class="btn btn-primary" data-toggle="dropdown" data-target="#">
-                  Category <span class="caret"></span>                
+                <a style="height: 20px; width:100px" id="dLabel" role="button" class="btn btn-primary" data-toggle="dropdown" data-target="#">
+                  Category <span class="caret" style="float: right"></span>                
                 </a>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                  <li><a tabindex="-1" href="#" >Health</a></li>
-                  <li><a tabindex="-1" href="#">Education</a></li>
-                  <li><a tabindex="-1" href="#">Food</a></li>
+                  <li><a tabindex="-1" href="#" onClick="itemSelected('Health')" >Health</a></li>
+                  <li><a tabindex="-1" href="#" onClick="itemSelected('Education')" >Education</a></li>
+                  <li><a tabindex="-1" href="#" onClick="itemSelected('Food')" >Food</a></li>
+                  <li><a tabindex="-1" href="#" onClick="itemSelected('Oldage')" >Oldage</a></li>
+                  <li><a tabindex="-1" href="#" onClick="itemSelected('Children')" >Children</a></li>
+                  <li><a tabindex="-1" href="#" onClick="itemSelected('All')" >All</a></li>
                 </ul>
               </div>
               

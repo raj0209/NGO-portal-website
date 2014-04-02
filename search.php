@@ -5,9 +5,17 @@
 	include 'connect.php';
 
     $searchQuery = $_POST['searchQuery'];
+    $searchCatagory = $_POST['selectedCatagory'];
 
-    $sqlQuery = "SELECT * FROM Ngo WHERE  name LIKE('%$searchQuery%') or address LIKE('%$searchQuery%')";
-    $result = mysql_query($sqlQuery);
+    if($searchCatagory == "All")
+    {
+    	$sqlQuery = "SELECT * FROM Ngo WHERE  name LIKE('%$searchQuery%') or address LIKE('%$searchQuery%')";
+    	$result = mysql_query($sqlQuery);
+    }else{
+    	$sqlQuery = "SELECT * FROM ( SELECT pid, name, logo, description FROM Ngo WHERE  name LIKE('%$searchQuery%') or address LIKE('%$searchQuery%') ) AS ngo 
+    	INNER JOIN ( SELECT * FROM CatNgo WHERE  category LIKE('%$searchCatagory%') ) AS cat ON ngo.pid=cat.ngo_pid";
+    	$result = mysql_query($sqlQuery);
+    }
 
 ?>
 
@@ -39,7 +47,7 @@
 								<div class="pin">
 									<input type="hidden" name="ngoPid" value=" <?php echo $pid ?>">
 									<img src="<?php echo $logoUrl ?>" />
-									<input type="submit" value="<?php echo $nameNgo ?>" style="width: 200px;" onClick="ClearAll();" >
+									<input type="submit" value="<?php echo $nameNgo ?>" style="width: 200px; font-weight:bold" onClick="ClearAll();" >
 									<p><?php echo $descNgo ?></p>
 								</div>
 							</form>

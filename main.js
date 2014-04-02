@@ -1,3 +1,12 @@
+function itemSelected( item ) {
+
+	var el = document.getElementById('dLabel');
+	el.firstChild.data = item;
+
+	document.getElementById('selectedCatagory').value = item;
+ 
+}
+
 function submitSignin(email,password)
 {
 	if(document.getElementById(email).value==""|| document.getElementById(email).value=="Email")
