@@ -171,10 +171,13 @@
   													<input type="text"  id="cont" name="cont"  maxlength="10" class="input-xlarge" placeholder="Contact Number" style="color:black">
   													<label>Password</label>
   													<input type="password"  id="pwd" name="pwd" maxlength="25" class="input-xlarge" placeholder="Password" style="color:black">
-  													<label>Description</label>
-  													<textarea rows="5" id="dc" name="dc" class="input-xlarge" placeholder="Description" style="color:black"></textarea>
   													<label>Address</label>
-  													<textarea rows="5" id="add" name="add" class="input-xlarge" placeholder="Address" style="color:black"></textarea>
+  													<textarea rows="3" id="add" name="add" class="input-xlarge" placeholder="Address" style="color:black"></textarea>
+													<br/>
+  													<input type="text"  id="cityreg" name="cityreg" class="input-small" placeholder="City" style="color:black">
+  													<input type="text"  id="statereg" name="statereg" class="input-medium" placeholder="State" style="color:black">
+													<label>Description</label>
+  													<textarea rows="3" id="dc" name="dc" class="input-xlarge" placeholder="Description" style="color:black"></textarea>
   													<label>Vision</label>
   													<textarea  rows="3" id="vi" name="vi" class="input-xlarge" placeholder="Vision" style="color:black"></textarea>
   													<label>Website</label>
@@ -209,11 +212,14 @@
   													<input type="text"  id="ucont" name="ucont" maxlength="10" class="input-xlarge" placeholder="Contact Number" style="color:black">
   													<label>Password</label>
   													<input type="password"  id="upwd" name="upwd" maxlength="25" class="input-xlarge" placeholder="Password" style="color:black">
-  													<label>Description</label>
-  													<textarea rows="5" id="udc" name="udc" class="input-xlarge" placeholder="Description" style="color:black"></textarea>
   													<label>Address</label>
-  													<textarea rows="5" id="uadd" name="uadd" class="input-xlarge" placeholder="Address" style="color:black"></textarea>
-  													<label>Vision</label>
+  													<textarea rows="3" id="uadd" name="uadd" class="input-xlarge" placeholder="Address" style="color:black"></textarea>
+  													<br/>
+  													<input type="text"  id="cityunreg" name="cityunreg" class="input-small" placeholder="City" style="color:black">
+  													<input type="text"  id="stateunreg" name="stateunreg" class="input-medium" placeholder="State" style="color:black">
+													<label>Description</label>
+  													<textarea rows="3" id="udc" name="udc" class="input-xlarge" placeholder="Description" style="color:black"></textarea>
+													<label>Vision</label>
   													<textarea  rows="3" id="uvi" name="uvi" placeholder="vision" class="input-xlarge" style="color:black"></textarea>
   													<label> Category </label>
   													<input type="checkbox" id ="uHealth" name="box[]" value="Health"> Health<br>
