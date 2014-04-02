@@ -25,9 +25,9 @@ $p = sha1($_POST['password']);
 		}
 	}
   
-	$result22 = mysql_query("SELECT COUNT(1) FROM Donor WHERE email = '$e'");
+	$result2 = mysql_query("SELECT * FROM Donor WHERE email = '$e'");
 	
-	if($result22){
+	if(mysql_num_rows($result2)>0){
 	?>
 		<script type="text/javascript">
 		alert("The email address <?php echo $e; ?> is already registered.");
@@ -36,18 +36,21 @@ $p = sha1($_POST['password']);
 
 	<?php
 		header("refresh:0.1;url=http://localhost/sampark/NGO-portal-website/index.php");
-		//$('#signupModalContent').modal("show");
 	}
+		
+		//$('#signupModalContent').modal("show");
+	
 		
 	
 		
-		
+	else
+	{	
 	$insertQuery = "insert into Donor(name,photo,email,contact,password) values('$f','$filePath','$e','$m','$p')";
 	$result = mysql_query($insertQuery);
 		
 		if (!$result)
 		{
-			echo "Error: ";
+			echo "'$f','$e','$m','$p',Error: ";
 		}
 		else
 		{
@@ -55,7 +58,7 @@ $p = sha1($_POST['password']);
 			//header("refresh:3;url=http://localhost/sampark/NGO-portal-website/index.php");
 		}
 		
-		header("location:sendmail.php?a=$email");
-	
+		header("location:sendmail.php?a=$e");
+	}
 
 ?>

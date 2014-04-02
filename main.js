@@ -118,74 +118,105 @@ if(document.getElementById("efn").value=="" || document.getElementById        ("
 
 function submitSignUpForDonor()
 {
+	var output;
+	
 	if(document.getElementById("fn").value=="" || document.getElementById        ("fn").value=="First Name")
 	{
-		alert("Please enter your name");
-		document.getElementById("fn").focus();
-		return false;
-	}
-
-	if(document.getElementById("em").value==""|| document.getElementById        ("em").value=="Email")
-	{
-		alert("Please enter your email address");
-		document.getElementById("em").focus();
-		return false;
-	}
-
-	var x=document.getElementById("em").value;
-	var a=x.indexOf("@");
-	var d=x.lastIndexOf(".");
-	if(a<1 || d<a+2 || d+2>=x.length)
-	{
-
-		alert("Invalid Email");
-		document.getElementById("em").focus();
-		return false;
-	}
-
-	if(document.getElementById("mob").value=="" || document.getElementById        ("mob").value=="Mobile Number")
-	{
-		alert("Please enter your mobile number");
-		document.getElementById("mob").focus();
-		return false;
-	}
-
-	var n="0123456789";
-	var num,dig;
-
-	num=document.getElementById("mob").value;
-	if(num.length==10)
-	{
-	for(i=0;i<num.length;i++)
-	{
-		dig=num.charAt(i);
-		if(n.indexOf(dig)==-1)
-		{
-			alert("Enter digits only");
-			document.getElementById("mob").focus();
-			return false;
-		}
-	}
+		//alert("Please enter your name");
+		//document.getElementById("fn").focus();
+		document.getElementById("fn").style.borderColor = '#FF0000';
+		output="false";
 	}
 	else
 	{
-		alert("Enter 10 digit mobile number");
-		document.getElementById("mob").focus();
-		return false;
+		document.getElementById("fn").style.borderColor = 'Grey';		
+	}
+	if(document.getElementById("em").value==""|| document.getElementById        ("em").value=="Email")
+	{
+		//alert("Please enter your email address");
+		//document.getElementById("em").focus();
+		document.getElementById("em").style.borderColor = '#FF0000';
+		output="false";
+	}
+	else if(document.getElementById("em").value!="" && document.getElementById        ("em").value!="Email")
+	{
+		var x=document.getElementById("em").value;
+		var a=x.indexOf("@");
+		var d=x.lastIndexOf(".");
+		if(a<1 || d<a+2 || d+2>=x.length)
+		{
+
+			alert("Invalid Email");
+			document.getElementById("em").focus();
+			document.getElementById("em").style.borderColor = '#FF0000';
+			return false;
+		}
+		document.getElementById("em").style.borderColor = 'Grey';
+	}
+	
+	if(document.getElementById("mob").value=="" || document.getElementById        ("mob").value=="Mobile Number")
+	{
+		//alert("Please enter your mobile number");
+		//document.getElementById("mob").focus();
+		document.getElementById("mob").style.borderColor = '#FF0000';
+		output="false";
 	}
 
+	else if(document.getElementById("mob").value!="" || document.getElementById        ("mob").value!="Mobile Number")
+	{
+		var n="0123456789";
+		var num,dig;
+
+		num=document.getElementById("mob").value;
+		if(num.length==10)
+		{
+		for(i=0;i<num.length;i++)
+		{
+			dig=num.charAt(i);
+			if(n.indexOf(dig)==-1)
+			{
+				alert("Enter digits only");
+				document.getElementById("mob").focus();
+				document.getElementById("mob").style.borderColor = '#FF0000';
+				return false;
+			}
+		}
+		}
+		
+		else
+		{
+			alert("Enter 10 digit mobile number");
+			document.getElementById("mob").focus();
+			document.getElementById("mob").style.borderColor = '#FF0000';
+			return false;
+		}
+		document.getElementById("mob").style.borderColor = 'Grey';		
+	}
+	
 	if(document.getElementById("pass").value=="" || document.getElementById        ("pass").value=="Password")
 	{
-		alert("Please enter your password");
-		document.getElementById("pass").focus();
-		return false;
+		//alert("Please enter your password");
+		//document.getElementById("pass").focus();
+		document.getElementById("pass").style.borderColor = '#FF0000';
+		output="false";
 	}
 
-	var p=document.getElementById("pass").value;
-	if(p.length<6)
+	else if(document.getElementById("pass").value!="" || document.getElementById        ("pass").value!="Password")
 	{
-		alert("Password should have minimum 6 characters");
+		var p=document.getElementById("pass").value;
+		if(p.length<6)
+		{
+			alert("Password should have minimum 6 characters");
 			document.getElementById("pass").focus();
+			document.getElementById("pass").style.borderColor = '#FF0000';
+			return false;
+		}
+		document.getElementById("pass").style.borderColor = 'Grey';		
+	}
+	
+	if(output=="false")
+	{
+		alert("Please fill up the required fields");
 		return false;
 	}
 }
@@ -308,6 +339,7 @@ function submit3()
 	{
 		alert("Please enter name of NGO");
 		document.getElementById("nn").focus();
+		document.getElementById("nn").style.borderColor = '#FF0000';	
 		return false;
 	}
 
