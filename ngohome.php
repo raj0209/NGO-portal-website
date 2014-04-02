@@ -6,13 +6,13 @@ require_once('auth.php');
 include 'connect.php';
 
 if(isset($_SESSION['SESS_TYPE'])){
-$type=$_SESSION['SESS_TYPE'];
-$email=$_SESSION['SESS_EMAIL'];
-$pid=$_SESSION['SESS_MEMBER_ID'];
+    $type=$_SESSION['SESS_TYPE'];
+    $email=$_SESSION['SESS_EMAIL'];
+    $pid=$_SESSION['SESS_MEMBER_ID'];
 }
 else
 {
-$type="GUEST";
+    $type="GUEST";
 }
 
 
@@ -21,6 +21,12 @@ if(!isset($_SESSION['SESS_MEMBER_ID']) || (trim($_SESSION['SESS_MEMBER_ID']) == 
     $pid = $_POST['ngoPid'];
 }else{
     $loggedIn = true;
+}
+
+// This is the smartest thing I have ever done in my life -Vijay13
+// if ngoPid is set that means person is coming here from search page and SESS_MEMBER_ID can be different from the id of ngo that user want to see
+if( isset($_POST['ngoPid'])){
+    $pid = $_POST['ngoPid'];
 }
 
 $qry="SELECT * FROM Ngo WHERE pid=$pid";
@@ -76,11 +82,11 @@ else{
 
                             </div>
                             <p>
-                                <?php if($loggedIn && $type == 'NGO') { ?>
+                                <?php if($loggedIn && $type == "NGO" && $pid==$_SESSION['SESS_MEMBER_ID']) { ?>
                                 <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#postEventModal" id="postEventButton">Post Event</button>
                                 <?php } ?>
                                 <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#" id="donorButton" onclick="changeName();">Donors</button>
-                                <?php if($type == "NGO" && $pid==$$_SESSION['SESS_MEMBER_ID']) {?>
+                                <?php if($loggedIn && $type == "NGO" && $pid==$_SESSION['SESS_MEMBER_ID']) {?>
                                 <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#editProfileModal" id="editProfileButton">Edit Profile</button>
 								<button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#changePassModal" id="changePasswordButton">Change Password</button>
                                 <?php }elseif($loggedIn && $type == "DONOR") { ?>

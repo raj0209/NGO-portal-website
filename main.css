@@ -5,8 +5,18 @@ body {
 }
 
 input {
-    min-height: 25px;
-    max-height: 25px;
+    min-height: 30px;
+    max-height: 30px;
+}
+
+input[type=text]{
+    min-height: 20px;
+    max-height: 20px;   
+}
+
+input[type=password]{
+    min-height: 20px;
+    max-height: 20px;   
 }
 
 .dropdown{

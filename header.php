@@ -13,6 +13,7 @@
 					<div class="nav">
 						<form style="z-index: -1;" action="search.php" method="post" enctype="multipart/form-data" >
               <input type="text" name="searchQuery" class="span4 search-query" style="margin:10px; height: 30px" placeholder="Search for NGO"/>
+              
               <div class="dropdown">
                 <a id="dLabel" role="button" class="btn btn-primary" data-toggle="dropdown" data-target="#">
                   Category <span class="caret"></span>                
@@ -23,20 +24,23 @@
                   <li><a tabindex="-1" href="#">Food</a></li>
                 </ul>
               </div>
+              
               <button type="submit" class="btn btn-success">Search</button> 
             </form>
 					</div>
 				</div>
-				<div style="margin-top:10px">
+				
+        <div style="margin-top:10px">
 				<?php if(!isset($_SESSION))
 				session_start() ?>
-				<ul class="nav pull-right" style="margin-top:10px">
-					<?php if(isset($_SESSION['SESS_MEMBER_ID'])){ if($_SESSION['SESS_TYPE']=="NGO"){echo "<a style=\"color:white;text-decoration:none\" href=\"ngohome.php\"><input type=\"button\" class=\"btn btn-success\" name=\"myhome\" value=\"My Home\" id=\"signup\" style=\"margin:10px\" data-toggle=\"modal\"></a>";} else { echo "<a style=\"color:white;text-decoration:none\" href=\"donorhome.php\"><input type=\"button\" class=\"btn btn-success\" name=\"myhome\" value=\"My Home\" id=\"signup\" style=\"margin:10px\" data-toggle=\"modal\"></a>"; }} else echo "<input type=\"button\" class=\"btn btn-success\" name=\"signup\" value=\"Create Account\" id=\"signup\" style=\"margin:10px\" data-toggle=\"modal\" data-target=\"#signupModal\">"?>
-					<?php if(isset($_SESSION['SESS_MEMBER_ID'])) echo "<a style=\"color:white;text-decoration:none\" href=\"logout.php\"><button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" style=\"margin:10px\" data-toggle=\"modal\">Log out</button></a>"; else echo "<button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" style=\"margin:10px\" data-toggle=\"modal\" data-target=\"#signinModal\" id=\"signinHomeButton\">Sign In</button>" ?>
+  				<ul class="nav pull-right" style="margin-top:5px" >
+  					<?php if(isset($_SESSION['SESS_MEMBER_ID'])){ if($_SESSION['SESS_TYPE']=="NGO"){echo "<a style=\"color:white;text-decoration:none\" href=\"ngohome.php\"><input type=\"button\" class=\"btn btn-success\" name=\"myhome\" value=\"My Home\" id=\"signup\" style=\"margin:10px\" data-toggle=\"modal\"></a>";} else { echo "<a style=\"color:white;text-decoration:none\" href=\"donorhome.php\"><input type=\"button\" class=\"btn btn-success\" name=\"myhome\" value=\"My Home\" id=\"signup\" style=\"margin:10px\" data-toggle=\"modal\"></a>"; }} else echo "<input type=\"button\" class=\"btn btn-success\" name=\"signup\" value=\"Create Account\" id=\"signup\" style=\"margin:10px\" data-toggle=\"modal\" data-target=\"#signupModal\">"?>
+  					<?php if(isset($_SESSION['SESS_MEMBER_ID'])) echo "<a style=\"color:white;text-decoration:none\" href=\"logout.php\"><button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" style=\"margin:10px\" data-toggle=\"modal\">Log out</button></a>"; else echo "<button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" style=\"margin:10px\" data-toggle=\"modal\" data-target=\"#signinModal\" id=\"signinHomeButton\">Sign In</button>" ?>
 
-				</ul>
+  				</ul>
 				</div>
-			</div><!--/.nav-collapse -->
+			
+      </div><!--/.nav-collapse -->
 		</div>
 	</div>
 </div>

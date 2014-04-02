@@ -53,20 +53,20 @@ include 'database.php';
 							<div >
 								<h4><font color="black">Welcome to Sampark</font></h4>
 							</div>
-							<p> Browse for socially working organizations. </p>
-							<p>Favourite/Follow the organizations you're interested in.</p>
-							<p>Connect with the organizations. Rate organizations.</p>
+							<p style="width: 450px" > Browse for socially working organizations. </p>
+							<p style="width: 450px" >Favourite/Follow the organizations you're interested in.</p>
+							<p style="width: 450px" >Connect with the organizations. Rate organizations.</p>
 						</div>
 					</div>
 					
 					<div class="DetailBoxes">
-						<div class="pin" style="min-width: 400px; width: auto">
+						<div class="pin" style="min-width: 450px; width: auto">
 							<div >
 								<h4><font color="black">What is this site?</font></h4>
 							</div>
 							<div >
-								<p>Hey! We provide a platform for willing contributors to connect to socially working non-profit organizations. We have felt an urgent need for this, seeing that there are a lot of socially working organizations (statistics suggest that there is an NGO for every 600 citizens of the country). What happens in such a scenario is that the bigger, or the more profound organizations attract willing donors with a greater propensity as compared to smaller ones.</font></p>
-							<p><em>Sampark</em>
+							<p style="width: 450px" > Hey! We provide a platform for willing contributors to connect to socially working non-profit organizations. We have felt an urgent need for this, seeing that there are a lot of socially working organizations (statistics suggest that there is an NGO for every 600 citizens of the country). What happens in such a scenario is that the bigger, or the more profound organizations attract willing donors with a greater propensity as compared to smaller ones.</font></p>
+							<p style="width: 450px" ><em>Sampark</em>
 							is an attempt to bring these organizations at the same level of accessibility. From the perspective of users, it only aims to increase the ease of usage. Sampark is the ideal platform for you to come online, and look for appropriate organizations which you would be willing to contribute to. Come online and step into the world of complete awareness about all the coming up events at your favourite organizations.</p>
 				
 							</div>
