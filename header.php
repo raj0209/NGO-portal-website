@@ -4,7 +4,7 @@
 
 			<div class="nav-collapse collapse" style="margin:10px">
 				<ul class="nav nav-tabs">
-					<li  class= "active" ><a class="brand" href="#">Sampark</a></li>
+					<li  class= "active" ><a class="brand" href="index.php">Sampark</a></li>
 					<li><a href="rankingpage.php">Top Organizations</a></li>
 					<li><a href="contact.php">Contact</a></li>	
 				</ul>
@@ -27,19 +27,23 @@
             </form>
 					</div>
 				</div>
-
-				<ul class="nav pull-right" style="margin-top:9px">
+				<div style="margin-top:10px">
+				<?php if(!isset($_SESSION))
+				session_start() ?>
+				<ul class="nav pull-right" style="margin-top:10px">
 					<?php if(isset($_SESSION['SESS_MEMBER_ID'])){ if($_SESSION['SESS_TYPE']=="NGO"){echo "<a style=\"color:white;text-decoration:none\" href=\"ngohome.php\"><input type=\"button\" class=\"btn btn-success\" name=\"myhome\" value=\"My Home\" id=\"signup\" style=\"margin:10px\" data-toggle=\"modal\"></a>";} else { echo "<a style=\"color:white;text-decoration:none\" href=\"donorhome.php\"><input type=\"button\" class=\"btn btn-success\" name=\"myhome\" value=\"My Home\" id=\"signup\" style=\"margin:10px\" data-toggle=\"modal\"></a>"; }} else echo "<input type=\"button\" class=\"btn btn-success\" name=\"signup\" value=\"Create Account\" id=\"signup\" style=\"margin:10px\" data-toggle=\"modal\" data-target=\"#signupModal\">"?>
 					<?php if(isset($_SESSION['SESS_MEMBER_ID'])) echo "<a style=\"color:white;text-decoration:none\" href=\"logout.php\"><button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" style=\"margin:10px\" data-toggle=\"modal\">Log out</button></a>"; else echo "<button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" style=\"margin:10px\" data-toggle=\"modal\" data-target=\"#signinModal\" id=\"signinHomeButton\">Sign In</button>" ?>
 
 				</ul>
+				</div>
 			</div><!--/.nav-collapse -->
 		</div>
 	</div>
 </div>
 
 <div class="container" style="margin:50px">
-	<div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display:none">
+	
 		<div class="modal-dialog">
 			<div class="modal-header">
 				<button type="button" id="closes" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -213,7 +217,7 @@
   													<div>
   														<span>Upload Logo</span>
   														<div>	  														
-  															<input name="regNgoLogo" type="file" />
+  															<input name="unregNgoLogo" type="file" />
   														</div>
   														<input type="submit" class="btn btn-primary" name="submitFormUnRegNgo" value="Sign Up" onClick="return submit4()">
   													</div>

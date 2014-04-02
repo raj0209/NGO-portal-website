@@ -52,10 +52,10 @@ $p = sha1($_POST['password']);
 		else
 		{
 			echo "<font size = '5'><font color=\"#0CF44A\">ACCOUNT CREATED...SIGN IN USING THE ACTIVATION LINK SENT TO YOUR EMAIL ID";
-			header("refresh:3;url=http://localhost/sampark/NGO-portal-website/index.php");
+			//header("refresh:3;url=http://localhost/sampark/NGO-portal-website/index.php");
 		}
 		
-		
+		header("location:sendmail.php?a=$email");
 	
 
 ?>

@@ -23,7 +23,7 @@ else
 	$randomName = substr(sha1(rand()), 0, 10);
 	$filePath = "img/logos/_".$randomName."_".$_FILES["unregNgoLogo"]["name"];
 
-	if(! move_uploaded_file($_FILES["unregNgoLogo"]["tmp_name"],$filePath);)
+	if(! move_uploaded_file($_FILES["unregNgoLogo"]["tmp_name"],$filePath))
 	{
 		$filePath = "img/logos/default_ngo.png";
 	}
@@ -35,7 +35,7 @@ values('$name','$filePath','$add','$des','$vis','$cpn','$email','$cno',1,0,'$pas
 $result = mysql_query($insertQuery);
 
 $checkbox1 = $_POST['box'];
-if($_POST["submitFormRegNgo"]=="Sign Up")
+if($_POST["submitFormUnRegNgo"]=="Sign Up")
 {
 	if(isset($_POST['box'])){
 		$t1=implode(',', $_POST['box']);
@@ -53,9 +53,9 @@ if($_POST["submitFormRegNgo"]=="Sign Up")
 	}else
 	{
 		echo "<font size = '5'><font color=\"#0CF44A\">ACCOUNT CREATED...SIGN IN USING THE ACTIVATION LINK SENT TO YOUR EMAIL ID";
-		header("refresh:3;url=http://localhost/sampark/NGO-portal-website/index.php");
+		//header("refresh:3;url=http://localhost/sampark/NGO-portal-website/index.php");
 	}
-	
+	header("location:sendmail.php?a=$email");	
 }
 
 ?>
