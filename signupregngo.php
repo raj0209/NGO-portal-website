@@ -12,7 +12,8 @@ $des = $_POST['dc'];
 $add = $_POST['add'];
 $vis = $_POST['vi'];
 $web = $_POST['web'];
-
+$city = $_POST['cityreg'];
+$state = $_POST['statereg'];
 
 $logoNgo = $_FILES['regNgoLogo']['name'];
 
@@ -35,8 +36,8 @@ else
 
 }
 
-$insertQuery = "insert into Ngo(name,logo,address,description,vision,contact_person,email,contact,rate,rstatus,rnumber,website,password) 
-values('$name','$filePath','$add','$des','$vis','$cpn','$email','$cno',1,1,'$regno','$web','$password')";
+$insertQuery = "insert into Ngo(name,logo,address,city,state,description,vision,contact_person,email,contact,rate,rstatus,rnumber,website,password) 
+values('$name','$filePath','$add','$city','$state','$des','$vis','$cpn','$email','$cno',1,1,'$regno','$web','$password')";
 
 $checkbox1 = $_POST['box'];
 if($_POST["submitFormRegNgo"]=="Sign Up")
@@ -44,7 +45,7 @@ if($_POST["submitFormRegNgo"]=="Sign Up")
 	if(isset($_POST['box']))
 	{
 		$t1=implode(',', $_POST['box']);
-		$s = "insert into catNgo(ngo_pid , category) values(1 , '$t1')"; 
+		$s = "insert into catNgo(category) values('$t1')"; 
 		$res=mysql_query($s);
 		if($res)
 		{

@@ -10,6 +10,9 @@ $password=sha1($_POST['upwd']);
 $des=$_POST['udc'];
 $add=$_POST['uadd'];
 $vis=$_POST['uvi'];
+$city = $_POST['cityunreg'];
+$state = $_POST['stateunreg'];
+
 
 //echo  $name." ".$cpn." ".$email." ".$cno." ".$password." ".$des." ".$vis." ";
 
@@ -29,8 +32,8 @@ else
 	}
 }
 
-$insertQuery = "insert into Ngo(name,logo,address,description,vision,contact_person,email,contact,rate,rstatus,password) 
-values('$name','$filePath','$add','$des','$vis','$cpn','$email','$cno',1,0,'$password')";
+$insertQuery = "insert into Ngo(name,logo,address,city,state,description,vision,contact_person,email,contact,rate,rstatus,password) 
+values('$name','$filePath','$add','$city','$state','$des','$vis','$cpn','$email','$cno',1,0,'$password')";
 
 $result = mysql_query($insertQuery);
 
