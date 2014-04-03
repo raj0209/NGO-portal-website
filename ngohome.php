@@ -21,7 +21,7 @@ if(!isset($_SESSION['SESS_MEMBER_ID']) || (trim($_SESSION['SESS_MEMBER_ID']) == 
     $loggedIn = true;
 }
 
-// This is the smartest thing I have ever done in my life -Vijay13
+
 // if ngoPid is set that means person is coming here from search page and SESS_MEMBER_ID can be different from the id of ngo that user want to see
 if( isset($_POST['ngoPid'])){
     $pid = $_POST['ngoPid'];
@@ -41,6 +41,18 @@ if(isset($_GET["id"]))
 
 if(!isset($pid)){
     Header("Location: error.php");
+}
+
+if($loggedIn && $type == "DONOR")
+{
+	$donorpid = $_SESSION['SESS_MEMBER_ID'];
+	$donorquery = "SELECT * FROM Donor WHERE pid=$donorpid";
+	$donorresult = mysql_query($donorquery);
+	if(mysql_num_rows($donorresult) > 0) {
+		$dmember = mysql_fetch_assoc($donorresult);
+		$donorname = $dmember['name'];
+		$donormob = $dmember['contact'];
+	}
 }
 
 $qry="SELECT * FROM Ngo WHERE pid=$pid";
@@ -107,7 +119,7 @@ else{
                                 <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#editProfileModal" id="editProfileButton">Edit Profile</button>
 								<button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#changePassModal" id="changePasswordButton">Change Password</button>
                                 <?php }elseif($loggedIn && $type == "DONOR") { ?>
-                                <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#" id="contactButton">Contact</button>
+                                <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#contactNgoModal" id="contactButton">Contact</button>
                                 <?php }?> 
                             </p>
                         </div>
@@ -145,8 +157,10 @@ else{
                                                 <p ><b>Detail: </b><?php echo $postDetail ?></p>
                                                 <div>
                                                     <p style="float:left;"><b>Location: </b><?php echo $postLocation ?></p>
+													<?php if($loggedIn && $type == "NGO" && $pid==$_SESSION['SESS_MEMBER_ID']) { ?>
                                                     <input style="float:right;" type="submit" class="btn btn-primary" name="deletePost" value="Delete" onClick="return confirm('Are you sure you wish to Delete this Event?')" >
-                                                </div>
+														<?php }?>
+                                                </div>	
                                             </div>
                                         </div>
                                     </form>
@@ -351,16 +365,17 @@ else{
                 <div class="well">
                     <form action="contactNgo.php" method="post">
                         <label>Your Name</label>
-                        <input type="text"  id="dn" name="dn" class="input-xlarge" value="<?php echo $donorname?>" onClick="clearElement('dn')" style="color:black">								
+						<input type="text"  disabled="disabled" id="dn" name="dn" class="input-xlarge" value="<?php echo $donorname?>" style="color:black">						
                         <label>NGO Name</label>
-                        <input type="text"  id="cnn" name="cnn" class="input-xlarge" value="<?php echo $ngoname?>" onClick="clearElement('cnn')" style="color:black">
+                        <input type="text" id="cnn" name="cnn" class="input-xlarge" value="<?php echo $ngoname?>" style="color:black" readonly>
                         <label>Your Mobile Number</label>
-                        <input type="text"  id="dm" name="dm"  maxlength="10" class="input-xlarge" value="<?php echo $donormob?>" onClick="clearElement('dm')" style="color:black">
+                        <input type="text"  id="dm" name="dm"  disabled="disabled" maxlength="10" class="input-xlarge" value="<?php echo $donormob?>" style="color:black">
                         <label>Date of Event/Donation</label>
                         <input type="date" name="DonationDate" id="DonationDate" class="input-xlarge" style="color:black">
-                        <label>Description</label>
-                        <textarea rows="5" id="dd" name="dd" class="input-xlarge" onClick="clearElement('dd')" style="color:black"></textarea>
-                        <div>
+                        <label>Description/Message</label>
+                        <textarea rows="5" id="message" name="message" class="input-xlarge" onClick="clearElement('dd')" style="color:black"></textarea>
+						<input type="hidden" name="nPid" value=" <?php echo $pid ?>">
+						<div>
                            <input type="submit" class="btn btn-primary" name="contactNgo" value="Contact" onClick="#"></button>
                        </div>							
                     </form>	
