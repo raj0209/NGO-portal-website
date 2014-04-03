@@ -22,7 +22,7 @@ $result = mysql_query($insertQuery);
 	else
 	{
 		//session_write_close();
-		header("location: http://localhost/sampark/NGO-portal-website/ngohome.php?id='$ngopid'");
+		header("location: ngohome.php?id=".$ngopid);
 		
 	}
 	

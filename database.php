@@ -48,7 +48,7 @@ $sqlQueryEvent = "CREATE TABLE IF NOT EXISTS Event(
 donor_pid INT,
 ngo_pid INT,
 dstatus VARCHAR( 300 ),
-commdate DATE ,
+commdate TIMESTAMP UNIQUE ,
 message VARCHAR( 2000 ),
 dateofevent DATE,
 estatus TINYINT,
