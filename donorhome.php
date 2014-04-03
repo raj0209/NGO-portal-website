@@ -14,26 +14,55 @@ $type=$_SESSION['SESS_TYPE'];
 $email=$_SESSION['SESS_EMAIL'];
 $pid=$_SESSION['SESS_MEMBER_ID'];
 
-if($type=="DONOR")
+if(isset($pid) && $type == "DONOR")
 {
-  $qry="SELECT * FROM Donor WHERE pid=$pid";
-  $result=mysql_query($qry);
-  if($result) {
-     if(mysql_num_rows($result) > 0) {
-         $member = mysql_fetch_assoc($result);
-         $name = $member['name'];
-         $email = $member['email'];
-         $photo = $member['photo'];
-         $cont = $member['contact'];
-         $pass = $member['password'];
+    if(isset($_GET["did"]))
+    {
+        $idFromLink = htmlspecialchars($_GET["did"]);
 
-     }
- }
- else
-    echo $pid;
+        if(intval($idFromLink) == $pid){
+            $loggedInAsDonor = true;
+        }else{
+            $loggedInAsDonor = false;
+            $pid = intval($idFromLink);
+        }
+    }else{
+        $loggedInAsDonor = true;
+    }
+}else{
+    $loggedInAsDonor = false;
+
+    if(isset($_GET["did"]))
+    {
+        $idFromLink = htmlspecialchars($_GET["did"]);
+
+        if(intval($idFromLink)){
+        // id is integer
+            $pid = $idFromLink;
+        }else{
+            Header("Location: error.php");
+        }
+    }
 }
-else
- header("location: ngohome.php");
+
+$qry="SELECT * FROM Donor WHERE pid=$pid";
+$result=mysql_query($qry);
+if($result) {
+   if(mysql_num_rows($result) > 0) {
+       $member = mysql_fetch_assoc($result);
+       $name = $member['name'];
+       $email = $member['email'];
+       $photo = $member['photo'];
+       $cont = $member['contact'];
+       $pass = $member['password'];
+
+   }else{
+    Header("Location: error.php");
+    }
+}
+else{
+    Header("Location: error.php");    
+}
 
 ?>
 
@@ -54,10 +83,15 @@ else
                                 <br>
                                 <h4>Email:</h4>
                                 <p id="vision" name="email"><h8> <?php echo $email ?></h8></p>
-                                <p>
-                                    <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#" id="EventButton" onClick="DisplayEvents()">Events</button>
-                                    <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#" id="ngoFavButton" onClick="DisplayNgo()">Favourite NGOs</button> 
+                                <p><?php 
+                                if($loggedInAsDonor){
+                                    ?>
+                                    <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#" id="EventButton" onClick="DisplayEvents()">Events</button> 
+                                    <?php }else{ echo '<script type="text/javascript"> DisplayNgo(); </script>'; } ?>
+                                    <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#" id="ngoFavButton" onClick="DisplayNgo()">Favourite NGOs</button>
+                                    <?php if($loggedInAsDonor) { ?>
                                     <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#editProModal" id="editProButton">Edit Profile</button>
+                                    <?php } ?>
                                 </p>
                             </div>
                         </div>

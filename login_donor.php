@@ -63,7 +63,8 @@
 			$_SESSION['SESS_EMAIL'] = $member['email'];
 			$_SESSION['SESS_TYPE'] = "DONOR";
 			session_write_close();
-			header("location: donorhome.php");
+			$headerStat = "location: donorhome.php?did=".$_SESSION['SESS_MEMBER_ID'];
+			header($headerStat);
 			exit();
 		}
 		else {
