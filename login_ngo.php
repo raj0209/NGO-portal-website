@@ -29,25 +29,7 @@
     $email = clean($_POST['emailNgo']);
     $password = clean($_POST['passwordNgo']);
     $password = sha1($password);
- 
-    //Input Validations
-    if($email == '') {
-        $errmsg_arr[] = 'Email missing';
-        $errflag = true;
-    }
-    if($password == '') {
-        $errmsg_arr[] = 'Password missing';
-        $errflag = true;
-    }
- 
-    //If there are input validations, redirect back to the login form
-    /*if($errflag) {
-        $_SESSION['ERRMSG_ARR'] = $errmsg_arr;
-        session_write_close();
-        header("location: index.php");
-        exit();
-    }*/
- 
+
     //Create query
     $qry="SELECT * FROM Ngo WHERE email='$email' AND password='$password'";
     $result=mysql_query($qry);
@@ -64,20 +46,13 @@
             $_SESSION['SESS_TYPE'] = "NGO";
             session_write_close();
             header("location: ngohome.php?id=".$_SESSION['SESS_MEMBER_ID']);
-            exit();
         }
         else {
-            //Login failed
-            $errmsg_arr[] = 'email or password not found';
-            $errflag = true;
-            if($errflag) {
-                $_SESSION['LOGIN_NGO_ERRMSG_ARR'] = $errmsg_arr;
+                $_SESSION['LOGIN_NGO_ERRMSG_ARR'] = true;
                 session_write_close();
                 header("location: index.php");
-                exit();
-            }
         }
     }else {
-        die("Query failed");
+        echo "Query failed";
     }
 ?>

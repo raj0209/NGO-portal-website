@@ -2,6 +2,9 @@
 
 include 'connect.php';
 
+//Start session
+session_start();
+
 $f = $_POST['name'];
 $e = $_POST['email'];
 $m = $_POST['mobile'];
@@ -28,14 +31,9 @@ $p = sha1($_POST['password']);
 	$result2 = mysql_query("SELECT * FROM Donor WHERE email = '$e'");
 	
 	if(mysql_num_rows($result2)>0){
-	?>
-		<script type="text/javascript">
-		alert("The email address <?php echo $e; ?> is already registered.");
-		</script>
-
-	<?php
-		Header("Location: index.php");
-	}	
+		$_SESSION['DONOR_EMAIL_EXISTS_ERRMSG_ARR'] = true;
+		Header("location:index.php");
+	}
 	else
 	{	
 	$insertQuery = "insert into Donor(name,photo,email,contact,password) values('$f','$filePath','$e','$m','$p')";
@@ -48,7 +46,7 @@ $p = sha1($_POST['password']);
 		else
 		{
 			echo "<font size = '5'><font color=\"#0CF44A\">ACCOUNT CREATED...SIGN IN USING THE ACTIVATION LINK SENT TO YOUR EMAIL ID";
-			//header("refresh:3;url=http://localhost/sampark/NGO-portal-website/index.php");
+			//header("refresh:3;location:index.php");
 		}
 		
 		header("location:sendmail.php?a=$e");

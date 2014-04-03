@@ -1,6 +1,6 @@
 <?php
 	//Start session
-	session_start();	
+	session_start();
 	//Unset the variables stored in session
 	/*unset($_SESSION['SESS_MEMBER_ID']);
 	unset($_SESSION['SESS_EMAIL']);
@@ -9,12 +9,6 @@
 	
 	//Include database connection details
 	require_once('connect.php');
- 
-	//Array to store validation errors
-	$errmsg_arr = array();
- 
-	//Validation error flag
-	$errflag = false;
  
 	//Function to sanitize values received from the form. Prevents SQL injection
 	function clean($str) {
@@ -29,24 +23,6 @@
 	$email = clean($_POST['emailDonor']);
 	$password = clean($_POST['passwordDonor']);
  	$password = sha1($password);
-
-	//Input Validations
-	if($email == '') {
-		$errmsg_arr[] = 'Email missing';
-		$errflag = true;
-	}
-	if($password == '') {
-		$errmsg_arr[] = 'Password missing';
-		$errflag = true;
-	}
- 
-	//If there are input validations, redirect back to the login form
-	/*if($errflag) {
-		$_SESSION['ERRMSG_ARR'] = $errmsg_arr;
-		session_write_close();
-		header("location: index.php");
-		exit();
-	}*/
 
 	//Create query
 	$qry="SELECT * FROM Donor WHERE email='$email' AND password='$password'";
@@ -65,20 +41,13 @@
 			session_write_close();
 			$headerStat = "location: donorhome.php?did=".$_SESSION['SESS_MEMBER_ID'];
 			header($headerStat);
-			exit();
 		}
 		else {
-			//Login failed
-			$errmsg_arr[] = 'email or password not found';
-			$errflag = true;
-			if($errflag) {
-				$_SESSION['LOGIN_ERRMSG_ARR'] = $errmsg_arr;
+				$_SESSION['LOGIN_DONOR_ERRMSG_ARR'] = true;
 				session_write_close();
 				header("location: index.php");
-				exit();
 			}
-		}
 	}else {
-		die("Query failed");
+		echo "Query failed";
 	}
 ?>
