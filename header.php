@@ -115,7 +115,7 @@
 	  									<form action="login_ngo.php" method="post" id="tabNgo" enctype="multipart/form-data">
 	  										<input type="hidden" name="ngo" value="ngo">				
 	  										<label>Email</label>
-	  										<input type="text" placeholder="Email" id="emailNgo" name="emailNgo" class="input-xlarge" style="color:black">
+	  										<input type="text" placeholder="Email" id="emailNgo" maxlength="100" name="emailNgo" class="input-xlarge" style="color:black">
 	  										<label>Password</label>
 	  										<input type="password"  id="passwordNgo" name="passwordNgo" maxlength="25" class="input-xlarge" placeholder="Password" style="color:black">
 	  										
@@ -165,12 +165,12 @@
   										</ul>
   										<div id="myTabContent" class="tab-content">
   											<div class="tab-pane active in" id="SignupDonor">
-  												<form action="signupdonor.php" method="post" id="tab" enctype="multipart/form-data" >
+  												<form action="signupdonor.php" method="post" id="tab" enctype="multipart/form-data" onsubmit="return checkSize(1048576,'donorProfPic')" >
 
   													<label>Name</label>
-  													<input type="text" placeholder="First Name" id="fn" name="name" class="input-xlarge" style="color:black">
+  													<input type="text" placeholder="First Name" maxlength="100" id="fn" name="name" class="input-xlarge" style="color:black">
   													<label>Email</label>
-  													<input type="text" placeholder="Email" id="em" name="email" class="input-xlarge" style="color:black">
+  													<input type="text" placeholder="Email" maxlength="100" id="em" name="email" class="input-xlarge" style="color:black">
 
                             <?php if(isset($_SESSION['DONOR_EMAIL_EXISTS_ERRMSG_ARR'])) { ?>
                             <div><p>Email already exists</p></div>
@@ -183,7 +183,7 @@
   													<div>
   														<span>Profile Picture</span>
   														<div>
-  															<input name="image" type="file" />
+  															<input name="image" type="file" id="donorProfPic"/>
   														</div> 												
   														<input type="submit" class="btn btn-primary" name="submitFormDonor" value="Sign Up" onClick="return submitSignUpForDonor()">
   													</div>
@@ -191,16 +191,16 @@
   											</div>
 
   											<div class="tab-pane fade" id="regSignupNgo">
-  												<form action="signupregngo.php" method="post" id="tab" enctype="multipart/form-data">
+  												<form action="signupregngo.php" method="post" id="tab" enctype="multipart/form-data" onsubmit="return checkSize(1048576,'regNgoLogo')" >
 
   													<label>NGO Name</label>
-  													<input type="text"  id="nn" name="nn" class="input-xlarge" placeholder="Name of NGO" style="color:black">
+  													<input type="text" maxlength="100" id="nn" name="nn" class="input-xlarge" placeholder="Name of NGO" style="color:black">
   													<label>Registration Number</label>
-  													<input type="text" id="regno" name="regno" class="input-xlarge" placeholder="Registration Number" style="color:black">
+  													<input type="text" id="regno" name="regno" maxlength="15" class="input-xlarge" placeholder="Registration Number" style="color:black">
   													<label>Name of Contact Person</label>
-  													<input type="text"  id="cn" name="cn" class="input-xlarge" placeholder="Name of Contact Person" style="color:black">
+  													<input type="text" maxlength="100" id="cn" name="cn" class="input-xlarge" placeholder="Name of Contact Person" style="color:black">
   													<label>Email</label>
-  													<input type="text" placeholder="Email" id="eml" name="eml" class="input-xlarge" style="color:black">
+  													<input type="text" maxlength="100"  placeholder="Email" id="eml" name="eml" class="input-xlarge" style="color:black">
 
                             <?php if(isset($_SESSION['REGNGO_EMAIL_EXISTS_ERRMSG_ARR'])) { ?>
                             <div><p>Email already exists</p></div>
@@ -213,8 +213,8 @@
   													<label>Address</label>
   													<textarea rows="3" id="add" name="add" class="input-xlarge" placeholder="Address" style="color:black"></textarea>
 													<br/>
-  													<input type="text"  id="cityreg" name="cityreg" class="input-small" placeholder="City" style="color:black">
-  													<input type="text"  id="statereg" name="statereg" class="input-medium" placeholder="State" style="color:black">
+  													<input type="text" maxlength="30" id="cityreg" name="cityreg" class="input-small" placeholder="City" style="color:black">
+  													<input type="text" maxlength="30" id="statereg" name="statereg" class="input-medium" placeholder="State" style="color:black">
 													<label>Description</label>
   													<textarea rows="3" id="dc" name="dc" class="input-xlarge" placeholder="Description" style="color:black"></textarea>
   													<label>Vision</label>
@@ -232,7 +232,7 @@
   													<div>
   														<span>Upload Logo</span>
   														<div>										
-  															<input name="regNgoLogo" type="file" />
+  															<input name="regNgoLogo" id="regNgoLogo" type="file" />
   														</div>
   														<input type="submit" class="btn btn-primary" name="submitFormRegNgo" value="Sign Up" onClick="return submit3()">
   													</div>
@@ -240,14 +240,14 @@
   											</div>
 
   											<div class="tab-pane fade" id="unregSignupNgo">
-  												<form action="signupunregngo.php" method="post" id="tab" enctype="multipart/form-data">
+  												<form action="signupunregngo.php" method="post" id="tab" enctype="multipart/form-data" onsubmit="return checkSize(1048576,'unregNgoLogo')" >
 
   													<label>NGO Name</label>
-  													<input type="text"  id="unn" name="unn" class="input-xlarge" placeholder="Name of NGO" style="color:black">
+  													<input type="text" maxlength="100" id="unn" name="unn" class="input-xlarge" placeholder="Name of NGO" style="color:black">
   													<label>Name of Contact Person</label>
-  													<input type="text"  id="ucn" name="ucn" class="input-xlarge" placeholder="Name of Contact Person" style="color:black">
+  													<input type="text" maxlength="100" id="ucn" name="ucn" class="input-xlarge" placeholder="Name of Contact Person" style="color:black">
   													<label>Email</label>
-  													<input type="text" placeholder="Email" id="ueml" name="ueml" class="input-xlarge" style="color:black">
+  													<input type="text" maxlength="100" placeholder="Email" id="ueml" name="ueml" class="input-xlarge" style="color:black">
   													
                             <?php if(isset($_SESSION['UNREGNGO_EMAIL_EXISTS_ERRMSG_ARR'])) { ?>
                             <div><p>Email already exists</p></div>
@@ -260,8 +260,8 @@
   													<label>Address</label>
   													<textarea rows="3" id="uadd" name="uadd" class="input-xlarge" placeholder="Address" style="color:black"></textarea>
   													<br/>
-  													<input type="text"  id="cityunreg" name="cityunreg" class="input-small" placeholder="City" style="color:black">
-  													<input type="text"  id="stateunreg" name="stateunreg" class="input-medium" placeholder="State" style="color:black">
+  													<input type="text"  maxlength="30" id="cityunreg" name="cityunreg" class="input-small" placeholder="City" style="color:black">
+  													<input type="text"  maxlength="30" id="stateunreg" name="stateunreg" class="input-medium" placeholder="State" style="color:black">
 													<label>Description</label>
   													<textarea rows="3" id="udc" name="udc" class="input-xlarge" placeholder="Description" style="color:black"></textarea>
 													<label>Vision</label>
@@ -277,7 +277,7 @@
   													<div>
   														<span>Upload Logo</span>
   														<div>	  														
-  															<input name="unregNgoLogo" type="file" />
+  															<input name="unregNgoLogo" id="unregNgoLogo" type="file" />
   														</div>
   														<input type="submit" class="btn btn-primary" name="submitFormUnRegNgo" value="Sign Up" onClick="return submit4()">
   													</div>
