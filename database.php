@@ -51,7 +51,6 @@ dstatus VARCHAR( 300 ),
 commdate DATE ,
 message VARCHAR( 2000 ),
 dateofevent DATE,
-rategiven INT,
 estatus TINYINT,
 FOREIGN KEY (donor_pid) REFERENCES Donor(pid),
 FOREIGN KEY (ngo_pid) REFERENCES Ngo(pid))";

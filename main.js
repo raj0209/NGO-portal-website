@@ -122,8 +122,6 @@ function submitSignUpForDonor()
 	
 	if(document.getElementById("fn").value=="" || document.getElementById        ("fn").value=="First Name")
 	{
-		//alert("Please enter your name");
-		//document.getElementById("fn").focus();
 		document.getElementById("fn").style.borderColor = '#FF0000';
 		output="false";
 	}
@@ -133,8 +131,6 @@ function submitSignUpForDonor()
 	}
 	if(document.getElementById("em").value==""|| document.getElementById        ("em").value=="Email")
 	{
-		//alert("Please enter your email address");
-		//document.getElementById("em").focus();
 		document.getElementById("em").style.borderColor = '#FF0000';
 		output="false";
 	}
@@ -156,8 +152,6 @@ function submitSignUpForDonor()
 	
 	if(document.getElementById("mob").value=="" || document.getElementById        ("mob").value=="Mobile Number")
 	{
-		//alert("Please enter your mobile number");
-		//document.getElementById("mob").focus();
 		document.getElementById("mob").style.borderColor = '#FF0000';
 		output="false";
 	}
@@ -195,8 +189,6 @@ function submitSignUpForDonor()
 	
 	if(document.getElementById("pass").value=="" || document.getElementById        ("pass").value=="Password")
 	{
-		//alert("Please enter your password");
-		//document.getElementById("pass").focus();
 		document.getElementById("pass").style.borderColor = '#FF0000';
 		output="false";
 	}
@@ -339,8 +331,6 @@ function submit3()
 	
 	if(document.getElementById("nn").value=="" || document.getElementById        ("nn").value=="Name of NGO")
 	{
-		//alert("Please enter name of NGO");
-		//document.getElementById("nn").focus();
 		document.getElementById("nn").style.borderColor = '#FF0000';	
 		output="false";
 	}
@@ -352,8 +342,6 @@ function submit3()
 	
 	if(document.getElementById("regno").value=="" || document.getElementById        ("regno").value=="Registration Number")
 	{
-		//alert("Please enter the registration number");
-		//document.getElementById("regno").focus();
 		document.getElementById("regno").style.borderColor = '#FF0000';
 		output="false";
 	}
@@ -365,8 +353,6 @@ function submit3()
 	
 	if(document.getElementById("cn").value=="" || document.getElementById        ("cn").value=="Name of Contact Person")
 	{
-		//alert("Please enter name of contact person");
-		//document.getElementById("cn").focus();
 		document.getElementById("cn").style.borderColor = '#FF0000';
 		output="false";
 	}
@@ -378,8 +364,6 @@ function submit3()
 	
 	if(document.getElementById("eml").value==""|| document.getElementById        ("eml").value=="Email")
 	{
-		//alert("Please enter your email address");
-		//document.getElementById("eml").focus();
 		document.getElementById("eml").style.borderColor = '#FF0000';
 		output="false";
 	}
@@ -401,8 +385,6 @@ function submit3()
 	
 	if(document.getElementById("cont").value=="" || document.getElementById        ("cont").value=="Contact Number")
 	{
-		//alert("Please enter your contact number");
-		//document.getElementById("cont").focus();
 		document.getElementById("cont").style.borderColor = '#FF0000';
 		output="false";
 	}
@@ -437,8 +419,6 @@ function submit3()
 	
 	if(document.getElementById("pwd").value=="" || document.getElementById        ("pwd").value=="Password")
 	{
-		//alert("Please enter your password");
-		//document.getElementById("pwd").focus();
 		document.getElementById("pwd").style.borderColor = '#FF0000';
 		output="false";
 	}
@@ -455,24 +435,8 @@ function submit3()
 		document.getElementById("pwd").style.borderColor = 'grey';
 	}
 
-
-	if(document.getElementById("dc").value=="" || document.getElementById        ("dc").value=="Description")
-	{
-		//alert("Please enter the description");
-		//document.getElementById("dc").focus();
-		document.getElementById("dc").style.borderColor = '#FF0000';
-		output="false";
-	}
-
-	else
-	{
-		document.getElementById("dc").style.borderColor = 'grey';	
-	}
-	
 	if(document.getElementById("add").value=="" || document.getElementById        ("add").value=="Address")
 	{
-		//alert("Please enter the Address");
-		//document.getElementById("add").focus();
 		document.getElementById("add").style.borderColor = '#FF0000';
 		output="false";
 	}
@@ -482,10 +446,41 @@ function submit3()
 		document.getElementById("add").style.borderColor = 'grey';	
 	}
 	
+	if(document.getElementById("cityreg").value=="" || document.getElementById        ("cityreg").value=="City")
+	{
+		document.getElementById("cityreg").style.borderColor = '#FF0000';
+		output="false";
+	}
+	
+	else
+	{
+		document.getElementById("cityreg").style.borderColor = 'grey';	
+	}
+	
+	if(document.getElementById("statereg").value=="" || document.getElementById        ("statereg").value=="State")
+	{
+		document.getElementById("statereg").style.borderColor = '#FF0000';
+		output="false";
+	}
+	
+	else
+	{
+		document.getElementById("statereg").style.borderColor = 'grey';	
+	}
+	
+	if(document.getElementById("dc").value=="" || document.getElementById        ("dc").value=="Description")
+	{
+		document.getElementById("dc").style.borderColor = '#FF0000';
+		output="false";
+	}
+
+	else
+	{
+		document.getElementById("dc").style.borderColor = 'grey';	
+	}
+	
 	if(document.getElementById("vi").value=="" || document.getElementById        ("vi").value=="Vision")
 	{
-		//alert("Please enter the vision");
-		//document.getElementById("vi").focus();
 		document.getElementById("vi").style.borderColor = '#FF0000';
 		output="false";
 	}
@@ -497,8 +492,6 @@ function submit3()
 	
 	if(document.getElementById("web").value=="" || document.getElementById        ("web").value=="Website")
 	{
-		//alert("Please enter the website");
-		//document.getElementById("web").focus();
 		document.getElementById("web").style.borderColor = '#FF0000';
 		output="false";
 	}
@@ -511,12 +504,8 @@ function submit3()
 	if(!document.getElementById("Health").checked && !document.getElementById("Food").checked && !document.getElementById("Education").checked && !document.getElementById("Old").checked && !document.getElementById("Child").checked )
 	{
 
-		//alert("Please select category");
-		document.getElementById("Health").focus();
-		document.getElementById("Food").focus();
-		document.getElementById("Education").focus();
-		document.getElementById("Old").focus();
-		document.getElementById("Child").focus();
+		//document.getElementById("Health").focus();
+		document.getElementById("Health").style.borderColor = '##FF0000';
 		output="false";
 	}
 	
@@ -534,8 +523,6 @@ function submit4()
 	
 	if(document.getElementById("unn").value=="" || document.getElementById        ("unn").value=="Name of NGO")
 	{
-		//alert("Please enter the name of NGO");
-		//document.getElementById("unn").focus();
 		document.getElementById("unn").style.borderColor = '#FF0000';	
 		output="false";
 	}
@@ -547,8 +534,6 @@ function submit4()
 
 	if(document.getElementById("ucn").value=="" || document.getElementById        ("ucn").value=="Name of Contact Person")
 	{
-		//alert("Please enter name of contact person");
-		//document.getElementById("ucn").focus();
 		document.getElementById("ucn").style.borderColor = '#FF0000';	
 		output="false";
 	}
@@ -560,8 +545,6 @@ function submit4()
 	
 	if(document.getElementById("ueml").value==""|| document.getElementById        ("ueml").value=="Email")
 	{
-		//alert("Please enter your email address");
-		//document.getElementById("ueml").focus();
 		document.getElementById("ueml").style.borderColor = '#FF0000';	
 		output="false";
 	}
@@ -583,8 +566,6 @@ function submit4()
 	
 	if(document.getElementById("ucont").value=="" || document.getElementById        ("ucont").value=="Contact Number")
 	{
-		//alert("Please enter your contact number");
-		//document.getElementById("ucont").focus();
 		document.getElementById("ucont").style.borderColor = '#FF0000';	
 		output="false";
 	}
@@ -622,8 +603,6 @@ function submit4()
 	
 	if(document.getElementById("upwd").value=="" || document.getElementById        ("upwd").value=="Password")
 	{
-		//alert("Please enter your password");
-		//document.getElementById("upwd").focus();
 		document.getElementById("upwd").style.borderColor = '#FF0000';	
 		output="false";
 	}
@@ -639,24 +618,8 @@ function submit4()
 		document.getElementById("upwd").style.borderColor = 'grey';
 	}
 
-
-	if(document.getElementById("udc").value=="" || document.getElementById        ("udc").value=="Description")
-	{
-		//alert("Please enter the description");
-		//document.getElementById("udc").focus();
-		document.getElementById("udc").style.borderColor = '#FF0000';	
-		output="false";
-	}
-	
-	else
-	{
-		document.getElementById("udc").style.borderColor = 'grey';	
-	}
-	
 	if(document.getElementById("uadd").value=="" || document.getElementById        ("uadd").value=="Address")
 	{
-		//alert("Please enter the address");
-		//document.getElementById("uadd").focus();
 		document.getElementById("uadd").style.borderColor = '#FF0000';	
 		output="false";
 	}
@@ -666,10 +629,41 @@ function submit4()
 		document.getElementById("uadd").style.borderColor = 'grey';	
 	}
 	
+	if(document.getElementById("cityunreg").value=="" || document.getElementById        ("cityunreg").value=="City")
+	{
+		document.getElementById("cityunreg").style.borderColor = '#FF0000';
+		output="false";
+	}
+	
+	else
+	{
+		document.getElementById("cityunreg").style.borderColor = 'grey';	
+	}
+	
+	if(document.getElementById("stateunreg").value=="" || document.getElementById        ("stateunreg").value=="State")
+	{
+		document.getElementById("stateunreg").style.borderColor = '#FF0000';
+		output="false";
+	}
+	
+	else
+	{
+		document.getElementById("stateunreg").style.borderColor = 'grey';	
+	}
+	
+	if(document.getElementById("udc").value=="" || document.getElementById        ("udc").value=="Description")
+	{
+		document.getElementById("udc").style.borderColor = '#FF0000';	
+		output="false";
+	}
+	
+	else
+	{
+		document.getElementById("udc").style.borderColor = 'grey';	
+	}
+	
 	if(document.getElementById("uvi").value=="" || document.getElementById        ("uvi").value=="Vision")
 	{
-		//alert("Please enter the vision");
-		//document.getElementById("uvi").focus();
 		document.getElementById("uvi").style.borderColor = '#FF0000';	
 		output="false";
 	}
@@ -682,12 +676,8 @@ function submit4()
 	if(!document.getElementById("uHealth").checked && !document.getElementById("uFood").checked && !document.getElementById("uEducation").checked && !document.getElementById("uOld").checked && !document.getElementById("uChild").checked )
 	{
 
-		//alert("Please select category");
+		
 		document.getElementById("uHealth").focus();
-		document.getElementById("uFood").focus();
-		document.getElementById("uEducation").focus();
-		document.getElementById("uOld").focus();
-		document.getElementById("uChild").focus();
 		output="false";
 	}
 	
