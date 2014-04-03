@@ -1,5 +1,10 @@
 <?php
-    
+    function generate_password( $length = 8 ) {
+		$chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@";
+		$password12 = substr( str_shuffle( $chars ), 0, $length );
+		return $password12;
+		}
+	$password1 = generate_password(10);
     require_once("class.phpmailer.php");
     require_once("class.smtp.php");
     global $error;
@@ -23,24 +28,31 @@
 	$mail->IsHTML(true);
     $mail->ContentType = 'text/html; charset=utf-8\r\n';
     $mail->SetFrom('np@demo.net', ' NGOportalwebsite.com ');
-    $mail->Subject = 'Activate Your Account ';
-    $mail->Body = 'You have have been registered on Sampark. Please verify your account by clicking the following link '; 
-    $mail->Body .= '<br/><br/><br/><b> Click on this link to activate your account ';  
-    $mail->Body .= '<a href="http://localhost/sampark/NGO-portal-website/index.php"> Click Here </a>'; 
+    $mail->Subject = 'Your New Password ';
+    $mail->Body = ' <br/>'; 
+    $mail->Body .= '<br/> Use this password to login ';  
+    //$mail->Body .= '';	
+	$mail->Body .= $password1;
     $mail->AddAddress($current_email);
     $mail->IsHTML(true);
     $mail->WordWrap    = 900; 
     if (!$mail->Send()) {
         $error = 'Mail error: ' . $mail->ErrorInfo;
-        header("refresh:0.001;url=http://localhost/sampark/NGO-portal-website/index.php");
-		return false;
+		header("refresh:0.001;url=http://localhost/sampark/NGO-portal-website/index.php");
+        return false;
     } else {
-        $error = 'Message sent! activate your Account Now!';
         $mail->SmtpClose();
         echo $error;
-		echo "<script>alert('activate your account and Login again')</script>";
-        Header("Location: index.php");
+		echo "<script>alert('Your new password is sent to your email address')</script>";
+		$newpassword=sha1($password1);
+		$updateQuery = "UPDATE Ngo SET password='".$newpassword."' WHERE email='".$current_email."'";
+        $result = mysql_query($updateQuery);
+		if($result)
+		{
+		Header("Location: index.php");
 		return true;
 		}
-
-	?>
+		else
+			echo "error";
+		}
+?>

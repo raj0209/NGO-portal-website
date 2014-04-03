@@ -4,6 +4,7 @@
     require_once("class.smtp.php");
     global $error;
 	$current_email=$_GET['a'];
+	
 	echo $current_email;
 	$username = "sampark.ngo2014@gmail.com";
     $password = "sampark123!";
@@ -23,23 +24,23 @@
 	$mail->IsHTML(true);
     $mail->ContentType = 'text/html; charset=utf-8\r\n';
     $mail->SetFrom('np@demo.net', ' NGOportalwebsite.com ');
-    $mail->Subject = 'Activate Your Account ';
-    $mail->Body = 'You have have been registered on Sampark. Please verify your account by clicking the following link '; 
-    $mail->Body .= '<br/><br/><br/><b> Click on this link to activate your account ';  
-    $mail->Body .= '<a href="http://localhost/sampark/NGO-portal-website/index.php"> Click Here </a>'; 
+    $mail->Subject = 'Event Alert ';
+    $mail->Body = 'Donor event '; 
+    //$mail->Body .= '<br/><br/><br/><b> Click on this link to activate your account ';  
+    //$mail->Body .= '<a href="http://localhost/sampark/NGO-portal-website/index.php"> Click Here </a>'; 
     $mail->AddAddress($current_email);
     $mail->IsHTML(true);
     $mail->WordWrap    = 900; 
     if (!$mail->Send()) {
         $error = 'Mail error: ' . $mail->ErrorInfo;
-        header("refresh:0.001;url=http://localhost/sampark/NGO-portal-website/index.php");
+       // header("refresh:0.001;url=index.php");
 		return false;
     } else {
-        $error = 'Message sent! activate your Account Now!';
+        $error = 'Event Sent';
         $mail->SmtpClose();
         echo $error;
-		echo "<script>alert('activate your account and Login again')</script>";
-        Header("Location: index.php");
+		//echo "<script>alert('activate your account and Login again')</script>";
+        header("location: ngohome.php?id=".$ngopid);
 		return true;
 		}
 

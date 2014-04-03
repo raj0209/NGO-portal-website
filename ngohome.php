@@ -52,6 +52,7 @@ if($loggedIn && $type == "DONOR")
 		$dmember = mysql_fetch_assoc($donorresult);
 		$donorname = $dmember['name'];
 		$donormob = $dmember['contact'];
+		$donoremail = $dmember['email'];
 	}
 }
 
@@ -365,16 +366,18 @@ else{
                 <div class="well">
                     <form action="contactNgo.php" method="post">
                         <label>Your Name</label>
-						<input type="text"  disabled="disabled" id="dn" name="dn" class="input-xlarge" value="<?php echo $donorname?>" style="color:black">						
+						<input type="text" id="dn" name="dn" class="input-xlarge" value="<?php echo $donorname?>" style="color:black" readonly>						
                         <label>NGO Name</label>
                         <input type="text" id="cnn" name="cnn" class="input-xlarge" value="<?php echo $ngoname?>" style="color:black" readonly>
                         <label>Your Mobile Number</label>
-                        <input type="text"  id="dm" name="dm"  disabled="disabled" maxlength="10" class="input-xlarge" value="<?php echo $donormob?>" style="color:black">
+                        <input type="text"  id="dm" name="dm" maxlength="10" class="input-xlarge" value="<?php echo $donormob?>" style="color:black" readonly>
                         <label>Date of Event/Donation</label>
                         <input type="date" name="DonationDate" id="DonationDate" class="input-xlarge" style="color:black">
                         <label>Description/Message</label>
                         <textarea rows="5" id="message" name="message" class="input-xlarge" onClick="clearElement('dd')" style="color:black"></textarea>
 						<input type="hidden" name="nPid" value=" <?php echo $pid ?>">
+						<input type="hidden" name="nEmail" value=" <?php echo $email ?>">
+						<input type="hidden" name="dEmail" value=" <?php echo $donoremail ?>">
 						<div>
                            <input type="submit" class="btn btn-primary" name="contactNgo" value="Contact" onClick="#"></button>
                        </div>							
