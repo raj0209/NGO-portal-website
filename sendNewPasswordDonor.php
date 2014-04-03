@@ -1,5 +1,5 @@
 <?php
-	
+
 	include 'connect.php';
     function generate_password( $length = 8 ) {
 		$chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@";
@@ -48,7 +48,7 @@
         echo $error;
 		echo "<script>alert('Your new password is sent to your email address')</script>";
 		$newpassword=sha1($password1);
-		$updateQuery = "UPDATE Ngo SET password='".$newpassword."' WHERE email='".$current_email."'";
+		$updateQuery = "UPDATE Donor SET password='".$newpassword."' WHERE email='".$current_email."'";
         $result = mysql_query($updateQuery);
 		if($result)
 		{
