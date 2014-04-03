@@ -2,85 +2,104 @@
 //MySQL Database Connect
 include 'connect.php';
 include 'database.php';
+		
 ?>
 <!DOCTYPE HTML>
 
 <html lang="en">
 	<?php
-		include 'head.php'; 
+ 
 	?>
+	
+	<head>
+	
+		<link href="css/bootstrap-responsive.css" rel="stylesheet">
+		<script src="jquery.js"></script>
 
+
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="main.css" rel="stylesheet">	
+		<link rel="stylesheet" type="text/css" href="engine1/style.css" />
+		<script type="text/javascript" src="engine1/jquery.js"></script>	
+	</head>
 	<body>
 	<?php
 		include 'header.php'; 
 	?>
-		<div class="container">
-			
-				<div >
-					<div id="wowslider-container1" style="margin-left:15px; margin-top:20px;">
-
-						<div class="ws_images">
-							<ul>
-								<li><img src="data1/images/pic1.jpg" alt="pic1" title="" id="wows1_0"/></li>
-								<li><img src="data1/images/pic2.jpg" alt="pic2" title="" id="wows1_1"/></li>
-								<li><img src="data1/images/pic3.jpg" alt="pic3" title="" id="wows1_2"/></li>
-								<li><img src="data1/images/pic4.jpg" alt="pic4" title="" id="wows1_3"/></li>
-							</ul>
-						</div>
-
-						<div class="ws_bullets">
-							<div>
-								<a href="#" title="pic1"><img src="data1/tooltips/pic1.jpg" alt="pic1"/>1</a>
-								<a href="#" title="pic2"><img src="data1/tooltips/pic2.jpg" alt="pic2"/>2</a>
-								<a href="#" title="pic3"><img src="data1/tooltips/pic3.jpg" alt="pic3"/>3</a>
-								<a href="#" title="pic4"><img src="data1/tooltips/pic4.jpg" alt="pic4"/>4</a>
-							</div>
-						</div>
-
-						<span class="wsl"><a href="#"></a></span>
-
+		<div class="backimage" style="margin-left:20px; margin-top:-30px; margin-right:15px;">
+			<div id="wowslider-container1" style="margin-top:40px;">
+				<div class="ws_images"><ul>
+					<li><img src="data1/images/pic102.jpg" alt="pic102" title="" id="wows1_0"/></li>
+					<li><img src="data1/images/pic103.jpg" alt="pic103" title="" id="wows1_1"/></li>
+					<li><img src="data1/images/pic104.jpg" alt="pic104" title="" id="wows1_2"/></li>
+					<li><img src="data1/images/pic105.jpg" alt="pic105" title="" id="wows1_3"/></li>
+					<li><img src="data1/images/pic106.jpg" alt="pic106" title="" id="wows1_4"/></li>
+					<li><img src="data1/images/pic107.jpg" alt="pic107" title="" id="wows1_5"/></li>
+					<li><img src="data1/images/pic108.jpg" alt="pic108" title="" id="wows1_6"/></li>
+					<li><img src="data1/images/coname.jpg" alt="co-name" title="" id="wows1_7"/></li>
+					</ul>
+				</div>
+				<div class="ws_bullets"><div>
+					<a href="#" title="pic102"><img src="data1/tooltips/pic102.jpg" alt="pic102"/>1</a>
+					<a href="#" title="pic103"><img src="data1/tooltips/pic103.jpg" alt="pic103"/>2</a>
+					<a href="#" title="pic104"><img src="data1/tooltips/pic104.jpg" alt="pic104"/>3</a>
+					<a href="#" title="pic105"><img src="data1/tooltips/pic105.jpg" alt="pic105"/>4</a>
+					<a href="#" title="pic106"><img src="data1/tooltips/pic106.jpg" alt="pic106"/>5</a>
+					<a href="#" title="pic107"><img src="data1/tooltips/pic107.jpg" alt="pic107"/>6</a>
+					<a href="#" title="pic108"><img src="data1/tooltips/pic108.jpg" alt="pic108"/>7</a>
+					<a href="#" title="co-name"><img src="data1/tooltips/coname.jpg" alt="co-name"/>8</a>
 					</div>
-
-					<script type="text/javascript" src="engine/wowslider.js"></script>
-					<script type="text/javascript" src="engine/script.js"></script>
 				</div>
 				
+				<a href="#" class="ws_frame"></a>
+					<div class="ws_shadow"></div>
+					</div>
+						<script type="text/javascript" src="engine1/wowslider.js"></script>
+						<script type="text/javascript" src="engine1/script.js"></script>
+						
 		
-				<div style="float: left">
+				
+				
+				
+				
+		
+				<div >
 					
 					<div class="DetailBoxes">
-						<div class="pin" style="min-width: 450px; width: auto">
+						<div class="pin" style="min-width: 450px; width: auto; margin-left:50px; margin-top:15px;"  >
 							<div >
-								<h4><font color="black">Welcome to Sampark</font></h4>
+								<h4><font color="black" size="3" face="verdana" >Welcome to Sampark</font></h4>
 							</div>
-							<p style="width: 450px" > Browse for socially working organizations. </p>
-							<p style="width: 450px" >Favourite/Follow the organizations you're interested in.</p>
-							<p style="width: 450px" >Connect with the organizations. Rate organizations.</p>
+							<p style="width: 450px" ><font size="2" face="verdana"> Browse for socially working organizations. </font></p>
+							<p style="width: 450px" ><font size="2" face="verdana">Favourite/Follow the organizations you're interested in.</font></p>
+							<p style="width: 450px" ><font size="2" face="verdana">Connect with the organizations. Rate organizations.</font></p>
 						</div>
 					</div>
 					
 					<div class="DetailBoxes">
-						<div class="pin" style="min-width: 450px; width: auto">
+						<div class="pin" style="min-width: 450px; width: auto; margin-left:50px; margin-top:-15px;">
 							<div >
-								<h4><font color="black">What is this site?</font></h4>
+								<h4><font color="black"><font size="3" face="verdana">About This Site</font></h4>
 							</div>
 							<div >
-							<p style="width: 450px" > Hey! We provide a platform for willing contributors to connect to socially working non-profit organizations. We have felt an urgent need for this, seeing that there are a lot of socially working organizations (statistics suggest that there is an NGO for every 600 citizens of the country). What happens in such a scenario is that the bigger, or the more profound organizations attract willing donors with a greater propensity as compared to smaller ones.</font></p>
-							<p style="width: 450px" ><em>Sampark</em>
-							is an attempt to bring these organizations at the same level of accessibility. From the perspective of users, it only aims to increase the ease of usage. Sampark is the ideal platform for you to come online, and look for appropriate organizations which you would be willing to contribute to. Come online and step into the world of complete awareness about all the coming up events at your favourite organizations.</p>
+							<p style="width: 450px" ><font size="2" face="verdana"> Hey! We provide a platform for willing contributors to connect to socially working non-profit organizations. The current scenario is that the bigger, or the more profound organizations attract willing donors with a greater propensity as compared to smaller ones.
+							<em>Sampark</em> is an attempt to bring these organizations at the same level of accessibility. From the perspective of users, it only aims to increase the ease of usage. Sampark is the ideal platform for you to come online, and look for appropriate organizations which you would be willing to contribute to.</font></p>
 				
 							</div>
 							
 						</div>
 					</div>
+					
+					
 
 				</div>
-				
+			
 		
-		</div>
-
-<!-- 		<?php
-		include 'footer.php'; 
-		?> -->
+		
+			</div>
 	</body>
 </html>
+<?php
+		include 'head.php';
+		include 'footer.php'; 
+?> 
