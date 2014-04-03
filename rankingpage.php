@@ -1,6 +1,16 @@
 <?php
 	include 'connect.php';
 	include 'database.php';
+
+
+	// the following code is to add "Load more NGOs" functionality on this page.
+	$counter = 1;
+	
+	if(isset($_POST['counter'])){
+		$counter=$_POST['counter'];
+	}
+	$endinitial=10*$counter;
+	$cnt=1;
 ?>	
 <!DOCTYPE html>
 <html>
@@ -9,9 +19,9 @@
 	<body>
 	<?php include 'header.php' ?>	
 
-	 
+	 	<!--<div class="jumbotron">-->
 		<div class="container">
-			<table class="table table-bordered">
+			<table class="table table-striped">
 				<thead>
 				  <tr>
 					<th>Rank</th>
@@ -26,9 +36,11 @@
 					<?php
 						$result=mysql_query("SELECT * FROM Ngo Order by weighted_rate DESC");
 						$cnt=1;
-						while($cnt<=12)
+						$nResults = mysql_num_rows($result);
+						while($cnt<=$endinitial && $cnt<=$nResults)
 						{
 							$row = mysql_fetch_array($result);
+
 							?>
 						<tr>
 							<td><?php echo $cnt ?></td>
@@ -78,7 +90,30 @@
 
 				</tbody>
 			</table>
+
+			<div background="NONE">
+					<form action="rankingpage.php" method="post">
+						<?php
+							if($cnt<$nResults)
+							{
+						?>
+						<button type="submit" class="btn btn-warning" name="counter" value="<?php echo ($counter+1);?>" >Load more NGOs</button>
+						<?php
+							}
+
+							else if($cnt==$nResults)
+							{?>
+						<button type="hidden" class="btn btn-warning" name="counter" value="<?php echo ($counter+1);?>" >Load more NGOs</button>
+
+							<?php
+							}
+						?>
+
+					</form>
+			</div>
+
 		</div>
+	<!--</div>-->
 	</body>
 
 

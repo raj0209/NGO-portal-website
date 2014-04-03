@@ -335,129 +335,194 @@ function esubmit3()
 
 function submit3()
 {
+	var output;
+	
 	if(document.getElementById("nn").value=="" || document.getElementById        ("nn").value=="Name of NGO")
 	{
-		alert("Please enter name of NGO");
-		document.getElementById("nn").focus();
+		//alert("Please enter name of NGO");
+		//document.getElementById("nn").focus();
 		document.getElementById("nn").style.borderColor = '#FF0000';	
-		return false;
+		output="false";
 	}
-
+	
+	else
+	{
+		document.getElementById("nn").style.borderColor = 'grey';	
+	}
+	
 	if(document.getElementById("regno").value=="" || document.getElementById        ("regno").value=="Registration Number")
 	{
-		alert("Please enter the registration number");
-		document.getElementById("regno").focus();
-		return false;
+		//alert("Please enter the registration number");
+		//document.getElementById("regno").focus();
+		document.getElementById("regno").style.borderColor = '#FF0000';
+		output="false";
 	}
 
+	else
+	{
+		document.getElementById("regno").style.borderColor = 'grey';	
+	}
+	
 	if(document.getElementById("cn").value=="" || document.getElementById        ("cn").value=="Name of Contact Person")
 	{
-		alert("Please enter name of contact person");
-		document.getElementById("cn").focus();
-		return false;
+		//alert("Please enter name of contact person");
+		//document.getElementById("cn").focus();
+		document.getElementById("cn").style.borderColor = '#FF0000';
+		output="false";
 	}
 
+	else
+	{
+		document.getElementById("cn").style.borderColor = 'grey';	
+	}
+	
 	if(document.getElementById("eml").value==""|| document.getElementById        ("eml").value=="Email")
 	{
-		alert("Please enter your email address");
-		document.getElementById("eml").focus();
-		return false;
+		//alert("Please enter your email address");
+		//document.getElementById("eml").focus();
+		document.getElementById("eml").style.borderColor = '#FF0000';
+		output="false";
 	}
 
-	var x=document.getElementById("eml").value;
-	var a=x.indexOf("@");
-	var d=x.lastIndexOf(".");
-	if(a<1 || d<a+2 || d+2>=x.length)
+	else if(document.getElementById("eml").value!=""|| document.getElementById        ("eml").value!="Email")
 	{
+		var x=document.getElementById("eml").value;
+		var a=x.indexOf("@");
+		var d=x.lastIndexOf(".");
+		if(a<1 || d<a+2 || d+2>=x.length)
+		{
 
-		alert("Invalid Email");
-		document.getElementById("eml").focus();
-		return false;
+			alert("Invalid Email");
+			document.getElementById("eml").focus();
+			return false;
+		}
+		document.getElementById("eml").style.borderColor = 'grey';
 	}
-
+	
 	if(document.getElementById("cont").value=="" || document.getElementById        ("cont").value=="Contact Number")
 	{
-		alert("Please enter your contact number");
-		document.getElementById("cont").focus();
-		return false;
+		//alert("Please enter your contact number");
+		//document.getElementById("cont").focus();
+		document.getElementById("cont").style.borderColor = '#FF0000';
+		output="false";
 	}
 
-	var n="0123456789";
-	var num,dig;
+	else if(document.getElementById("cont").value!="" || document.getElementById        ("cont").value!="Contact Number")
+	{
+		var n="0123456789";
+		var num,dig;
 
-	num=document.getElementById("cont").value;
-	if(num.length==10)
-	{
-	for(i=0;i<num.length;i++)
-	{
-		dig=num.charAt(i);
-		if(n.indexOf(dig)==-1)
+		num=document.getElementById("cont").value;
+		if(num.length==10)
 		{
-			alert("Enter digits only");
+		for(i=0;i<num.length;i++)
+		{
+			dig=num.charAt(i);
+			if(n.indexOf(dig)==-1)
+			{
+				alert("Enter digits only");
+				document.getElementById("cont").focus();
+				return false;
+			}
+		}
+		}
+		else
+		{
+			alert("Enter 10 digit contact number");
 			document.getElementById("cont").focus();
 			return false;
 		}
+		document.getElementById("cont").style.borderColor = 'grey';
 	}
-	}
-	else
-	{
-		alert("Enter 10 digit contact number");
-		document.getElementById("cont").focus();
-		return false;
-	}
-
+	
 	if(document.getElementById("pwd").value=="" || document.getElementById        ("pwd").value=="Password")
 	{
-		alert("Please enter your password");
-		document.getElementById("pwd").focus();
-		return false;
+		//alert("Please enter your password");
+		//document.getElementById("pwd").focus();
+		document.getElementById("pwd").style.borderColor = '#FF0000';
+		output="false";
 	}
-
-	var p=document.getElementById("pwd").value;
-	if(p.length<6)
+	
+	else if(document.getElementById("pwd").value!="" || document.getElementById        ("pwd").value!="Password")
 	{
-		alert("Password should have minimum 6 characters");
-		document.getElementById("pwd").focus();
-		return false;
+		var p=document.getElementById("pwd").value;
+		if(p.length<6)
+		{
+			alert("Password should have minimum 6 characters");
+			document.getElementById("pwd").focus();
+			return false;
+		}
+		document.getElementById("pwd").style.borderColor = 'grey';
 	}
-
 
 
 	if(document.getElementById("dc").value=="" || document.getElementById        ("dc").value=="Description")
 	{
-		alert("Please enter the description");
-		document.getElementById("dc").focus();
-		return false;
+		//alert("Please enter the description");
+		//document.getElementById("dc").focus();
+		document.getElementById("dc").style.borderColor = '#FF0000';
+		output="false";
 	}
 
+	else
+	{
+		document.getElementById("dc").style.borderColor = 'grey';	
+	}
+	
 	if(document.getElementById("add").value=="" || document.getElementById        ("add").value=="Address")
 	{
-		alert("Please enter the Address");
-		document.getElementById("add").focus();
-		return false;
+		//alert("Please enter the Address");
+		//document.getElementById("add").focus();
+		document.getElementById("add").style.borderColor = '#FF0000';
+		output="false";
 	}
+	
+	else
+	{
+		document.getElementById("add").style.borderColor = 'grey';	
+	}
+	
 	if(document.getElementById("vi").value=="" || document.getElementById        ("vi").value=="Vision")
 	{
-		alert("Please enter the vision");
-		document.getElementById("vi").focus();
-		return false;
+		//alert("Please enter the vision");
+		//document.getElementById("vi").focus();
+		document.getElementById("vi").style.borderColor = '#FF0000';
+		output="false";
 	}
 
+	else
+	{
+		document.getElementById("vi").style.borderColor = 'grey';	
+	}
+	
 	if(document.getElementById("web").value=="" || document.getElementById        ("web").value=="Website")
 	{
-		alert("Please enter the website");
-		document.getElementById("web").focus();
-		return false;
+		//alert("Please enter the website");
+		//document.getElementById("web").focus();
+		document.getElementById("web").style.borderColor = '#FF0000';
+		output="false";
 	}
-		if(!document.getElementById("Health").checked && !document.getElementById("Food").checked && !document.getElementById("Education").checked && !document.getElementById("Old").checked && !document.getElementById("Child").checked )
+	
+	else
+	{
+		document.getElementById("web").style.borderColor = 'grey';	
+	}
+	
+	if(!document.getElementById("Health").checked && !document.getElementById("Food").checked && !document.getElementById("Education").checked && !document.getElementById("Old").checked && !document.getElementById("Child").checked )
 	{
 
-		alert("Please select category");
+		//alert("Please select category");
 		document.getElementById("Health").focus();
 		document.getElementById("Food").focus();
 		document.getElementById("Education").focus();
 		document.getElementById("Old").focus();
 		document.getElementById("Child").focus();
+		output="false";
+	}
+	
+	if(output=="false")
+	{
+		alert("Please fill up the required fields");
 		return false;
 	}
 
@@ -465,115 +530,170 @@ function submit3()
 
 function submit4()
 {
+	var output;
+	
 	if(document.getElementById("unn").value=="" || document.getElementById        ("unn").value=="Name of NGO")
 	{
-		alert("Please enter the name of NGO");
-		document.getElementById("unn").focus();
-		return false;
-	}
-
-
-	if(document.getElementById("ucn").value=="" || document.getElementById        ("ucn").value=="Name of Contact Person")
-	{
-		alert("Please enter name of contact person");
-		document.getElementById("ucn").focus();
-		return false;
-	}
-
-	if(document.getElementById("ueml").value==""|| document.getElementById        ("ueml").value=="Email")
-	{
-		alert("Please enter your email address");
-		document.getElementById("ueml").focus();
-		return false;
-	}
-
-	var x=document.getElementById("ueml").value;
-	var a=x.indexOf("@");
-	var d=x.lastIndexOf(".");
-	if(a<1 || d<a+2 || d+2>=x.length)
-	{
-
-		alert("Invalid Email");
-		document.getElementById("ueml").focus();
-		return false;
-	}
-
-	if(document.getElementById("ucont").value=="" || document.getElementById        ("ucont").value=="Contact Number")
-	{
-		alert("Please enter your contact number");
-		document.getElementById("ucont").focus();
-		return false;
-	}
-
-	var n="0123456789";
-	var num,dig;
-
-	num=document.getElementById("ucont").value;
-	if(num.length==10)
-	{
-	for(i=0;i<num.length;i++)
-	{
-		dig=num.charAt(i);
-		if(n.indexOf(dig)==-1)
-		{
-			alert("Enter digits only");
-			document.getElementById("ucont").focus();
-			return false;
-		}
-	}
+		//alert("Please enter the name of NGO");
+		//document.getElementById("unn").focus();
+		document.getElementById("unn").style.borderColor = '#FF0000';	
+		output="false";
 	}
 	else
 	{
-		alert("Enter 10 digit contact number");
-		document.getElementById("ucont").focus();
-		return false;
+		document.getElementById("unn").style.borderColor = 'grey';	
+	}
+	
+
+	if(document.getElementById("ucn").value=="" || document.getElementById        ("ucn").value=="Name of Contact Person")
+	{
+		//alert("Please enter name of contact person");
+		//document.getElementById("ucn").focus();
+		document.getElementById("ucn").style.borderColor = '#FF0000';	
+		output="false";
 	}
 
+	else
+	{
+		document.getElementById("ucn").style.borderColor = 'grey';	
+	}
+	
+	if(document.getElementById("ueml").value==""|| document.getElementById        ("ueml").value=="Email")
+	{
+		//alert("Please enter your email address");
+		//document.getElementById("ueml").focus();
+		document.getElementById("ueml").style.borderColor = '#FF0000';	
+		output="false";
+	}
+
+	else if(document.getElementById("ueml").value!=""|| document.getElementById        ("ueml").value!="Email")
+	{
+		var x=document.getElementById("ueml").value;
+		var a=x.indexOf("@");
+		var d=x.lastIndexOf(".");
+		if(a<1 || d<a+2 || d+2>=x.length)
+		{
+
+			alert("Invalid Email");
+			document.getElementById("ueml").focus();
+			return false;
+		}
+		document.getElementById("ueml").style.borderColor = 'grey';	
+	}
+	
+	if(document.getElementById("ucont").value=="" || document.getElementById        ("ucont").value=="Contact Number")
+	{
+		//alert("Please enter your contact number");
+		//document.getElementById("ucont").focus();
+		document.getElementById("ucont").style.borderColor = '#FF0000';	
+		output="false";
+	}
+	
+	else if(document.getElementById("ucont").value!="" || document.getElementById        ("ucont").value!="Contact Number")
+	{
+		var n="0123456789";
+		var num,dig;
+
+		num=document.getElementById("ucont").value;
+		if(num.length==10)
+		{
+			for(i=0;i<num.length;i++)
+			{
+				dig=num.charAt(i);
+				if(n.indexOf(dig)==-1)
+				{
+					alert("Enter digits only");
+					document.getElementById("ucont").focus();
+					return false;
+				}
+			}
+		}
+		
+	
+		else
+		{
+			alert("Enter 10 digit contact number");
+			document.getElementById("ucont").focus();
+			return false;
+		}
+		
+		document.getElementById("ucont").style.borderColor = 'grey';
+	}
+	
 	if(document.getElementById("upwd").value=="" || document.getElementById        ("upwd").value=="Password")
 	{
-		alert("Please enter your password");
-		document.getElementById("upwd").focus();
-		return false;
+		//alert("Please enter your password");
+		//document.getElementById("upwd").focus();
+		document.getElementById("upwd").style.borderColor = '#FF0000';	
+		output="false";
 	}
-
-	var p=document.getElementById("upwd").value;
-	if(p.length<6)
+	else if(document.getElementById("upwd").value=="" || document.getElementById        ("upwd").value=="Password")
 	{
-		alert("Password should have minimum 6 characters");
-		document.getElementById("upwd").focus();
-		return false;
+		var p=document.getElementById("upwd").value;
+		if(p.length<6)
+		{
+			alert("Password should have minimum 6 characters");
+			document.getElementById("upwd").focus();
+			return false;
+		}
+		document.getElementById("upwd").style.borderColor = 'grey';
 	}
-
 
 
 	if(document.getElementById("udc").value=="" || document.getElementById        ("udc").value=="Description")
 	{
-		alert("Please enter the description");
-		document.getElementById("udc").focus();
-		return false;
+		//alert("Please enter the description");
+		//document.getElementById("udc").focus();
+		document.getElementById("udc").style.borderColor = '#FF0000';	
+		output="false";
 	}
+	
+	else
+	{
+		document.getElementById("udc").style.borderColor = 'grey';	
+	}
+	
 	if(document.getElementById("uadd").value=="" || document.getElementById        ("uadd").value=="Address")
 	{
-		alert("Please enter the address");
-		document.getElementById("uadd").focus();
-		return false;
+		//alert("Please enter the address");
+		//document.getElementById("uadd").focus();
+		document.getElementById("uadd").style.borderColor = '#FF0000';	
+		output="false";
 	}
 
+	else
+	{
+		document.getElementById("uadd").style.borderColor = 'grey';	
+	}
+	
 	if(document.getElementById("uvi").value=="" || document.getElementById        ("uvi").value=="Vision")
 	{
-		alert("Please enter the vision");
-		document.getElementById("uvi").focus();
-		return false;
+		//alert("Please enter the vision");
+		//document.getElementById("uvi").focus();
+		document.getElementById("uvi").style.borderColor = '#FF0000';	
+		output="false";
 	}
+	
+	else
+	{
+		document.getElementById("uvi").style.borderColor = 'grey';	
+	}
+	
 	if(!document.getElementById("uHealth").checked && !document.getElementById("uFood").checked && !document.getElementById("uEducation").checked && !document.getElementById("uOld").checked && !document.getElementById("uChild").checked )
 	{
 
-		alert("Please select category");
+		//alert("Please select category");
 		document.getElementById("uHealth").focus();
 		document.getElementById("uFood").focus();
 		document.getElementById("uEducation").focus();
 		document.getElementById("uOld").focus();
 		document.getElementById("uChild").focus();
+		output="false";
+	}
+	
+	if(output=="false")
+	{
+		alert("Please fill up the required fields");
 		return false;
 	}
 

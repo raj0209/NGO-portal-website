@@ -17,7 +17,6 @@ else
 
 if(!isset($_SESSION['SESS_MEMBER_ID']) || (trim($_SESSION['SESS_MEMBER_ID']) == '' )){
     $loggedIn = false;
-    $pid = $_POST['ngoPid'];
 }else{
     $loggedIn = true;
 }
