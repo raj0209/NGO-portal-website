@@ -35,30 +35,33 @@ else
 $insertQuery = "insert into Ngo(name,logo,address,city,state,description,vision,contact_person,email,contact,rate,rstatus,password) 
 values('$name','$filePath','$add','$city','$state','$des','$vis','$cpn','$email','$cno',1,0,'$password')";
 
-$result = mysql_query($insertQuery);
 
+$result = mysql_query($insertQuery);
+$pid = mysql_insert_id();
 $checkbox1 = $_POST['box'];
-if($_POST["submitFormUnRegNgo"]=="Sign Up")
+
+$res = true;
+if($_POST["submitFormUpRegNgo"]=="Sign Up")
 {
-	if(isset($_POST['box'])){
-		$t1=implode(',', $_POST['box']);
-		$s = "insert into catNgo(ngo_pid , category) values(1 , '$t1')"; 
-		$res=mysql_query($s);
-		if($res){
-			echo "inserted";
-		}else{
-			echo "";
+	if(isset($_POST['box']))
+	{
+		$allCat = implode(',', $_POST['box']);
+		$allCats = explode(",", $allCat);
+		for($count = 0; $count < count($allCats); $count++){
+			$cat = $allCats[$count];
+			$query = "insert into CatNgo(ngo_pid,category) values('$pid','$cat')";
+			$res = $res & mysql_query($query);	
 		}
-	}
-	if (!$result)
-	{
-		die('Error: ' . mysql_error());
-	}else
-	{
-		echo "<font size = '5'><font color=\"#0CF44A\">ACCOUNT CREATED...SIGN IN USING THE ACTIVATION LINK SENT TO YOUR EMAIL ID";
-		//header("refresh:3;url=http://localhost/sampark/NGO-portal-website/index.php");
-	}
-	header("location:sendmail.php?a=$email");	
+	}		
 }
+
+if (!$result)
+{
+	die('Error: ' . mysql_error());
+}else
+{
+	echo "<font size = '5'><font color=\"#0CF44A\">ACCOUNT CREATED...SIGN IN USING THE ACTIVATION LINK SENT TO YOUR EMAIL ID";
+}
+header("location:sendmail.php?a=$email");	
 
 ?>

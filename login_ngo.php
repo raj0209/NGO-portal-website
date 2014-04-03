@@ -63,7 +63,7 @@
             $_SESSION['SESS_EMAIL'] = $member['email'];
             $_SESSION['SESS_TYPE'] = "NGO";
             session_write_close();
-            header("location: ngohome.php");
+            header("location: ngohome.php?id=".$_SESSION['SESS_MEMBER_ID']);
             exit();
         }
         else {
@@ -71,7 +71,7 @@
             $errmsg_arr[] = 'email or password not found';
             $errflag = true;
             if($errflag) {
-                $_SESSION['ERRMSG_ARR'] = $errmsg_arr;
+                $_SESSION['LOGIN_NGO_ERRMSG_ARR'] = $errmsg_arr;
                 session_write_close();
                 header("location: index.php");
                 exit();

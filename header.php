@@ -1,7 +1,6 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container">
-
 			<div class="nav-collapse collapse" style="margin:10px">
 				<ul class="nav nav-tabs">
 					<li  class= "active" ><a class="brand" href="index.php">Sampark</a></li>
@@ -66,8 +65,10 @@
 		</div>
 	</div>
 </div>
-
-<div class="container" style="margin:50px">
+<!-- 
+<script type="text/javascript" > alert("Hey you"); $('#signinModal').modal({ show: true}) </script>
+ -->
+<div class="container" id="signinModalContainer" style="margin:50px">
 	<div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display:none">
 	
 		<div class="modal-dialog">
@@ -93,7 +94,12 @@
 										<input type="text" placeholder="Email" id="emailDonor" name="emailDonor" class="input-xlarge" style="color:black">
 										<label>Password</label>
 										<input type="password"  id="passwordDonor" name="passwordDonor" maxlength="25" class="input-xlarge" placeholder="Password" style="color:black">
-										<div class="well form-inline">
+										
+                    <?php if(isset($_SESSION['LOGIN_DONOR_ERRMSG_ARR'])) { ?>
+                    <div><p>Incorrect username or password</p></div>
+                    <?php } unset($_SESSION['LOGIN_DONOR_ERRMSG_ARR']); ?>
+
+                    <div class="well form-inline">
 											<div>
 												<input type="submit" class="btn btn-primary" name="dlogin" value="Login" onClick="return submitSignin('emailDonor','passwordDonor')">
 												<input type="button" class="btn btn-default" name="dforgot" value="Forgot Password" onClick="#">
@@ -112,7 +118,12 @@
 	  										<input type="text" placeholder="Email" id="emailNgo" name="emailNgo" class="input-xlarge" style="color:black">
 	  										<label>Password</label>
 	  										<input type="password"  id="passwordNgo" name="passwordNgo" maxlength="25" class="input-xlarge" placeholder="Password" style="color:black">
-	  										<div class="well form-inline">
+	  										
+                        <?php if(isset($_SESSION['LOGIN_NGO_ERRMSG_ARR'])) { ?>
+                        <div><p>Incorrect username or password</p></div>
+                        <?php } unset($_SESSION['LOGIN_NGO_ERRMSG_ARR']); ?>
+
+                        <div class="well form-inline">
 	  											<div>
 	  												<input type="submit" class="btn btn-primary" name="nlogin" value="Login" onClick="return submitSignin('emailNgo','passwordNgo')">
 	  												<input type="button" class="btn btn-default" name="nforgot" value="Forgot Password" onClick="#">
@@ -207,6 +218,7 @@
   													<input type="checkbox" id = "Education"  name="box[]" value=" Education"> Education<br>
   													<input type="checkbox" id = "Old"  name="box[]" value="Old"> Oldage<br>
   													<input type="checkbox" id = "Child"  name="box[]" value=" Child"> Child<br>
+                            <input type="checkbox" id = "Others"  name="box[]" value=" Others"> Others<br>
   													<div>
   														<span>Upload Logo</span>
   														<div>										
@@ -245,6 +257,7 @@
   													<input type="checkbox" id ="uEducation" name="box[]" value=" Education"> Education<br>
   													<input type="checkbox" id ="uOld" name="box[]" value="Old"> Oldage<br>
   													<input type="checkbox" id ="uChild" name="box[]" value="Child"> Child<br>
+                            <input type="checkbox" id ="uOthers" name="box[]" value="Others"> Others<br>
 
   													<div>
   														<span>Upload Logo</span>

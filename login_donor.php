@@ -72,7 +72,7 @@
 			$errmsg_arr[] = 'email or password not found';
 			$errflag = true;
 			if($errflag) {
-				$_SESSION['ERRMSG_ARR'] = $errmsg_arr;
+				$_SESSION['LOGIN_ERRMSG_ARR'] = $errmsg_arr;
 				session_write_close();
 				header("location: index.php");
 				exit();

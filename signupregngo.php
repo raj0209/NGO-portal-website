@@ -39,35 +39,33 @@ else
 $insertQuery = "insert into Ngo(name,logo,address,city,state,description,vision,contact_person,email,contact,rate,rstatus,rnumber,website,password) 
 values('$name','$filePath','$add','$city','$state','$des','$vis','$cpn','$email','$cno',1,1,'$regno','$web','$password')";
 
+$result = mysql_query($insertQuery);
+$pid = mysql_insert_id();
 $checkbox1 = $_POST['box'];
+
+$res = true;
 if($_POST["submitFormRegNgo"]=="Sign Up")
 {
 	if(isset($_POST['box']))
 	{
-		$t1=implode(',', $_POST['box']);
-		$s = "insert into catNgo(category) values('$t1')"; 
-		$res=mysql_query($s);
-		if($res)
-		{
-			echo "inserted";
-		}
-		else
-		{
-			echo "";
+		$allCat = implode(',', $_POST['box']);
+		$allCats = explode(",", $allCat);
+		for($count = 0; $count < count($allCats); $count++){
+			$cat = $allCats[$count];
+			$query = "insert into CatNgo(ngo_pid,category) values('$pid','$cat')";
+			$res = $res & mysql_query($query);	
 		}
 	}		
 }
 
-$result = mysql_query($insertQuery);
 
-if (!$result)
+if (!$result || !$res)
 {
 	die('Error: ' . mysql_error());
 }
 else
 {
 	echo "<font size = '5'><font color=\"#0CF44A\">ACCOUNT CREATED...SIGN IN USING THE ACTIVATION LINK SENT TO YOUR EMAIL ID";
-	//header("refresh:3;url=http://localhost/sampark/NGO-portal-website/index.php");
 }
 header("location:sendmail.php?a=$email");
 ?>

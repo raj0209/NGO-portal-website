@@ -31,18 +31,11 @@ $p = sha1($_POST['password']);
 	?>
 		<script type="text/javascript">
 		alert("The email address <?php echo $e; ?> is already registered.");
-		
 		</script>
 
 	<?php
 		Header("Location: index.php");
-	}
-		
-		//$('#signupModalContent').modal("show");
-	
-		
-	
-		
+	}	
 	else
 	{	
 	$insertQuery = "insert into Donor(name,photo,email,contact,password) values('$f','$filePath','$e','$m','$p')";
