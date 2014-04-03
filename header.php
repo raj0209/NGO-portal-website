@@ -101,7 +101,7 @@
 
                     <div class="well form-inline">
 											<div>
-												<input type="submit" class="btn btn-primary" name="dlogin" value="Login" onClick="return submitSignin('emailDonor','passwordDonor')">&nbsp;&nbsp;&nbsp;&nbsp;<a href="forgotpassword.php" style="text-decoration:none">Forgot password ?</a>
+												<input type="submit" class="btn btn-primary" name="dlogin" value="Login" onClick="return submitSignin('emailDonor','passwordDonor')">&nbsp;&nbsp;&nbsp;&nbsp;<a href="forgotpasswordDonor.php" style="text-decoration:none">Forgot password ?</a>
 											</div>
 										</div>
 	  											<!--<div>
@@ -124,7 +124,7 @@
 
                         <div class="well form-inline">
 	  											<div>
-	  												<input type="submit" class="btn btn-primary" name="nlogin" value="Login" onClick="return submitSignin('emailNgo','passwordNgo')">&nbsp;&nbsp;&nbsp;&nbsp;<a href="forgotpassword.php" style="text-decoration:none">Forgot password ?</a>
+	  												<input type="submit" class="btn btn-primary" name="nlogin" value="Login" onClick="return submitSignin('emailNgo','passwordNgo')">&nbsp;&nbsp;&nbsp;&nbsp;<a href="forgotpasswordNgo.php" style="text-decoration:none">Forgot password ?</a>
 	  											</div>
 	  										</div>
 	  									</form>
