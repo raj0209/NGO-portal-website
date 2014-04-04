@@ -639,11 +639,14 @@ function changeName(){
 	if ($type == 'donors') {
 		$("#donorButton").text("Events");
 		$("#allPostContainer").hide();
+		$("#allcontactdonorsContainer").hide();
 		$("#allDonorContainer").show();
 	}else{
 		$("#donorButton").text("Donors");
 		$("#allPostContainer").show();
 		$("#allDonorContainer").hide();
+		$("#allcontactdonorsContainer").hide();
+		
 	};
 
 };
@@ -688,6 +691,16 @@ newPassword.focus();
 document.getElementById("confirmPassword").innerHTML = "not same";
 output = false;
 } 	
+var p=newPassword;
+    if(p.length<6)
+    {
+        alert("Password should have minimum 6 characters");
+		document.getElementById("newPassword").focus();
+        document.getElementById("newPassword").style.borderColor = '#FF0000';
+        return false;
+    }
+    document.getElementById("newPassword").style.borderColor = 'Grey';
+		
 return output;
 }
 
@@ -720,6 +733,12 @@ function checkSize(max_img_size,item)
 
     return true;
 }
+
+function DisplayAllDonors(){
+    $("#allPostContainer").hide();
+    $("#allDonorContainer").hide();
+    $("#allcontactdonorsContainer").show();
+};
 
 
 
@@ -771,3 +790,4 @@ function isPassValid(item){
 	}
 	return true;
 }
+
