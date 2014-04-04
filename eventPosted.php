@@ -1,6 +1,8 @@
 <?php
 include 'connect.php';
-session_start();    
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 
 $type=$_SESSION['SESS_TYPE'];
@@ -13,12 +15,12 @@ $sdate = $_POST['startDate'];
 $edate = $_POST['endDate'];
           
               
-$insertQuery = "insert into ngoPost(ngo_pid,name,detail,fromDate,toDate,location) values('$pid','$en','$ed','$sdate','$edate','$el')";
+$insertQuery = "insert into NgoPost(ngo_pid,name,detail,fromDate,toDate,location) values('$pid','$en','$ed','$sdate','$edate','$el')";
 $result = mysql_query($insertQuery);
 	
 	if (!$result)
 	{
-		die('Error: ' . mysql_error());
+		echo 'Error: ' . mysql_error();
 	}
 	else
 	{

@@ -136,7 +136,7 @@ else{
                     <div class="media">
                         <div class="media-body">
                             <?php
-                            $query = "SELECT * FROM ngoPost WHERE ngo_pid = '$pid' ORDER BY postTime DESC";
+                            $query = "SELECT * FROM NgoPost WHERE ngo_pid = '$pid' ORDER BY postTime DESC";
                             $result = mysql_query($query);
 
                             if($result) {
@@ -250,17 +250,17 @@ else{
             </div>
             <div class="modal-body">
                 <div class="well">
-                    <form action="eventPosted.php" method="post">
+                    <form action="eventPosted.php" method="post" enctype="multipart/form-data">
                         <label>Name of Event</label>
-                        <input type="text" value="Name of Event" id="eventName" name="eventName" class="input-xlarge" onClick="clearElement('eventName')" style="color:black">
+                        <input type="text" placeholder="Name of Event" id="eventName" name="eventName" class="input-xlarge" style="color:black">
                         <label>Details of Event</label>
-                        <textarea rows="3" id="eventDetails" name="eventDetails" class="input-xlarge" onClick="clearElement('eventDetails')" style="color:black"></textarea>
+                        <textarea rows="3" id="eventDetails" name="eventDetails" class="input-xlarge" placeholder="Details of Event" style="color:black"></textarea>
                         <label>Start Date </label>
                         <input type="date" name="startDate" id="startDate" class="input-xlarge" style="color:black">
                         <label>End Date </label>
                         <input type="date" name="endDate" id="endDate" class="input-xlarge" style="color:black">
                         <label>Location</label>
-                        <input type="text" value="Location of Event" id="eventLocation" name="eventLocation" class="input-xlarge" onClick="clearElement('eventLocation')" style="color:black">
+                        <input type="text" placeholder="Location of Event" id="eventLocation" name="eventLocation" class="input-xlarge" style="color:black">
                         <div>
                             <input type="submit" class="btn btn-primary" name="postEvent" value="Post Event" onClick="return eventPostf()"></button>
                         </div>
