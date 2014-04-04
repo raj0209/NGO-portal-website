@@ -22,7 +22,7 @@ TODO:Sampark
 
 11) Add option to delete post - DONE
 
-12) Forms for contact - raj
+12) Forms for contact - DONE
 
 13) Donor homepage - DONE
 
@@ -42,7 +42,7 @@ TODO:Sampark
 
 21) Check inputs i.e. not containing '
 
-22) After going to index from back button, log out should be displayed - raj
+22) After going to index from back button, log out should be displayed - DONE
 
 23) Change value to placeholder into type="text" type inputs - DONE
 
@@ -61,3 +61,5 @@ TODO:Sampark
 30) duplicte entries check for donor- DONE
 
 31) duplicte entries check for NGO
+
+32) forgot password - DONE

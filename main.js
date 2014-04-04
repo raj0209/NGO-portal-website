@@ -796,11 +796,13 @@ function changeName(){
 	if ($type == 'donors') {
 		$("#donorButton").text("Events");
 		$("#allPostContainer").hide();
+		$("#allcontactdonorsContainer").hide();
 		$("#allDonorContainer").show();
 	}else{
 		$("#donorButton").text("Donors");
-		$("#allPostContainer").show();
 		$("#allDonorContainer").hide();
+		$("#allcontactdonorsContainer").hide();
+		$("#allPostContainer").show();
 	};
 
 };
@@ -877,3 +879,9 @@ function checkSize(max_img_size,item)
 
     return true;
 }
+
+function DisplayAllDonors(){
+    $("#allPostContainer").hide();
+    $("#allDonorContainer").hide();
+    $("#allcontactdonorsContainer").show();
+};

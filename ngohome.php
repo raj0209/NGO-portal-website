@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <?php
+error_reporting(E_ALL ^ E_NOTICE);
 require_once('auth.php');
 //session_start();
 include 'connect.php';
@@ -119,6 +120,7 @@ else{
                                 <?php if($loggedIn && $type == "NGO" && $pid==$_SESSION['SESS_MEMBER_ID']) {?>
                                 <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#editProfileModal" id="editProfileButton">Edit Profile</button>
 								<button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#changePassModal" id="changePasswordButton">Change Password</button>
+								<button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#" id="showMyDonor" onClick="DisplayAllDonors()">All Donors</button>
                                 <?php }elseif($loggedIn && $type == "DONOR") { ?>
                                 <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#contactNgoModal" id="contactButton">Contact</button>
                                 <?php }?> 
@@ -240,6 +242,58 @@ else{
     </div>
 
 </div>
+
+<div class="row" id="allcontactdonorsContainer" style="margin-left:60px;margin-right:88px;">
+            <div class="col-md-4" >
+                <div class="well well-sm" style="height: auto;">
+                    <h1>Donor which had contacted me</h1>
+                    <div class="media">
+                        <div class="media-body">
+                            <?php
+                            $alldonorsquery = "SELECT * FROM Event WHERE ngo_pid = '$pid'";
+                            $donorsresult = mysql_query($alldonorsquery);
+                        
+                            if($donorsresult) {
+                                if(mysql_num_rows($donorsresult) > 0) {
+                                    while ($row = mysql_fetch_assoc($donorsresult)) {
+                                       $donorid = $row['donor_pid'];
+                                       $donordetails = "SELECT * FROM Donor WHERE pid='$donorid'";
+                                       $detailresults = mysql_query($donordetails);
+                                       if(mysql_num_rows($detailresults) > 0) {
+                                        while ($member = mysql_fetch_assoc($detailresults)) {
+                                            $donorsname = $member['name'];
+                                            $donorsemail = $member['email'];
+                                            $donorscontact = $member['contact'];                                
+                                       ?>
+                                        <form action="enableRating.php"  method="post" enctype="multipart/form-data">
+                                            <div class="well well-sm">
+                                                <h3 class="media-heading"><?php echo $donorsname ?></h3>
+                                                <div class="media">
+                                                    <p ><b>Email: </b><?php echo $donorsemail ?></p>
+                                                    <p ><b>Contact: </b><?php echo $donorscontact ?></p>
+                                                </div>
+
+                                                    <?php if($loggedIn && $type == "NGO" && $pid==$_SESSION['SESS_MEMBER_ID']) { ?>
+                                                    <input style="float:right;" type="submit" class="btn btn-primary" name="enableRate" value="Enable Rate" onClick="return confirm('Are you sure you wish to enable rating for this Donor?')" >
+                                                        <?php }?>
+                                            </div>    
+                                        </form>
+                                    <?php
+                                }  
+                            }
+                            }
+                        }
+                        }                            
+                        else {
+                            echo "No event posted so far";
+                        }
+                        ?>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <div class="modal fade" id="postEventModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">

@@ -1,5 +1,6 @@
 <?php
 	//Start session
+
 session_start();
 //echo "here we are: ".$_SESSION['search'];
 
