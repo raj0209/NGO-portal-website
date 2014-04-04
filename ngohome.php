@@ -2,7 +2,7 @@
 
 <?php
 
-require_once('auth.php');
+//require_once('auth.php');
 //session_start();
 include 'connect.php';
 
@@ -215,9 +215,8 @@ else{
                                                             <img style="height: 100px;" class="media-object" src="<?php echo $photoDonor ?>">
                                                         </a>
                                                         <div class="media-body" style="margin-left: 120px;">
-                                                            <h3 class="media-heading" ><?php echo $nameDonor ?></h3>
+                                                            <a href="<?php echo $_SESSION['LINK_DONORHOME']."?did=".$donorPid; ?>"><h3 class="media-heading" ><?php echo $nameDonor ?></h3></a>
                                                             <div class="media">
-                                                                <p><b>Photo:</b> <?php echo $photoDonor ?> </p>
                                                                 <p ><b>Email: </b><?php echo $emailDonor ?></p>
                                                                 <p ><b>Contact: </b><?php echo $contactDonor ?></p>
                                                             </div>

@@ -6,7 +6,7 @@
 
 <?php
 
-require_once('auth.php');
+//require_once('auth.php');
 include 'connect.php';
 include 'head.php';
 
@@ -55,7 +55,6 @@ if($result) {
        $photo = $member['photo'];
        $cont = $member['contact'];
        $pass = $member['password'];
-
    }else{
     Header("Location: error.php");
     }
@@ -116,7 +115,7 @@ else{
                                  $ngoPid = $row['ngo_pid'];
 
                                                 // now find and add favorite donors into well
-                                 $queryNgo = "SELECT * FROM ngoPost WHERE pid = '$ngoPid'";
+                                 $queryNgo = "SELECT * FROM NgoPost WHERE pid = '$ngoPid'";
                                  $resultNgo = mysql_query($queryNgo);
 
                                  if($resultNgo) {
@@ -177,28 +176,28 @@ else{
                                     $ngoPid = $row['ngo_pid'];
 
                                                 // now find and add favorite donors into well
-                                    $queryNgo = "SELECT * FROM ngoPost WHERE pid = '$ngoPid'";
+                                    $queryNgo = "SELECT * FROM Ngo WHERE pid = '$ngoPid'";
                                     $resultNgo = mysql_query($queryNgo);
 
                                     if($resultNgo) {
                                         if(mysql_num_rows($resultNgo) > 0) {
                                             while ($rowNgo= mysql_fetch_assoc($resultNgo)) {
-                                                $nameEvent = $rowNgo['name'];
-                                                $detailEvent = $rowNgo['detail'];
-                                                $fdEvent = $rowNgo['fromDate'];
-                                                $tdEvent = $rowNgo['toDate']; 
-                                                $locationEvent = $rowNgo['location'];?>
+                                                $name = $rowNgo['name'];
+                                                $logo = $rowNgo['logo'];
+                                                $city = $rowNgo['city'];
+                                                $description = $rowNgo['description']; 
+                                                $email = $rowNgo['email'];?>
                                                 <div class="well well-sm">
                                                     <div class="media">
                                                         <a class="thumbnail pull-left" href="#">
-                                                            <img style="height: 100px;" class="media-object" src="<?php echo $photoDonor ?>">
+                                                            <img style="height: 100px;" class="media-object" src="<?php echo $logo ?>">
                                                         </a>
                                                         <div class="media-body" style="margin-left: 120px;">
-                                                            <h3 class="media-heading" ><?php echo $nameEvent ?></h3>
+                                                            <a href="<?php echo $_SESSION['LINK_NGOHOME']."?id=".$ngoPid; ?>"><h3 class="media-heading" ><?php echo $name ?></h3></a>
                                                             <div class="media">
-                                                                <p ><b>Details: </b><?php echo $detailEvent ?></p>
-                                                                <p ><b>From: </b><?php echo $fdEvent ?></p>&nbsp; &nbsp; <p ><b>From: </b><?php echo $fdEvent ?></p>
-                                                                <p ><b>Location: </b><?php echo $locationEvent ?></p>
+                                                                <p ><b>City: </b><?php echo $city ?></p>
+                                                                <p ><b>Description: </b><?php echo $description ?></p>
+                                                                <p ><b>Email: </b><?php echo $email ?></p>
                                                             </div>
                                                         </div>
                                                     </div>
