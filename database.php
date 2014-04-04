@@ -13,7 +13,7 @@ name VARCHAR( 100 ) NOT NULL ,
 photo VARCHAR( 300 ) ,
 email VARCHAR( 100 ) NOT NULL Unique,
 contact VARCHAR( 10 ) ,
-verified_Donor TINYINT ,
+verified_Donor VARCHAR(20) ,
 password VARCHAR( 300 ) NOT NULL)"; 
 
 $resultDonor = mysql_query($sqlQueryDonor);
@@ -36,7 +36,7 @@ rate DOUBLE NOT NULL ,
 website VARCHAR(100) ,
 rstatus TINYINT ,
 rnumber VARCHAR( 30 ) ,
-verified_Ngo TINYINT,
+verified_Ngo VARCHAR(20),
 weighted_rate DOUBLE,
 password VARCHAR( 300 ) NOT NULL)";
 

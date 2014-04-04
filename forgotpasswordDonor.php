@@ -1,5 +1,6 @@
-<!DOCTYPE html>
+<?php session_start(); ?>
 
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
@@ -31,6 +32,11 @@
 			<label class="control-label" for="email_or_phone" id="eml" name ="eml">Enter your email address :</label>
 			<input type="text"  id="eml" name="eml" class="input-xlarge" placeholder="Email" autocomplete="on" style="color:black">
 			<button id="lookup_user" class="submit btn primary-btn" type="submit" >Submit</button>
+
+			<?php if(isset($_SESSION['FORGOT_PASSWORD_EMAIL_DONOR_NOT_EXISTS'])) { ?>
+				<div><p>Email is not registered</p></div>
+			<?php } unset($_SESSION['FORGOT_PASSWORD_EMAIL_DONOR_NOT_EXISTS']); ?>
+			
 			</form>
 		</div>
 	</body>

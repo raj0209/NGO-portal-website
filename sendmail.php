@@ -1,9 +1,20 @@
 <?php
-    
+    session_start();
+
     require_once("class.phpmailer.php");
     require_once("class.smtp.php");
     global $error;
-	$current_email=$_GET['a'];
+
+    if(isset($_GET['donor'])){
+        $current_email = $_GET['donor'];
+        $varificationFor = "DONOR";
+    }elseif(isset($_GET['ngo'])){
+        $current_email = $_GET['ngo'];
+        $varificationFor = "NGO";
+    }else{
+        header("location: error.php");
+    }
+    $varificationCode = $_GET['vcode'];
 	echo $current_email;
 	$username = "sampark.ngo2014@gmail.com";
     $password = "sampark123!";
@@ -25,20 +36,24 @@
     $mail->SetFrom('np@demo.net', ' NGOportalwebsite.com ');
     $mail->Subject = 'Activate Your Account ';
     $mail->Body = 'You have have been registered on Sampark. Please verify your account by clicking the following link '; 
-    $mail->Body .= '<br/><br/><br/><b> Click on this link to activate your account ';  
-    $mail->Body .= '<a href="http://localhost/sampark/NGO-portal-website/index.php"> Click Here </a>'; 
+    $mail->Body .= '<br/><br/><br/><b> Click on this link to activate your account ';
+
+    if($varificationFor == "DONOR"){
+        $mail->Body .= '<a href="'.$_SESSION['LINK_INDEX'].'?vcode='.$varificationCode.'&demail='.$current_email.'"> Click Here </a>';     
+    }else{
+        $mail->Body .= '<a href="'.$_SESSION['LINK_INDEX'].'?vcode='.$varificationCode.'&nemail='.$current_email.'"> Click Here </a>';
+    }
+    
     $mail->AddAddress($current_email);
     $mail->IsHTML(true);
     $mail->WordWrap    = 900; 
     if (!$mail->Send()) {
         $error = 'Mail error: ' . $mail->ErrorInfo;
-        header("refresh:0.001;url=http://localhost/sampark/NGO-portal-website/index.php");
+        header("refresh:0.001;url=".$_SESSION['LINK_INDEX']);
 		return false;
     } else {
-        $error = 'Message sent! activate your Account Now!';
         $mail->SmtpClose();
-        echo $error;
-		echo "<script>alert('activate your account and Login again')</script>";
+        $_SESSION['JUST_SIGNEDUP'] = true;
         Header("Location: index.php");
 		return true;
 		}

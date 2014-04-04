@@ -35,12 +35,20 @@
 			//Login Successful
 			session_regenerate_id();
 			$member = mysql_fetch_assoc($result);
-			$_SESSION['SESS_MEMBER_ID'] = $member['pid'];
-			$_SESSION['SESS_EMAIL'] = $member['email'];
-			$_SESSION['SESS_TYPE'] = "DONOR";
-			session_write_close();
-			$headerStat = "location: donorhome.php?did=".$_SESSION['SESS_MEMBER_ID'];
-			header($headerStat);
+
+			if($member['verified_Donor'] == '1'){
+				$_SESSION['SESS_MEMBER_ID'] = $member['pid'];
+				$_SESSION['SESS_EMAIL'] = $member['email'];
+				$_SESSION['SESS_TYPE'] = "DONOR";
+				session_write_close();
+				$headerStat = "location: donorhome.php?did=".$_SESSION['SESS_MEMBER_ID'];
+				header($headerStat);	
+			}else{
+				$_SESSION['LOGIN_DONOR_ERRMSG_ARR'] = true;
+				session_write_close();
+				header("location: index.php");	
+			}
+			
 		}
 		else {
 				$_SESSION['LOGIN_DONOR_ERRMSG_ARR'] = true;

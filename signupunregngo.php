@@ -43,9 +43,10 @@ if(mysql_num_rows($checkEmail)>0){
 }
 else
 {
+	$varificationCode = substr(sha1(rand()), 0, 20);
 
-	$insertQuery = "insert into Ngo(name,logo,address,city,state,description,vision,contact_person,email,contact,rate,rstatus,password) 
-	values('$name','$filePath','$add','$city','$state','$des','$vis','$cpn','$email','$cno',1,0,'$password')";
+	$insertQuery = "insert into Ngo(name,logo,address,city,state,description,vision,contact_person,email,contact,rate,rstatus,verified_Ngo,password) 
+	values('$name','$filePath','$add','$city','$state','$des','$vis','$cpn','$email','$cno',1,0,'$varificationCode','$password')";
 
 
 	$result = mysql_query($insertQuery);
@@ -74,6 +75,6 @@ else
 	{
 		echo "<font size = '5'><font color=\"#0CF44A\">ACCOUNT CREATED...SIGN IN USING THE ACTIVATION LINK SENT TO YOUR EMAIL ID";
 	}
-	header("location:sendmail.php?a=$email");	
+	header("location:sendmail.php?ngo=".$email."&vcode=".$varificationCode);	
 }
 ?>

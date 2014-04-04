@@ -24,9 +24,66 @@ include 'database.php';
 	</head>
 	<body>
 	<?php
-		include 'header.php'; 
+		include 'header.php';
+
+		if(isset($_SESSION['JUST_SIGNEDUP'])){
+			?> 
+			<div style="display: table; margin: 0 auto; margin-top:-60px;"><h1>To activate your accound please click on activation link sent to your email</h1></div>
+			<?php
+			unset($_SESSION['JUST_SIGNEDUP']);
+		}
+
+		if(isset($_GET['vcode']) && isset($_GET['demail'])){
+			$queryEmail = "SELECT verified_Donor FROM Donor WHERE email='".$_GET['demail']."'";
+			$resultQueryEmail = mysql_query($queryEmail);
+			if ($row = mysql_fetch_assoc($resultQueryEmail)) {
+				if($row['verified_Donor'] == $_GET['vcode']){
+					$insertCode = "UPDATE Donor SET verified_Donor = '1' WHERE email='".$_GET['demail']."'";
+					$resultInsert = mysql_query($insertCode);
+					$justInserted = true;
+					?> 
+					<div style="display: table; margin: 0 auto; margin-top:-60px;"><h1>Congratulations! You have successfully registered as Social Worker to our website </h1></div>
+					<?php
+				}elseif ($row['verified_Donor'] == '1') {
+					$alreadyInserted = true;
+					?> 
+					<div style="display: table; margin: 0 auto; margin-top:-60px;" ><h1> You have already registered as Social Worker to our website </h1></div>
+					<?php
+				}else{
+					$linkChanged = true;
+					header("location: error.php");
+				}
+			}else{
+				$linkChanged = true;
+				header("location: error.php");
+			}
+		}elseif(isset($_GET['vcode']) && isset($_GET['nemail'])){
+			$queryEmail = "SELECT verified_Ngo FROM Ngo WHERE email='".$_GET['nemail']."'";
+			$resultQueryEmail = mysql_query($queryEmail);
+			if ($row = mysql_fetch_assoc($resultQueryEmail)) {
+				if($row['verified_Ngo'] == $_GET['vcode']){
+					$insertCode = "UPDATE Ngo SET verified_Ngo = '1' WHERE email='".$_GET['nemail']."'";
+					$resultInsert = mysql_query($insertCode);
+					$justInserted = true;
+					?> 
+					<div style="display: table; margin: 0 auto; margin-top:-60px;"><h1>Congratulations! You have successfully registered as NGO to our website </h1></div>
+					<?php
+				}elseif ($row['verified_Ngo'] == '1') {
+					$alreadyInserted = true;
+					?> 
+					<div style="display: table; margin: 0 auto; margin-top:-60px;" ><h1> You have already registered as NGO to our website </h1></div>
+					<?php
+				}else{
+					$linkChanged = true;
+					header("location: error.php");
+				}
+			}else{
+				$linkChanged = true;
+				header("location: error.php");
+			}
+		}
 	?>
-		<div class="backimage" style="margin-left:20px; margin-top:-30px; margin-right:15px;">
+		<div class="backimage" style="margin-left:20px; margin-right:15px;">
 			<div id="wowslider-container1" style="margin-top:40px;">
 				<div class="ws_images"><ul>
 					<li><img src="data1/images/pic102.jpg" alt="pic102" title="" id="wows1_0"/></li>
@@ -56,13 +113,6 @@ include 'database.php';
 					</div>
 						<script type="text/javascript" src="engine1/wowslider.js"></script>
 						<script type="text/javascript" src="engine1/script.js"></script>
-						
-		
-				
-				
-				
-				
-		
 				<div >
 					
 					<div class="DetailBoxes">
@@ -89,13 +139,7 @@ include 'database.php';
 							
 						</div>
 					</div>
-					
-					
-
 				</div>
-			
-		
-		
 			</div>
 	</body>
 </html>

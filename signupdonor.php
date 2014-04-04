@@ -36,7 +36,9 @@ $p = sha1($_POST['password']);
 	}
 	else
 	{	
-	$insertQuery = "insert into Donor(name,photo,email,contact,password) values('$f','$filePath','$e','$m','$p')";
+		$varificationCode = substr(sha1(rand()), 0, 20);
+
+	$insertQuery = "insert into Donor(name,photo,email,contact,verified_Donor,password) values('$f','$filePath','$e','$m','$varificationCode','$p')";
 	$result = mysql_query($insertQuery);
 		
 		if (!$result)
@@ -49,7 +51,7 @@ $p = sha1($_POST['password']);
 			//header("refresh:3;location:index.php");
 		}
 		
-		header("location:sendmail.php?a=$e");
+		header("location:sendmail.php?donor=".$e."&vcode=".$varificationCode);
 	}
 
 ?>

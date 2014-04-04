@@ -41,11 +41,19 @@
             //Login Successful
             session_regenerate_id();
             $member = mysql_fetch_assoc($result);
-            $_SESSION['SESS_MEMBER_ID'] = $member['pid'];
-            $_SESSION['SESS_EMAIL'] = $member['email'];
-            $_SESSION['SESS_TYPE'] = "NGO";
-            session_write_close();
-            header("location: ngohome.php?id=".$_SESSION['SESS_MEMBER_ID']);
+
+            if($member['verified_Ngo'] == '1'){
+                $_SESSION['SESS_MEMBER_ID'] = $member['pid'];
+                $_SESSION['SESS_EMAIL'] = $member['email'];
+                $_SESSION['SESS_TYPE'] = "NGO";
+                session_write_close();
+                header("location: ngohome.php?id=".$_SESSION['SESS_MEMBER_ID']);    
+            }else{
+                $_SESSION['LOGIN_NGO_ERRMSG_ARR'] = true;
+                session_write_close();
+                header("location: index.php");  
+            }
+            
         }
         else {
                 $_SESSION['LOGIN_NGO_ERRMSG_ARR'] = true;
