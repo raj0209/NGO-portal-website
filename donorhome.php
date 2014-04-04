@@ -107,6 +107,7 @@ else{
                     <div class="media-body">
                         <?php
                         $query = "SELECT * FROM (SELECT ngo_pid FROM Fav WHERE donor_pid = '$pid') AS fav_ngos INNER JOIN (SELECT ngo_pid,name,postTime,detail,fromDate,toDate,location FROM NgoPost) AS post ON fav_ngos.ngo_pid = post.ngo_pid ORDER BY postTime DESC";
+                        //echo "string ".$query;
                         $result = mysql_query($query);
 
                         if($result) {

@@ -6,16 +6,16 @@ $user = 'root';
 $pass = 'root';
 
 
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 //session_start();
 
 
 $_SESSION['LINK_INDEX'] = "http://localhost/latest/NGO-portal-website/index.php";
 $_SESSION['LINK_DONORHOME'] = "http://localhost/latest/NGO-portal-website/donorhome.php";
 $_SESSION['LINK_NGOHOME'] = "http://localhost/latest/NGO-portal-website/ngohome.php";
-
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
 
 // Create connection
 $con = mysql_connect($server, $user, $pass) or die("Can't connect from connect.php");

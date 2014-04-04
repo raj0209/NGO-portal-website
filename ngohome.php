@@ -205,7 +205,7 @@ else{
                     <div class="media">
                         <div class="media-body">
                             <?php
-                            $query = "SELECT * FROM ngoPost WHERE ngo_pid = '$pid' ORDER BY postTime DESC";
+                            $query = "SELECT * FROM NgoPost WHERE ngo_pid = '$pid' ORDER BY postTime DESC";
                             $result = mysql_query($query);
 
                             if($result) {
@@ -283,9 +283,8 @@ else{
                                                         <div class="media-body" style="margin-left: 120px;">
                                                             <h3 class="media-heading" ><?php echo $nameDonor ?></h3>
                                                             <div class="media">
-                                                                <p><b>Photo:</b> <?php echo $photoDonor ?> </p>
                                                                 <p ><b>Email: </b><?php echo $emailDonor ?></p>
-                                                                <p ><b>Contact: </b><?php echo $contactDonor ?></p>
+                                                                <!-- <p ><b>Contact: </b><?php echo $contactDonor ?></p> -->
                                                             </div>
                                                         </div>
                                                     </div>

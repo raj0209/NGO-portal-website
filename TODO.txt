@@ -63,3 +63,7 @@ TODO:Sampark
 31) duplicte entries check for NGO
 
 32) forgot password - DONE
+
+33) Check in Contact NGO forms
+
+34) Edit donor profile ( profile photo as well)

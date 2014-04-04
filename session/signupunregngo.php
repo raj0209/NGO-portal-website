@@ -29,7 +29,7 @@ else
 	$randomName = substr(sha1(rand()), 0, 10);
 	$filePath = "img/logos/_".$randomName."_".$_FILES["unregNgoLogo"]["name"];
 
-	if(! move_uploaded_file($_FILES["unregNgoLogo"]["tmp_name"],$filePath))
+	if(! move_uploaded_file($_FILES["unregNgoLogo"]["tmp_name"],"../".$filePath))
 	{
 		$filePath = "img/logos/default_ngo.png";
 	}

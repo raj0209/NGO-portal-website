@@ -22,7 +22,7 @@ $p = sha1($_POST['password']);
 		$randomName = substr(sha1(rand()), 0, 10);
 		$filePath = "img/logos/_".$randomName."_".$_FILES["image"]["name"];
 	  
-		if(!move_uploaded_file($_FILES["image"]["tmp_name"],$filePath))
+		if(!move_uploaded_file($_FILES["image"]["tmp_name"],"../".$filePath))
 		{
 			$filePath = "img/logos/default_donor.jpeg";
 		}
