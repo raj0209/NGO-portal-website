@@ -1,6 +1,6 @@
 <?php
 
-include 'connect.php';
+include '../connect.php';
 
 //Start session
 session_start();
@@ -32,7 +32,7 @@ $p = sha1($_POST['password']);
 	
 	if(mysql_num_rows($result2)>0){
 		$_SESSION['DONOR_EMAIL_EXISTS_ERRMSG_ARR'] = true;
-		Header("location:index.php");
+		Header("location: ../index.php");
 	}
 	else
 	{	
@@ -51,7 +51,7 @@ $p = sha1($_POST['password']);
 			//header("refresh:3;location:index.php");
 		}
 		
-		header("location:sendmail.php?donor=".$e."&vcode=".$varificationCode);
+		header("location: ../sendmail.php?donor=".$e."&vcode=".$varificationCode);
 	}
 
 ?>

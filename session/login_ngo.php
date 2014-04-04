@@ -8,7 +8,7 @@
     */
     
     //Include database connection details
-    require_once('connect.php');
+    require_once('../connect.php');
  
     //Array to store validation errors
     $errmsg_arr = array();
@@ -47,18 +47,18 @@
                 $_SESSION['SESS_EMAIL'] = $member['email'];
                 $_SESSION['SESS_TYPE'] = "NGO";
                 session_write_close();
-                header("location: ngohome.php?id=".$_SESSION['SESS_MEMBER_ID']);    
+                header("location: ../ngohome.php?id=".$_SESSION['SESS_MEMBER_ID']);    
             }else{
                 $_SESSION['LOGIN_NGO_ERRMSG_ARR'] = true;
                 session_write_close();
-                header("location: index.php");  
+                header("location: ../index.php");  
             }
             
         }
         else {
                 $_SESSION['LOGIN_NGO_ERRMSG_ARR'] = true;
                 session_write_close();
-                header("location: index.php");
+                header("location: ../index.php");
         }
     }else {
         echo "Query failed";

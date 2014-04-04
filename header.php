@@ -56,7 +56,7 @@
 				session_start() ?>
   				<ul class="nav pull-right" style="margin-top:5px" >
   					<?php if(isset($_SESSION['SESS_MEMBER_ID'])){ if($_SESSION['SESS_TYPE']=="NGO"){echo "<a style=\"color:white;text-decoration:none\" href=\"ngohome.php\"><input type=\"button\" class=\"btn btn-success\" name=\"myhome\" value=\"My Home\" id=\"signup\" style=\"margin:10px\" data-toggle=\"modal\"></a>";} else { echo "<a style=\"color:white;text-decoration:none\" href=\"donorhome.php\"><input type=\"button\" class=\"btn btn-success\" name=\"myhome\" value=\"My Home\" id=\"signup\" style=\"margin:10px\" data-toggle=\"modal\"></a>"; }} else echo "<input type=\"button\" class=\"btn btn-success\" name=\"signup\" value=\"Create Account\" id=\"signup\" style=\"margin:10px\" data-toggle=\"modal\" data-target=\"#signupModal\">"?>
-  					<?php if(isset($_SESSION['SESS_MEMBER_ID'])) echo "<a style=\"color:white;text-decoration:none\" href=\"logout.php\"><button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" style=\"margin:10px\" data-toggle=\"modal\">Log out</button></a>"; else echo "<button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" style=\"margin:10px\" data-toggle=\"modal\" data-target=\"#signinModal\" id=\"signinHomeButton\">Sign In</button>" ?>
+  					<?php if(isset($_SESSION['SESS_MEMBER_ID'])) echo "<a style=\"color:white;text-decoration:none\" href=\"session/logout.php\"><button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" style=\"margin:10px\" data-toggle=\"modal\">Log out</button></a>"; else echo "<button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" style=\"margin:10px\" data-toggle=\"modal\" data-target=\"#signinModal\" id=\"signinHomeButton\">Sign In</button>" ?>
 
   				</ul>
 				</div>
@@ -88,7 +88,7 @@
 							</ul>
 							<div id="myTabContent" class="tab-content">
 								<div class="tab-pane active in" id="signinDonor">									
-									<form action="login_donor.php" method="post" id="tabDonor" enctype="multipart/form-data">
+									<form action="session/login_donor.php" method="post" id="tabDonor" enctype="multipart/form-data">
 										<input type="hidden" name="donor" value="donor">
 										<label>Email</label>
 										<input type="text" placeholder="Email" id="emailDonor" name="emailDonor" class="input-xlarge" style="color:black">
@@ -111,7 +111,7 @@
 	  									</div>
 	  								</div>
 	  								<div class="tab-pane fade" id="signinNgo">
-	  									<form action="login_ngo.php" method="post" id="tabNgo" enctype="multipart/form-data">
+	  									<form action="session/login_ngo.php" method="post" id="tabNgo" enctype="multipart/form-data">
 	  										<input type="hidden" name="ngo" value="ngo">				
 	  										<label>Email</label>
 	  										<input type="text" placeholder="Email" id="emailNgo" maxlength="100" name="emailNgo" class="input-xlarge" style="color:black">
@@ -163,7 +163,7 @@
   										</ul>
   										<div id="myTabContent" class="tab-content">
   											<div class="tab-pane active in" id="SignupDonor">
-  												<form action="signupdonor.php" method="post" id="tab" enctype="multipart/form-data" onsubmit="return checkSize(1048576,'donorProfPic')" >
+  												<form action="session/signupdonor.php" method="post" id="tab" enctype="multipart/form-data" onsubmit="return checkSize(1048576,'donorProfPic')" >
 
   													<label>Name</label>
   													<input type="text" placeholder="First Name" maxlength="100" id="fn" name="name" class="input-xlarge" style="color:black">
@@ -189,7 +189,7 @@
   											</div>
 
   											<div class="tab-pane fade" id="regSignupNgo">
-  												<form action="signupregngo.php" method="post" id="tab" enctype="multipart/form-data" onsubmit="return checkSize(1048576,'regNgoLogo')" >
+  												<form action="session/signupregngo.php" method="post" id="tab" enctype="multipart/form-data" onsubmit="return checkSize(1048576,'regNgoLogo')" >
 
   													<label>NGO Name</label>
   													<input type="text" maxlength="100" id="nn" name="nn" class="input-xlarge" placeholder="Name of NGO" style="color:black">
@@ -238,7 +238,7 @@
   											</div>
 
   											<div class="tab-pane fade" id="unregSignupNgo">
-  												<form action="signupunregngo.php" method="post" id="tab" enctype="multipart/form-data" onsubmit="return checkSize(1048576,'unregNgoLogo')" >
+  												<form action="session/signupunregngo.php" method="post" id="tab" enctype="multipart/form-data" onsubmit="return checkSize(1048576,'unregNgoLogo')" >
 
   													<label>NGO Name</label>
   													<input type="text" maxlength="100" id="unn" name="unn" class="input-xlarge" placeholder="Name of NGO" style="color:black">

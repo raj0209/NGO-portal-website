@@ -8,7 +8,7 @@
 	*/
 	
 	//Include database connection details
-	require_once('connect.php');
+	require_once('../connect.php');
  
 	//Function to sanitize values received from the form. Prevents SQL injection
 	function clean($str) {
@@ -41,19 +41,19 @@
 				$_SESSION['SESS_EMAIL'] = $member['email'];
 				$_SESSION['SESS_TYPE'] = "DONOR";
 				session_write_close();
-				$headerStat = "location: donorhome.php?did=".$_SESSION['SESS_MEMBER_ID'];
+				$headerStat = "location: ../donorhome.php?did=".$_SESSION['SESS_MEMBER_ID'];
 				header($headerStat);	
 			}else{
 				$_SESSION['LOGIN_DONOR_ERRMSG_ARR'] = true;
 				session_write_close();
-				header("location: index.php");	
+				header("location: ../index.php");	
 			}
 			
 		}
 		else {
 				$_SESSION['LOGIN_DONOR_ERRMSG_ARR'] = true;
 				session_write_close();
-				header("location: index.php");
+				header("location: ../index.php");
 			}
 	}else {
 		echo "Query failed";

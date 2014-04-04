@@ -1,6 +1,6 @@
 <?php
 
-include 'connect.php';
+include '../connect.php';
 
 //Start session
 session_start();
@@ -39,7 +39,7 @@ $checkEmail = mysql_query("SELECT * FROM Ngo WHERE email = '$email'");
 
 if(mysql_num_rows($checkEmail)>0){
 	$_SESSION['UNREGNGO_EMAIL_EXISTS_ERRMSG_ARR'] = true;
-	Header("location:index.php");
+	Header("location: ../index.php");
 }
 else
 {
@@ -75,6 +75,6 @@ else
 	{
 		echo "<font size = '5'><font color=\"#0CF44A\">ACCOUNT CREATED...SIGN IN USING THE ACTIVATION LINK SENT TO YOUR EMAIL ID";
 	}
-	header("location:sendmail.php?ngo=".$email."&vcode=".$varificationCode);	
+	header("location: ../sendmail.php?ngo=".$email."&vcode=".$varificationCode);	
 }
 ?>
