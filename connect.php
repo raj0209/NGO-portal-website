@@ -6,10 +6,8 @@ $user = 'root';
 $pass = '';
 
 
-if(!isset($_SESSION['SESS_MEMBER_ID']))
-{
-	session_start();
-}
+//session_start();
+
 
 $_SESSION['LINK_INDEX'] = "http://localhost/sampark/NGO-portal-website/index.php";
 

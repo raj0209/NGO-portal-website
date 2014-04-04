@@ -204,9 +204,9 @@
                             <div><p>Email already exists</p></div>
                             <?php } unset($_SESSION['REGNGO_EMAIL_EXISTS_ERRMSG_ARR']); ?>
 
-  													<label>Contact Number</label>
+  													<label>Contact Number ( 10 digits )</label>
   													<input type="text"  id="cont" name="cont"  maxlength="10" class="input-xlarge" placeholder="Contact Number" style="color:black">
-  													<label>Password</label>
+  													<label>Password ( minimum 6 character )</label>
   													<input type="password"  id="pwd" name="pwd" maxlength="25" class="input-xlarge" placeholder="Password" style="color:black">
   													<label>Address</label>
   													<textarea rows="3" id="add" name="add" class="input-xlarge" placeholder="Address" style="color:black"></textarea>
@@ -251,9 +251,9 @@
                             <div><p>Email already exists</p></div>
                             <?php } unset($_SESSION['UNREGNGO_EMAIL_EXISTS_ERRMSG_ARR']); ?>
 
-                            <label>Contact Number</label>
+													<label>Contact Number ( 10 digits )</label>
   													<input type="text"  id="ucont" name="ucont" maxlength="10" class="input-xlarge" placeholder="Contact Number" style="color:black">
-  													<label>Password</label>
+  													<label>Password ( minimum 6 character )</label>
   													<input type="password"  id="upwd" name="upwd" maxlength="25" class="input-xlarge" placeholder="Password" style="color:black">
   													<label>Address</label>
   													<textarea rows="3" id="uadd" name="uadd" class="input-xlarge" placeholder="Address" style="color:black"></textarea>

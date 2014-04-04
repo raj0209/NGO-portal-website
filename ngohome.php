@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 
 <?php
-error_reporting(E_ALL ^ E_NOTICE);
+
 require_once('auth.php');
 //session_start();
 include 'connect.php';
+
 
 if(isset($_SESSION['SESS_TYPE'])){
     $type=$_SESSION['SESS_TYPE'];
@@ -243,7 +244,7 @@ else{
 
 </div>
 
-<div class="row" id="allcontactdonorsContainer" style="margin-left:60px;margin-right:88px;">
+<div class="row" id="allcontactdonorsContainer" style="margin-left:60px;margin-right:88px;display:none;">
             <div class="col-md-4" >
                 <div class="well well-sm" style="height: auto;">
                     <h1>Donor which had contacted me</h1>
