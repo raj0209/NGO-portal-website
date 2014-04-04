@@ -365,9 +365,7 @@ else{
                                 <label>Email</label>
                                 <input type="text" value="<?php echo $email?>" id="eeml" name="eeml" class="input-xlarge" onClick="clearElement('eeml')" style="color:black">
                                 <label>Contact Number</label>
-                                <input type="text"  id="econt" name="econt"  maxlength="10" class="input-xlarge" value="<?php echo $cno?>" onClick="clearElement('econt')" style="color:black">
-                                <label>Password</label>
-                                <input type="password"  id="epwd" name="epwd" maxlength="25" class="input-xlarge" onClick="clearElement('epwd')" style="color:black">
+                                <input type="text"  id="econt" name="econt"  maxlength="10" class="input-xlarge" value="<?php echo $cno?>" onClick="clearElement('econt')" style="color:black">                           
                                 <label>Description</label>
                                 <textarea rows="5" id="edc" name="edc" class="input-xlarge" onClick="clearElement('edc')" style="color:black"><?php echo $des?></textarea>
                                 <label>Vision</label>
@@ -403,7 +401,7 @@ else{
             </div>
             <div class="modal-body">
                     <div class="well">
-                           <form action="" name="frmChange" method="post" enctype="multipart/form-data">
+                           <form action="ngochangepassword.php" name="frmChange" method="post" enctype="multipart/form-data">
 								
                                 <label>Current Password</label>
                                 <input type="password"  id="currentPassword" name="currentPassword" maxlength="25" class="input-xlarge" onClick="clearElement('currentPassword')" style="color:black">

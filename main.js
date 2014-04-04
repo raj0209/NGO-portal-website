@@ -665,43 +665,45 @@ function DisplayNgo(){
 function validatePassword() {
 var currentPassword,newPassword,confirmPassword,output = true;
 
-currentPassword = document.frmChange.currentPassword;
-newPassword = document.frmChange.newPassword;
-confirmPassword = document.frmChange.confirmPassword;
+var curpass = document.getElementById("currentPassword").value;
+var newpass = document.getElementById("newPassword").value;
+var conpass = document.getElementById("confirmPassword").value;
 
-if(!currentPassword.value) {
-currentPassword.focus();
-document.getElementById("currentPassword").innerHTML = "required";
+
+if(!curpass.value) {
+curpass.focus();
 output = false;
 }
-else if(!newPassword.value) {
-newPassword.focus();
-document.getElementById("newPassword").innerHTML = "required";
+
+if(!newpass.value) {
+newpass.focus();
 output = false;
 }
-else if(!confirmPassword.value) {
-confirmPassword.focus();
-document.getElementById("confirmPassword").innerHTML = "required";
+
+if(!conpass.value) {
+conpass.focus();
 output = false;
 }
-if(newPassword.value != confirmPassword.value) {
-newPassword.value="";
-confirmPassword.value="";
-newPassword.focus();
-document.getElementById("confirmPassword").innerHTML = "not same";
+
+if(newpass.value != conpass.value) {
+newpass.value="";
+conpass.value="";
+newpass.focus();
 output = false;
-} 	
-var p=newPassword;
-    if(p.length<6)
-    {
-        alert("Password should have minimum 6 characters");
-		document.getElementById("newPassword").focus();
-        document.getElementById("newPassword").style.borderColor = '#FF0000';
-        return false;
-    }
-    document.getElementById("newPassword").style.borderColor = 'Grey';
-		
+}
+
+if(newpass.length<6)
+{
+    alert("Password should have minimum 6 characters");
+	document.getElementById("newPassword").focus();
+    document.getElementById("newPassword").style.borderColor = '#FF0000';
+    return false;
+}
+
+document.getElementById("newPassword").style.borderColor = 'Grey';
+ 	
 return output;
+
 }
 
 function ClearAll() {

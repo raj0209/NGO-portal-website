@@ -6,7 +6,7 @@
 
 <?php
 
-//require_once('auth.php');
+require_once('auth.php');
 include 'connect.php';
 include 'head.php';
 
@@ -55,6 +55,7 @@ if($result) {
        $photo = $member['photo'];
        $cont = $member['contact'];
        $pass = $member['password'];
+
    }else{
     Header("Location: error.php");
     }
@@ -90,6 +91,7 @@ else{
                                     <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#" id="ngoFavButton" onClick="DisplayNgo()">Favourite NGOs</button>
                                     <?php if($loggedInAsDonor) { ?>
                                     <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#editProModal" id="editProButton">Edit Profile</button>
+									<button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#changePassModal" id="changePasswordButton">Change Password</button>
                                     <?php } ?>
                                 </p>
                             </div>
@@ -99,6 +101,7 @@ else{
             </div>
         </div>
     </div>
+    
     <div class="row" id="allEventsContainer" style="margin-left:35px; margin-right:95px;">
         <div class="col-md-4" style="margin-left:30px;">
             <div class="well well-sm" style="height: auto;">
@@ -123,7 +126,7 @@ else{
                                         <div class="well well-sm">
                                                         <!--<input type="hidden" name="postTime" value=" <?php echo $postTime ?>">
                                                         <input type="hidden" name="ngoPid" value=" <?php echo $pid ?>">-->
-                                                        <h3 class="media-heading"><?php echo $nameEvent ?><small><?php echo " ".substr($postTime,0,10) ?></small></h3>
+                                                        <h3 class="media-heading"><?php echo $nameEvent ?><small><?php echo " "?></small></h3>
                                                         <div class="media">
                                                             <p><b>From: </b> <?php echo $fdEvent ?>  &nbsp; &nbsp;<b>To:</b> <?php echo $tdEvent ?> </p>
                                                             <p ><b>Detail: </b><?php echo $detailEvent ?></p>
@@ -134,12 +137,18 @@ else{
                                                         </div>
                                                     </div>
                                                 </form>
-                                                <?php
+                                               <?php
+                                                        }  
+                                                    }
+                                                }
+                                            else 
+                                            {
+                                                echo "No event posted so far";
+                                            
                                             }
                                         }
                                     }
                                     ?>
-
                     </div>
                 </div>
             </div>
@@ -150,55 +159,54 @@ else{
         <div class="col-md-4" style="margin-left:30px;" >
             <div class="well well-sm" style="height: auto;">
                 <h1>Favourite NGOs</h1>
-                <div class="media">
-                    <div class="media-body">
-                        <?php
-                        $query = "SELECT * FROM Fav WHERE donor_pid = '$pid'";
-                        $result = mysql_query($query);
+                <!-- Shubham: Modifying code here, this code is buggy and not working. So putting my code here-->
+                        <div class="media">
+                            <div class="media-body">
+                                <?php
+                                    
+                                    $result = mysql_query("SELECT * FROM Fav WHERE donor_pid = $pid");
 
-                        if($result) {
-                            if(mysql_num_rows($result) > 0) {
-                                while ($row = mysql_fetch_assoc($result)) {
-                                    $ngoPid = $row['ngo_pid'];
+                                    $nResult = mysql_num_rows($result); 
 
-                                                // now find and add favorite donors into well
-                                    $queryNgo = "SELECT * FROM Ngo WHERE pid = '$ngoPid'";
-                                    $resultNgo = mysql_query($queryNgo);
 
-                                    if($resultNgo) {
-                                        if(mysql_num_rows($resultNgo) > 0) {
-                                            while ($rowNgo= mysql_fetch_assoc($resultNgo)) {
-                                                $name = $rowNgo['name'];
-                                                $logo = $rowNgo['logo'];
-                                                $city = $rowNgo['city'];
-                                                $description = $rowNgo['description']; 
-                                                $email = $rowNgo['email'];?>
-                                                <div class="well well-sm">
-                                                    <div class="media">
-                                                        <a class="thumbnail pull-left" href="#">
-                                                            <img style="height: 100px;" class="media-object" src="<?php echo $logo ?>">
-                                                        </a>
-                                                        <div class="media-body" style="margin-left: 120px;">
-                                                            <a href="<?php echo $_SESSION['LINK_NGOHOME']."?id=".$ngoPid; ?>"><h3 class="media-heading" ><?php echo $name ?></h3></a>
-                                                            <div class="media">
-                                                                <p ><b>City: </b><?php echo $city ?></p>
-                                                                <p ><b>Description: </b><?php echo $description ?></p>
-                                                                <p ><b>Email: </b><?php echo $email ?></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <?php
-                                            }
+
+                                    if($nResult>0) {
+
+
+                                        
+                                        while ($row = mysql_fetch_array($result)) {
+                                           $NgoPid= $row['ngo_pid'];
+                                           $result1=mysql_query("SELECT * from Ngo where pid=$NgoPid");
+                                           $nResult1=mysql_num_rows($result1);
+                                           while($row1=mysql_fetch_array($result1))
+                                           {
+                                                $pid = $row1['pid'];
+                                                $nameNgo = $row1['name'];
+                                                $logoUrl = $row1['logo'];
+                                                $descNgo = substr($row1['description'],0,150)."..."; 
+                                           
+                        
+
+                                        ?>
+                                        <form action="ngohome.php?id=<?php echo $pid ?>" method="post" enctype="multipart/form-data">
+                                            <div class="pin">
+                                                <input type="hidden" name="ngoPid" value=" <?php echo $pid ?>">
+                                                <img src="<?php echo $logoUrl ?>" />
+                                                <input type="submit" value="<?php echo $nameNgo ?>" style="width: 200px; font-weight:bold" onClick="ClearAll();" >
+                                        
+                                            </div>
+                                        </form>
+                                        <?php
+                                            }  
                                         }
                                     }
-                                }
-                            }
-                            else {
-                                echo "No Favourite NGos";
-                            }
-                        }
-                        ?>
+                                         
+                                        
+                                        else {
+                                            echo "You currently have no Favourite NGOs";
+                                        }
+                                    }
+                                ?>
 
                     </div>
                 </div>
@@ -224,8 +232,6 @@ else{
                             <input type="text" value="<?php echo $email?>" id="eem" name="eemail" class="input-xlarge" onClick="emlf()" style="color:black">
                             <label>Contact Number</label>
                             <input type="text" value="<?php echo $cont?>" id="emob" name="emobile" maxlength="10" class="input-xlarge" onClick="mobf()" style="color:black">
-                            <label>Password</label>
-                            <input type="password" value="<?php echo $pass?>" id="epass" name="epassword" maxlength="25" class="input-xlarge" onClick="pwdf()" style="color:black">	   
                             <div>
                                 <div class="btn btn-default btn-file" style="margin-right: 60px;">
                                     <label for="file">Browse Photo</label>
@@ -239,6 +245,34 @@ else{
             </div>
         </div>
     </div>
+	<div class="modal fade" id="changePassModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Change Password</h4>
+            </div>
+            <div class="modal-body">
+                    <div class="well">
+                           <form action="Donorchangepassword.php" name="frmChange" method="post" enctype="multipart/form-data">
+                                
+                                <label>Current Password</label>
+                                <input type="password"  id="currentPassword" name="currentPassword" maxlength="25" class="input-xlarge" onClick="clearElement('currentPassword')" style="color:black">
+                                <label>New Password</label>
+                                <input type="password"  id="newPassword" name="newPassword" maxlength="25" class="input-xlarge" onClick="clearElement('newPassword')" style="color:black">
+                                <label>Confirm Password</label>
+                                <input type="password"  id="confirmPassword" name="confirmPassword" maxlength="25" class="input-xlarge" onClick="clearElement('confirmPassword')" style="color:black">
+                                <div>
+                                <input type="submit" class="btn btn-primary" name="SavePassword" value="Save Password" onClick="return validatePassword()"></button>
+                                </div>
+                                                    
+                        </form>    
+                    </div>
+                        
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 
 </html>
