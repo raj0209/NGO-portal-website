@@ -106,28 +106,20 @@ else{
                 <div class="media">
                     <div class="media-body">
                         <?php
-                        $query = "SELECT * FROM Fav WHERE donor_pid = '$pid'";
+                        $query = "SELECT * FROM (SELECT ngo_pid FROM Fav WHERE donor_pid = '$pid') AS fav_ngos INNER JOIN (SELECT ngo_pid,name,postTime,detail,fromDate,toDate,location FROM NgoPost) AS post ON fav_ngos.ngo_pid = post.ngo_pid ORDER BY postTime DESC";
                         $result = mysql_query($query);
 
                         if($result) {
                             if(mysql_num_rows($result) > 0) {
-                                while ($row = mysql_fetch_assoc($result)) {
-                                 $ngoPid = $row['ngo_pid'];
-
-                                                // now find and add favorite donors into well
-                                 $queryNgo = "SELECT * FROM NgoPost WHERE pid = '$ngoPid'";
-                                 $resultNgo = mysql_query($queryNgo);
-
-                                 if($resultNgo) {
-                                    if(mysql_num_rows($resultNgo) > 0) {
-                                        while ($rowNgo= mysql_fetch_assoc($resultNgo)) {
-                                            $nameEvent = $rowNgo['name'];
-                                            $detailEvent = $rowNgo['detail'];
-                                            $fdEvent = $rowNgo['fromDate'];
-                                            $tdEvent = $rowNgo['toDate']; 
-                                            $locationEvent = $rowNgo['location'];?>
-                                            <form action="#"  method="post">
-                                                <div class="well well-sm">
+                                while ($rowNgo= mysql_fetch_assoc($result)) {
+                                    $nameEvent = $rowNgo['name'];
+                                    $postTime = $rowNgo['postTime'];
+                                    $detailEvent = $rowNgo['detail'];
+                                    $fdEvent = $rowNgo['fromDate'];
+                                    $tdEvent = $rowNgo['toDate']; 
+                                    $locationEvent = $rowNgo['location'];?>
+                                    <form action="#"  method="post">
+                                        <div class="well well-sm">
                                                         <!--<input type="hidden" name="postTime" value=" <?php echo $postTime ?>">
                                                         <input type="hidden" name="ngoPid" value=" <?php echo $pid ?>">-->
                                                         <h3 class="media-heading"><?php echo $nameEvent ?><small><?php echo " ".substr($postTime,0,10) ?></small></h3>
@@ -142,17 +134,10 @@ else{
                                                     </div>
                                                 </form>
                                                 <?php
-                                            }  
+                                            }
                                         }
                                     }
-                                    else 
-                                    {
-                                        echo "No event posted so far";
-                                    }
-                                }
-                            }
-                        }
-                        ?>
+                                    ?>
 
                     </div>
                 </div>
