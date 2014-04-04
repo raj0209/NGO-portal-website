@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 
 <?php
-
 require_once('auth.php');
 //session_start();
 include 'connect.php';
-
 
 if(isset($_SESSION['SESS_TYPE'])){
     $type=$_SESSION['SESS_TYPE'];
@@ -57,7 +55,34 @@ if($loggedIn && $type == "DONOR")
 		$donoremail = $dmember['email'];
 	}
 }
+if($loggedIn && $type == "DONOR") { 
+$donorPid=$_SESSION['SESS_MEMBER_ID'];
 
+
+$result=mysql_query("SELECT * From Fav where donor_pid=$donorPid AND ngo_pid=$pid");
+$counter1=mysql_num_rows($result);
+
+if(isset($_POST['counter1']))
+{
+    $counter1=$_POST['counter1'];
+}
+
+if(($counter1%2)==1&&mysql_num_rows($result)==0)
+{
+    if($loggedIn && $type == "DONOR") { 
+                                    $donorPid=$_SESSION['SESS_MEMBER_ID'];}
+    $donorPid=$_SESSION['SESS_MEMBER_ID'];
+
+    mysql_query("INSERT INTO Fav VALUES($donorPid, $pid)");
+}
+ if(($counter1%2)==0)
+{
+    $donorPid=$_SESSION['SESS_MEMBER_ID'];
+    if($loggedIn && $type == "DONOR") { 
+                                    $donorPid=$_SESSION['SESS_MEMBER_ID'];}
+    mysql_query("DELETE FROM Fav where Ngo_pid=$pid AND donor_pid=$donorPid");
+}
+}
 $qry="SELECT * FROM Ngo WHERE pid=$pid";
 $result=mysql_query($qry);
 if($result) {
@@ -121,10 +146,51 @@ else{
                                 <?php if($loggedIn && $type == "NGO" && $pid==$_SESSION['SESS_MEMBER_ID']) {?>
                                 <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#editProfileModal" id="editProfileButton">Edit Profile</button>
 								<button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#changePassModal" id="changePasswordButton">Change Password</button>
-								<button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#" id="showMyDonor" onClick="DisplayAllDonors()">All Donors</button>
                                 <?php }elseif($loggedIn && $type == "DONOR") { ?>
                                 <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#contactNgoModal" id="contactButton">Contact</button>
-                                <?php }?> 
+                                <?php
+									?>
+									<form method="post">
+									<?php $result=mysql_query("SELECT * From Fav where donor_pid=$donorPid AND ngo_pid=$pid");
+                                    $nResult=mysql_num_rows($result);
+                                    
+                                    if(($nResult%2)==0)
+                                    {?>
+										<button type="submit" class="btn btn-default" name="counter1" value="<?php echo ($counter1+1);?>" ><i class="icon-star icon-black"></i>Favourite</button>
+									<?php } ?>
+									<?php
+									if(($nResult%2)>0)
+									{?>
+									
+									<button type="submit" class="btn btn-default" name="counter1" value="<?php echo ($counter1+1);?>" ><i class="icon-star-empty icon-black"></i>Unfavourite</button>
+									
+									<?php }
+									?>
+									</form>
+									<form method="post">
+									<?php
+										$donorPid=$_SESSION['SESS_MEMBER_ID'];
+										$erResult=mysql_query("SELECT * From Event where donor_pid=$donorPid AND ngo_pid=$pid");
+										$nErResult=mysql_num_rows($erResult);
+										if($nErResult>0)
+										{
+											$rowER=mysql_fetch_array($erResult);
+											$ER=$rowER['enable_rate'];
+											if($ER>0)
+											{
+											?>
+											<button type="submit" class="btn btn-danger" name="counterER" value="<?php echo ($counterER+1);?>" ><i class="icon-heart icon-white"></i>Rate this NGO</button>
+											<?php
+											}
+										}
+									
+									?>
+									
+									</form>
+									
+								<?php 
+								} // end of else if
+								?>  
                             </p>
                         </div>
                     </div>
@@ -243,58 +309,6 @@ else{
     </div>
 
 </div>
-
-<div class="row" id="allcontactdonorsContainer" style="margin-left:60px;margin-right:88px;display:none;">
-            <div class="col-md-4" >
-                <div class="well well-sm" style="height: auto;">
-                    <h1>Donor which had contacted me</h1>
-                    <div class="media">
-                        <div class="media-body">
-                            <?php
-                            $alldonorsquery = "SELECT * FROM Event WHERE ngo_pid = '$pid'";
-                            $donorsresult = mysql_query($alldonorsquery);
-                        
-                            if($donorsresult) {
-                                if(mysql_num_rows($donorsresult) > 0) {
-                                    while ($row = mysql_fetch_assoc($donorsresult)) {
-                                       $donorid = $row['donor_pid'];
-                                       $donordetails = "SELECT * FROM Donor WHERE pid='$donorid'";
-                                       $detailresults = mysql_query($donordetails);
-                                       if(mysql_num_rows($detailresults) > 0) {
-                                        while ($member = mysql_fetch_assoc($detailresults)) {
-                                            $donorsname = $member['name'];
-                                            $donorsemail = $member['email'];
-                                            $donorscontact = $member['contact'];                                
-                                       ?>
-                                        <form action="enableRating.php"  method="post" enctype="multipart/form-data">
-                                            <div class="well well-sm">
-                                                <h3 class="media-heading"><?php echo $donorsname ?></h3>
-                                                <div class="media">
-                                                    <p ><b>Email: </b><?php echo $donorsemail ?></p>
-                                                    <p ><b>Contact: </b><?php echo $donorscontact ?></p>
-                                                </div>
-
-                                                    <?php if($loggedIn && $type == "NGO" && $pid==$_SESSION['SESS_MEMBER_ID']) { ?>
-                                                    <input style="float:right;" type="submit" class="btn btn-primary" name="enableRate" value="Enable Rate" onClick="return confirm('Are you sure you wish to enable rating for this Donor?')" >
-                                                        <?php }?>
-                                            </div>    
-                                        </form>
-                                    <?php
-                                }  
-                            }
-                            }
-                        }
-                        }                            
-                        else {
-                            echo "No event posted so far";
-                        }
-                        ?>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
 <div class="modal fade" id="postEventModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">

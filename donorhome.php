@@ -101,38 +101,39 @@ else{
             </div>
         </div>
     </div>
-    <div class="row" id="allEventsContainer" style="margin-left:35px; margin-right:95px;">
-        <div class="col-md-4" style="margin-left:30px;">
-            <div class="well well-sm" style="height: auto;">
-                <h1>Events</h1>
-                <div class="media">
-                    <div class="media-body">
-                        <?php
-                        $query = "SELECT * FROM Fav WHERE donor_pid = '$pid'";
-                        $result = mysql_query($query);
+    <!-- Shubham: editting code here, 3-4-14 -->
+        <div class="row" id="allEventsContainer" style="margin-left:35px; margin-right:95px;">
+                <div class="col-md-4" style="margin-left:30px;">
+                    <div class="well well-sm" style="height: auto;">
+                        <h1>Events</h1>
+                        <div class="media">
+                            <div class="media-body">
+                                <?php
+                                    $query = "SELECT * FROM Fav WHERE donor_pid = $pid";
+                                    $result = mysql_query($query);
 
-                        if($result) {
-                            if(mysql_num_rows($result) > 0) {
-                                while ($row = mysql_fetch_assoc($result)) {
-                                 $ngoPid = $row['ngo_pid'];
+                                    if($result) {
+                                        if(mysql_num_rows($result) > 0) {
+                                            while ($row = mysql_fetch_array($result)) {
+                                               $ngoPid = $row['ngo_pid'];
 
                                                 // now find and add favorite donors into well
-                                 $queryNgo = "SELECT * FROM ngoPost WHERE pid = '$ngoPid'";
-                                 $resultNgo = mysql_query($queryNgo);
+                                                $queryNgo = "SELECT * FROM NgoPost WHERE ngo_pid = $ngoPid";
+                                                $resultNgo = mysql_query($queryNgo);
 
-                                 if($resultNgo) {
-                                    if(mysql_num_rows($resultNgo) > 0) {
-                                        while ($rowNgo= mysql_fetch_assoc($resultNgo)) {
-                                            $nameEvent = $rowNgo['name'];
-                                            $detailEvent = $rowNgo['detail'];
-                                            $fdEvent = $rowNgo['fromDate'];
-                                            $tdEvent = $rowNgo['toDate']; 
-                                            $locationEvent = $rowNgo['location'];?>
-                                            <form action="#"  method="post">
-                                                <div class="well well-sm">
+                                                if($resultNgo) {
+                                                    if(mysql_num_rows($resultNgo) > 0) {
+                                                        while ($rowNgo= mysql_fetch_array($resultNgo)) {
+                                                            $nameEvent = $rowNgo['name'];
+                                                            $detailEvent = $rowNgo['detail'];
+                                                            $fdEvent = $rowNgo['fromDate'];
+                                                            $tdEvent = $rowNgo['toDate']; 
+                                                            $locationEvent = $rowNgo['location'];?>
+                                                <form action="#"  method="post">
+                                                    <div class="well well-sm">
                                                         <!--<input type="hidden" name="postTime" value=" <?php echo $postTime ?>">
                                                         <input type="hidden" name="ngoPid" value=" <?php echo $pid ?>">-->
-                                                        <h3 class="media-heading"><?php echo $nameEvent ?><small><?php echo " ".substr($postTime,0,10) ?></small></h3>
+                                                        <h3 class="media-heading"><?php echo $nameEvent ?><small><?php echo " "?></small></h3>
                                                         <div class="media">
                                                             <p><b>From: </b> <?php echo $fdEvent ?>  &nbsp; &nbsp;<b>To:</b> <?php echo $tdEvent ?> </p>
                                                             <p ><b>Detail: </b><?php echo $detailEvent ?></p>
@@ -143,19 +144,18 @@ else{
                                                         </div>
                                                     </div>
                                                 </form>
-                                                <?php
-                                            }  
+                                               <?php
+                                                        }  
+                                                    }
+                                                }
+                                            else 
+                                            {
+                                                echo "No event posted so far";
+                                            
+                                            }
                                         }
                                     }
-                                    else 
-                                    {
-                                        echo "No event posted so far";
-                                    }
-                                }
-                            }
-                        }
-                        ?>
-
+                                    ?>
                     </div>
                 </div>
             </div>
@@ -166,55 +166,54 @@ else{
         <div class="col-md-4" style="margin-left:30px;" >
             <div class="well well-sm" style="height: auto;">
                 <h1>Favourite NGOs</h1>
-                <div class="media">
-                    <div class="media-body">
-                        <?php
-                        $query = "SELECT * FROM Fav WHERE donor_pid = '$pid'";
-                        $result = mysql_query($query);
+                <!-- Shubham: Modifying code here, this code is buggy and not working. So putting my code here-->
+                        <div class="media">
+                            <div class="media-body">
+                                <?php
+                                    
+                                    $result = mysql_query("SELECT * FROM Fav WHERE donor_pid = $pid");
 
-                        if($result) {
-                            if(mysql_num_rows($result) > 0) {
-                                while ($row = mysql_fetch_assoc($result)) {
-                                    $ngoPid = $row['ngo_pid'];
+                                    $nResult = mysql_num_rows($result); 
 
-                                                // now find and add favorite donors into well
-                                    $queryNgo = "SELECT * FROM ngoPost WHERE pid = '$ngoPid'";
-                                    $resultNgo = mysql_query($queryNgo);
 
-                                    if($resultNgo) {
-                                        if(mysql_num_rows($resultNgo) > 0) {
-                                            while ($rowNgo= mysql_fetch_assoc($resultNgo)) {
-                                                $nameEvent = $rowNgo['name'];
-                                                $detailEvent = $rowNgo['detail'];
-                                                $fdEvent = $rowNgo['fromDate'];
-                                                $tdEvent = $rowNgo['toDate']; 
-                                                $locationEvent = $rowNgo['location'];?>
-                                                <div class="well well-sm">
-                                                    <div class="media">
-                                                        <a class="thumbnail pull-left" href="#">
-                                                            <img style="height: 100px;" class="media-object" src="<?php echo $photoDonor ?>">
-                                                        </a>
-                                                        <div class="media-body" style="margin-left: 120px;">
-                                                            <h3 class="media-heading" ><?php echo $nameEvent ?></h3>
-                                                            <div class="media">
-                                                                <p ><b>Details: </b><?php echo $detailEvent ?></p>
-                                                                <p ><b>From: </b><?php echo $fdEvent ?></p>&nbsp; &nbsp; <p ><b>From: </b><?php echo $fdEvent ?></p>
-                                                                <p ><b>Location: </b><?php echo $locationEvent ?></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <?php
-                                            }
+
+                                    if($nResult>0) {
+
+
+                                        
+                                        while ($row = mysql_fetch_array($result)) {
+                                           $NgoPid= $row['ngo_pid'];
+                                           $result1=mysql_query("SELECT * from Ngo where pid=$NgoPid");
+                                           $nResult1=mysql_num_rows($result1);
+                                           while($row1=mysql_fetch_array($result1))
+                                           {
+                                                $pid = $row1['pid'];
+                                                $nameNgo = $row1['name'];
+                                                $logoUrl = $row1['logo'];
+                                                $descNgo = substr($row1['description'],0,150)."..."; 
+                                           
+                        
+
+                                        ?>
+                                        <form action="ngohome.php?id=<?php echo $pid ?>" method="post" enctype="multipart/form-data">
+                                            <div class="pin">
+                                                <input type="hidden" name="ngoPid" value=" <?php echo $pid ?>">
+                                                <img src="<?php echo $logoUrl ?>" />
+                                                <input type="submit" value="<?php echo $nameNgo ?>" style="width: 200px; font-weight:bold" onClick="ClearAll();" >
+                                        
+                                            </div>
+                                        </form>
+                                        <?php
+                                            }  
                                         }
                                     }
-                                }
-                            }
-                            else {
-                                echo "No Favourite NGos";
-                            }
-                        }
-                        ?>
+                                         
+                                        
+                                        else {
+                                            echo "You currently have no Favourite NGOs";
+                                        }
+                                    }
+                                ?>
 
                     </div>
                 </div>
