@@ -5,12 +5,17 @@ $server = 'localhost';
 $user = 'root';
 $pass = '';
 
+
 if(!isset($_SESSION['SESS_MEMBER_ID']))
 {
 	session_start();
 }
 
 $_SESSION['LINK_INDEX'] = "http://localhost/sampark/NGO-portal-website/index.php";
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 // Create connection
 $con = mysql_connect($server, $user, $pass) or die("Can't connect from connect.php");

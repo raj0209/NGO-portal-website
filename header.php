@@ -174,9 +174,9 @@
                             <div><p>Email already exists</p></div>
                             <?php } unset($_SESSION['DONOR_EMAIL_EXISTS_ERRMSG_ARR']); ?>
 
-  													<label>Contact Number</label>
+  													<label>Contact Number ( 10 digits ) </label>
   													<input type="text" placeholder="Mobile Number" id="mob" name="mobile" maxlength="10" class="input-xlarge" style="color:black">
-  													<label>Password</label>
+  													<label>Password ( minimum 6 character ) </label>
   													<input type="password" placeholder="Password" id="pass" name="password" maxlength="25" class="input-xlarge" style="color:black">	       
   													<div>
   														<span>Profile Picture</span>
@@ -232,7 +232,7 @@
   														<div>										
   															<input name="regNgoLogo" id="regNgoLogo" type="file" />
   														</div>
-  														<input type="submit" class="btn btn-primary" name="submitFormRegNgo" value="Sign Up" onClick="return submit3()">
+  														<input type="submit" class="btn btn-primary" name="submitFormRegNgo" value="Sign Up" onClick="return submitSignUpForRegNGO()">
   													</div>
   												</form>
   											</div>
@@ -277,7 +277,7 @@
   														<div>	  														
   															<input name="unregNgoLogo" id="unregNgoLogo" type="file" />
   														</div>
-  														<input type="submit" class="btn btn-primary" name="submitFormUnRegNgo" value="Sign Up" onClick="return submit4()">
+  														<input type="submit" class="btn btn-primary" name="submitFormUnRegNgo" value="Sign Up" onClick="return submitSignUpForUnRegNGO()">
   													</div>
   												</form>
   											</div>
