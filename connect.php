@@ -5,7 +5,9 @@ $server = 'localhost';
 $user = 'root';
 $pass = 'root';
 
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 $_SESSION['LINK_INDEX'] = "http://localhost/latest/NGO-portal-website/index.php";
 
 // Create connection

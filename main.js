@@ -303,7 +303,7 @@ function submitSignUpForRegNGO()
 		document.getElementById("regno").style.borderColor = 'grey';	
 	}
 	
-	if(isEmpty("cn") || isNameValid("cn"))
+	if(isEmpty("cn") || !isNameValid("cn"))
 	{
 		document.getElementById("cn").style.borderColor = '#FF0000';
 		message = message.concat("Name of Contact Person is not filled correctly\n");
