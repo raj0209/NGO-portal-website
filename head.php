@@ -15,7 +15,6 @@
 		<!-- for slider on home page -->
 		<link rel="stylesheet" type="text/css" href="engine/style.css" />
 		<script type="text/javascript" src="engine/jquery.js"></script>
-
 		
 		<link href="css/bootstrap-responsive.css" rel="stylesheet">
 		<!-- Fav and touch icons -->

@@ -8,20 +8,9 @@ include 'database.php';
 
 <html lang="en">
 	<?php
- 
+ 		include 'head.php'
 	?>
 	
-	<head>
-	
-		<link href="css/bootstrap-responsive.css" rel="stylesheet">
-		<script src="jquery.js"></script>
-
-
-		<link href="css/bootstrap.css" rel="stylesheet">
-		<link href="main.css" rel="stylesheet">	
-		<link rel="stylesheet" type="text/css" href="engine1/style.css" />
-		<script type="text/javascript" src="engine1/jquery.js"></script>	
-	</head>
 	<body>
 	<?php
 		include 'header.php';
@@ -144,6 +133,5 @@ include 'database.php';
 	</body>
 </html>
 <?php
-		include 'head.php';
 		include 'footer.php'; 
 ?> 
