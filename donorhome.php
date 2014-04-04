@@ -91,6 +91,7 @@ else{
                                     <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#" id="ngoFavButton" onClick="DisplayNgo()">Favourite NGOs</button>
                                     <?php if($loggedInAsDonor) { ?>
                                     <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#editProModal" id="editProButton">Edit Profile</button>
+									<button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#changePassModal" id="changePasswordButton">Change Password</button>
                                     <?php } ?>
                                 </p>
                             </div>
@@ -239,8 +240,6 @@ else{
                             <input type="text" value="<?php echo $email?>" id="eem" name="eemail" class="input-xlarge" onClick="emlf()" style="color:black">
                             <label>Contact Number</label>
                             <input type="text" value="<?php echo $cont?>" id="emob" name="emobile" maxlength="10" class="input-xlarge" onClick="mobf()" style="color:black">
-                            <label>Password</label>
-                            <input type="password" value="<?php echo $pass?>" id="epass" name="epassword" maxlength="25" class="input-xlarge" onClick="pwdf()" style="color:black">	   
                             <div>
                                 <div class="btn btn-default btn-file" style="margin-right: 60px;">
                                     <label for="file">Browse Photo</label>
@@ -254,6 +253,34 @@ else{
             </div>
         </div>
     </div>
+	<div class="modal fade" id="changePassModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Change Password</h4>
+            </div>
+            <div class="modal-body">
+                    <div class="well">
+                           <form action="Donorchangepassword.php" name="frmChange" method="post" enctype="multipart/form-data">
+                                
+                                <label>Current Password</label>
+                                <input type="password"  id="currentPassword" name="currentPassword" maxlength="25" class="input-xlarge" onClick="clearElement('currentPassword')" style="color:black">
+                                <label>New Password</label>
+                                <input type="password"  id="newPassword" name="newPassword" maxlength="25" class="input-xlarge" onClick="clearElement('newPassword')" style="color:black">
+                                <label>Confirm Password</label>
+                                <input type="password"  id="confirmPassword" name="confirmPassword" maxlength="25" class="input-xlarge" onClick="clearElement('confirmPassword')" style="color:black">
+                                <div>
+                                <input type="submit" class="btn btn-primary" name="SavePassword" value="Save Password" onClick="return validatePassword()"></button>
+                                </div>
+                                                    
+                        </form>    
+                    </div>
+                        
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 
 </html>
