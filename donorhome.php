@@ -100,6 +100,7 @@ else{
             </div>
         </div>
     </div>
+<<<<<<< HEAD
     <!-- Shubham: editting code here, 3-4-14 -->
         <div class="row" id="allEventsContainer" style="margin-left:35px; margin-right:95px;">
                 <div class="col-md-4" style="margin-left:30px;">
@@ -130,6 +131,29 @@ else{
                                                             $locationEvent = $rowNgo['location'];?>
                                                 <form action="#"  method="post">
                                                     <div class="well well-sm">
+=======
+    <div class="row" id="allEventsContainer" style="margin-left:35px; margin-right:95px;">
+        <div class="col-md-4" style="margin-left:30px;">
+            <div class="well well-sm" style="height: auto;">
+                <h1>Events</h1>
+                <div class="media">
+                    <div class="media-body">
+                        <?php
+                        $query = "SELECT * FROM (SELECT ngo_pid FROM Fav WHERE donor_pid = '$pid') AS fav_ngos INNER JOIN (SELECT ngo_pid,name,postTime,detail,fromDate,toDate,location FROM NgoPost) AS post ON fav_ngos.ngo_pid = post.ngo_pid ORDER BY postTime DESC";
+                        $result = mysql_query($query);
+
+                        if($result) {
+                            if(mysql_num_rows($result) > 0) {
+                                while ($rowNgo= mysql_fetch_assoc($result)) {
+                                    $nameEvent = $rowNgo['name'];
+                                    $postTime = $rowNgo['postTime'];
+                                    $detailEvent = $rowNgo['detail'];
+                                    $fdEvent = $rowNgo['fromDate'];
+                                    $tdEvent = $rowNgo['toDate']; 
+                                    $locationEvent = $rowNgo['location'];?>
+                                    <form action="#"  method="post">
+                                        <div class="well well-sm">
+>>>>>>> 4fd535516d20fd7a97b25e03ddb2366685ccf55c
                                                         <!--<input type="hidden" name="postTime" value=" <?php echo $postTime ?>">
                                                         <input type="hidden" name="ngoPid" value=" <?php echo $pid ?>">-->
                                                         <h3 class="media-heading"><?php echo $nameEvent ?><small><?php echo " "?></small></h3>
@@ -143,6 +167,7 @@ else{
                                                         </div>
                                                     </div>
                                                 </form>
+<<<<<<< HEAD
                                                <?php
                                                         }  
                                                     }
@@ -151,10 +176,17 @@ else{
                                             {
                                                 echo "No event posted so far";
                                             
+=======
+                                                <?php
+>>>>>>> 4fd535516d20fd7a97b25e03ddb2366685ccf55c
                                             }
                                         }
                                     }
                                     ?>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4fd535516d20fd7a97b25e03ddb2366685ccf55c
                     </div>
                 </div>
             </div>
