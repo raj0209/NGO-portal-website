@@ -26,12 +26,12 @@
 					<tr>
 						<td>Prof. Pranav Joshi</td>
 						<td>pranavjoshi.gnr@gmail.com</td>
-						<td></td>
+						<td>+91-9974089601</td>
 						<td></td>
 					</tr>
 					<tr>
 						<td>Monish Dubey</td>
-						<td></td>
+						<td>201211026@daiict.ac.in</td>
 						<td>+91-8128749949</td>
 						<td></td>
 					</tr>
@@ -55,7 +55,7 @@
 						<td>Shubham Srivastava</td>
 						<td>shubham.s.del@gmail.com</td>
 						<td>+91-7874159310</td>
-						<td><a href="http://about.me/shubham.srivastava.101" target="_blank">http://about.me/shubham.srivastava.101</a></td>
+						<td></td>
 					</tr>
 					
 					<tr>
