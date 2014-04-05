@@ -35,7 +35,6 @@ include 'database.php';
 			<?php
 			unset($_SESSION['DONOR_NEW_PASS_LINK_NOT_SENT']);
 		}
-
 		if(isset($_GET['vcode']) && isset($_GET['demail'])){
 			$queryEmail = "SELECT verified_Donor FROM Donor WHERE email='".$_GET['demail']."'";
 			$resultQueryEmail = mysql_query($queryEmail);
@@ -86,6 +85,7 @@ include 'database.php';
 			}
 		}
 	?>
+
 		<div class="backimage" style="margin-left:20px; margin-right:15px;">
 			<div id="wowslider-container1" style="margin-top:40px;">
 				<div class="ws_images"><ul>
@@ -116,6 +116,24 @@ include 'database.php';
 					</div>
 						<script type="text/javascript" src="engine/wowslider.js"></script>
 						<script type="text/javascript" src="engine/script.js"></script>
+
+						<script type="text/javascript">
+						if(<?= isset($_SESSION['LOGIN_DONOR_ERRMSG_ARR']) ?>){
+							$('#signinModal').modal('show');
+							hideAll(); $('#signinModalContent').show(); $('#signinDonor').show();
+							$('#donorTab a').tab('show');
+							<?php unset($_SESSION['LOGIN_DONOR_ERRMSG_ARR']);  ?>
+						}
+						</script>
+
+						<script type="text/javascript">
+						if(<?= isset($_SESSION['LOGIN_NGO_ERRMSG_ARR']) ?>){
+							$('#signinModal').modal('show');
+							hideAll(); $('#signinModalContent').show(); $('#signinNgo').show();
+							$('#ngoTab a').tab('show');
+							<?php unset($_SESSION['LOGIN_NGO_ERRMSG_ARR']);  ?>
+						}
+						</script>
 				<div >
 					
 					<div class="DetailBoxes">

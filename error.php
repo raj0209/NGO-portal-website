@@ -17,7 +17,7 @@ include 'database.php';
 
 	<div class="container" align="center">
 		<h1>You dont look like Helping Person !!!!</h1>
-		<p>You messing with wrong people !!!!</p>
+		<p>404 Not Found!!!!</p>
 	</div>
 	
 	<?php //include 'footer.php'; ?>

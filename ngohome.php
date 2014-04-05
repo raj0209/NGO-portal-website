@@ -122,7 +122,7 @@ else{
                 <div class="well well-sm" style="height: auto;"> 
                     <div class="media">
                         <a class="thumbnail pull-left" href="#">
-                            <img style="height: 200px;" class="media-object" src="<?php echo $logo ?>">
+                            <img style="height: 175px;width:175px;" class="media-object" src="<?php echo $logo ?>">
                         </a>
                         <div class="media-body" style="margin-left: 225px;">
                             <h1 class="media-heading" id="nameOfNgo" name="nameOfNgo"><?php echo $ngoname ?></h1>
@@ -219,7 +219,7 @@ else{
                                        $postToDate = $row['toDate'];
                                        $postLocation = $row['location']; ?>
                                        <form action="deletePost.php"  method="post" enctype="multipart/form-data">
-                                        <div class="well well-sm">
+                                        <div class="well well-sm" style="position: relative;">
                                             <input type="hidden" name="postTime" value=" <?php echo $postTime ?>">
                                             <input type="hidden" name="ngoPid" value=" <?php echo $pid ?>">
                                             <h3 class="media-heading"><?php echo $postName ?><small><?php echo " ".substr($postTime,0,10); ?></small></h3>
@@ -229,7 +229,7 @@ else{
                                                 <div>
                                                     <p style="float:left;"><b>Location: </b><?php echo $postLocation ?></p>
 													<?php if($loggedIn && $type == "NGO" && $pid==$_SESSION['SESS_MEMBER_ID']) { ?>
-                                                    <input style="float:right;margin-top:-50px"  type="submit" class="btn btn-primary" name="deletePost" value="Delete" onClick="return confirm('Are you sure you wish to Delete this Event?')" >
+                                                    <input style="position:absolute;right: 5px;bottom: 5px;" type="submit" class="btn btn-primary" name="deletePost" value="Delete" onClick="return confirm('Are you sure you wish to Delete this Event?')" >
 														<?php }?>
                                                 </div>	
                                             </div>
@@ -254,8 +254,8 @@ else{
         <div class="col-md-4" >
             <div class="well well-sm" style="height: auto;">
                 <h1>Donors</h1>
-                <div class="media">
-                    <div class="media-body">
+                <div>
+                    <div>
                         <?php
                         $query = "SELECT * FROM Fav WHERE ngo_pid = '$pid'";
                         $result = mysql_query($query);
@@ -276,18 +276,15 @@ else{
                                                 $photoDonor = $rowDonor['photo'];
                                                 $emailDonor = $rowDonor['email'];
                                                 $contactDonor = $rowDonor['contact']; ?>
-                                                <div class="well well-sm">
+                                                <div class="well well-sm" style='height: 110px;'>
                                                     <div class="media">
-                                                        <a class="thumbnail pull-left" href="#">
-                                                            <img style="height: 100px;" class="media-object" src="<?php echo $photoDonor ?>">
-                                                        </a>
-                                                        <div class="media-body" style="margin-left: 120px;">
-                                                            <h3 class="media-heading" ><?php echo $nameDonor ?></h3>
-                                                            <div class="media">
-                                                                <p ><b>Email: </b><?php echo $emailDonor ?></p>
-                                                                <!-- <p ><b>Contact: </b><?php echo $contactDonor ?></p> -->
-                                                            </div>
-                                                        </div>
+                                                      <a class=" thumbnail pull-left" href="#">
+                                                        <img style="height: 100px;width: 100px;" class="media-object" src="<?php echo $photoDonor ?>">
+                                                      </a>
+                                                      <div class="media-body" style="margin-left: 130px;">
+                                                        <a href= "<?php echo $_SESSION[LINK_DONORHOME]."?did=".$donorPid ?>" ><h3 class="media-heading" ><?php echo $nameDonor ?></h3></a>
+                                                        <p ><b>Email: </b><?php echo $emailDonor ?></p>
+                                                      </div>
                                                     </div>
                                                 </div>
                                                 <?php
@@ -400,6 +397,7 @@ else{
             <div class="modal-body">
                     <div class="well">
                            <form action="editedProfile.php" method="post" enctype="multipart/form-data">
+                                <input type="hidden" name="pidNgo" value="<?php echo $_SESSION['SESS_MEMBER_ID']; ?>">
                                 <label>NGO Name</label>
                                 <input type="text"  id="enn" name="enn" class="input-xlarge" value="<?php echo $ngoname?>" onClick="clearElement('enn')" style="color:black">
                                 <?php

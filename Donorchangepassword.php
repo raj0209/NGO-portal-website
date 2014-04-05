@@ -24,14 +24,14 @@ $confirm_pass = sha1($_POST['confirmPassword']);
 						$result = mysql_query($updateQuery);
 						if($result)
 						{
-						Header("refresh:0.001;url=http://localhost/sampark/NGO-portal-website/donorhome.php?id=".$pid);
+						Header("refresh:0.001;url=".$_SESSION['LINK_DONORHOME']."?id=".$pid);
 						return true;
 						}
 					}
 					else
 						{
 						echo "Password Mismatch";
-						Header("refresh:0.001;url=http://localhost/sampark/NGO-portal-website/donorhome.php?id=".$pid);
+						Header("refresh:0.001;url=".$_SESSION['LINK_DONORHOME']."?id=".$pid);
 						}
 				
 				

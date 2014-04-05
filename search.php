@@ -54,7 +54,7 @@
 						}  
 					}
 				}else {
-					echo "No event posted so far";
+					echo "No NGO has registered so far";
 				}
 				?>
 				

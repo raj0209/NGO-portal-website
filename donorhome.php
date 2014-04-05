@@ -75,14 +75,14 @@ else{
                 <div class="well well-sm" style="height: 210px;"> 
                     <div class="media">
                         <a class="thumbnail pull-left" href="#">
-                            <img style="height: 200px;" class="media-object" src="<?php echo $photo?>">
+                            <img style="height: 200px; width: 200px;" class="media-object" src="<?php echo $photo?>">
                         </a>
                         <div class="media-body" style="margin-left: 225px;">
                             <h1 class="media-heading"><?php echo $name ?></h1>
                             <div >
                                 <br>
-                                <h4>Email:</h4>
-                                <p id="vision" name="email"><h8> <?php echo $email ?></h8></p>
+                                
+                                <p id="vision" name="email"><b>Email:</b><h8> <?php echo $email ?></h8></p>
                                 <p><?php 
                                 if($loggedInAsDonor){
                                     ?>
@@ -170,16 +170,21 @@ else{
                                                 $pid = $row1['pid'];
                                                 $nameNgo = $row1['name'];
                                                 $logoUrl = $row1['logo'];
+                                                $emailNgo = $row1['email'];
                                                 $descNgo = substr($row1['description'],0,150)."..."; 
                                         ?>
-                                        <form action="ngohome.php?id=<?php echo $pid ?>" method="post" enctype="multipart/form-data">
-                                            <div class="pin">
-                                                <input type="hidden" name="ngoPid" value=" <?php echo $pid ?>">
-                                                <img src="<?php echo $logoUrl ?>"/>
-                                                <input type="submit" value="<?php echo $nameNgo ?>" style="width: 200px; font-weight:bold" onClick="ClearAll();" >
-                                        
-                                            </div>
-                                        </form>
+                                        <div class="well well-sm" style='height: 110px;'>
+                                                    <div class="media">
+                                                      <a class=" thumbnail pull-left" href="#">
+                                                        <img style="height: 100px;width: 100px;" class="media-object" src="<?php echo $logoUrl ?>">
+                                                      </a>
+                                                      <div class="media-body" style="margin-left: 130px;">
+                                                        <a href="<?php echo $_SESSION[LINK_NGOHOME]."?id=".$pid ?>"><h3 class="media-heading" ><?php echo $nameNgo ?></h3></a>
+                                                        <p><b>Email: </b><?= $emailNgo?></p>
+                                                        <p><b>Description: </b><?= $descNgo?></p>
+                                                      </div>
+                                                    </div>
+                                                </div>
                                         <?php
                                             }  
                                         }

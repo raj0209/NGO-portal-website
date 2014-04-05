@@ -97,7 +97,7 @@
 										
                     <?php if(isset($_SESSION['LOGIN_DONOR_ERRMSG_ARR'])) { ?>
                     <div><p>Incorrect username or password</p></div>
-                    <?php } unset($_SESSION['LOGIN_DONOR_ERRMSG_ARR']); ?>
+                    <?php }?>
 
                     <div class="well form-inline">
 											<div>
@@ -120,7 +120,7 @@
 	  										
                         <?php if(isset($_SESSION['LOGIN_NGO_ERRMSG_ARR'])) { ?>
                         <div><p>Incorrect username or password</p></div>
-                        <?php } unset($_SESSION['LOGIN_NGO_ERRMSG_ARR']); ?>
+                        <?php } //unset($_SESSION['LOGIN_NGO_ERRMSG_ARR']); ?>
 
                         <div class="well form-inline">
 	  											<div>
@@ -226,6 +226,7 @@
   													<input type="checkbox" id = "Education"  name="box[]" value=" Education"> Education<br>
   													<input type="checkbox" id = "Old"  name="box[]" value="Old"> Oldage<br>
   													<input type="checkbox" id = "Child"  name="box[]" value=" Child"> Child<br>
+                            <input type="checkbox" id = "Hospital"  name="box[]" value=" Hospital"> Hospital<br>
                             <input type="checkbox" id = "Others"  name="box[]" value=" Others"> Others<br>
   													<div>
   														<span>Upload Logo</span>
@@ -270,6 +271,7 @@
   													<input type="checkbox" id ="uEducation" name="box[]" value=" Education"> Education<br>
   													<input type="checkbox" id ="uOld" name="box[]" value="Old"> Oldage<br>
   													<input type="checkbox" id ="uChild" name="box[]" value="Child"> Child<br>
+                            <input type="checkbox" id = "uHospital"  name="box[]" value=" Hospital"> Hospital<br>
                             <input type="checkbox" id ="uOthers" name="box[]" value="Others"> Others<br>
 
   													<div>
