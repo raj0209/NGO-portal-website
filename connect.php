@@ -5,17 +5,13 @@ $server = 'localhost';
 $user = 'root';
 $pass = '';
 
-
-session_start();
-
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 $_SESSION['LINK_INDEX'] = "http://localhost/sampark/NGO-portal-website/index.php";
 $_SESSION['LINK_DONORHOME'] = "http://localhost/sampark/NGO-portal-website/donorhome.php";
 $_SESSION['LINK_NGOHOME'] = "http://localhost/sampark/NGO-portal-website/ngohome.php";
-
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
 
 // Create connection
 $con = mysql_connect($server, $user, $pass) or die("Can't connect from connect.php");

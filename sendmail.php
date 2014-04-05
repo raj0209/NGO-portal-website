@@ -1,5 +1,8 @@
 <?php
+
+if (session_status() == PHP_SESSION_NONE) {
     session_start();
+}
 
     require_once("class.phpmailer.php");
     require_once("class.smtp.php");

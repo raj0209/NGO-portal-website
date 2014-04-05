@@ -206,7 +206,7 @@ else{
                     <div class="media">
                         <div class="media-body">
                             <?php
-                            $query = "SELECT * FROM ngoPost WHERE ngo_pid = '$pid' ORDER BY postTime DESC";
+                            $query = "SELECT * FROM NgoPost WHERE ngo_pid = '$pid' ORDER BY postTime DESC";
                             $result = mysql_query($query);
 
                             if($result) {
@@ -222,7 +222,7 @@ else{
                                         <div class="well well-sm">
                                             <input type="hidden" name="postTime" value=" <?php echo $postTime ?>">
                                             <input type="hidden" name="ngoPid" value=" <?php echo $pid ?>">
-                                            <h3 class="media-heading"><?php echo $postName ?><small><?php echo " ".substr($postTime,0,10) ?></small></h3>
+                                            <h3 class="media-heading"><?php echo $postName ?><small><?php echo " ".substr($postTime,0,10); ?></small></h3>
                                             <div class="media">
                                                 <p><b>From: </b> <?php echo $postFromDate ?>  &nbsp; &nbsp;<b>To:</b> <?php echo $postToDate ?> </p>
                                                 <p ><b>Detail: </b><?php echo $postDetail ?></p>
@@ -285,7 +285,7 @@ else{
                                                             <h3 class="media-heading" ><?php echo $nameDonor ?></h3>
                                                             <div class="media">
                                                                 <p ><b>Email: </b><?php echo $emailDonor ?></p>
-                                                                <p ><b>Contact: </b><?php echo $contactDonor ?></p>
+                                                                <!-- <p ><b>Contact: </b><?php echo $contactDonor ?></p> -->
                                                             </div>
                                                         </div>
                                                     </div>

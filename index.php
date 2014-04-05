@@ -22,6 +22,20 @@ include 'database.php';
 			unset($_SESSION['JUST_SIGNEDUP']);
 		}
 
+		if(isset($_SESSION['DONOR_NEW_PASS_LINK_SENT'])){
+			?> 
+			<div style="display: table; margin: 0 auto; margin-top:-60px;"><h1>Password reset instructions have been sent</h1></div>
+			<?php
+			unset($_SESSION['DONOR_NEW_PASS_LINK_SENT']);
+		}
+
+		if(isset($_SESSION['DONOR_NEW_PASS_LINK_NOT_SENT'])){
+			?> 
+			<div style="display: table; margin: 0 auto; margin-top:-60px;"><h1>Password reset instructions could not be sent to specified email</h1></div>
+			<?php
+			unset($_SESSION['DONOR_NEW_PASS_LINK_NOT_SENT']);
+		}
+
 		if(isset($_GET['vcode']) && isset($_GET['demail'])){
 			$queryEmail = "SELECT verified_Donor FROM Donor WHERE email='".$_GET['demail']."'";
 			$resultQueryEmail = mysql_query($queryEmail);

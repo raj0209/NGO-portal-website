@@ -40,19 +40,19 @@
     $mail->WordWrap    = 900; 
     if (!$mail->Send()) {
         $error = 'Mail error: ' . $mail->ErrorInfo;
-		header("refresh:0.001;url=http://localhost/sampark/NGO-portal-website/index.php");
+        $_SESSION['DONOR_NEW_PASS_LINK_NOT_SENT'] = true;
+        header("refresh:0.001;url=".$_SESSION['LINK_INDEX']);
         return false;
     } 
 	else {
         $mail->SmtpClose();
-        echo $error;
-		echo "<script>alert('Your new password is sent to your email address')</script>";
 		$newpassword=sha1($password1);
 		$updateQuery = "UPDATE Ngo SET password='".$newpassword."' WHERE email='".$current_email."'";
         $result = mysql_query($updateQuery);
 		if($result)
 		{
-		Header("refresh:0.001;url=http://localhost/sampark/NGO-portal-website/index.php");
+        $_SESSION['DONOR_NEW_PASS_LINK_SENT'] = true;
+        Header("refresh:0.001;url=".$_SESSION['LINK_INDEX']);
 		return true;
 		}
 		else

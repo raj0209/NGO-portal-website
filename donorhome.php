@@ -101,61 +101,49 @@ else{
             </div>
         </div>
     </div>
-    <!-- Shubham: editting code here, 3-4-14 -->
-        <div class="row" id="allEventsContainer" style="margin-left:35px; margin-right:95px;">
-                <div class="col-md-4" style="margin-left:30px;">
-                    <div class="well well-sm" style="height: auto;">
-                        <h1>Events</h1>
-                        <div class="media">
-                            <div class="media-body">
-                                <?php
-                                    $query = "SELECT * FROM Fav WHERE donor_pid = $pid";
-                                    $result = mysql_query($query);
+    
+    <div class="row" id="allEventsContainer" style="margin-left:35px; margin-right:95px;">
+        <div class="col-md-4" style="margin-left:30px;">
+            <div class="well well-sm" style="height: auto;">
+                <h1>Events</h1>
+                <div class="media">
+                    <div class="media-body">
+                        <?php
+                            $query = "SELECT * FROM (SELECT ngo_pid FROM Fav WHERE donor_pid = '$pid') AS fav_ngos INNER JOIN (SELECT ngo_pid,name,postTime,detail,fromDate,toDate,location FROM NgoPost) AS post ON fav_ngos.ngo_pid = post.ngo_pid ORDER BY postTime DESC";
+                            //echo "string ".$query;
+                            $result = mysql_query($query);
 
-                                    if($result) {
-                                        if(mysql_num_rows($result) > 0) {
-                                            while ($row = mysql_fetch_array($result)) {
-                                               $ngoPid = $row['ngo_pid'];
-
-                                                // now find and add favorite donors into well
-                                                $queryNgo = "SELECT * FROM NgoPost WHERE ngo_pid = $ngoPid";
-                                                $resultNgo = mysql_query($queryNgo);
-
-                                                if($resultNgo) {
-                                                    if(mysql_num_rows($resultNgo) > 0) {
-                                                        while ($rowNgo= mysql_fetch_array($resultNgo)) {
-                                                            $nameEvent = $rowNgo['name'];
-                                                            $detailEvent = $rowNgo['detail'];
-                                                            $fdEvent = $rowNgo['fromDate'];
-                                                            $tdEvent = $rowNgo['toDate']; 
-                                                            $locationEvent = $rowNgo['location'];?>
-                                                <form action="#"  method="post">
-                                                    <div class="well well-sm">
-                                                        <!--<input type="hidden" name="postTime" value=" <?php echo $postTime ?>">
-                                                        <input type="hidden" name="ngoPid" value=" <?php echo $pid ?>">-->
-                                                        <h3 class="media-heading"><?php echo $nameEvent ?><small><?php echo " "?></small></h3>
-                                                        <div class="media">
-                                                            <p><b>From: </b> <?php echo $fdEvent ?>  &nbsp; &nbsp;<b>To:</b> <?php echo $tdEvent ?> </p>
-                                                            <p ><b>Detail: </b><?php echo $detailEvent ?></p>
-                                                            <div>
-                                                                <p style="float:left;"><b>Location: </b><?php echo $locationEvent ?></p>
-                                                                
-                                                            </div>
-                                                        </div>
+                            if($result) {
+                                if(mysql_num_rows($result) > 0) {
+                                    while ($rowNgo= mysql_fetch_assoc($result)) {
+                                        $nameEvent = $rowNgo['name'];
+                                        $postTime = $rowNgo['postTime'];
+                                        $detailEvent = $rowNgo['detail'];
+                                        $fdEvent = $rowNgo['fromDate'];
+                                        $tdEvent = $rowNgo['toDate']; 
+                                        $locationEvent = $rowNgo['location'];?>
+                                        <form action="#"  method="post">
+                                            <div class="well well-sm">
+                                                <h3 class="media-heading"><?php echo $nameEvent ?><small><?php echo " ".substr($postTime,0,10); ?></small></h3>
+                                                <div class="media">
+                                                    <p><b>From: </b> <?php echo $fdEvent ?>  &nbsp; &nbsp;<b>To:</b> <?php echo $tdEvent ?> </p>
+                                                    <p ><b>Detail: </b><?php echo $detailEvent ?></p>
+                                                    <div>
+                                                        <p style="float:left;"><b>Location: </b><?php echo $locationEvent ?></p>
                                                     </div>
-                                                </form>
-                                               <?php
-                                                        }  
-                                                    }
-                                                }
-                                            else 
-                                            {
-                                                echo "No event posted so far";
-                                            
-                                            }
-                                        }
-                                    }
-                                    ?>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <?php
+                                    }  
+                                }
+                            }
+                            else 
+                            {
+                                echo "No event posted so far";
+
+                            }
+                        ?>
                     </div>
                 </div>
             </div>
@@ -170,17 +158,9 @@ else{
                         <div class="media">
                             <div class="media-body">
                                 <?php
-                                    
                                     $result = mysql_query("SELECT * FROM Fav WHERE donor_pid = $pid");
-
                                     $nResult = mysql_num_rows($result); 
-
-
-
                                     if($nResult>0) {
-
-
-                                        
                                         while ($row = mysql_fetch_array($result)) {
                                            $NgoPid= $row['ngo_pid'];
                                            $result1=mysql_query("SELECT * from Ngo where pid=$NgoPid");
@@ -191,9 +171,6 @@ else{
                                                 $nameNgo = $row1['name'];
                                                 $logoUrl = $row1['logo'];
                                                 $descNgo = substr($row1['description'],0,150)."..."; 
-                                           
-                        
-
                                         ?>
                                         <form action="ngohome.php?id=<?php echo $pid ?>" method="post" enctype="multipart/form-data">
                                             <div class="pin">
@@ -206,15 +183,10 @@ else{
                                         <?php
                                             }  
                                         }
-                                    }
-                                         
-                                        
-                                        else {
+                                    }else {
                                             echo "You currently have no Favourite NGOs";
                                         }
-                                    }
                                 ?>
-
                     </div>
                 </div>
             </div>
