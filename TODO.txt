@@ -46,7 +46,7 @@ TODO:Sampark
 
 23) Change value to placeholder into type="text" type inputs - DONE
 
-24) Call clear fields in all forms 
+24) Call clear fields in all forms - DONE
 
 25) gmail verification - DONE
 
@@ -64,6 +64,20 @@ TODO:Sampark
 
 32) forgot password - DONE
 
-33) Check in Contact NGO forms
+33) Check in Contact NGO forms - DONE
 
-34) Edit donor profile ( profile photo as well)
+34) Edit donor profile ( profile photo as well) - DONE
+
+35) Message button on profile of Donor viewed by NGO
+
+36) Tab changes
+
+37) Rating feature
+
+38) Load NGOs on index page
+
+39) Remove space form index and use bootstrap alert
+
+40) Search: Sort by rating, Sort by name
+
+41) Fix container Prob
