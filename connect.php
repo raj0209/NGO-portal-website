@@ -30,8 +30,8 @@ if (!$db_selected) {
   // If we couldn't, then it either doesn't exist, or we can't see it.
   $sql = 'CREATE DATABASE sampark';
 
-  if (mysql_query($sql, $link)) {
-      echo "Database sampark created successfully from connect.php";
+  if (mysql_query($sql)) {
+      //echo "Database sampark created successfully from connect.php";
   } else {
       echo 'Error creating database: ' . mysql_error() . "from connect.php";
   }

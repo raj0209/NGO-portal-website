@@ -17,14 +17,14 @@ include 'database.php';
 
 		if(isset($_SESSION['JUST_SIGNEDUP'])){
 			?> 
-			<div style="display: table; margin: 0 auto; margin-top:-60px;"><h1>To activate your accound please click on activation link sent to your email</h1></div>
+			<div style="display: table; margin: 0 auto; margin-top:-60px;"><h1>To activate your account please click on activation link sent to your email</h1></div>
 			<?php
 			unset($_SESSION['JUST_SIGNEDUP']);
 		}
 
 		if(isset($_SESSION['DONOR_NEW_PASS_LINK_SENT'])){
 			?> 
-			<div style="display: table; margin: 0 auto; margin-top:-60px;"><h1>Password reset instructions have been sent</h1></div>
+			<div style="display: table; margin: 0 auto; margin-top:-60px;"><h1>Password reset instructions have been sent to your Email Address</h1></div>
 			<?php
 			unset($_SESSION['DONOR_NEW_PASS_LINK_SENT']);
 		}

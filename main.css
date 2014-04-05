@@ -189,11 +189,10 @@ html, body {
     width: 100%;
     margin: 0;
     background-color: #8E9393;
-    height: 20px;
     bottom:0;
 	height:40px;
-	position:fixed;
-	bottom:0px;
+	position:relative;
+	bottom:-20px;
 	
 	
 }

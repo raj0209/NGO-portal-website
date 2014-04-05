@@ -2,10 +2,11 @@
 
 include 'connect.php';
 
+$pid = $_POST['pidDonor'];
 $name = $_POST['ename'];
 $email = $_POST['eemail'];
 $mob = $_POST['emobile'];
-$password = $_POST['epassword'];
+
 
 
 //$logoNgo = $_FILES['regNgoLogo']['name'];
@@ -26,10 +27,26 @@ else
 
 	move_uploaded_file($_FILES["regNgoLogo"]["tmp_name"],$filePath);
 */
+
+if ($_FILES["donorImage"]["error"] > 0)
+{
+	$filePath = "img/logos/default_donor.png";
+}
+else
+{
+	$randomName = substr(sha1(rand()), 0, 10);
+	$filePath = "img/logos/_".$randomName."_".$_FILES["donorImage"]["name"];
+
+	if(! move_uploaded_file($_FILES["donorImage"]["tmp_name"],$filePath)){
+		$filePath = "img/logos/default_donor.png";
+	}
+
+}	
+
 	$updateQuery = 
-	"update Donor 
-	SET name='$name',email='$email',contact='$mob',password='$password'
-	WHERE pid=1 " ;
+	"UPDATE Donor 
+	SET name='$name',email='$email',contact='$mob',photo='$filePath'
+	WHERE pid= '$pid'" ;
 
 	$result = mysql_query($updateQuery);
 	

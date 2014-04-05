@@ -1,8 +1,8 @@
 <?php
 
 /*
- * This file contains all the tables - Vijay13
- * Please do not use a variable for more than one assignment, its bad practice in PhP
+ * This file contains all the tables
+ * 
  */
 
 // Donor's detail table

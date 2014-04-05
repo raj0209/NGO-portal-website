@@ -99,6 +99,8 @@ if($result) {
      $logo = $member['logo'];
      $web = $member['website'];
      $address = $member['address'];
+	 $city = $member['city'];
+	 $state = $member['state'];
      $password = $member['password'];
  }else{
     // NGO id is not present
@@ -134,9 +136,10 @@ else{
                                 <p id="discription" name="discription"><?php echo $des ?></p>
                                 <h4>Website:</h4>
                                 <p id="website" name="website"><a href="http://<?php echo $web ?>" target="_blank"><?php echo $web ?></a></p>
-                                <h4>Address:</h4>
-                                <p id="address" name="address"><?php echo $address ?></p>
-
+                                <p id="address" name="address"><b>Address:  </b><?php echo $address ?></p>		
+                                <p id="city" name="city"><b>City:  </b><?php echo $city." "; echo ($state); ?></p>
+                                
+								
                             </div>
                             <p>
                                 <?php if($loggedIn && $type == "NGO" && $pid==$_SESSION['SESS_MEMBER_ID']) { ?>
@@ -282,7 +285,7 @@ else{
                                                         <img style="height: 100px;width: 100px;" class="media-object" src="<?php echo $photoDonor ?>">
                                                       </a>
                                                       <div class="media-body" style="margin-left: 130px;">
-                                                        <a href= "<?php echo $_SESSION[LINK_DONORHOME]."?did=".$donorPid ?>" ><h3 class="media-heading" ><?php echo $nameDonor ?></h3></a>
+                                                        <a href= "<?php echo $_SESSION['LINK_DONORHOME']."?did=".$donorPid ?>"><h3 class="media-heading" ><?php echo $nameDonor ?></h3></a>
                                                         <p ><b>Email: </b><?php echo $emailDonor ?></p>
                                                       </div>
                                                     </div>

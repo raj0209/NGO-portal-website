@@ -179,7 +179,7 @@ else{
                                                         <img style="height: 100px;width: 100px;" class="media-object" src="<?php echo $logoUrl ?>">
                                                       </a>
                                                       <div class="media-body" style="margin-left: 130px;">
-                                                        <a href="<?php echo $_SESSION[LINK_NGOHOME]."?id=".$pid ?>"><h3 class="media-heading" ><?php echo $nameNgo ?></h3></a>
+                                                        <a href="<?php echo $_SESSION['LINK_NGOHOME']."?id=".$pid ?>"><h3 class="media-heading" ><?php echo $nameNgo ?></h3></a>
                                                         <p><b>Email: </b><?= $emailNgo?></p>
                                                         <p><b>Description: </b><?= $descNgo?></p>
                                                       </div>
@@ -210,16 +210,17 @@ else{
                 <div class="modal-body">
                     <div class="well">
                          <form action="editedDonorProfile.php" method="post" enctype="multipart/form-data">
+							<input type="hidden" name="pidDonor" value="<?php echo $_SESSION['SESS_MEMBER_ID']; ?>">
                             <label>Name</label>
-                            <input type="text" value="<?php echo $name?>" id="efn" name="ename" class="input-xlarge" onClick="fnf()" style="color:black">
+                            <input type="text" value="<?php echo $name?>" id="ename" name="ename" class="input-xlarge" onClick="clearElement('ename')" style="color:black">
                             <label>Email</label>
-                            <input type="text" value="<?php echo $email?>" id="eem" name="eemail" class="input-xlarge" onClick="emlf()" style="color:black">
+                            <input type="text" value="<?php echo $email?>" id="eemail" name="eemail" class="input-xlarge" onClick="clearElement('eemail')" style="color:black">
                             <label>Contact Number</label>
-                            <input type="text" value="<?php echo $cont?>" id="emob" name="emobile" maxlength="10" class="input-xlarge" onClick="mobf()" style="color:black">
+                            <input type="text" value="<?php echo $cont?>" id="emobile" name="emobile" maxlength="10" class="input-xlarge" onClick="clearElement('emobile')" style="color:black">
                             <div>
                                 <div class="btn btn-default btn-file" style="margin-right: 60px;">
                                     <label for="file">Browse Photo</label>
-                                    <input type="file" name="image" >
+                                    <input type="file" name="donorImage" >
                                 </div >
                                 <input type="submit" class="btn btn-primary" name="saveChangesDonor" value="Save Changes" onClick="return editProfielForDonor()"></button>
                             </div>							
