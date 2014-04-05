@@ -221,7 +221,7 @@ else{
                                         <div class="well well-sm">
                                             <input type="hidden" name="postTime" value=" <?php echo $postTime ?>">
                                             <input type="hidden" name="ngoPid" value=" <?php echo $pid ?>">
-                                            <h3 class="media-heading"><?php echo $postName ?><small><?php echo " ".substr($postTime,0,10) ?></small></h3>
+                                            <h3 class="media-heading"><?php echo $postName ?><small><?php echo " ".substr($postTime,0,10); ?></small></h3>
                                             <div class="media">
                                                 <p><b>From: </b> <?php echo $postFromDate ?>  &nbsp; &nbsp;<b>To:</b> <?php echo $postToDate ?> </p>
                                                 <p ><b>Detail: </b><?php echo $postDetail ?></p>
