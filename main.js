@@ -793,3 +793,28 @@ function isPassValid(item){
 	return true;
 }
 
+function contactForm()
+{
+	if(document.getElementById("subject").value=="" )
+	{
+		alert("Please enter the subject of event");
+		document.getElementById("subject").focus();
+		return false;
+	}
+
+	if(document.getElementById("DonationDate").value=="" )
+	{
+		alert("Please enter the date of event");
+		document.getElementById("DonationDate").focus();
+		return false;
+	}
+	
+	if(document.getElementById("message").value=="" )
+	{
+		alert("Please enter the message or description about the event");
+		document.getElementById("message").focus();
+		return false;
+	}
+
+
+}

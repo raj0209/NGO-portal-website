@@ -3,15 +3,15 @@
 //connection detail
 $server = 'localhost';
 $user = 'root';
-$pass = 'root';
+$pass = '';
 
 
 session_start();
 
 
-$_SESSION['LINK_INDEX'] = "http://localhost/latest/NGO-portal-website/index.php";
-$_SESSION['LINK_DONORHOME'] = "http://localhost/latest/NGO-portal-website/donorhome.php";
-$_SESSION['LINK_NGOHOME'] = "http://localhost/latest/NGO-portal-website/ngohome.php";
+$_SESSION['LINK_INDEX'] = "http://localhost/sampark/NGO-portal-website/index.php";
+$_SESSION['LINK_DONORHOME'] = "http://localhost/sampark/NGO-portal-website/donorhome.php";
+$_SESSION['LINK_NGOHOME'] = "http://localhost/sampark/NGO-portal-website/ngohome.php";
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();

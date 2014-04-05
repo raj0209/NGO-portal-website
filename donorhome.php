@@ -198,7 +198,7 @@ else{
                                         <form action="ngohome.php?id=<?php echo $pid ?>" method="post" enctype="multipart/form-data">
                                             <div class="pin">
                                                 <input type="hidden" name="ngoPid" value=" <?php echo $pid ?>">
-                                                <img src="<?php echo $logoUrl ?>" />
+                                                <img src="<?php echo $logoUrl ?>"/>
                                                 <input type="submit" value="<?php echo $nameNgo ?>" style="width: 200px; font-weight:bold" onClick="ClearAll();" >
                                         
                                             </div>

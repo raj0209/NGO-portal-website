@@ -26,7 +26,7 @@ TODO:Sampark
 
 13) Donor homepage - DONE
 
-14) Change Password  
+14) Change Password - DONE - validation problems  
 
 15) Homepage, About, Contact, Footer - DONE
 
@@ -48,7 +48,7 @@ TODO:Sampark
 
 24) Call clear fields in all forms 
 
-25) gmail verification - ronak
+25) gmail verification - DONE
 
 26) Maintain session - DONE
 

@@ -45,7 +45,7 @@
 						<tr>
 							<td><?php echo $cnt ?></td>
 							<td><?php echo $row['name'];?></td>
-							<td><?php echo $row['address'];?></td>
+							<td><?php echo $row['city']; echo ' , ' ; echo $row['state'];?></td>
 							<td><?php echo $row['contact'];?></td>
 							<td><?php echo $row['weighted_rate'];?></td>
 

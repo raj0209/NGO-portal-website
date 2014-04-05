@@ -47,7 +47,7 @@ $resultNgo = mysql_query($sqlQueryNgo);
 $sqlQueryEvent = "CREATE TABLE IF NOT EXISTS Event(
 donor_pid INT,
 ngo_pid INT,
-dstatus VARCHAR( 300 ),
+event_subject VARCHAR( 300 ),
 commdate TIMESTAMP UNIQUE ,
 message VARCHAR( 2000 ),
 dateofevent DATE,
@@ -93,6 +93,7 @@ $sqlQueryRate = "CREATE TABLE IF NOT EXISTS Rates(
 donor_pid INT NOT NULL,
 ngo_pid INT NOT NULL,
 rating TINYINT NOT NULL,
+enable_rate TINYINT,
 FOREIGN KEY (ngo_pid) REFERENCES Ngo(pid),
 FOREIGN KEY (donor_pid) REFERENCES Donor(pid))";
 

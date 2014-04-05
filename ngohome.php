@@ -146,6 +146,7 @@ else{
                                 <?php if($loggedIn && $type == "NGO" && $pid==$_SESSION['SESS_MEMBER_ID']) {?>
                                 <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#editProfileModal" id="editProfileButton">Edit Profile</button>
 								<button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#changePassModal" id="changePasswordButton">Change Password</button>
+								<button class="btn btn-lg btn-primary btn-block" type="submit" id="showMyDonor" onClick="DisplayAllDonors()">All Donors</button>
                                 <?php }elseif($loggedIn && $type == "DONOR") { ?>
                                 <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#contactNgoModal" id="contactButton">Contact</button>
                                 <?php
@@ -228,7 +229,7 @@ else{
                                                 <div>
                                                     <p style="float:left;"><b>Location: </b><?php echo $postLocation ?></p>
 													<?php if($loggedIn && $type == "NGO" && $pid==$_SESSION['SESS_MEMBER_ID']) { ?>
-                                                    <input style="float:right;" type="submit" class="btn btn-primary" name="deletePost" value="Delete" onClick="return confirm('Are you sure you wish to Delete this Event?')" >
+                                                    <input style="float:right;margin-top:-50px"  type="submit" class="btn btn-primary" name="deletePost" value="Delete" onClick="return confirm('Are you sure you wish to Delete this Event?')" >
 														<?php }?>
                                                 </div>	
                                             </div>
@@ -283,7 +284,6 @@ else{
                                                         <div class="media-body" style="margin-left: 120px;">
                                                             <h3 class="media-heading" ><?php echo $nameDonor ?></h3>
                                                             <div class="media">
-                                                                <p><b>Photo:</b> <?php echo $photoDonor ?> </p>
                                                                 <p ><b>Email: </b><?php echo $emailDonor ?></p>
                                                                 <p ><b>Contact: </b><?php echo $contactDonor ?></p>
                                                             </div>
@@ -309,8 +309,58 @@ else{
     </div>
 
 </div>
+<div class="row" id="allcontactdonorsContainer" style="margin-left:60px;margin-right:88px;display:none;">
+            <div class="col-md-4" >
+                <div class="well well-sm" style="height: auto;">
+                    <h1>Donor which had contacted me</h1>
+                    <div class="media">
+                        <div class="media-body">
+                            <?php
+                            $alldonorsquery = "SELECT * FROM Event WHERE ngo_pid = '$pid'";
+                            $donorsresult = mysql_query($alldonorsquery);
+                        
+                            if($donorsresult) {
+                                if(mysql_num_rows($donorsresult) > 0) {
+                                    while ($row = mysql_fetch_assoc($donorsresult)) {
+                                       $donorid = $row['donor_pid'];
+                                       $donordetails = "SELECT * FROM Donor WHERE pid='$donorid'";
+                                       $detailresults = mysql_query($donordetails);
+                                       if(mysql_num_rows($detailresults) > 0) {
+                                        while ($member = mysql_fetch_assoc($detailresults)) {
+                                            $donorsname = $member['name'];
+                                            $donorsemail = $member['email'];
+                                            $donorscontact = $member['contact'];                                
+                                       ?>
+                                        <form action="enableRating.php"  method="post" enctype="multipart/form-data">
+                                            <div class="well well-sm">
+                                                <h3 class="media-heading"><?php echo $donorsname ?></h3>
+                                                <div class="media">
+                                                    <p ><b>Email: </b><?php echo $donorsemail ?></p>
+                                                    <p ><b>Contact: </b><?php echo $donorscontact ?></p>
+                                                </div>
 
-<div class="modal fade" id="postEventModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                    <?php if($loggedIn && $type == "NGO" && $pid==$_SESSION['SESS_MEMBER_ID']) { ?>
+                                                    <input style="float:right;margin-top:-50px" type="submit" class="btn btn-primary" name="enableRate" value="Enable Rate" onClick="return confirm('Are you sure you wish to enable rating for this Donor?')" >
+                                                        <?php }?>
+                                            </div>    
+                                        </form>
+                                    <?php
+                                }  
+                            }
+                            }
+                        }
+                        }                            
+                        else {
+                            echo "No event posted so far";
+                        }
+                        ?>
+
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+	<div class="modal fade" id="postEventModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -321,15 +371,15 @@ else{
                 <div class="well">
                     <form action="eventPosted.php" method="post">
                         <label>Name of Event</label>
-                        <input type="text" value="Name of Event" id="eventName" name="eventName" class="input-xlarge" onClick="clearElement('eventName')" style="color:black">
+                        <input type="text" placeholder="Name of Event" id="eventName" name="eventName" class="input-xlarge" onClick="clearElement('eventName')" style="color:black">
                         <label>Details of Event</label>
-                        <textarea rows="3" id="eventDetails" name="eventDetails" class="input-xlarge" onClick="clearElement('eventDetails')" style="color:black"></textarea>
+                        <textarea rows="3" id="eventDetails" name="eventDetails" placeholder="Details of Event" class="input-xlarge" onClick="clearElement('eventDetails')" style="color:black"></textarea>
                         <label>Start Date </label>
                         <input type="date" name="startDate" id="startDate" class="input-xlarge" style="color:black">
                         <label>End Date </label>
                         <input type="date" name="endDate" id="endDate" class="input-xlarge" style="color:black">
                         <label>Location</label>
-                        <input type="text" value="Location of Event" id="eventLocation" name="eventLocation" class="input-xlarge" onClick="clearElement('eventLocation')" style="color:black">
+                        <input type="text" placeholder="Location of Event" id="eventLocation" name="eventLocation" class="input-xlarge" onClick="clearElement('eventLocation')" style="color:black">
                         <div>
                             <input type="submit" class="btn btn-primary" name="postEvent" value="Post Event" onClick="return eventPostf()"></button>
                         </div>
@@ -438,15 +488,17 @@ else{
                         <input type="text" id="cnn" name="cnn" class="input-xlarge" value="<?php echo $ngoname?>" style="color:black" readonly>
                         <label>Your Mobile Number</label>
                         <input type="text"  id="dm" name="dm" maxlength="10" class="input-xlarge" value="<?php echo $donormob?>" style="color:black" readonly>
-                        <label>Date of Event/Donation</label>
+                        <label>Event Subject</label>
+                        <input type="text"  id="subject" name="subject" class="input-xlarge" placeholder="Subject of the Event" onClick="clearElement('subject')" style="color:black"> 
+						<label>Date of Event/Donation</label>
                         <input type="date" name="DonationDate" id="DonationDate" class="input-xlarge" style="color:black">
                         <label>Description/Message</label>
-                        <textarea rows="5" id="message" name="message" class="input-xlarge" onClick="clearElement('dd')" style="color:black"></textarea>
+                        <textarea rows="5" id="message" name="message" class="input-xlarge" onClick="clearElement('dd')" placeholder=""style="color:black"></textarea>
 						<input type="hidden" name="nPid" value=" <?php echo $pid ?>">
 						<input type="hidden" name="nEmail" value=" <?php echo $email ?>">
 						<input type="hidden" name="dEmail" value=" <?php echo $donoremail ?>">
 						<div>
-                           <input type="submit" class="btn btn-primary" name="contactNgo" value="Contact" onClick="#"></button>
+                           <input type="submit" class="btn btn-primary" name="contactNgo" value="Contact" onClick="return contactForm()"></button>
                        </div>							
                     </form>	
                 </div>		
