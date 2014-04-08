@@ -401,7 +401,7 @@ function submitSignUpForRegNGO()
 		document.getElementById("web").style.borderColor = 'grey';	
 	}
 	
-	if(!document.getElementById("Health").checked && !document.getElementById("Food").checked && !document.getElementById("Education").checked && !document.getElementById("Old").checked && !document.getElementById("Child").checked )
+	if(!document.getElementById("Health").checked && !document.getElementById("Food").checked && !document.getElementById("Education").checked && !document.getElementById("Old").checked && !document.getElementById("Child").checked && !document.getElementById("Others").checked && !document.getElementById("Environment").checked )
 	{
 		message = message.concat("Catagory not specified\n");
 		output = false;
@@ -518,7 +518,7 @@ function submitSignUpForUnRegNGO()
 		document.getElementById("uvi").style.borderColor = 'grey';	
 	}
 	
-	if(!document.getElementById("uHealth").checked && !document.getElementById("uFood").checked && !document.getElementById("uEducation").checked && !document.getElementById("uOld").checked && !document.getElementById("uChild").checked )
+	if(!document.getElementById("uHealth").checked && !document.getElementById("uFood").checked && !document.getElementById("uEducation").checked && !document.getElementById("uOld").checked && !document.getElementById("uChild").checked && !document.getElementById("uOthers").checked && !document.getElementById("uEnvironment").checked )
 	{
 		message = message.concat("Catagory not specified\n");
 		output = false;
