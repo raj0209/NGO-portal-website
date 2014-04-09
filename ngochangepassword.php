@@ -43,7 +43,7 @@ $confirm_pass = sha1($_POST['confirmPassword']);
 				alert("Incorrect password");
 				</script>
 				<?php
-				Header("refresh:0.001;url=http://localhost/sampark/NGO-portal-website/ngohome.php?id=".$pid);
+				Header("refresh:0.001;url=".$_SESSION['LINK_NGOHOME']."?id=".$pid);
 				
 		}
 		}

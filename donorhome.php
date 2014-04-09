@@ -239,16 +239,16 @@ else{
             </div>
             <div class="modal-body">
                     <div class="well">
-                           <form action="Donorchangepassword.php" name="frmChange" method="post" enctype="multipart/form-data">
+                           <form action="donorchangepassword.php" name="frmChange" method="post" enctype="multipart/form-data">
                                 
                                 <label>Current Password</label>
-                                <input type="password"  id="currentPassword" name="currentPassword" maxlength="25" class="input-xlarge" onClick="clearElement('currentPassword')" style="color:black">
+                                <input type="password"  id="currentPasswordDonor" name="currentPassword" maxlength="25" class="input-xlarge" style="color:black">
                                 <label>New Password</label>
-                                <input type="password"  id="newPassword" name="newPassword" maxlength="25" class="input-xlarge" onClick="clearElement('newPassword')" style="color:black">
+                                <input type="password"  id="newPasswordDonor" name="newPassword" maxlength="25" class="input-xlarge" style="color:black">
                                 <label>Confirm Password</label>
-                                <input type="password"  id="confirmPassword" name="confirmPassword" maxlength="25" class="input-xlarge" onClick="clearElement('confirmPassword')" style="color:black">
+                                <input type="password"  id="confirmPasswordDonor" name="confirmPassword" maxlength="25" class="input-xlarge" style="color:black">
                                 <div>
-                                <input type="submit" class="btn btn-primary" name="SavePassword" value="Save Password" onClick="return validatePassword()"></button>
+                                    <input type="submit" class="btn btn-primary" name="SavePassword" value="Save Password" onClick="return validatePassword('currentPasswordDonor','newPasswordDonor','confirmPasswordDonor')"></button>
                                 </div>
                                                     
                         </form>    

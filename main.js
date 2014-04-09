@@ -662,45 +662,44 @@ function DisplayNgo(){
 	$("#allEventsContainer").hide();
 };
 
-function validatePassword() {
-var currentPassword,newPassword,confirmPassword,output = true;
+function validatePassword(currentPassword,newPassword,confirmPassword) {
+var output = true;
+var message = "Following error occured: \n";
 
-var curpass = document.getElementById("currentPassword").value;
-var newpass = document.getElementById("newPassword").value;
-var conpass = document.getElementById("confirmPassword").value;
-
-
-if(!curpass.value) {
-curpass.focus();
-output = false;
+if(! isPassValid(currentPassword)){
+	document.getElementById(currentPassword).style.borderColor = '#FF0000';
+	message = message.concat("Current Password is not provided correctly\n");
+	output = false;
+}else{
+	document.getElementById(currentPassword).style.borderColor = 'grey';
 }
 
-if(!newpass.value) {
-newpass.focus();
-output = false;
+if(! isPassValid(newPassword)){
+	document.getElementById(newPassword).style.borderColor = '#FF0000';
+	message = message.concat("New password is not provided correctly\n");
+	output = false;
+}else{
+	document.getElementById(newPassword).style.borderColor = 'grey';
 }
 
-if(!conpass.value) {
-conpass.focus();
-output = false;
+if(! isPassValid(confirmPassword)){
+	document.getElementById(confirmPassword).style.borderColor = '#FF0000';
+	message = message.concat("Password is not confirmed correctly\n");
+	output = false;
+}else{
+	document.getElementById(confirmPassword).style.borderColor = 'grey';
 }
 
-if(newpass.value != conpass.value) {
-newpass.value="";
-conpass.value="";
-newpass.focus();
-output = false;
+if(document.getElementById(newPassword).value != document.getElementById(confirmPassword).value && output){
+	document.getElementById(newPassword).style.borderColor = '#FF0000';
+	document.getElementById(confirmPassword).style.borderColor = '#FF0000';
+	message = message.concat("Passwords mismatches\n");
+	output = false;
 }
 
-if(newpass.length<6)
-{
-    alert("Password should have minimum 6 characters");
-	document.getElementById("newPassword").focus();
-    document.getElementById("newPassword").style.borderColor = '#FF0000';
-    return false;
+if(!output){
+	alert(message);
 }
-
-document.getElementById("newPassword").style.borderColor = 'Grey';
  	
 return output;
 
