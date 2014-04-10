@@ -145,11 +145,11 @@ else{
                                 <?php if($loggedIn && $type == "NGO" && $pid==$_SESSION['SESS_MEMBER_ID']) { ?>
                                 <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#postEventModal" id="postEventButton">Post Event</button>
                                 <?php } ?>
-                                <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#" id="donorButton" onclick="changeName();">Donors</button>
+                                <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#" id="donorButton" onclick="changeName();">Followers</button>
                                 <?php if($loggedIn && $type == "NGO" && $pid==$_SESSION['SESS_MEMBER_ID']) {?>
                                 <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#editProfileModal" id="editProfileButton">Edit Profile</button>
 								<button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#changePassModal" id="changePasswordButton">Change Password</button>
-								<button class="btn btn-lg btn-primary btn-block" type="submit" id="showMyDonor" onClick="DisplayAllDonors()">All Donors</button>
+								<button class="btn btn-lg btn-primary btn-block" type="submit" id="showMyDonor" onClick="DisplayAllDonors()">Message</button>
                                 <?php }elseif($loggedIn && $type == "DONOR") { ?>
                                 <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#contactNgoModal" id="contactButton">Contact</button>
                                 <?php
@@ -256,7 +256,7 @@ else{
     <div class="row" id="allDonorContainer" style="display: none;">
         <div class="col-md-4" >
             <div class="well well-sm" style="height: auto;">
-                <h1>Donors</h1>
+                <h1>Followers</h1>
                 <div>
                     <div>
                         <?php
@@ -309,6 +309,7 @@ else{
     </div>
 
 </div>
+
 <div class="row" id="allcontactdonorsContainer" style="margin-left:60px;margin-right:88px;display:none;">
             <div class="col-md-4" >
                 <div class="well well-sm" style="height: auto;">
@@ -507,6 +508,76 @@ else{
         </div>
     </div>
 </div>
+<div class="row" id="MessageContainer" style="margin-left:60px;margin-right:88px;display:none;">
+            <div class="col-md-4" >
+                <div class="well well-sm" style="height: auto;">
+                    <h2>Message to my Followers</h2>
+                    <div class="media">
+                        <div class="media-body">
+                            <?php
+                            $query = "SELECT * FROM Event WHERE ngo_pid = '$pid'";
+                            $result = mysql_query($query);
+
+                            if($result) {
+                                if(mysql_num_rows($result) > 0) {
+                                    while ($row = mysql_fetch_assoc($result)) {											
+                                       $eventSub = $row['event_subject'];
+                                       $commDate = $row['commdate'];
+                                       $eventMessage = $row['message'];
+                                       $eventDate = $row['dateofevent'];
+                                       $donorid = $row['donor_pid'];
+
+										$donorInfoQuery = "SELECT * FROM Donor WHERE pid = '$donorid'";
+										$donorInfoResult = mysql_query($donorInfoQuery);
+
+										if($donorInfoResult) {
+											if(mysql_num_rows($donorInfoResult) > 0) {
+												while ($donorMember = mysql_fetch_assoc($donorInfoResult)) {
+													$donorName = $donorMember['name'];
+													$donorNumber = $donorMember['contact'];
+													$donorPhoto = $donorMember['photo'];													
+                                      
+										?>
+										<form action=""  method="post" enctype="multipart/form-data">
+                                        <div class="well well-sm" style="position: relative; height:110px">
+                                            
+                                            <input type="hidden" name="ngoPid" value=" <?php echo $pid ?>">
+											<div class="media">
+												<a class=" thumbnail pull-left" href="#">
+                                                   <img style="height: 100px;width: 100px;" class="media-object" src="<?php echo $donorPhoto ?>">
+                                                </a>
+                                                <div class="media-body" style="margin-left: 130px;">
+													<a href= "<?php echo $_SESSION['LINK_DONORHOME']."?did=".$donorPid ?>"><h3 class="media-heading"><?php echo $donorName ?></h3></a>
+													<p><b>Communication Date:  </b> <?php echo $commDate ?> </p>
+													<p><b>Event Subject:  </b> <?php echo $eventSub ?> </p>
+													<p ><b>Message/Details:  </b><?php echo $eventMessage ?></p>
+													<p><b>Event Date:  </b> <?php echo $eventDate ?> </p>
+													<div>
+														<?php if($loggedIn && $type == "NGO" && $pid==$_SESSION['SESS_MEMBER_ID']) { ?>
+														<input style="position:absolute;right: 5px;bottom: 5px;" type="submit" class="btn btn-primary" name="giveAck" value="Acknowledge" onClick="" >
+														<?php }?>
+													</div>
+												</div>													
+                                            </div>
+                                        </div>
+										</form>
+										<?php
+												}  
+											}
+										}
+									}
+								}
+							}										
+							else {
+								echo "No requests received so far";
+							}	
+							?>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>

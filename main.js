@@ -630,7 +630,7 @@ $('#tabUnRegNGOSignUp').click(function(){ hideAll(); $('#signupModalContent').sh
 function changeName(){
 
 	var $type = 'none';
-	if($("#donorButton").text() == "Donors"){
+	if($("#donorButton").text() == "Followers"){
 		$type = 'donors';
 	}else{
 		$type = 'event';
@@ -639,13 +639,13 @@ function changeName(){
 	if ($type == 'donors') {
 		$("#donorButton").text("Events");
 		$("#allPostContainer").hide();
-		$("#allcontactdonorsContainer").hide();
+		$("#MessageContainer").hide();
 		$("#allDonorContainer").show();
 	}else{
-		$("#donorButton").text("Donors");
+		$("#donorButton").text("Followers");
 		$("#allPostContainer").show();
 		$("#allDonorContainer").hide();
-		$("#allcontactdonorsContainer").hide();
+		$("#MessageContainer").hide();
 		
 	};
 
@@ -738,7 +738,7 @@ function checkSize(max_img_size,item)
 function DisplayAllDonors(){
     $("#allPostContainer").hide();
     $("#allDonorContainer").hide();
-    $("#allcontactdonorsContainer").show();
+    $("#MessageContainer").show();
 };
 
 
