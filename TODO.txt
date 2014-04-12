@@ -32,11 +32,11 @@ TODO:Sampark
 
 16) Location (if wanted we can do)
 
-17) Rating Functionlity - Most popular NGO, Rate an NGO, Enable Rating, Rating Algo - shubham
+17) Rating Functionlity - Most popular NGO, Rate an NGO, Enable Rating, Rating Algo - DONE
 
 18) Implement Search - DONE
 
-19) Add load more post button in HOME/SEARCH/ranking page - shubham
+19) Add load more post button in HOME/SEARCH/ranking page - DONE
 
 20) Are you sure in delete post - DONE 
 

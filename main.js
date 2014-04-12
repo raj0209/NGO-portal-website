@@ -520,7 +520,7 @@ function submitSignUpForUnRegNGO()
 	
 	if(!document.getElementById("uHealth").checked && !document.getElementById("uFood").checked && !document.getElementById("uEducation").checked && !document.getElementById("uOld").checked && !document.getElementById("uChild").checked && !document.getElementById("uOthers").checked && !document.getElementById("uEnvironment").checked )
 	{
-		message = message.concat("Catagory not specified\n");
+		message = message.concat("Category not specified\n");
 		output = false;
 	}
 	
@@ -664,7 +664,7 @@ function DisplayNgo(){
 
 function validatePassword(currentPassword,newPassword,confirmPassword) {
 var output = true;
-var message = "Following error occured: \n";
+var message = "Following error occurred: \n";
 
 if(! isPassValid(currentPassword)){
 	document.getElementById(currentPassword).style.borderColor = '#FF0000';

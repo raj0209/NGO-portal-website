@@ -160,13 +160,13 @@ else{
                                     
                                     if(($nResult%2)==0)
                                     {?>
-										<button type="submit" class="btn btn-default" name="counter1" value="<?php echo ($counter1+1);?>" ><i class="icon-star icon-black"></i>Favourite</button>
+										<button type="submit" class="btn btn-default" name="counter1" value="<?php echo ($counter1+1);?>" ><i class="icon-star icon-black"></i> Favourite</button>
 									<?php } ?>
 									<?php
 									if(($nResult%2)>0)
 									{?>
 									
-									<button type="submit" class="btn btn-default" name="counter1" value="<?php echo ($counter1+1);?>" ><i class="icon-star-empty icon-black"></i>Unfavourite</button>
+									<button type="submit" class="btn btn-default" name="counter1" value="<?php echo ($counter1+1);?>" ><i class="icon-star-empty icon-black"></i> Unfavourite</button>
 									
 									<?php }
 									?>
@@ -174,18 +174,14 @@ else{
 									<form method="post">
 									<?php
 										$donorPid=$_SESSION['SESS_MEMBER_ID'];
-										$erResult=mysql_query("SELECT * From Event where donor_pid=$donorPid AND ngo_pid=$pid");
+										$erResult=mysql_query("SELECT * From Acknowledge where donor_pid=$donorPid AND ngo_pid=$pid");
 										$nErResult=mysql_num_rows($erResult);
 										if($nErResult>0)
 										{
-											$rowER=mysql_fetch_array($erResult);
-											$ER=$rowER['enable_rate'];
-											if($ER>0)
-											{
 											?>
-											<button type="submit" class="btn btn-danger" name="counterER" value="<?php echo ($counterER+1);?>" ><i class="icon-heart icon-white"></i>Rate this NGO</button>
+											<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#ratingModal" name="counterER" value="<?php echo ($counterER+1);?>" ><i class="icon-heart icon-white"></i> Rate this NGO</button>
 											<?php
-											}
+											
 										}
 									
 									?>
@@ -309,59 +305,7 @@ else{
     </div>
 
 </div>
-
-<div class="row" id="allcontactdonorsContainer" style="margin-left:60px;margin-right:88px;display:none;">
-            <div class="col-md-4" >
-                <div class="well well-sm" style="height: auto;">
-                    <h1>Donor which had contacted me</h1>
-                    <div class="media">
-                        <div class="media-body">
-                            <?php
-                            $alldonorsquery = "SELECT * FROM Event WHERE ngo_pid = '$pid'";
-                            $donorsresult = mysql_query($alldonorsquery);
-                        
-                            if($donorsresult) {
-                                if(mysql_num_rows($donorsresult) > 0) {
-                                    while ($row = mysql_fetch_assoc($donorsresult)) {
-                                       $donorid = $row['donor_pid'];
-                                       $donordetails = "SELECT * FROM Donor WHERE pid='$donorid'";
-                                       $detailresults = mysql_query($donordetails);
-                                       if(mysql_num_rows($detailresults) > 0) {
-                                        while ($member = mysql_fetch_assoc($detailresults)) {
-                                            $donorsname = $member['name'];
-                                            $donorsemail = $member['email'];
-                                            $donorscontact = $member['contact'];                                
-                                       ?>
-                                        <form action="enableRating.php"  method="post" enctype="multipart/form-data">
-                                            <div class="well well-sm">
-                                                <h3 class="media-heading"><?php echo $donorsname ?></h3>
-                                                <div class="media">
-                                                    <p ><b>Email: </b><?php echo $donorsemail ?></p>
-                                                    <p ><b>Contact: </b><?php echo $donorscontact ?></p>
-                                                </div>
-
-                                                    <?php if($loggedIn && $type == "NGO" && $pid==$_SESSION['SESS_MEMBER_ID']) { ?>
-                                                    <input style="float:right;margin-top:-50px" type="submit" class="btn btn-primary" name="enableRate" value="Enable Rate" onClick="return confirm('Are you sure you wish to enable rating for this Donor?')" >
-                                                        <?php }?>
-                                            </div>    
-                                        </form>
-                                    <?php
-                                }  
-                            }
-                            }
-                        }
-                        }                            
-                        else {
-                            echo "No event posted so far";
-                        }
-                        ?>
-
-                    </div>
-            </div>
-        </div>
-    </div>
-</div>
-	<div class="modal fade" id="postEventModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="postEventModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -433,10 +377,12 @@ else{
                                 }
                                 ?>
                                 <div>
-                                   <div class="btn btn-default btn-file" style="margin-right: 60px;">
-                                    <label for="file">Upload Logo</label>
-                                    <input type="file" name="regNgoLogo" >
-                                </div >
+                                   <div>
+									<span>Upload Logo</span>
+									<div>										
+										<input name="regNgoLogo" id="regNgoLogo" type="file" />
+									</div>
+									</div>
                                 <input type="submit" class="btn btn-primary" name="saveChangesRegNgo" value="Save Changes" onClick="return esubmit3()"></button>
                             </div>							
                         </form>	
@@ -538,7 +484,7 @@ else{
 													$donorPhoto = $donorMember['photo'];													
                                       
 										?>
-										<form action=""  method="post" enctype="multipart/form-data">
+										<form  method="post" enctype="multipart/form-data">
                                         <div class="well well-sm" style="position: relative; height:110px">
                                             
                                             <input type="hidden" name="ngoPid" value=" <?php echo $pid ?>">
@@ -554,7 +500,7 @@ else{
 													<p><b>Event Date:  </b> <?php echo $eventDate ?> </p>
 													<div>
 														<?php if($loggedIn && $type == "NGO" && $pid==$_SESSION['SESS_MEMBER_ID']) { ?>
-														<input style="position:absolute;right: 5px;bottom: 5px;" type="submit" class="btn btn-primary" name="giveAck" value="Acknowledge" onClick="" >
+														<button style="position:absolute;right: 5px;bottom: 5px;" type="button" id="giveAck" class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#acknowledgeModal">Acknowledge</button>
 														<?php }?>
 													</div>
 												</div>													
@@ -578,6 +524,68 @@ else{
             </div>
         </div>
     </div>
+
+<div class="modal fade" id="acknowledgeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel2">Acknowledge User</h4>
+            </div>
+            <div class="modal-body">
+                <div class="well">
+                    <form action="acknowledged.php" method="post">
+                        <label>NGO Name</label>
+                        <input type="text" id="mesngo" name="mesngo" class="input-xlarge" value="<?php echo $ngoname?>" style="color:black" readonly>
+                        <label>Subject</label>
+                        <input type="text"  id="sub" name="sub" class="input-xlarge" placeholder="Subject" onClick="clearElement('sub')" style="color:black"> 
+						<label>Details</label>
+                        <textarea rows="5" id="details" name="details" class="input-xlarge" onClick="clearElement('details')" placeholder="Details"style="color:black"></textarea>
+						<input type="hidden" name="ngoPid" value=" <?php echo $pid ?>">
+						<input type="hidden" name="donorPid" value=" <?php echo $donorPid ?>">
+						<div>
+						<span>Upload Attachments</span>
+  							<div>										
+							<input name="attachments" id="attachments" type="file" />
+  							</div>
+  						</div>								
+						<div>
+                           <input type="submit" class="btn btn-primary" name="ackNgo" value="Acknowledge" onClick="return acknowledge()"></button>
+                       </div>							
+                    </form>	
+                </div>		
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="ratingModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Rate NGO</h4>
+      </div>
+      <div class="modal-body">
+	  <div class="well">
+        <form method="post" action="rated.php" name="ratingvalue">
+            <select name = "rating">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+			<div>
+				<input type="hidden" name="pid" value="<?php echo $pid;?>">
+				<br/>
+				<button type="submit" class="btn btn-primary">Rate</button>
+			</div>
+		</form>
+	  </div>
+    </div>  
+    </div>
+  </div>
+</div>
 
 </body>
 </html>

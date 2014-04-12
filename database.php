@@ -99,7 +99,19 @@ FOREIGN KEY (donor_pid) REFERENCES Donor(pid))";
 
 $resultRate = mysql_query($sqlQueryRate);
 
-if (!$resultDonor || !$resultNgo || !$resultEvent || !$resultFav || !$resultRate || !$resultPostNgo || !$resultCatNgo ) {
+$sqlQueryAcknowledge = "CREATE TABLE IF NOT EXISTS Acknowledge(
+donor_pid INT NOT NULL,
+ngo_pid INT NOT NULL,
+subject VARCHAR( 300 ),
+messageDate TIMESTAMP UNIQUE ,
+details VARCHAR( 2000 ),
+attachment VARCHAR( 300 ) ,
+estatus TINYINT )";
+
+$resultAcknowledge = mysql_query($sqlQueryAcknowledge);
+
+
+if (!$resultDonor || !$resultNgo || !$resultEvent || !$resultFav || !$resultRate || !$resultPostNgo || !$resultCatNgo || !$resultAcknowledge ) {
     echo "<script type='text/javascript'>alert('failed!')</script>";
 }
 ?>

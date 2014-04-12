@@ -1,0 +1,11 @@
+1 - search icons proper format
+
+2 - attachment not working in acknowledge
+
+3 - tab changes
+
+4 - remove space from index - bootstrap alert 
+
+5 - serach - sort by rating,sort by name
+
+6 - fix container problem
