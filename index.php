@@ -17,21 +17,30 @@ include 'database.php';
 
 		if(isset($_SESSION['JUST_SIGNEDUP'])){
 			?> 
-			<div style="display: table; margin: 0 auto; margin-top:-60px;"><h1>To activate your account please click on activation link sent to your email</h1></div>
+			<div class="alert alert-warning alert-dismissable" style="display: table; margin: 0 auto; margin-top:-60px;" >
+	  			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	  			<h2>To activate your account please click on activation link sent to your email</h2>
+			</div>
 			<?php
 			unset($_SESSION['JUST_SIGNEDUP']);
 		}
 
 		if(isset($_SESSION['DONOR_NEW_PASS_LINK_SENT'])){
 			?> 
-			<div style="display: table; margin: 0 auto; margin-top:-60px;"><h1>Password reset instructions have been sent to your Email Address</h1></div>
+			<div class="alert alert-warning alert-dismissable" style="display: table; margin: 0 auto; margin-top:-60px;" >
+	  			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	  			<h2>Password reset instructions have been sent to your Email Address</h2>
+			</div>
 			<?php
 			unset($_SESSION['DONOR_NEW_PASS_LINK_SENT']);
 		}
 
 		if(isset($_SESSION['DONOR_NEW_PASS_LINK_NOT_SENT'])){
 			?> 
-			<div style="display: table; margin: 0 auto; margin-top:-60px;"><h1>Password reset instructions could not be sent to specified email</h1></div>
+			<div class="alert alert-warning alert-dismissable" style="display: table; margin: 0 auto; margin-top:-60px;" >
+	  			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	  			<h2>Password reset instructions could not be sent to specified email</h2>
+			</div>
 			<?php
 			unset($_SESSION['DONOR_NEW_PASS_LINK_NOT_SENT']);
 		}
@@ -43,13 +52,19 @@ include 'database.php';
 					$insertCode = "UPDATE Donor SET verified_Donor = '1' WHERE email='".$_GET['demail']."'";
 					$resultInsert = mysql_query($insertCode);
 					$justInserted = true;
-					?> 
-					<div style="display: table; margin: 0 auto; margin-top:-60px;"><h1>Congratulations! You have successfully registered as Social Worker to our website </h1></div>
+					?>
+					<div class="alert alert-warning alert-dismissable" style="display: table; margin: 0 auto; margin-top:-60px;" >
+	  					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	  					<h2>Congratulations! You have successfully registered as Social Worker to our website </h2>
+					</div>
 					<?php
 				}elseif ($row['verified_Donor'] == '1') {
 					$alreadyInserted = true;
-					?> 
-					<div style="display: table; margin: 0 auto; margin-top:-60px;" ><h1> You have already registered as Social Worker to our website </h1></div>
+					?>
+					<div class="alert alert-warning alert-dismissable" style="display: table; margin: 0 auto; margin-top:-60px;" >
+	  					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	  					<h2> You have already registered as Social Worker to our website </h2>
+					</div>
 					<?php
 				}else{
 					$linkChanged = true;
@@ -68,12 +83,18 @@ include 'database.php';
 					$resultInsert = mysql_query($insertCode);
 					$justInserted = true;
 					?> 
-					<div style="display: table; margin: 0 auto; margin-top:-60px;"><h1>Congratulations! You have successfully registered as NGO to our website </h1></div>
+					<div class="alert alert-warning alert-dismissable" style="display: table; margin: 0 auto; margin-top:-60px;" >
+	  					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	  					<h2> Congratulations! You have successfully registered as NGO to our website </h2>
+					</div>
 					<?php
 				}elseif ($row['verified_Ngo'] == '1') {
 					$alreadyInserted = true;
 					?> 
-					<div style="display: table; margin: 0 auto; margin-top:-60px;" ><h1> You have already registered as NGO to our website </h1></div>
+					<div class="alert alert-warning alert-dismissable" style="display: table; margin: 0 auto; margin-top:-60px;" >
+	  					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	  					<h2> You have already registered as NGO to our website </h2>
+					</div>
 					<?php
 				}else{
 					$linkChanged = true;

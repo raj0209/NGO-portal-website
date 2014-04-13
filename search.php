@@ -5,8 +5,8 @@
 	include 'connect.php';
 
 	$start = 0;
-	$end = 10;
-	$count = 10;
+	$end = 100;
+	$count = 100;
 
     $searchQuery = $_POST['searchQuery'];
     $searchCatagory = $_POST['selectedCatagory'];
