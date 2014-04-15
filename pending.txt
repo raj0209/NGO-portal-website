@@ -1,7 +1,18 @@
-1 - search icons proper format
+1 - search icons proper format - its upto u vijay
 
-2 - attachment not working in acknowledge
+2 - attachment not working in acknowledge - i m not able to do it...pls see this one vijay....i have tried...
 
-3 - serach - sort by rating,sort by name
+3 - serach - sort by rating,sort by name -  its upto u vijay
 
-4 - fix container problem
+
+
+4 - fix container problem  - i m not sure about it.... 
+
+
+
+
+5 - tab problem - DONE
+
+6 - bootstrap alert - DONE
+
+7 - Home button in forgot password - DONE 
