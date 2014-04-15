@@ -38,6 +38,11 @@
 			<?php } unset($_SESSION['FORGOT_PASSWORD_EMAIL_DONOR_NOT_EXISTS']); ?>
 			
 			</form>
+			
+			<form action="index.php" method="post" style="margin-left:100px; margin-top:50px">
+			<button type="submit" class="btn btn-primary">Home</button> 
+			</form>
+
 		</div>
 	</body>
 </html>

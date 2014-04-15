@@ -2,10 +2,6 @@
 
 2 - attachment not working in acknowledge
 
-3 - tab changes
+3 - serach - sort by rating,sort by name
 
-4 - remove space from index - bootstrap alert 
-
-5 - serach - sort by rating,sort by name
-
-6 - fix container problem
+4 - fix container problem

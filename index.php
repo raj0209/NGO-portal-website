@@ -107,7 +107,7 @@ include 'database.php';
 		}
 	?>
 
-		<div class="backimage" style="margin-left:20px; margin-right:15px;">
+		<div class="backimage" style="margin-left:20px; margin-right:15px; margin-top:0px">
 			<div id="wowslider-container1" style="margin-top:40px;">
 				<div class="ws_images"><ul>
 					<li><img src="img/slider_images/images/pic102.jpg" alt="pic102" title="" id="wows1_0"/></li>
