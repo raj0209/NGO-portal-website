@@ -534,7 +534,7 @@ else{
             </div>
             <div class="modal-body">
                 <div class="well">
-                    <form action="acknowledged.php" method="post">
+                    <form action="acknowledged.php" method="post" enctype="multipart/form-data">
                         <label>NGO Name</label>
                         <input type="text" id="mesngo" name="mesngo" class="input-xlarge" value="<?php echo $ngoname?>" style="color:black" readonly>
                         <label>Subject</label>

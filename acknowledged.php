@@ -11,6 +11,9 @@ $subject = $_POST['sub'];
 $donorpid = $_POST['donorPid'];
 $attachment = $_FILES['attachments']['name'];
 
+	$randomName = substr(sha1(rand()), 0, 10);
+	$filePath = "img/files/_".$randomName."_".$_FILES["attachments"]["name"];
+
 	$query = "SELECT * FROM Ngo WHERE pid='$ngopid'";
 	$result = mysql_query($query);
 	
@@ -81,7 +84,7 @@ $attachment = $_FILES['attachments']['name'];
 	}
 
 
-	$insertQuery = "INSERT INTO Acknowledge(donor_pid,ngo_pid,subject,details,attachment,estatus) values('$donorpid','$ngopid','$subject','$details','$attachment','$sent')";
+	$insertQuery = "INSERT INTO Acknowledge(donor_pid,ngo_pid,subject,details,attachment,estatus) values('$donorpid','$ngopid','$subject','$details','$filePath','$sent')";
 	$result = mysql_query($insertQuery);
 	header("refresh:0.001;url=".$_SESSION['LINK_NGOHOME']."?id=".$ngopid);
 
