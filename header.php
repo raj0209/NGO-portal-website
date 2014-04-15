@@ -2,12 +2,13 @@
 	<div class="navbar-inner">
 		<div class="container">
 			<div class="nav-collapse collapse" style="margin:10px">
-				<ul class="nav nav-tabs">
-					<li  class= "active" ><a class="brand" href="index.php">Sampark</a></li>
-					<li><a href="rankingpage.php">Top Organizations</a></li>
-					<li><a href="contact.php">Contact</a></li>	
+				
+				<ul class="nav nav-tabs" id="myTab">
+					<li id="home" class="active"><a href="index.php" class="brand">Sampark</a></li>
+					<li id="ranks"><a href="rankingpage.php">Top Organizations</a></li>
+					<li id="contactUs"><a href="contact.php">Contact Us</a></li>			
 				</ul>
-
+				
 				<div align="center" class="nav-collapse collapse">
 					<div class="nav">
 						<form style="z-index: -1;" action="search.php" method="post" enctype="multipart/form-data" >
@@ -15,7 +16,7 @@
               <input type="hidden" id="selectedCatagory" name="selectedCatagory" value="All" >
               
               <div class="dropdown">
-                <a style="height: 20px; width:100px" id="dLabel" role="button" class="btn btn-success" data-toggle="dropdown" data-target="#">
+                <a style="height: 20px; width:80px" id="dLabel" role="button" class="btn btn-success" data-toggle="dropdown" data-target="#">
                   Category <span class="caret" style="float: right"></span>                
                 </a>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">

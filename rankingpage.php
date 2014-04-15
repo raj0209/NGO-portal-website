@@ -18,9 +18,15 @@
 	
 	<body>
 	<?php include 'header.php' ?>	
-
-	 	<!--<div class="jumbotron">-->
-		<div class="container">
+	
+	<script>
+	document.getElementById("home").setAttribute("class", "");
+	document.getElementById("ranks").setAttribute("class", "active");
+	document.getElementById("contactUs").setAttribute("class", "");
+	</script>
+	 
+	
+	<div class="container">
 			<table class="table table-striped">
 				<thead>
 				  <tr>

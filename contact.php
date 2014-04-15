@@ -11,6 +11,13 @@
 	
 	<body>
 		<?php	include 'header.php'; ?>
+
+		<script>
+		document.getElementById("home").setAttribute("class", "");
+		document.getElementById("ranks").setAttribute("class", "");
+		document.getElementById("contactUs").setAttribute("class", "active");
+		</script>
+		
 	  	<div class="container">
 			<table class="table table-bordered">
 				<thead>
