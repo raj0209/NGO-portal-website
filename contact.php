@@ -12,6 +12,7 @@
 	<body>
 		<?php	include 'header.php'; ?>
 
+		<!--activates the current tab -->
 		<script>
 		document.getElementById("home").setAttribute("class", "");
 		document.getElementById("ranks").setAttribute("class", "");

@@ -20,10 +20,7 @@ $state = $_POST['statereg'];
 
 $logoNgo = $_FILES['regNgoLogo']['name'];
 
-
-//	echo  $name." ".$regno." ".$cpn." ".$email." ".$cno." ".$password." ".$des." ".$vis." ".$web." ".$logoNgo;
-
-
+//stores the logo of ngo
 if ($_FILES["regNgoLogo"]["error"] > 0)
 {
 	$filePath = "img/logos/default_ngo.png";
@@ -39,6 +36,7 @@ else
 
 }
 
+//checks if the email exists
 $checkEmail = mysql_query("SELECT * FROM Ngo WHERE email = '$email'");
 
 if(mysql_num_rows($checkEmail)>0){
@@ -49,6 +47,7 @@ else
 {
 	$varificationCode = substr(sha1(rand()), 0, 20);
 
+	//inserts details of Ngo in the database
 	$insertQuery = "insert into Ngo(name,logo,address,city,state,description,vision,contact_person,email,contact,rate,rstatus,rnumber,website,verified_Ngo,password) 
 	values('$name','$filePath','$add','$city','$state','$des','$vis','$cpn','$email','$cno',1,1,'$regno','$web','$varificationCode','$password')";
 

@@ -2,31 +2,12 @@
 
 include 'connect.php';
 
+//fetches information about donor
 $pid = $_POST['pidDonor'];
 $name = $_POST['ename'];
 $email = $_POST['eemail'];
 $mob = $_POST['emobile'];
 
-
-
-//$logoNgo = $_FILES['regNgoLogo']['name'];
-
-
-//	echo  $name." ".$regno." ".$cpn." ".$email." ".$cno." ".$password." ".$des." ".$vis." ".$web." ".$logoNgo;
-
-/*
-if ($_FILES["regNgoLogo"]["error"] > 0)
-{
-	echo "<font size = '5'><font color=\"#e31919\">Error: NO CHOSEN FILE <br />";
-	echo"<p><font size = '5'><font color=\"#e31919\">INSERT TO DATABASE FAILED";
-}
-else
-{
-	$randomName = substr(sha1(rand()), 0, 10);
-	$filePath = "img/logos/_".$randomName."_".$_FILES["regNgoLogo"]["name"];
-
-	move_uploaded_file($_FILES["regNgoLogo"]["tmp_name"],$filePath);
-*/
 
 if ($_FILES["donorImage"]["error"] > 0)
 {
@@ -43,6 +24,7 @@ else
 
 }	
 
+	//updates information of donor
 	$updateQuery = 
 	"UPDATE Donor 
 	SET name='$name',email='$email',contact='$mob',photo='$filePath'

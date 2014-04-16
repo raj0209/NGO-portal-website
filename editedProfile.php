@@ -2,6 +2,7 @@
 
 include 'connect.php';
 
+//fetches information about Ngo
 $pid = $_POST['pidNgo'];
 $name = $_POST['enn'];
 $regno = $_POST['eregno'];
@@ -28,6 +29,7 @@ else
 
 }	
 
+//updates information about Ngo
 $updateQuery = 
 "UPDATE Ngo 
 SET name='$name',description='$des',vision='$vis',contact_person='$cpn',email='$email',contact='$cno',rate=1,rstatus=1,rnumber='$regno',website='$web',logo='$filePath'
