@@ -461,7 +461,7 @@ else{
                     <div class="media">
                         <div class="media-body">
                             <?php
-                            $query = "SELECT * FROM Event WHERE ngo_pid = '$pid'";
+                            $query = "SELECT * FROM Event WHERE ngo_pid = '$pid' AND acknowledged = '0'";
                             $result = mysql_query($query);
 
                             if($result) {
@@ -569,11 +569,11 @@ else{
 	  <div class="well">
         <form method="post" action="rated.php" name="ratingvalue">
             <select name = "rating">
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-				<option value="4">4</option>
-				<option value="5">5</option>
+				<option value="1">1 - Poor</option>
+				<option value="2">2 - Not Satisfied</option>
+				<option value="3">3 - Neutral</option>
+				<option value="4">4 - Fairly Satisfied</option>
+				<option value="5">5 - Excellent</option>
 			</select>
 			<div>
 				<input type="hidden" name="pid" value="<?php echo $pid;?>">

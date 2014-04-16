@@ -5,6 +5,8 @@
 3 - serach - sort by rating,sort by name -  its upto u vijay
 
 
+5 -  change photos
+
 
 4 - fix container problem  - i m not sure about it.... 
 
@@ -15,4 +17,6 @@
 
 6 - bootstrap alert - DONE
 
-7 - Home button in forgot password - DONE 
+7 - after acknowlegment is done, remove user from message tab - DONE
+
+8 - Home button in forgot password - DONE 

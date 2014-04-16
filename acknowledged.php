@@ -86,6 +86,8 @@ $attachment = $_FILES['attachments']['name'];
 
 	$insertQuery = "INSERT INTO Acknowledge(donor_pid,ngo_pid,subject,details,attachment,estatus) values('$donorpid','$ngopid','$subject','$details','$filePath','$sent')";
 	$result = mysql_query($insertQuery);
+	$updateQuery = "UPDATE Event SET acknowledged='1' WHERE donor_pid='$donorpid' AND ngo_pid='$ngopid' ";
+	$resultQuery = mysql_query($updateQuery);
 	header("refresh:0.001;url=".$_SESSION['LINK_NGOHOME']."?id=".$ngopid);
 
 

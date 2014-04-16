@@ -61,7 +61,7 @@ $donormob = $_POST['dm'];
 	}
 
 
-	$insertQuery = "INSERT INTO Event(donor_pid,ngo_pid,event_subject,message,dateofevent,estatus) values('$pid','$ngopid','$event_subject','$message','$date', '$sent')";
+	$insertQuery = "INSERT INTO Event(donor_pid,ngo_pid,event_subject,message,dateofevent,estatus,acknowledged) values('$pid','$ngopid','$event_subject','$message','$date', '$sent','0')";
 	$result = mysql_query($insertQuery);
 	header("refresh:0.001;url=".$_SESSION['LINK_NGOHOME']."?id=".$ngopid);
 

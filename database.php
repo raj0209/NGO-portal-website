@@ -52,6 +52,7 @@ commdate TIMESTAMP UNIQUE ,
 message VARCHAR( 2000 ),
 dateofevent DATE,
 estatus TINYINT,
+acknowledged TINYINT,
 FOREIGN KEY (donor_pid) REFERENCES Donor(pid),
 FOREIGN KEY (ngo_pid) REFERENCES Ngo(pid))";
 
