@@ -1,8 +1,9 @@
 <?php
 include 'connect.php';
 session_start();    
+//this file contains the code which helps in sending email to a given email address
 
-
+//various details about Ngo, Donor and the Event are fetched
 $type=$_SESSION['SESS_TYPE'];
 $pid=$_SESSION['SESS_MEMBER_ID'];
 $ngopid = $_POST['ngoPid'];
@@ -27,6 +28,7 @@ $attachment = $_FILES['attachments']['name'];
 		}
 	}
 	
+	//details of donor are fetched
 	$donorquery = "SELECT * FROM Donor WHERE pid='$donorpid'";
 	$donorresult = mysql_query($donorquery);
 	
@@ -42,10 +44,10 @@ $attachment = $_FILES['attachments']['name'];
 	require_once("class.phpmailer.php");
 	require_once("class.smtp.php");
 	global $error;
-	$current_email=$donorEmail;
+	$current_email=$donorEmail;  //email address to which event acknowledgement has to be sent
 	
-	$username = "sampark.ngo2014@gmail.com";
-	$password = "sampark123!";
+	$username = "sampark.ngo2014@gmail.com";   //developers email address
+	$password = "sampark123!";    //developers email's password
 	$mail = new PHPMailer();  // create a new object
 	$mail->IsSMTP(); // enable SMTP
 	$mail->SMTPDebug = 2;  // debugging: 1 = errors and messages, 2 = messages only
@@ -83,9 +85,11 @@ $attachment = $_FILES['attachments']['name'];
 		echo $error;
 	}
 
-
+	//acknowledgement details are stored in database
 	$insertQuery = "INSERT INTO Acknowledge(donor_pid,ngo_pid,subject,details,attachment,estatus) values('$donorpid','$ngopid','$subject','$details','$filePath','$sent')";
 	$result = mysql_query($insertQuery);
+	
+	//updates the event as acknowledged
 	$updateQuery = "UPDATE Event SET acknowledged='1' WHERE donor_pid='$donorpid' AND ngo_pid='$ngopid' ";
 	$resultQuery = mysql_query($updateQuery);
 	header("refresh:0.001;url=".$_SESSION['LINK_NGOHOME']."?id=".$ngopid);

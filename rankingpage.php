@@ -19,13 +19,14 @@
 	<body>
 	<?php include 'header.php' ?>	
 	
+	<!--activates the current tab -->
 	<script>
 	document.getElementById("home").setAttribute("class", "");
 	document.getElementById("ranks").setAttribute("class", "active");
 	document.getElementById("contactUs").setAttribute("class", "");
 	</script>
 	 
-	
+	<!--following code is about displaying top organisations in tabular form -->
 	<div class="container">
 			<table class="table table-striped">
 				<thead>
@@ -48,6 +49,7 @@
 							$row = mysql_fetch_array($result);
 
 							?>
+						<!--following code gets the information about the NGOs -->	
 						<tr>
 							<td><?php echo $cnt ?></td>
 							<td><?php echo $row['name'];?></td>
@@ -63,6 +65,7 @@
 				</tbody>
 			</table>
 
+			<!--code of loading more NGOs -->
 			<div background="NONE">
 					<form action="rankingpage.php" method="post">
 						<?php

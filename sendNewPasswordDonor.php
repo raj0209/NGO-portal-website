@@ -1,19 +1,23 @@
 <?php
 
 	include 'connect.php';
-    function generate_password( $length = 8 ) {
+	
+    //this function generates a random password 
+	function generate_password( $length = 8 ) {
 		$chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@";
 		$password12 = substr( str_shuffle( $chars ), 0, $length );
 		return $password12;
 		}
 	$password1 = generate_password(10);
+	
+	// the rest of the code helps in sending newly generated password through email to the given address 
     require_once("class.phpmailer.php");
     require_once("class.smtp.php");
     global $error;
-	$current_email=$_GET['a'];
+	$current_email=$_GET['a']; //email address to which new password has to be sent
 	echo $current_email;
-	$username = "sampark.ngo2014@gmail.com";
-    $password = "sampark123!";
+	$username = "sampark.ngo2014@gmail.com"; //developers email address
+    $password = "sampark123!";  //developers email's password
     $mail = new PHPMailer();  // create a new object
     $mail->IsSMTP(); // enable SMTP
     $mail->SMTPDebug = 2;  // debugging: 1 = errors and messages, 2 = messages only
@@ -47,6 +51,7 @@
 	else {
         $mail->SmtpClose();
 		$newpassword=sha1($password1);
+		//new password is stored in database
 		$updateQuery = "UPDATE Donor SET password='".$newpassword."' WHERE email='".$current_email."'";
         $result = mysql_query($updateQuery);
 		if($result)

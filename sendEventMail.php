@@ -1,13 +1,15 @@
 <?php
     
+	// this code helps in sending event alert through email to the given address
     require_once("class.phpmailer.php");
     require_once("class.smtp.php");
     global $error;
-	$current_email=$_GET['a'];
+	
+	$current_email=$_GET['a']; //email address to which event alert has to be sent
 	
 	echo $current_email;
-	$username = "sampark.ngo2014@gmail.com";
-    $password = "sampark123!";
+	$username = "sampark.ngo2014@gmail.com";   //developers email address
+    $password = "sampark123!";    //developers email's password
     $mail = new PHPMailer();  // create a new object
     $mail->IsSMTP(); // enable SMTP
     $mail->SMTPDebug = 2;  // debugging: 1 = errors and messages, 2 = messages only

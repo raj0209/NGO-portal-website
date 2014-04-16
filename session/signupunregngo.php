@@ -17,9 +17,7 @@ $city = $_POST['cityunreg'];
 $state = $_POST['stateunreg'];
 
 
-//echo  $name." ".$cpn." ".$email." ".$cno." ".$password." ".$des." ".$vis." ";
-
-
+//stores the logo of Ngo
 if ($_FILES["unregNgoLogo"]["error"] > 0)
 {
 	$filePath = "img/logos/default_ngo.png";
@@ -35,6 +33,7 @@ else
 	}
 }
 
+// checks if the email already exists
 $checkEmail = mysql_query("SELECT * FROM Ngo WHERE email = '$email'");
 
 if(mysql_num_rows($checkEmail)>0){
@@ -45,6 +44,7 @@ else
 {
 	$varificationCode = substr(sha1(rand()), 0, 20);
 
+	//inserts the details of Ngo in the database
 	$insertQuery = "insert into Ngo(name,logo,address,city,state,description,vision,contact_person,email,contact,rate,rstatus,verified_Ngo,password) 
 	values('$name','$filePath','$add','$city','$state','$des','$vis','$cpn','$email','$cno',1,0,'$varificationCode','$password')";
 

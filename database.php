@@ -42,7 +42,7 @@ password VARCHAR( 300 ) NOT NULL)";
 
 $resultNgo = mysql_query($sqlQueryNgo);
 
-// Event table, dstatus is donation status, estatus is email status sent/notsent,
+// Event table, acknowledged is whether event is acknowledged or not, estatus is email status sent/notsent,
 // commdate is communication date 
 $sqlQueryEvent = "CREATE TABLE IF NOT EXISTS Event(
 donor_pid INT,
@@ -58,7 +58,7 @@ FOREIGN KEY (ngo_pid) REFERENCES Ngo(pid))";
 
 $resultEvent = mysql_query($sqlQueryEvent);
 
-// Ngo catagories
+// Ngo categories
 $sqlQueryCat = "CREATE TABLE IF NOT EXISTS CatNgo(
 ngo_pid INT NOT NULL,
 category VARCHAR( 50 ),
@@ -66,7 +66,7 @@ FOREIGN KEY (ngo_pid) REFERENCES Ngo(pid))";
 
 $resultCatNgo = mysql_query($sqlQueryCat);
 
-// Who is whose favorite
+// Who is whose favourite
 $sqlQueryFav = "CREATE TABLE IF NOT EXISTS Fav(
 donor_pid INT NOT NULL,
 ngo_pid INT NOT NULL,
@@ -100,6 +100,7 @@ FOREIGN KEY (donor_pid) REFERENCES Donor(pid))";
 
 $resultRate = mysql_query($sqlQueryRate);
 
+//acknowledgement table
 $sqlQueryAcknowledge = "CREATE TABLE IF NOT EXISTS Acknowledge(
 donor_pid INT NOT NULL,
 ngo_pid INT NOT NULL,

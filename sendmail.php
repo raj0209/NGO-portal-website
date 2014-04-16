@@ -1,8 +1,11 @@
 <?php
 
+//starts the session
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
+
+//this file contains the code which helps in sending email to a given email address
 
     require_once("class.phpmailer.php");
     require_once("class.smtp.php");
@@ -18,9 +21,9 @@ if (session_status() == PHP_SESSION_NONE) {
         header("location: error.php");
     }
     $varificationCode = $_GET['vcode'];
-	echo $current_email;
-	$username = "sampark.ngo2014@gmail.com";
-    $password = "sampark123!";
+	echo $current_email;    //email address to which activation link has to be sent
+	$username = "sampark.ngo2014@gmail.com";   //developers email address
+    $password = "sampark123!";   //developers email's password
     $mail = new PHPMailer();  // create a new object
     $mail->IsSMTP(); // enable SMTP
     $mail->SMTPDebug = 2;  // debugging: 1 = errors and messages, 2 = messages only

@@ -10,16 +10,11 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<link rel="shortcut icon" href="icons/NGO_icon_Browser_bar.png">
-		<!-- Le styles -->
 		<link href="css/bootstrap.css" rel="stylesheet">
 		<link href="main.css" rel="stylesheet">	    
 		
-		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-		    <!--[if lt IE 9]>
-		      <script src="js/html5shiv.js"></script>
-		      <![endif]-->
-				<link href="css/bootstrap-responsive.css" rel="stylesheet">
-		      <script type="text/javascript" src="main.js"></script>
+		<link href="css/bootstrap-responsive.css" rel="stylesheet">
+		<script type="text/javascript" src="main.js"></script>
 	</head>
 	<body>
 		
