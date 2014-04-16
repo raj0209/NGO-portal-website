@@ -5,6 +5,7 @@ require_once('auth.php');
 //session_start();
 include 'connect.php';
 
+//if any user is logged in then it fetches its id,type and email
 if(isset($_SESSION['SESS_TYPE'])){
     $type=$_SESSION['SESS_TYPE'];
     $email=$_SESSION['SESS_EMAIL'];
@@ -15,6 +16,7 @@ else
     $type="GUEST";
 }
 
+//checks if any user is logged in or not
 if(!isset($_SESSION['SESS_MEMBER_ID']) || (trim($_SESSION['SESS_MEMBER_ID']) == '' )){
     $loggedIn = false;
 }else{
@@ -27,6 +29,7 @@ if( isset($_POST['ngoPid'])){
     $pid = $_POST['ngoPid'];
 }
 
+//gets id from the url
 if(isset($_GET["id"]))
 {
     $idFromLink = htmlspecialchars($_GET["id"]);
@@ -43,6 +46,7 @@ if(!isset($pid)){
     Header("Location: error.php");
 }
 
+//checks if donor is logged in and gets his/her information
 if($loggedIn && $type == "DONOR")
 {
 	$donorpid = $_SESSION['SESS_MEMBER_ID'];
@@ -118,8 +122,9 @@ else{
 <body>
     <?php include 'header.php'; ?>
     
+	<!-- contains the whole profile of NGO -->
     <div class="container">
-        <div class="row" id="ngoProfileContainer" style="margin-top: -75px;">
+        <div class="row" id="ngoProfileContainer" style="margin-top: -75px;"> <!--contains basic information of a NGO-->
             <div class="col-md-4" >
                 <div class="well well-sm" style="height: auto;"> 
                     <div class="media">
@@ -141,7 +146,7 @@ else{
                                 
 								
                             </div>
-                            <p>
+                            <p> <!--contains the list of buttons that will be displayed to either NGO or Donor-->
                                 <?php if($loggedIn && $type == "NGO" && $pid==$_SESSION['SESS_MEMBER_ID']) { ?>
                                 <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#postEventModal" id="postEventButton">Post Event</button>
                                 <?php } ?>
@@ -197,7 +202,8 @@ else{
                 </div>
             </div>
         </div>
-
+		
+		<!--contains all events that are posted by that NGO-->
         <div class="row" id="allPostContainer">
             <div class="col-md-4" >
                 <div class="well well-sm" style="height: auto;">
@@ -249,6 +255,7 @@ else{
         </div>
     </div>
 
+	<!--contains all donors &  followers of that NGO-->
     <div class="row" id="allDonorContainer" style="display: none;">
         <div class="col-md-4" >
             <div class="well well-sm" style="height: auto;">
@@ -303,158 +310,9 @@ else{
             </div>
         </div>
     </div>
-
-</div>
-<div class="modal fade" id="postEventModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Post Event</h4>
-            </div>
-            <div class="modal-body">
-                <div class="well">
-                    <form action="eventPosted.php" method="post">
-                        <label>Name of Event</label>
-                        <input type="text" placeholder="Name of Event" id="eventName" name="eventName" class="input-xlarge" onClick="clearElement('eventName')" style="color:black">
-                        <label>Details of Event</label>
-                        <textarea rows="3" id="eventDetails" name="eventDetails" placeholder="Details of Event" class="input-xlarge" onClick="clearElement('eventDetails')" style="color:black"></textarea>
-                        <label>Start Date </label>
-                        <input type="date" name="startDate" id="startDate" class="input-xlarge" style="color:black">
-                        <label>End Date </label>
-                        <input type="date" name="endDate" id="endDate" class="input-xlarge" style="color:black">
-                        <label>Location</label>
-                        <input type="text" placeholder="Location of Event" id="eventLocation" name="eventLocation" class="input-xlarge" onClick="clearElement('eventLocation')" style="color:black">
-                        <div>
-                            <input type="submit" class="btn btn-primary" name="postEvent" value="Post Event" onClick="return eventPostf()"></button>
-                        </div>
-                    </form>	
-                </div>		
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="editProfileModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-   <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Edit Profile</h4>
-            </div>
-            <div class="modal-body">
-                    <div class="well">
-                           <form action="editedProfile.php" method="post" enctype="multipart/form-data">
-                                <input type="hidden" name="pidNgo" value="<?php echo $_SESSION['SESS_MEMBER_ID']; ?>">
-                                <label>NGO Name</label>
-                                <input type="text"  id="enn" name="enn" class="input-xlarge" value="<?php echo $ngoname?>" onClick="clearElement('enn')" style="color:black">
-                                <?php
-                                if($rstatus)
-                                {
-                                    ?>
-                                    <label>Registration Number</label>
-                                    <input type="text" id="eregno" name="eregno" class="input-xlarge" value="<?php echo $regno?>" onClick="clearElement('eregno')" style="color:black">
-                                    <?php
-                                }
-                                ?>								
-                                <label>Name of Contact Person</label>
-                                <input type="text"  id="ecn" name="ecn" class="input-xlarge" value="<?php echo $cpn?>" onClick="clearElement('ecn')" style="color:black">
-                                <label>Email</label>
-                                <input type="text" value="<?php echo $email?>" id="eeml" name="eeml" class="input-xlarge" onClick="clearElement('eeml')" style="color:black">
-                                <label>Contact Number</label>
-                                <input type="text"  id="econt" name="econt"  maxlength="10" class="input-xlarge" value="<?php echo $cno?>" onClick="clearElement('econt')" style="color:black">                           
-                                <label>Description</label>
-                                <textarea rows="5" id="edc" name="edc" class="input-xlarge" onClick="clearElement('edc')" style="color:black"><?php echo $des?></textarea>
-                                <label>Vision</label>
-                                <textarea  rows="3" id="evi" name="evi" class="input-xlarge" onClick="clearElement('evi')" style="color:black"><?php echo $vision?></textarea>
-                                <?php
-                                if($rstatus)
-                                {
-                                    ?>
-                                    <label>Website</label>
-                                    <input type="text"  id="eweb" name="eweb" class="input-xlarge" value="<?php echo $web?>" onClick="clearElement('eweb')" style="color:black">
-                                    <?php
-                                }
-                                ?>
-                                <div>
-                                   <div>
-									<span>Upload Logo</span>
-									<div>										
-										<input name="regNgoLogo" id="regNgoLogo" type="file" />
-									</div>
-									</div>
-                                <input type="submit" class="btn btn-primary" name="saveChangesRegNgo" value="Save Changes" onClick="return esubmit3()"></button>
-                            </div>							
-                        </form>	
-                    </div>		
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="changePassModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-   <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Change Password</h4>
-            </div>
-            <div class="modal-body">
-                    <div class="well">
-                           <form action="ngochangepassword.php" name="frmChange" method="post" enctype="multipart/form-data">
-								
-                                <label>Current Password</label>
-                                <input type="password"  id="currentPasswordNgo" name="currentPassword" maxlength="25" class="input-xlarge" style="color:black">
-                                <label>New Password</label>
-                                <input type="password"  id="newPasswordNgo" name="newPassword" maxlength="25" class="input-xlarge"  style="color:black">
-                                <label>Confirm Password</label>
-                                <input type="password"  id="confirmPasswordNgo" name="confirmPassword" maxlength="25" class="input-xlarge" style="color:black">
-								<div>
-								<input type="submit" class="btn btn-primary" name="SavePassword" value="Save Password" onClick="return validatePassword('currentPasswordNgo','newPasswordNgo','confirmPasswordNgo')"></button>
-								</div>
-													
-                        </form>	
-                    </div>
-						
-            </div>
-        </div>
-    </div>
-</div>
-	  
-<div class="modal fade" id="contactNgoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel2">Contact NGO</h4>
-            </div>
-            <div class="modal-body">
-                <div class="well">
-                    <form action="contactNgo.php" method="post">
-                        <label>Your Name</label>
-						<input type="text" id="dn" name="dn" class="input-xlarge" value="<?php echo $donorname?>" style="color:black" readonly>						
-                        <label>NGO Name</label>
-                        <input type="text" id="cnn" name="cnn" class="input-xlarge" value="<?php echo $ngoname?>" style="color:black" readonly>
-                        <label>Your Mobile Number</label>
-                        <input type="text"  id="dm" name="dm" maxlength="10" class="input-xlarge" value="<?php echo $donormob?>" style="color:black" readonly>
-                        <label>Event Subject</label>
-                        <input type="text"  id="subject" name="subject" class="input-xlarge" placeholder="Subject of the Event" onClick="clearElement('subject')" style="color:black"> 
-						<label>Date of Event/Donation</label>
-                        <input type="date" name="DonationDate" id="DonationDate" class="input-xlarge" style="color:black">
-                        <label>Description/Message</label>
-                        <textarea rows="5" id="message" name="message" class="input-xlarge" onClick="clearElement('dd')" placeholder=""style="color:black"></textarea>
-						<input type="hidden" name="nPid" value=" <?php echo $pid ?>">
-						<input type="hidden" name="nEmail" value=" <?php echo $email ?>">
-						<input type="hidden" name="dEmail" value=" <?php echo $donoremail ?>">
-						<div>
-                           <input type="submit" class="btn btn-primary" name="contactNgo" value="Contact" onClick="return contactForm()"></button>
-                       </div>							
-                    </form>	
-                </div>		
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row" id="MessageContainer" style="margin-left:60px;margin-right:88px;display:none;">
+	
+	<!--contains all donors whose events haven't been acknowledged by NGO-->
+	<div class="row" id="MessageContainer" style="display:none;">
             <div class="col-md-4" >
                 <div class="well well-sm" style="height: auto;">
                     <h2>Message to my Followers</h2>
@@ -524,7 +382,164 @@ else{
             </div>
         </div>
     </div>
+</div>
 
+<!--modal for posting an event(can be accessed only by NGO)-->
+<div class="modal fade" id="postEventModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Post Event</h4>
+            </div>
+            <div class="modal-body">
+                <div class="well">
+                    <form action="eventPosted.php" method="post">
+                        <label>Name of Event</label>
+                        <input type="text" placeholder="Name of Event" id="eventName" name="eventName" class="input-xlarge" onClick="clearElement('eventName')" style="color:black">
+                        <label>Details of Event</label>
+                        <textarea rows="3" id="eventDetails" name="eventDetails" placeholder="Details of Event" class="input-xlarge" onClick="clearElement('eventDetails')" style="color:black"></textarea>
+                        <label>Start Date </label>
+                        <input type="date" name="startDate" id="startDate" class="input-xlarge" style="color:black">
+                        <label>End Date </label>
+                        <input type="date" name="endDate" id="endDate" class="input-xlarge" style="color:black">
+                        <label>Location</label>
+                        <input type="text" placeholder="Location of Event" id="eventLocation" name="eventLocation" class="input-xlarge" onClick="clearElement('eventLocation')" style="color:black">
+                        <div>
+                            <input type="submit" class="btn btn-primary" name="postEvent" value="Post Event" onClick="return eventPostf()"></button>
+                        </div>
+                    </form>	
+                </div>		
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--modal for editing profile(can be accessed only by NGO)-->
+<div class="modal fade" id="editProfileModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Edit Profile</h4>
+            </div>
+            <div class="modal-body">
+                    <div class="well">
+                           <form action="editedProfile.php" method="post" enctype="multipart/form-data">
+                                <input type="hidden" name="pidNgo" value="<?php echo $_SESSION['SESS_MEMBER_ID']; ?>">
+                                <label>NGO Name</label>
+                                <input type="text"  id="enn" name="enn" class="input-xlarge" value="<?php echo $ngoname?>" onClick="clearElement('enn')" style="color:black">
+                                <?php
+                                if($rstatus)
+                                {
+                                    ?>
+                                    <label>Registration Number</label>
+                                    <input type="text" id="eregno" name="eregno" class="input-xlarge" value="<?php echo $regno?>" onClick="clearElement('eregno')" style="color:black">
+                                    <?php
+                                }
+                                ?>								
+                                <label>Name of Contact Person</label>
+                                <input type="text"  id="ecn" name="ecn" class="input-xlarge" value="<?php echo $cpn?>" onClick="clearElement('ecn')" style="color:black">
+                                <label>Email</label>
+                                <input type="text" value="<?php echo $email?>" id="eeml" name="eeml" class="input-xlarge" onClick="clearElement('eeml')" style="color:black">
+                                <label>Contact Number</label>
+                                <input type="text"  id="econt" name="econt"  maxlength="10" class="input-xlarge" value="<?php echo $cno?>" onClick="clearElement('econt')" style="color:black">                           
+                                <label>Description</label>
+                                <textarea rows="5" id="edc" name="edc" class="input-xlarge" onClick="clearElement('edc')" style="color:black"><?php echo $des?></textarea>
+                                <label>Vision</label>
+                                <textarea  rows="3" id="evi" name="evi" class="input-xlarge" onClick="clearElement('evi')" style="color:black"><?php echo $vision?></textarea>
+                                <?php
+                                if($rstatus)
+                                {
+                                    ?>
+                                    <label>Website</label>
+                                    <input type="text"  id="eweb" name="eweb" class="input-xlarge" value="<?php echo $web?>" onClick="clearElement('eweb')" style="color:black">
+                                    <?php
+                                }
+                                ?>
+                                <div>
+                                   <div>
+									<span>Upload Logo</span>
+									<div>										
+										<input name="regNgoLogo" id="regNgoLogo" type="file" />
+									</div>
+									</div>
+                                <input type="submit" class="btn btn-primary" name="saveChangesRegNgo" value="Save Changes" onClick="return esubmit3()"></button>
+                            </div>							
+                        </form>	
+                    </div>		
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--modal for changing password(can be accessed only by NGO)-->
+<div class="modal fade" id="changePassModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Change Password</h4>
+            </div>
+            <div class="modal-body">
+                    <div class="well">
+                           <form action="ngochangepassword.php" name="frmChange" method="post" enctype="multipart/form-data">
+								
+                                <label>Current Password</label>
+                                <input type="password"  id="currentPasswordNgo" name="currentPassword" maxlength="25" class="input-xlarge" style="color:black">
+                                <label>New Password</label>
+                                <input type="password"  id="newPasswordNgo" name="newPassword" maxlength="25" class="input-xlarge"  style="color:black">
+                                <label>Confirm Password</label>
+                                <input type="password"  id="confirmPasswordNgo" name="confirmPassword" maxlength="25" class="input-xlarge" style="color:black">
+								<div>
+								<input type="submit" class="btn btn-primary" name="SavePassword" value="Save Password" onClick="return validatePassword('currentPasswordNgo','newPasswordNgo','confirmPasswordNgo')"></button>
+								</div>
+													
+                        </form>	
+                    </div>
+						
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--modal for contacting NGO(can be accessed only by Donor)-->	  
+<div class="modal fade" id="contactNgoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel2">Contact NGO</h4>
+            </div>
+            <div class="modal-body">
+                <div class="well">
+                    <form action="contactNgo.php" method="post">
+                        <label>Your Name</label>
+						<input type="text" id="dn" name="dn" class="input-xlarge" value="<?php echo $donorname?>" style="color:black" readonly>						
+                        <label>NGO Name</label>
+                        <input type="text" id="cnn" name="cnn" class="input-xlarge" value="<?php echo $ngoname?>" style="color:black" readonly>
+                        <label>Your Mobile Number</label>
+                        <input type="text"  id="dm" name="dm" maxlength="10" class="input-xlarge" value="<?php echo $donormob?>" style="color:black" readonly>
+                        <label>Event Subject</label>
+                        <input type="text"  id="subject" name="subject" class="input-xlarge" placeholder="Subject of the Event" onClick="clearElement('subject')" style="color:black"> 
+						<label>Date of Event/Donation</label>
+                        <input type="date" name="DonationDate" id="DonationDate" class="input-xlarge" style="color:black">
+                        <label>Description/Message</label>
+                        <textarea rows="5" id="message" name="message" class="input-xlarge" onClick="clearElement('dd')" placeholder=""style="color:black"></textarea>
+						<input type="hidden" name="nPid" value=" <?php echo $pid ?>">
+						<input type="hidden" name="nEmail" value=" <?php echo $email ?>">
+						<input type="hidden" name="dEmail" value=" <?php echo $donoremail ?>">
+						<div>
+                           <input type="submit" class="btn btn-primary" name="contactNgo" value="Contact" onClick="return contactForm()"></button>
+                       </div>							
+                    </form>	
+                </div>		
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--modal for acknowledging an Event(can be accessed only by NGO)-->	  
 <div class="modal fade" id="acknowledgeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -558,6 +573,8 @@ else{
         </div>
     </div>
 </div>
+
+<!--modal for rating a NGO(can be accessed only by Donor)-->	  
 <div class="modal fade" id="ratingModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

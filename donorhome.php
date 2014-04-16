@@ -10,9 +10,11 @@ require_once('auth.php');
 include 'connect.php';
 include 'head.php';
 
+//fetches id, email and type of user
 $type=$_SESSION['SESS_TYPE'];
 $email=$_SESSION['SESS_EMAIL'];
 $pid=$_SESSION['SESS_MEMBER_ID'];
+
 
 if(isset($pid) && $type == "DONOR")
 {
@@ -45,6 +47,7 @@ if(isset($pid) && $type == "DONOR")
     }
 }
 
+//fetches information of donor from its pid
 $qry="SELECT * FROM Donor WHERE pid=$pid";
 $result=mysql_query($qry);
 if($result) {
@@ -69,6 +72,8 @@ else{
 
 <body>
     <?php include 'header.php'; ?>
+	
+	<!--contains the whole profile of donor-->
     <div class="container">
         <div class="row" style="margin-top: -75px;">
             <div class="col-md-4" >
@@ -102,6 +107,7 @@ else{
         </div>
     </div>
     
+	<!--contains all events of NGOs which are marked as favourite-->
     <div class="row" id="allEventsContainer" style="margin-left:35px; margin-right:95px;">
         <div class="col-md-4" style="margin-left:30px;">
             <div class="well well-sm" style="height: auto;">
@@ -110,7 +116,6 @@ else{
                     <div class="media-body">
                         <?php
                             $query = "SELECT * FROM (SELECT ngo_pid FROM Fav WHERE donor_pid = '$pid') AS fav_ngos INNER JOIN (SELECT ngo_pid,name,postTime,detail,fromDate,toDate,location FROM NgoPost) AS post ON fav_ngos.ngo_pid = post.ngo_pid ORDER BY postTime DESC";
-                            //echo "string ".$query;
                             $result = mysql_query($query);
 
                             if($result) {
@@ -150,11 +155,11 @@ else{
         </div>
     </div>
 
+	<!--contains all NGOs which are marked as favourite-->
     <div class="row" id="allFavNgoContainer" style="margin-left:35px; margin-right:95px; display: none;">
         <div class="col-md-4" style="margin-left:30px;" >
             <div class="well well-sm" style="height: auto;">
                 <h1>Favourite NGOs</h1>
-                <!-- Shubham: Modifying code here, this code is buggy and not working. So putting my code here-->
                         <div class="media">
                             <div class="media-body">
                                 <?php
@@ -197,9 +202,8 @@ else{
             </div>
         </div>
     </div>
-
-
-
+	
+	<!--modal foe editing profile(can accessed only by donor)-->
     <div class="modal fade" id="editProModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
          <div class="modal-dialog">
             <div class="modal-content">
@@ -230,8 +234,10 @@ else{
             </div>
         </div>
     </div>
+	
+	<!--modal foe changing password(can accessed only by donor)-->
 	<div class="modal fade" id="changePassModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-   <div class="modal-dialog">
+	<div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
