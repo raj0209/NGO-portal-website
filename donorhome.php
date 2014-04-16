@@ -92,7 +92,7 @@ else{
                                 if($loggedInAsDonor){
                                     ?>
                                     <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#" id="EventButton" onClick="DisplayEvents()">Events</button> 
-                                    <?php }else{ echo '<script type="text/javascript"> DisplayNgo(); </script>'; } ?>
+                                    <?php } ?>
                                     <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#" id="ngoFavButton" onClick="DisplayNgo()">Favourite NGOs</button>
                                     <?php if($loggedInAsDonor) { ?>
                                     <button class="btn btn-lg btn-primary btn-block" type="submit" data-toggle="modal" data-target="#editProModal" id="editProButton">Edit Profile</button>
@@ -264,6 +264,14 @@ else{
         </div>
     </div>
 </div>
+
+    <?php 
+    if(!$loggedInAsDonor){
+        ?>
+        <script type="text/javascript"> $("#ngoFavButton").hide(); DisplayNgo(); </script>
+        <?php
+    }
+    ?>
 </body>
 
 </html>
