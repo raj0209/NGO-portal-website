@@ -658,8 +658,8 @@ function DisplayEvents(){
 };
 
 function DisplayNgo(){
-	$("#allFavNgoContainer").show();
 	$("#allEventsContainer").hide();
+	$("#allFavNgoContainer").show();
 };
 
 function validatePassword(currentPassword,newPassword,confirmPassword) {
