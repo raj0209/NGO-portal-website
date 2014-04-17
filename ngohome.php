@@ -300,7 +300,7 @@ else{
                                 }
                             }
                             else {
-                                echo "No Donor so far";
+                                echo "No Followers so far";
                             }
                         }
                         ?>
@@ -315,7 +315,7 @@ else{
 	<div class="row" id="MessageContainer" style="display:none;">
             <div class="col-md-4" >
                 <div class="well well-sm" style="height: auto;">
-                    <h2>Message to my Followers</h2>
+                    <h2>Acknowledge Events</h2>
                     <div class="media">
                         <div class="media-body">
                             <?php
@@ -351,7 +351,7 @@ else{
                                                    <img style="height: 100px;width: 100px;" class="media-object" src="<?php echo $donorPhoto ?>">
                                                 </a>
                                                 <div class="media-body" style="margin-left: 130px;">
-													<a href= "<?php echo $_SESSION['LINK_DONORHOME']."?did=".$donorPid ?>"><h3 class="media-heading"><?php echo $donorName ?></h3></a>
+													<a href= "<?php echo $_SESSION['LINK_DONORHOME']."?did=".$donorid ?>"><h3 class="media-heading"><?php echo $donorName ?></h3></a>
 													<p><b>Communication Date:  </b> <?php echo $commDate ?> </p>
 													<p><b>Event Subject:  </b> <?php echo $eventSub ?> </p>
 													<p ><b>Message/Details:  </b><?php echo $eventMessage ?></p>
@@ -553,11 +553,11 @@ else{
                         <label>NGO Name</label>
                         <input type="text" id="mesngo" name="mesngo" class="input-xlarge" value="<?php echo $ngoname?>" style="color:black" readonly>
                         <label>Subject</label>
-                        <input type="text"  id="sub" name="sub" class="input-xlarge" placeholder="Subject" onClick="clearElement('sub')" style="color:black"> 
+                        <input type="text"  id="sub" name="sub" class="input-xlarge" placeholder="Subject" style="color:black"> 
 						<label>Details</label>
-                        <textarea rows="5" id="details" name="details" class="input-xlarge" onClick="clearElement('details')" placeholder="Details"style="color:black"></textarea>
+                        <textarea rows="5" id="details" name="details" class="input-xlarge" placeholder="Details"style="color:black"></textarea>
 						<input type="hidden" name="ngoPid" value=" <?php echo $pid ?>">
-						<input type="hidden" name="donorPid" value=" <?php echo $donorPid ?>">
+						<input type="hidden" name="donorPid" value=" <?php echo $donorid ?>">
 						<div>
 						<span>Upload Attachments</span>
   							<div>										

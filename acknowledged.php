@@ -14,7 +14,13 @@ $attachment = $_FILES['attachments']['name'];
 
 	$randomName = substr(sha1(rand()), 0, 10);
 	$filePath = "img/files/_".$randomName."_".$_FILES["attachments"]["name"];
-
+	if(!move_uploaded_file($_FILES["attachments"]["tmp_name"],$filePath))
+	{
+		echo "not moved";
+		
+	}
+	
+	
 	$query = "SELECT * FROM Ngo WHERE pid='$ngopid'";
 	$result = mysql_query($query);
 	
@@ -91,8 +97,9 @@ $attachment = $_FILES['attachments']['name'];
 	
 	//updates the event as acknowledged
 	$updateQuery = "UPDATE Event SET acknowledged='1' WHERE donor_pid='$donorpid' AND ngo_pid='$ngopid' ";
+	echo $updateQuery;
 	$resultQuery = mysql_query($updateQuery);
-	header("refresh:0.001;url=".$_SESSION['LINK_NGOHOME']."?id=".$ngopid);
+	/header("refresh:0.001;url=".$_SESSION['LINK_NGOHOME']."?id=".$ngopid);
 
 
 	return sent;
