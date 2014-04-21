@@ -97,7 +97,7 @@
 										<input type="password"  id="passwordDonor" name="passwordDonor" maxlength="25" class="input-xlarge" placeholder="Password" style="color:black">
 										
                     <?php if(isset($_SESSION['LOGIN_DONOR_ERRMSG_ARR'])) { ?>
-                    <div><p>Incorrect username or password</p></div>
+                    <div><p>Incorrect email or password</p></div>
                     <?php }?>
 
                     <div class="well form-inline">
@@ -105,9 +105,7 @@
 												<input type="submit" class="btn btn-primary" name="dlogin" value="Login" onClick="return submitSignin('emailDonor','passwordDonor')">&nbsp;&nbsp;&nbsp;&nbsp;<a href="forgotpasswordDonor.php" style="text-decoration:none">Forgot password ?</a>
 											</div>
 										</div>
-	  											<!--<div>
-	  												<input type="button" class="btn btn-success" name="dsub" value="Sign Up" id="signupDonorButton" >
-	  											</div>-->
+	  											
 	  										</form>
 	  									</div>
 	  								</div>
@@ -120,8 +118,8 @@
 	  										<input type="password"  id="passwordNgo" name="passwordNgo" maxlength="25" class="input-xlarge" placeholder="Password" style="color:black">
 	  										
                         <?php if(isset($_SESSION['LOGIN_NGO_ERRMSG_ARR'])) { ?>
-                        <div><p>Incorrect username or password</p></div>
-                        <?php } //unset($_SESSION['LOGIN_NGO_ERRMSG_ARR']); ?>
+                        <div><p>Incorrect email or password</p></div>
+                        <?php } ?>
 
                         <div class="well form-inline">
 	  											<div>
