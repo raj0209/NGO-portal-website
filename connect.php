@@ -1,9 +1,9 @@
 <?php 
 
 //connection detail
-$server = 'localhost';
-$user = 'root';
-$pass = '';
+$server = 'http://119.9.73.226/';
+$user = 'ngoportal';
+$pass = 'ngoportal';
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();

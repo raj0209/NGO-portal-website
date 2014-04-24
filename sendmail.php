@@ -28,7 +28,7 @@ if (session_status() == PHP_SESSION_NONE) {
     $mail->IsSMTP(); // enable SMTP
     $mail->SMTPDebug = 2;  // debugging: 1 = errors and messages, 2 = messages only
     $mail->SMTPAuth = true;  // authentication enabled
-	$mail->host = 'http://localhost'; 
+	$mail->host = 'http://119.9.73.226/'; 
     $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
     $mail->Host = 'smtp.gmail.com';
     $mail->Port = 465;
