@@ -9,9 +9,9 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-$_SESSION['LINK_INDEX'] = "http://localhost/sampark/NGO-portal-website/index.php";
-$_SESSION['LINK_DONORHOME'] = "http://localhost/sampark/NGO-portal-website/donorhome.php";
-$_SESSION['LINK_NGOHOME'] = "http://localhost/sampark/NGO-portal-website/ngohome.php";
+$_SESSION['LINK_INDEX'] = "http://119.9.73.226/index.php";
+$_SESSION['LINK_DONORHOME'] = "http://119.9.73.226/donorhome.php";
+$_SESSION['LINK_NGOHOME'] = "http://119.9.73.226/ngohome.php";
 
 // Create connection
 $con = mysql_connect($server, $user, $pass) or die("Can't connect from connect.php");
